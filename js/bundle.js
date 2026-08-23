@@ -697,6 +697,11 @@
         item_id: item.id,
         item_name: item.title
       });
+      window.gtag('event', 'page_view', {
+        page_title: item.title,
+        page_path: '/?comic=' + item.id,
+        location: window.location.origin + window.location.pathname + '?comic=' + item.id
+      });
     }
   }
 
