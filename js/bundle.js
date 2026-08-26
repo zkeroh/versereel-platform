@@ -384,11 +384,11 @@
         : 'Mira cómo termina esta historia y descárgalo en alta resolución (HD). Elige tu método de pago preferido. Simple y rápido.';
       const txtPaywallPrice = isEn ? `$${item.price.toFixed(2)} USD` : '¡A SOLO $1!';
       const txtPaypalBtn = isEn
-        ? '<i class="ph-paypal-logo"></i> Pay with PayPal (Credit / Debit Card)'
-        : '<i class="ph-paypal-logo"></i> Pagar con PayPal (Tarjeta Débito/Crédito)';
+        ? '<i class="ph-paypal-logo"></i> Pay with Credit / Debit Card / PayPal'
+        : '<i class="ph-paypal-logo"></i> Pagar con Tarjeta Débito/Crédito / PayPal';
       const txtMpBtn = isEn
-        ? '<i class="ph-credit-card"></i> Pay with MercadoPago (Credit / Debit Card / Local)'
-        : '<i class="ph-credit-card"></i> Pagar con MercadoPago (Tarjeta Débito/Crédito / Yape / Plin)';
+        ? '<i class="ph-credit-card"></i> Pay with Credit / Debit Card / Local Payments'
+        : '<i class="ph-credit-card"></i> Pagar con Tarjeta Débito/Crédito / Yape / Plin / MercadoPago';
       const txtThanksTitle = isEn
         ? `Thank you for buying "${item.title}"!`
         : `¡Gracias por comprar "${item.title}"!`;
