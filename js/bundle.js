@@ -356,7 +356,7 @@
     overlay.id = 'fullpage-comic-reader-overlay';
     overlay.className = 'fullpage-reader';
 
-    let readerMode = 'single'; // 'single' (paginado predeterminado) | 'webtoon' (vertical scroll)
+    let readerMode = 'webtoon'; // 'webtoon' (vertical scroll predeterminado) | 'single' (paginado)
     let currentPageIndex = 0;
     let zoomLevel = 100;
 
@@ -380,8 +380,9 @@
 
       const txtPaywallTitle = isEn ? 'Free Preview Limit' : 'Límite de Muestra Gratuita';
       const txtPaywallDesc = isEn
-        ? 'Read the full comic and download it in High Definition (HD). Select your preferred payment method. Quick and easy.'
-        : 'Lee el cómic completo y descárgalo en alta resolución (HD). Elige tu método de pago preferido. Simple y rápido.';
+        ? 'See how this story ends and download it in High Definition (HD). Select your preferred payment method. Quick and easy.'
+        : 'Mira cómo termina esta historia y descárgalo en alta resolución (HD). Elige tu método de pago preferido. Simple y rápido.';
+      const txtPaywallPrice = isEn ? `$${item.price.toFixed(2)} USD` : '¡A SOLO $1!';
       const txtPaypalBtn = isEn
         ? '<i class="ph-paypal-logo"></i> Pay with PayPal (Credit / Debit Card)'
         : '<i class="ph-paypal-logo"></i> Pagar con PayPal (Tarjeta Débito/Crédito)';
@@ -397,9 +398,6 @@
       const txtDownloadFull = isEn
         ? 'Download Full Comic (HD)'
         : 'Descargar Cómic Completo (HD)';
-      const txtPromoBadge = isEn
-        ? '🔥 LAUNCH OFFER 67% OFF — ONLY $0.99 USD (Regular $2.99)'
-        : '🔥 OFERTA DE LANZAMIENTO 67% OFF — SOLO $0.99 USD (Precio regular $2.99)';
 
       overlay.innerHTML = `
         <!-- Top Navbar -->
@@ -448,12 +446,7 @@
                         <p style="color: var(--text-muted); font-size: 0.92rem;">
                           ${txtPaywallDesc}
                         </p>
-                        ${item.id === 'no-internet' ? `
-                          <div style="background: linear-gradient(135deg, rgba(239,68,68,0.2), rgba(245,158,11,0.2)); border: 1px solid #f59e0b; color: #fbbf24; font-size: 0.85rem; font-weight: 800; padding: 0.6rem 0.85rem; border-radius: var(--radius-md); text-align: center; margin: 0.75rem 0; width: 100%; box-sizing: border-box; text-shadow: 0 1px 4px rgba(0,0,0,0.8);">
-                            ${txtPromoBadge}
-                          </div>
-                        ` : ''}
-                        <div class="paywall-price">$${item.price.toFixed(2)} USD</div>
+                        <div class="paywall-price">${txtPaywallPrice}</div>
                         <div style="display: flex; flex-direction: column; gap: 0.75rem; width: 100%; margin-top: 0.5rem;">
                           ${isEn ? `
                             <button class="btn-primary" id="paywall-paypal-btn" style="width: 100%; justify-content: center; font-size: 1rem; padding: 0.85rem; background: linear-gradient(135deg, #003087, #0070ba); color: #ffffff; border: none; font-weight: 700;">
@@ -510,12 +503,7 @@
                 <p style="color: var(--text-muted); font-size: 0.92rem;">
                   ${txtPaywallDesc}
                 </p>
-                ${item.id === 'no-internet' ? `
-                  <div style="background: linear-gradient(135deg, rgba(239,68,68,0.2), rgba(245,158,11,0.2)); border: 1px solid #f59e0b; color: #fbbf24; font-size: 0.85rem; font-weight: 800; padding: 0.6rem 0.85rem; border-radius: var(--radius-md); text-align: center; margin: 0.75rem 0; width: 100%; box-sizing: border-box; text-shadow: 0 1px 4px rgba(0,0,0,0.8);">
-                    ${txtPromoBadge}
-                  </div>
-                ` : ''}
-                <div class="paywall-price">$${item.price.toFixed(2)} USD</div>
+                <div class="paywall-price">${txtPaywallPrice}</div>
                 <div style="display: flex; flex-direction: column; gap: 0.75rem; width: 100%; margin-top: 0.5rem;">
                   ${isEn ? `
                     <button class="btn-primary" id="paywall-paypal-btn" style="width: 100%; justify-content: center; font-size: 1rem; padding: 0.85rem; background: linear-gradient(135deg, #003087, #0070ba); color: #ffffff; border: none; font-weight: 700;">
