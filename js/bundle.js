@@ -57,7 +57,7 @@
       previewLimit: 29,
       paymentUrl: "https://mpago.la/1DtXktD",
       paypalUrl: "https://www.paypal.com/invoice/p/#R95GE9KUJSUDQU6N",
-      downloadUrl: "assets/NO INTERNET.pdf",
+      downloadUrl: "assets/NO INTERNET COMPLETO.pdf",
       thumbnail: "assets/0.jpg",
       pages: ['assets/0.jpg', 'assets/ADICIONAL ESPAÑOL.jpg', ...Array.from({ length: 41 }, (_, i) => `assets/${i + 1}.jpg`)],
       views: 10142,
