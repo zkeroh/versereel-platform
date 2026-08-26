@@ -380,8 +380,8 @@
 
       const txtPaywallTitle = isEn ? 'Free Preview Limit' : 'Límite de Muestra Gratuita';
       const txtPaywallDesc = isEn
-        ? `You have read the ${previewLimit} free preview pages. To continue enjoying all ${pages.length} pages of this comic and download your full High-Definition (HD) copy, select your payment method below!`
-        : `Has leído las ${previewLimit} páginas gratuitas. ¡Para continuar disfrutando de las ${pages.length} páginas de este cómic y descargar tu copia completa en Alta Resolución (HD), elige tu método de pago preferido!`;
+        ? 'Read the full comic and download it in High Definition (HD). Select your preferred payment method. Quick and easy.'
+        : 'Lee el cómic completo y descárgalo en alta resolución (HD). Elige tu método de pago preferido. Simple y rápido.';
       const txtPaypalBtn = isEn
         ? '<i class="ph-paypal-logo"></i> Pay with PayPal (Credit / Debit Card)'
         : '<i class="ph-paypal-logo"></i> Pagar con PayPal (Tarjeta Débito/Crédito)';
