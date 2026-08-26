@@ -54,7 +54,7 @@
       description: "¡Un clásico del cómic rediseñado como nunca lo viste!",
       isPaid: true,
       price: 0.99,
-      previewLimit: 29,
+      previewLimit: 30,
       paymentUrl: "https://mpago.la/1DtXktD",
       paypalUrl: "https://www.paypal.com/invoice/p/#R95GE9KUJSUDQU6N",
       downloadUrl: "assets/NO INTERNET COMPLETO.pdf",
