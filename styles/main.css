@@ -1168,6 +1168,9 @@ body {
   flex-direction: column;
   align-items: center;
   position: relative;
+  gap: 1.25rem;
+  padding: 0 0.5rem;
+  box-sizing: border-box;
 }
 
 .webtoon-page-img {
@@ -1178,6 +1181,8 @@ body {
   margin: 0;
   padding: 0;
   border: none;
+  border-radius: var(--radius-md);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.6);
 }
 
 /* Paginado Single Page View */
