@@ -349,6 +349,10 @@
   // 3. Dedicated Mobile-Optimized Full-Page Comic Reader Component
   // 3. Full-Screen Mobile-Optimized Comic Reader Overlay Component
   function openFullpageComicReader(item) {
+    try {
+      localStorage.setItem('pending_unlock_comic', item.id);
+    } catch (e) {}
+
     const existing = document.getElementById('fullpage-comic-reader-overlay');
     if (existing) existing.remove();
 
@@ -1538,13 +1542,16 @@
         pendingId = localStorage.getItem('pending_unlock_comic');
       } catch (e) {}
 
+      const isPaymentReturn = params.has('status') || params.has('collection_status') || params.has('payment_id') || params.has('payment_status') || params.has('approved');
+
       const comicParam = (
         params.get('comic') || 
         params.get('unlock') || 
         params.get('id') || 
         params.get('external_reference') ||
-        (params.has('status') || params.has('collection_status') ? pendingId : null)
+        (isPaymentReturn ? (pendingId || 'no-internet') : null)
       );
+
       const status = (
         params.get('status') || 
         params.get('collection_status') || 
@@ -1553,8 +1560,8 @@
         params.get('payment')
       );
 
-      if (comicParam || pendingId) {
-        const targetSearch = comicParam || pendingId;
+      if (comicParam || pendingId || isPaymentReturn) {
+        const targetSearch = comicParam || pendingId || 'no-internet';
         const isApproved = status === 'approved' || status === 'success' || status === 'APPROVED' || params.has('approved') || params.get('payment_id');
         
         const openDirectComic = () => {
@@ -1567,7 +1574,7 @@
             norm.includes(i.id.toLowerCase()) ||
             i.title.toLowerCase().replace(/\s+/g, '-') === norm ||
             i.title.toLowerCase().includes(norm.replace(/-/g, ' '))
-          ) || items[0];
+          ) || items.find(i => i.id === 'no-internet') || items[0];
 
           if (item) {
             if (isApproved) {
