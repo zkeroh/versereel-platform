@@ -26,6 +26,38 @@
   // =========================================================================
   const COMICS_CATALOG = [
     {
+      id: "a-good-friend",
+      title: "A GOOD FRIEND",
+      language: "en",
+      type: "comic",
+      genre: "Romance",
+      author: "Zkero",
+      description: "What was supposed to be a normal dinner among friends gets completely derailed by an unexpected accident. In the chaos of the moment, boundaries blur, and a new spark ignites.",
+      isPaid: false,
+      price: 0,
+      downloadUrl: "assets/A GOOD FRIEND.pdf",
+      thumbnail: "assets/G0.jpg",
+      pages: Array.from({ length: 20 }, (_, i) => `assets/G${i}.jpg`),
+      views: 5240,
+      createdAt: new Date().toISOString()
+    },
+    {
+      id: "the-wish",
+      title: "THE WISH",
+      language: "en",
+      type: "comic",
+      genre: "Romance",
+      author: "Zkero",
+      description: "One wish will make sure he never has to lament a night without sex again.",
+      isPaid: false,
+      price: 0,
+      downloadUrl: "assets/THEWISH.pdf",
+      thumbnail: "assets/W00.jpg",
+      pages: Array.from({ length: 9 }, (_, i) => `assets/W${String(i).padStart(2, '0')}.jpg`),
+      views: 4890,
+      createdAt: new Date().toISOString()
+    },
+    {
       id: "lemonade",
       title: "LEMONADE",
       language: "en",
