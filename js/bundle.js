@@ -1637,12 +1637,12 @@
       return `
         <nav class="navbar">
           <div class="brand-logo" id="logo-btn" style="cursor: pointer; display: flex; align-items: center; gap: 0.6rem;">
-            <img src="assets/logo.jpg" alt="Xzkero Logo" style="height: 38px; width: auto; object-fit: contain; filter: drop-shadow(0 0 10px rgba(163, 230, 53, 0.6));" />
+            <img src="assets/logo.png" alt="Xzkero Logo" style="height: 40px; width: auto; object-fit: contain; filter: drop-shadow(0 0 12px rgba(163, 230, 53, 0.75));" />
           </div>
 
           <div class="nav-links">
             <button class="nav-btn active" id="nav-audience-btn">
-              <i class="ph-compass"></i> Catálogo de Cómics & Webtoons
+              <i class="ph-compass"></i> Comics & Webtoons Catalog
             </button>
           </div>
 
@@ -1660,17 +1660,17 @@
           <div class="hero-overlay"></div>
           <div class="hero-body">
             <div class="hero-badge" style="background: rgba(163, 230, 53, 0.15); border-color: var(--primary); color: #bef264;">
-              <i class="ph-sparkle"></i> Cómics & Novelas Gráficas para Adultos (+18)
+              <i class="ph-sparkle"></i> Uncensored Adult Graphic Novels & Webtoons (+18)
             </div>
             <div style="margin-bottom: 0.85rem;">
-              <img src="assets/logo.jpg" alt="Xzkero" style="max-width: 240px; width: 100%; height: auto; display: block; filter: drop-shadow(0 0 16px rgba(163, 230, 53, 0.6));" />
+              <img src="assets/logo.png" alt="Xzkero" style="max-width: 250px; width: 100%; height: auto; display: block; filter: drop-shadow(0 0 20px rgba(163, 230, 53, 0.8));" />
             </div>
             <p class="hero-subtitle" style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.5; margin-bottom: 1.5rem;">
-              Lee los mejores cómics e historias exclusivas sin censura. Disfruta de las primeras páginas totalmente gratis en modo Webtoon.
+              Read the best uncensored adult comics and exclusive graphic novels. Enjoy free preview pages in Webtoon continuous scroll mode.
             </p>
             <div class="hero-actions">
               <button class="btn-primary" id="hero-explore-btn">
-                <i class="ph-compass"></i> Explorar Catálogo / Explore Catalog
+                <i class="ph-compass"></i> Explore Catalog
               </button>
             </div>
           </div>
