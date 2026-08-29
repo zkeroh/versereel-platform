@@ -476,7 +476,11 @@
                 if (isLocked && idx >= previewLimit) {
                   if (idx === previewLimit) {
                     return `
-                      <div class="paywall-card" style="margin: 3rem 1rem;">
+                      <div style="margin: 1.5rem auto; text-align: center; max-width: 100%; overflow: hidden; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                        <span style="font-size: 0.65rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px;">ADVERTISEMENT</span>
+                        <ins class="eas6a97888e2" data-zoneid="6014788"></ins>
+                      </div>
+                      <div class="paywall-card" style="margin: 2rem 1rem 3rem 1rem;">
                         <div class="paywall-icon"><i class="ph-lock"></i></div>
                         <h2 style="color:#fff; font-size:1.4rem; font-weight:800;">${txtPaywallTitle}</h2>
                         <p style="color: var(--text-muted); font-size: 0.92rem;">
@@ -707,6 +711,14 @@
           };
         }
       }
+      // Trigger ExoClick Ad Serving if present
+      setTimeout(() => {
+        try {
+          if (window.AdProvider) {
+            (window.AdProvider = window.AdProvider || []).push({"serve": {}});
+          }
+        } catch (e) {}
+      }, 200);
     }
 
     renderReader();
