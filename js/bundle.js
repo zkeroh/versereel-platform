@@ -53,7 +53,7 @@
       author: "Zkero",
       description: "¡Un clásico del cómic rediseñado como nunca lo viste!",
       isPaid: true,
-      price: 0.99,
+      price: 1.00,
       previewLimit: 30,
       paymentUrl: "https://mpago.la/1DtXktD",
       paypalUrl: "https://www.paypal.com/ncp/payment/FZCP8QGCGTTX2",
@@ -1451,6 +1451,21 @@
       return;
     }
 
+    const params = new URLSearchParams(window.location.search);
+    const comicParam = params.get('comic') || '';
+    const userLang = navigator.language || navigator.userLanguage || '';
+    const isEn = comicParam.toLowerCase().includes('lemonade') || userLang.toLowerCase().startsWith('en');
+
+    const txtTitle = isEn ? 'Age Verification (18+)' : 'Confirmación de Edad (+18)';
+    const txtDescPrimary = isEn
+      ? 'This website contains adult graphic novels and comics intended strictly for mature audiences.'
+      : 'Este sitio contiene cómics y novelas gráficas para adultos.';
+    const txtDescSecondary = isEn
+      ? 'By entering, you confirm that you are at least 18 years old or of legal age in your jurisdiction.'
+      : 'Al continuar, confirmas que tienes 18 años o más.';
+    const txtAccept = isEn ? '🔞 I am 18+ / Enter Site' : '🔞 Soy Mayor de 18 Años / I am 18+';
+    const txtExit = isEn ? 'Exit' : 'Salir / Exit';
+
     const backdrop = document.createElement('div');
     backdrop.className = 'modal-backdrop';
     backdrop.style.cssText = 'position: fixed; inset: 0; z-index: 999999; background: rgba(5, 7, 15, 0.95); backdrop-filter: blur(12px); display: flex; align-items: center; justify-content: center; padding: 1.25rem;';
@@ -1464,18 +1479,18 @@
         +18
       </div>
       <h2 style="color: #fff; font-size: 1.45rem; font-weight: 800; margin-bottom: 0.6rem; letter-spacing: -0.02em;">
-        Confirmación de Edad (+18)
+        ${txtTitle}
       </h2>
       <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.5; margin-bottom: 1.5rem;">
-        Este sitio contiene cómics y novelas gráficas para adultos. Al continuar, confirmas que tienes <strong>18 años o más</strong>.
-        <br/><span style="font-size: 0.82rem; opacity: 0.8; display: block; margin-top: 0.4rem;">This website contains adult graphic novels. By continuing, you confirm you are 18+ years old.</span>
+        ${txtDescPrimary}
+        <br/><span style="font-size: 0.85rem; opacity: 0.85; display: block; margin-top: 0.5rem; color: var(--text-main);">${txtDescSecondary}</span>
       </p>
       <div style="display: flex; flex-direction: column; gap: 0.75rem; width: 100%;">
         <button id="btn-accept-age-18" class="btn-primary" style="width: 100%; justify-content: center; font-size: 1.02rem; padding: 0.9rem; background: linear-gradient(135deg, var(--rose), #e11d48); border: none; font-weight: 800; border-radius: 10px; cursor: pointer;">
-          🔞 Soy Mayor de 18 Años / I am 18+
+          ${txtAccept}
         </button>
         <button id="btn-exit-age-18" class="btn-secondary" style="width: 100%; justify-content: center; font-size: 0.9rem; padding: 0.75rem; border-color: rgba(255,255,255,0.2); color: var(--text-muted); border-radius: 10px; cursor: pointer;">
-          Salir / Exit
+          ${txtExit}
         </button>
       </div>
     `;
