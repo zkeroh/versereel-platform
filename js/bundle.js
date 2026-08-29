@@ -1636,14 +1636,13 @@
     renderNavbar() {
       return `
         <nav class="navbar">
-          <div class="brand-logo" id="logo-btn">
-            <i class="ph-sparkle"></i>
-            <div class="brand-text">Verse<span>Reel</span></div>
+          <div class="brand-logo" id="logo-btn" style="cursor: pointer; display: flex; align-items: center; gap: 0.6rem;">
+            <img src="assets/logo.jpg" alt="Xzkero Logo" style="height: 38px; width: auto; object-fit: contain; filter: drop-shadow(0 0 10px rgba(163, 230, 53, 0.6));" />
           </div>
 
           <div class="nav-links">
             <button class="nav-btn active" id="nav-audience-btn">
-              <i class="ph-compass"></i> Comics & Videos Catalog
+              <i class="ph-compass"></i> Catálogo de Cómics & Webtoons
             </button>
           </div>
 
@@ -1660,16 +1659,18 @@
           <img src="assets/hero_banner.jpg" class="hero-img" alt="Hero background" />
           <div class="hero-overlay"></div>
           <div class="hero-body">
-            <div class="hero-badge">
-              <i class="ph-sparkle"></i> The Best Digital Comics & Videos
+            <div class="hero-badge" style="background: rgba(163, 230, 53, 0.15); border-color: var(--primary); color: #bef264;">
+              <i class="ph-sparkle"></i> Cómics & Novelas Gráficas para Adultos (+18)
             </div>
-            <h1 class="hero-title">Read the best comics and videos</h1>
-            <p class="hero-subtitle">
-              Explore incredible premiere stories, exclusive comics, and videos. Enjoy the first pages completely free.
+            <div style="margin-bottom: 0.85rem;">
+              <img src="assets/logo.jpg" alt="Xzkero" style="max-width: 240px; width: 100%; height: auto; display: block; filter: drop-shadow(0 0 16px rgba(163, 230, 53, 0.6));" />
+            </div>
+            <p class="hero-subtitle" style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.5; margin-bottom: 1.5rem;">
+              Lee los mejores cómics e historias exclusivas sin censura. Disfruta de las primeras páginas totalmente gratis en modo Webtoon.
             </p>
             <div class="hero-actions">
               <button class="btn-primary" id="hero-explore-btn">
-                <i class="ph-compass"></i> Explore Catalog
+                <i class="ph-compass"></i> Explorar Catálogo / Explore Catalog
               </button>
             </div>
           </div>

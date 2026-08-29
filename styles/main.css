@@ -1,18 +1,18 @@
-/* Modern CSS Design System for VerseReel */
+/* Modern CSS Design System for Xzkero */
 :root {
-  --bg-dark: #090a10;
-  --bg-card: rgba(18, 22, 36, 0.75);
-  --bg-card-hover: rgba(28, 34, 54, 0.85);
-  --bg-glass: rgba(255, 255, 255, 0.05);
-  --border-color: rgba(255, 255, 255, 0.12);
-  --border-glow: rgba(168, 85, 247, 0.3);
+  --bg-dark: #05070a;
+  --bg-card: rgba(14, 20, 27, 0.85);
+  --bg-card-hover: rgba(22, 32, 44, 0.92);
+  --bg-glass: rgba(163, 230, 53, 0.05);
+  --border-color: rgba(163, 230, 53, 0.22);
+  --border-glow: rgba(163, 230, 53, 0.45);
   
-  --primary: #a855f7;
-  --primary-hover: #9333ea;
-  --primary-glow: rgba(168, 85, 247, 0.4);
-  --cyan: #06b6d4;
-  --cyan-glow: rgba(6, 182, 212, 0.4);
-  --emerald: #10b981;
+  --primary: #a3e635;
+  --primary-hover: #84cc16;
+  --primary-glow: rgba(163, 230, 53, 0.45);
+  --cyan: #38bdf8;
+  --cyan-glow: rgba(56, 189, 248, 0.4);
+  --emerald: #22c55e;
   --amber: #f59e0b;
   --rose: #f43f5e;
   
@@ -25,8 +25,8 @@
   --radius-lg: 20px;
   --radius-full: 9999px;
   
-  --shadow-main: 0 10px 30px -10px rgba(0, 0, 0, 0.6);
-  --shadow-glow: 0 0 25px rgba(168, 85, 247, 0.25);
+  --shadow-main: 0 10px 30px -10px rgba(0, 0, 0, 0.7);
+  --shadow-glow: 0 0 25px rgba(163, 230, 53, 0.3);
   --font-main: 'Outfit', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
@@ -40,8 +40,8 @@
 body {
   background-color: var(--bg-dark);
   background-image: 
-    radial-gradient(circle at 15% 15%, rgba(168, 85, 247, 0.12) 0%, transparent 40%),
-    radial-gradient(circle at 85% 75%, rgba(6, 182, 212, 0.10) 0%, transparent 40%);
+    radial-gradient(circle at 15% 15%, rgba(163, 230, 53, 0.14) 0%, transparent 45%),
+    radial-gradient(circle at 85% 75%, rgba(56, 189, 248, 0.08) 0%, transparent 45%);
   background-attachment: fixed;
   color: var(--text-main);
   min-height: 100vh;
@@ -54,10 +54,10 @@ body {
   height: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: rgba(10, 12, 20, 0.8);
+  background: rgba(5, 7, 10, 0.9);
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(168, 85, 247, 0.4);
+  background: rgba(163, 230, 53, 0.5);
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
@@ -141,9 +141,10 @@ body {
 }
 
 .nav-btn.active {
-  background: linear-gradient(135deg, var(--primary), #7c3aed);
-  color: #fff;
-  box-shadow: 0 4px 15px rgba(168, 85, 247, 0.4);
+  background: linear-gradient(135deg, var(--primary), #84cc16);
+  color: #05070a;
+  font-weight: 800;
+  box-shadow: 0 4px 15px rgba(163, 230, 53, 0.4);
 }
 
 .nav-actions {
@@ -157,8 +158,8 @@ body {
   display: flex;
   align-items: center;
   gap: 0.4rem;
-  background: linear-gradient(135deg, rgba(6, 182, 212, 0.15), rgba(168, 85, 247, 0.15));
-  border: 1px solid rgba(6, 182, 212, 0.4);
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.15), rgba(163, 230, 53, 0.15));
+  border: 1px solid rgba(163, 230, 53, 0.4);
   color: #fff;
   padding: 0.5rem 1rem;
   border-radius: var(--radius-full);
@@ -169,7 +170,7 @@ body {
 }
 
 .mode-switcher:hover {
-  box-shadow: 0 0 15px rgba(6, 182, 212, 0.3);
+  box-shadow: 0 0 15px rgba(163, 230, 53, 0.3);
   transform: translateY(-1px);
 }
 
@@ -209,7 +210,7 @@ body {
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, rgba(9, 10, 16, 0.95) 0%, rgba(9, 10, 16, 0.6) 60%, transparent 100%);
+  background: linear-gradient(90deg, rgba(5, 7, 10, 0.95) 0%, rgba(5, 7, 10, 0.6) 60%, transparent 100%);
 }
 
 .hero-body {
@@ -223,13 +224,13 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  background: rgba(168, 85, 247, 0.2);
+  background: rgba(163, 230, 53, 0.15);
   border: 1px solid var(--primary);
-  color: #d8b4fe;
+  color: #bef264;
   padding: 0.25rem 0.75rem;
   border-radius: var(--radius-full);
   font-size: 0.8rem;
-  font-weight: 700;
+  font-weight: 800;
   text-transform: uppercase;
   margin-bottom: 1rem;
 }
@@ -250,24 +251,24 @@ body {
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, var(--primary), #7c3aed);
-  color: #fff;
+  background: linear-gradient(135deg, var(--primary), #84cc16);
+  color: #05070a;
   border: none;
   padding: 0.75rem 1.75rem;
   border-radius: var(--radius-md);
-  font-weight: 700;
+  font-weight: 800;
   font-size: 1rem;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
-  box-shadow: 0 4px 20px rgba(168, 85, 247, 0.4);
+  box-shadow: 0 4px 20px rgba(163, 230, 53, 0.4);
   transition: all 0.25s ease;
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 25px rgba(168, 85, 247, 0.6);
+  box-shadow: 0 6px 25px rgba(163, 230, 53, 0.6);
 }
 
 .btn-secondary {
