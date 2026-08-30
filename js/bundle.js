@@ -1523,80 +1523,10 @@
 
   // Age Verification Modal (+18)
   function checkAgeVerification(onVerified) {
-    let verified = false;
     try {
-      verified = localStorage.getItem('age_verified_18') === 'true';
+      localStorage.setItem('age_verified_18', 'true');
     } catch (e) {}
-
-    if (verified) {
-      if (onVerified) onVerified();
-      return;
-    }
-
-    const params = new URLSearchParams(window.location.search);
-    const comicParam = params.get('comic') || '';
-    const userLang = navigator.language || navigator.userLanguage || '';
-    const isEn = comicParam.toLowerCase().includes('lemonade') || userLang.toLowerCase().startsWith('en');
-
-    const txtTitle = isEn ? 'Age Verification (18+)' : 'Confirmación de Edad (+18)';
-    const txtDescPrimary = isEn
-      ? 'This website contains adult graphic novels and comics intended strictly for mature audiences.'
-      : 'Este sitio contiene cómics y novelas gráficas para adultos.';
-    const txtDescSecondary = isEn
-      ? 'By entering, you confirm that you are at least 18 years old or of legal age in your jurisdiction.'
-      : 'Al continuar, confirmas que tienes 18 años o más.';
-    const txtAccept = isEn ? '🔞 I am 18+ / Enter Site' : '🔞 Soy Mayor de 18 Años / I am 18+';
-    const txtExit = isEn ? 'Exit' : 'Salir / Exit';
-
-    const backdrop = document.createElement('div');
-    backdrop.className = 'modal-backdrop';
-    backdrop.style.cssText = 'position: fixed; inset: 0; z-index: 999999; background: rgba(5, 7, 15, 0.95); backdrop-filter: blur(12px); display: flex; align-items: center; justify-content: center; padding: 1.25rem;';
-
-    const content = document.createElement('div');
-    content.className = 'modal-content';
-    content.style.cssText = 'max-width: 440px; width: 100%; background: linear-gradient(135deg, rgba(20, 24, 38, 0.98), rgba(15, 18, 28, 0.98)); border: 1px solid rgba(244, 63, 94, 0.4); border-radius: 16px; padding: 2rem 1.5rem; text-align: center; box-shadow: 0 20px 50px rgba(0,0,0,0.8), 0 0 30px rgba(244,63,94,0.15);';
-
-    content.innerHTML = `
-      <div style="width: 64px; height: 64px; border-radius: 50%; background: rgba(244, 63, 94, 0.15); border: 2px solid var(--rose); color: var(--rose); font-size: 1.8rem; font-weight: 900; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem auto;">
-        +18
-      </div>
-      <h2 style="color: #fff; font-size: 1.45rem; font-weight: 800; margin-bottom: 0.6rem; letter-spacing: -0.02em;">
-        ${txtTitle}
-      </h2>
-      <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.5; margin-bottom: 1.5rem;">
-        ${txtDescPrimary}
-        <br/><span style="font-size: 0.85rem; opacity: 0.85; display: block; margin-top: 0.5rem; color: var(--text-main);">${txtDescSecondary}</span>
-      </p>
-      <div style="display: flex; flex-direction: column; gap: 0.75rem; width: 100%;">
-        <button id="btn-accept-age-18" class="btn-primary" style="width: 100%; justify-content: center; font-size: 1.02rem; padding: 0.9rem; background: linear-gradient(135deg, var(--rose), #e11d48); border: none; font-weight: 800; border-radius: 10px; cursor: pointer;">
-          ${txtAccept}
-        </button>
-        <button id="btn-exit-age-18" class="btn-secondary" style="width: 100%; justify-content: center; font-size: 0.9rem; padding: 0.75rem; border-color: rgba(255,255,255,0.2); color: var(--text-muted); border-radius: 10px; cursor: pointer;">
-          ${txtExit}
-        </button>
-      </div>
-    `;
-
-    backdrop.appendChild(content);
-    document.body.appendChild(backdrop);
-
-    const acceptBtn = content.querySelector('#btn-accept-age-18');
-    if (acceptBtn) {
-      acceptBtn.onclick = () => {
-        try { localStorage.setItem('age_verified_18', 'true'); } catch (e) {}
-        if (document.body.contains(backdrop)) {
-          document.body.removeChild(backdrop);
-        }
-        if (onVerified) onVerified();
-      };
-    }
-
-    const exitBtn = content.querySelector('#btn-exit-age-18');
-    if (exitBtn) {
-      exitBtn.onclick = () => {
-        window.location.href = 'https://www.google.com';
-      };
-    }
+    if (onVerified) onVerified();
   }
 
   // 6. Main App Controller
