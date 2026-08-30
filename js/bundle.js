@@ -436,9 +436,6 @@
         : 'Descargar Cómic Completo (HD)';
 
       overlay.innerHTML = `
-        <!-- ExoClick Instant Message Zone 6015134 inside comic reader -->
-        <ins class="eas6a97888e6" data-zoneid="6015134"></ins>
-
         <!-- Top Navbar -->
         <header class="reader-navbar">
           <div class="reader-title-area">

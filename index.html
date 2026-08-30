@@ -7,9 +7,9 @@
   <meta name="description" content="Read exclusive uncensored adult comics, webtoons, and graphic novels on Xzkero." />
 
   <!-- Favicon & Touch Icons -->
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon.png?v=67.0" />
-  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon.png?v=67.0" />
-  <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon.png?v=67.0" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon.png?v=68.0" />
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon.png?v=68.0" />
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon.png?v=68.0" />
 
   <!-- Open Graph / WhatsApp / Facebook / Instagram / Meta Link Previews -->
   <meta property="og:type" content="website" />
@@ -43,46 +43,27 @@
   <!-- Phosphor Icons -->
   <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
-  <!-- Cache Purger Script -->
-  <script>
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.getRegistrations().then(regs => {
-        for (let reg of regs) reg.unregister();
-      });
-    }
-    if ('caches' in window) {
-      caches.keys().then(names => {
-        for (let name of names) caches.delete(name);
-      });
-    }
-  </script>
-
   <!-- Google Analytics 4 (GA4) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-BW1CYXKB7N"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-BW1CYXKB7N', {
-      send_page_view: true
-    });
+    gtag('config', 'G-BW1CYXKB7N', { send_page_view: true });
   </script>
 
   <!-- Main CSS -->
-  <link rel="stylesheet" href="styles/main.css?v=67.0" />
+  <link rel="stylesheet" href="styles/main.css?v=68.0" />
 </head>
 <body>
   <!-- Main Application Root Container -->
   <div id="app"></div>
 
   <!-- Primary Application Script Bundle (Renders Site First) -->
-  <script src="js/bundle.js?v=67.0"></script>
+  <script src="js/bundle.js?v=68.0"></script>
 
   <!-- ExoClick Ad Provider & Services (Loaded in Background) -->
   <script async type="application/javascript" src="https://a.magsrv.com/ad-provider.js"></script>
   <script async type="application/javascript" src="https://a.pemsrv.com/popunder1000.js" data-exo-idzone="6015132"></script>
-  
-  <!-- ExoClick Instant Message Zone 6015134 -->
-  <ins class="eas6a97888e6" data-zoneid="6015134"></ins>
 </body>
 </html>
