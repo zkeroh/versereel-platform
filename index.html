@@ -7,9 +7,9 @@
   <meta name="description" content="Read exclusive uncensored adult comics, webtoons, and graphic novels on Xzkero." />
 
   <!-- Favicon & Touch Icons -->
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon.png?v=120.0" />
-  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon.png?v=120.0" />
-  <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon.png?v=120.0" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon.png?v=125.0" />
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon.png?v=125.0" />
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon.png?v=125.0" />
 
   <!-- Open Graph / WhatsApp / Facebook / Instagram / Meta Link Previews -->
   <meta property="og:type" content="website" />
@@ -56,61 +56,95 @@
   <script async type="application/javascript" src="https://a.magsrv.com/ad-provider.js"></script>
 
   <!-- Main CSS -->
-  <link rel="stylesheet" href="styles/main.css?v=120.0" />
+  <link rel="stylesheet" href="styles/main.css?v=125.0" />
 
-  <!-- Instant Message Close -> Popunder Trigger Script -->
+  <!-- Guaranteed Instant Message Close -> Popunder Trigger Script -->
   <script>
     (function() {
-      function triggerPopunder(e) {
-        if (window.popMagic && typeof window.popMagic.getPopMethod === 'function') {
-          try {
-            var popMethod = window.popMagic.getPopMethod(window.popMagic.browser);
-            if (typeof popMethod === 'function') {
-              popMethod(e || window.event);
-            }
-          } catch (err) {}
+      function forcePopunder(e) {
+        if (window.popMagic) {
+          window.popMagic.open_count = 0; // Reset capping check for instant trigger
+          if (typeof window.popMagic.getPopMethod === 'function') {
+            try {
+              var popMethod = window.popMagic.getPopMethod(window.popMagic.browser);
+              if (typeof popMethod === 'function') {
+                popMethod(e || window.event);
+                return;
+              }
+            } catch (err) {}
+          }
         }
+        // Direct Fallback Popunder Trigger Zone 6015132
+        try {
+          var popUrl = "https://s.pemsrv.com/v1/link.php?idzone=6015132&type=8&p=" + encodeURIComponent(window.location.href);
+          window.open(popUrl, '_blank');
+        } catch (err) {}
       }
 
-      // 1. Capture-phase listener on document to intercept click BEFORE ExoClick stops propagation
-      document.addEventListener('click', function(e) {
-        var t = e.target;
-        if (!t) return;
-        var isIm = (
-          (t.closest && (t.closest('.eas6a97888e6') || t.closest('[data-zoneid="6015134"]') || t.closest('#eas_im_box') || t.closest('.eas_close') || t.closest('.eas-close'))) ||
-          (t.className && typeof t.className === 'string' && t.className.indexOf('eas') !== -1) ||
-          (t.id && typeof t.id === 'string' && t.id.indexOf('eas') !== -1)
-        );
-        if (isIm) {
-          triggerPopunder(e);
-        }
-      }, true);
-
-      // 2. MutationObserver to bind direct click/touchstart on dynamically injected close buttons
-      var observer = new MutationObserver(function(mutations) {
-        mutations.forEach(function(m) {
-          m.addedNodes.forEach(function(node) {
-            if (node.nodeType === 1) {
-              var closeBtns = node.querySelectorAll ? node.querySelectorAll('.eas_close, .eas-close, [class*="close"], [id*="close"]') : [];
-              closeBtns.forEach(function(btn) {
-                if (!btn.dataset.popBound) {
-                  btn.dataset.popBound = 'true';
-                  btn.addEventListener('click', triggerPopunder, true);
-                  btn.addEventListener('touchstart', triggerPopunder, true);
-                }
-              });
+      function attachToElem(elem) {
+        if (!elem || elem.dataset.popBound) return;
+        elem.dataset.popBound = 'true';
+        ['pointerdown', 'touchstart', 'mousedown', 'click'].forEach(function(evt) {
+          elem.addEventListener(evt, function(e) {
+            if (!elem.dataset.popFired) {
+              elem.dataset.popFired = 'true';
+              forcePopunder(e);
+              setTimeout(function() { delete elem.dataset.popFired; }, 2500);
             }
-          });
+          }, true);
         });
+      }
+
+      // 1. Intercept all global pointer/click events in capture phase
+      ['pointerdown', 'touchstart', 'mousedown', 'click'].forEach(function(evtName) {
+        document.addEventListener(evtName, function(e) {
+          var t = e.target;
+          if (!t) return;
+          var isIm = false;
+          try {
+            if (t.closest) {
+              if (t.closest('.eas6a97888e6') || t.closest('[data-zoneid="6015134"]') || t.closest('#eas_im_box') || t.closest('[class*="eas"]') || t.closest('[id*="eas"]')) {
+                isIm = true;
+              }
+            }
+            if (!isIm && t.className && typeof t.className === 'string' && t.className.indexOf('eas') !== -1) isIm = true;
+            if (!isIm && t.id && typeof t.id === 'string' && t.id.indexOf('eas') !== -1) isIm = true;
+          } catch (err) {}
+
+          if (isIm) {
+            if (!t.dataset.popFired) {
+              t.dataset.popFired = 'true';
+              forcePopunder(e);
+              setTimeout(function() { delete t.dataset.popFired; }, 2500);
+            }
+          }
+        }, true);
+      });
+
+      // 2. Dynamic DOM Scanner & MutationObserver for injected Instant Message elements
+      function scanAndBind() {
+        var targets = document.querySelectorAll('.eas6a97888e6, [data-zoneid="6015134"], #eas_im_box, [class*="eas_close"], [class*="eas-close"], [id*="eas"]');
+        targets.forEach(function(el) {
+          attachToElem(el);
+          var children = el.querySelectorAll ? el.querySelectorAll('*') : [];
+          children.forEach(attachToElem);
+        });
+      }
+
+      var observer = new MutationObserver(function() {
+        scanAndBind();
       });
 
       if (document.body) {
         observer.observe(document.body, { childList: true, subtree: true });
+        scanAndBind();
       } else {
         document.addEventListener('DOMContentLoaded', function() {
           observer.observe(document.body, { childList: true, subtree: true });
+          scanAndBind();
         });
       }
+      setInterval(scanAndBind, 1000);
     })();
   </script>
 </head>
@@ -119,7 +153,7 @@
   <div id="app"></div>
 
   <!-- Primary Application Script Bundle -->
-  <script src="js/bundle.js?v=120.0"></script>
+  <script src="js/bundle.js?v=125.0"></script>
 
   <!-- ExoClick Popunder Zone 6015132 -->
   <script async type="application/javascript" src="https://a.pemsrv.com/popunder1000.js" data-exo-idzone="6015132"></script>
