@@ -1731,7 +1731,7 @@
             </div>
 
             <!-- Right Side: ExoClick Outstream Video Ad Zone 6015136 -->
-            <div style="flex: 1 1 300px; max-width: 420px; width: 100%; text-align: center; background: rgba(0,0,0,0.3); padding: 0.75rem; border-radius: 12px; border: 1px solid rgba(163, 230, 53, 0.2); backdrop-filter: blur(8px);">
+            <div style="flex: 0 1 380px; max-width: 420px; width: 100%; text-align: center; background: rgba(0,0,0,0.4); padding: 0.75rem; border-radius: 14px; border: 1px solid rgba(163, 230, 53, 0.3); backdrop-filter: blur(8px); margin-left: auto;">
               <span style="font-size: 0.65rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; display: block;">SPONSORED VIDEO</span>
               <ins class="eas6a97888e37" data-zoneid="6015136"></ins>
             </div>
