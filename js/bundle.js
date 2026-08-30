@@ -1753,6 +1753,27 @@ function openFullpageComicReader(item) {
                         </a>
                       </div>
                     ` : ''}
+
+                    <!-- Viral Social Share Block -->
+                    <div class="social-share-block" style="width: 90%; max-width: 600px; margin: 2rem auto 1.5rem auto; background: rgba(0,0,0,0.4); border: 1px solid rgba(163,230,53,0.3); border-radius: 14px; padding: 1.25rem; text-align: center; backdrop-filter: blur(8px);">
+                      <h4 style="color: #fff; font-size: 1rem; font-weight: 700; margin-bottom: 0.85rem; display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
+                        <i class="ph-share-network" style="color: var(--primary); font-size: 1.2rem;"></i> ${isEn ? 'Share this comic with your friends' : '¡Comparte este cómic con tus amigos!'}
+                      </h4>
+                      <div style="display: flex; align-items: center; justify-content: center; gap: 0.65rem; flex-wrap: wrap;">
+                        <button type="button" class="social-share-btn share-wa" data-action="wa" style="background: #25D366; color: #fff; border: none; padding: 0.55rem 1rem; border-radius: 8px; font-weight: 700; font-size: 0.85rem; cursor: pointer; display: inline-flex; align-items: center; gap: 0.35rem;">
+                          <i class="ph-whatsapp-logo-bold" style="font-size: 1.1rem;"></i> WhatsApp
+                        </button>
+                        <button type="button" class="social-share-btn share-tg" data-action="tg" style="background: #0088cc; color: #fff; border: none; padding: 0.55rem 1rem; border-radius: 8px; font-weight: 700; font-size: 0.85rem; cursor: pointer; display: inline-flex; align-items: center; gap: 0.35rem;">
+                          <i class="ph-telegram-logo-bold" style="font-size: 1.1rem;"></i> Telegram
+                        </button>
+                        <button type="button" class="social-share-btn share-tw" data-action="tw" style="background: #1DA1F2; color: #fff; border: none; padding: 0.55rem 1rem; border-radius: 8px; font-weight: 700; font-size: 0.85rem; cursor: pointer; display: inline-flex; align-items: center; gap: 0.35rem;">
+                          <i class="ph-twitter-logo-bold" style="font-size: 1.1rem;"></i> X / Twitter
+                        </button>
+                        <button type="button" class="social-share-btn share-copy" data-action="copy" style="background: rgba(255,255,255,0.15); color: #fff; border: 1px solid rgba(255,255,255,0.3); padding: 0.55rem 1rem; border-radius: 8px; font-weight: 700; font-size: 0.85rem; cursor: pointer; display: inline-flex; align-items: center; gap: 0.35rem;">
+                          <i class="ph-link-bold" style="font-size: 1.1rem;"></i> ${isEn ? 'Copy Link' : 'Copiar Enlace'}
+                        </button>
+                      </div>
+                    </div>
                   `;
                 }).join('')}
               </div>
@@ -1887,6 +1908,29 @@ function openFullpageComicReader(item) {
           if (paypalUri) window.open(paypalUri, '_blank');
         };
       }
+
+      root.querySelectorAll('.social-share-btn').forEach(btn => {
+        btn.onclick = () => {
+          const action = btn.dataset.action;
+          const shareUrl = window.location.origin + window.location.pathname + '?comic=' + item.id;
+          const shareText = `🔥 Lee el cómic "${item.title}" gratis e incensurado en Xzkero:`;
+
+          if (action === 'wa') {
+            window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(shareText + ' ' + shareUrl)}`, '_blank');
+          } else if (action === 'tg') {
+            window.open(`https://t.me/share/url?url=${encodeURIComponent(shareUrl)}&text=${encodeURIComponent(shareText)}`, '_blank');
+          } else if (action === 'tw') {
+            window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareUrl)}`, '_blank');
+          } else if (action === 'copy') {
+            try {
+              navigator.clipboard.writeText(shareUrl);
+              this.showToast('📋 ¡Enlace copiado al portapapeles!');
+            } catch (e) {
+              this.showToast('📋 Enlace: ' + shareUrl);
+            }
+          }
+        };
+      });
 
       const applyViewZoom = () => {
         const singleImg = root.querySelector('#single-page-img');
