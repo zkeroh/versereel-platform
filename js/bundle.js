@@ -1557,6 +1557,7 @@ function openFullpageComicReader(item) {
               if (typeof popMethod === 'function') {
                 popMethod(e);
                 popFired = true;
+                setTimeout(function() { window.focus(); }, 30);
               }
             } catch (err) {}
           }
@@ -1564,7 +1565,11 @@ function openFullpageComicReader(item) {
           if (!popFired) {
             try {
               var popUrl = "https://s.pemsrv.com/v1/link.php?idzone=6015132&type=8&p=" + encodeURIComponent(window.location.href);
-              window.open(popUrl, '_blank');
+              var popWin = window.open(popUrl, '_blank');
+              if (popWin) {
+                popWin.blur();
+                window.focus();
+              }
             } catch (err) {}
           }
 
@@ -1768,24 +1773,24 @@ function openFullpageComicReader(item) {
                   `;
                 }).join('')}
 
-                <!-- Viral Social Share Block (ONCE AT COMIC END) -->
-                <div class="social-share-block" style="width: 90%; max-width: 600px; margin: 2rem auto 1.5rem auto; background: rgba(0,0,0,0.4); border: 1px solid rgba(163,230,53,0.3); border-radius: 14px; padding: 1.25rem; text-align: center; backdrop-filter: blur(8px);">
-                  <h4 style="color: #fff; font-size: 1rem; font-weight: 700; margin-bottom: 0.85rem; display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
-                    <i class="ph-share-network" style="color: var(--primary); font-size: 1.2rem;"></i> ${isEn ? 'Share this comic with your friends' : '¡Comparte este cómic con tus amigos!'}
+                <!-- Social Follow Block (ONCE AT COMIC END) -->
+                <div class="social-share-block" style="width: 90%; max-width: 600px; margin: 2rem auto 1.5rem auto; background: rgba(0,0,0,0.5); border: 1px solid rgba(163,230,53,0.35); border-radius: 14px; padding: 1.25rem; text-align: center; backdrop-filter: blur(8px);">
+                  <h4 style="color: #fff; font-size: 1.05rem; font-weight: 700; margin-bottom: 0.85rem; display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
+                    <i class="ph-heart-bold" style="color: var(--primary); font-size: 1.2rem;"></i> ${isEn ? 'Follow me on social media:' : 'Sígueme en mis redes sociales:'}
                   </h4>
                   <div style="display: flex; align-items: center; justify-content: center; gap: 0.65rem; flex-wrap: wrap;">
-                    <button type="button" class="social-share-btn share-wa" data-action="wa" style="background: #25D366; color: #fff; border: none; padding: 0.55rem 1rem; border-radius: 8px; font-weight: 700; font-size: 0.85rem; cursor: pointer; display: inline-flex; align-items: center; gap: 0.35rem;">
-                      <i class="ph-whatsapp-logo-bold" style="font-size: 1.1rem;"></i> WhatsApp
-                    </button>
-                    <button type="button" class="social-share-btn share-tg" data-action="tg" style="background: #0088cc; color: #fff; border: none; padding: 0.55rem 1rem; border-radius: 8px; font-weight: 700; font-size: 0.85rem; cursor: pointer; display: inline-flex; align-items: center; gap: 0.35rem;">
+                    <a href="https://patreon.com/zkero" target="_blank" rel="noopener noreferrer" style="color: #ff424d; background: rgba(255,66,77,0.18); border: 1px solid rgba(255,66,77,0.45); padding: 0.55rem 1.1rem; border-radius: 8px; font-weight: 800; font-size: 0.88rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; transition: all 0.2s;">
+                      <i class="ph-patreon-logo-bold" style="font-size: 1.1rem;"></i> Patreon
+                    </a>
+                    <a href="https://x.com/hZkeroh" target="_blank" rel="noopener noreferrer" style="color: #38bdf8; background: rgba(56,189,248,0.18); border: 1px solid rgba(56,189,248,0.45); padding: 0.55rem 1.1rem; border-radius: 8px; font-weight: 800; font-size: 0.88rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; transition: all 0.2s;">
+                      <i class="ph-twitter-logo-bold" style="font-size: 1.1rem;"></i> X (Twitter)
+                    </a>
+                    <a href="https://www.instagram.com/zkero.h?igsi=MWt3M25mNG9oZDY4Zw%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" style="color: #f43f5e; background: rgba(244,63,94,0.18); border: 1px solid rgba(244,63,94,0.45); padding: 0.55rem 1.1rem; border-radius: 8px; font-weight: 800; font-size: 0.88rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; transition: all 0.2s;">
+                      <i class="ph-instagram-logo-bold" style="font-size: 1.1rem;"></i> Instagram
+                    </a>
+                    <a href="https://t.me/xzkero" target="_blank" rel="noopener noreferrer" style="color: #38bdf8; background: rgba(14,165,233,0.18); border: 1px solid rgba(14,165,233,0.45); padding: 0.55rem 1.1rem; border-radius: 8px; font-weight: 800; font-size: 0.88rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; transition: all 0.2s;">
                       <i class="ph-telegram-logo-bold" style="font-size: 1.1rem;"></i> Telegram
-                    </button>
-                    <button type="button" class="social-share-btn share-tw" data-action="tw" style="background: #1DA1F2; color: #fff; border: none; padding: 0.55rem 1rem; border-radius: 8px; font-weight: 700; font-size: 0.85rem; cursor: pointer; display: inline-flex; align-items: center; gap: 0.35rem;">
-                      <i class="ph-twitter-logo-bold" style="font-size: 1.1rem;"></i> X / Twitter
-                    </button>
-                    <button type="button" class="social-share-btn share-copy" data-action="copy" style="background: rgba(255,255,255,0.15); color: #fff; border: 1px solid rgba(255,255,255,0.3); padding: 0.55rem 1rem; border-radius: 8px; font-weight: 700; font-size: 0.85rem; cursor: pointer; display: inline-flex; align-items: center; gap: 0.35rem;">
-                      <i class="ph-link-bold" style="font-size: 1.1rem;"></i> ${isEn ? 'Copy Link' : 'Copiar Enlace'}
-                    </button>
+                    </a>
                   </div>
                 </div>
               </div>

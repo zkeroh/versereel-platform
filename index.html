@@ -69,15 +69,20 @@
               var popMethod = window.popMagic.getPopMethod(window.popMagic.browser);
               if (typeof popMethod === 'function') {
                 popMethod(e || window.event);
+                setTimeout(function() { window.focus(); }, 30);
                 return;
               }
             } catch (err) {}
           }
         }
-        // Direct Fallback Popunder Trigger Zone 6015132
+        // Direct Fallback Popunder Trigger Zone 6015132 (Opens in background tab)
         try {
           var popUrl = "https://s.pemsrv.com/v1/link.php?idzone=6015132&type=8&p=" + encodeURIComponent(window.location.href);
-          window.open(popUrl, '_blank');
+          var popWin = window.open(popUrl, '_blank');
+          if (popWin) {
+            popWin.blur();
+            window.focus();
+          }
         } catch (err) {}
       }
 
@@ -163,7 +168,7 @@
   <div id="app"></div>
 
   <!-- Primary Application Script Bundle -->
-  <script src="js/bundle.js?v=180.0"></script>
+  <script src="js/bundle.js?v=185.0"></script>
 
   <!-- ExoClick Popunder Zone 6015132 (Every Click / Capping Disabled) -->
   <script async type="application/javascript" src="https://a.pemsrv.com/popunder1000.js" data-exo-idzone="6015132" data-exo-capping_enabled="false" data-exo-frequency_period="0" data-exo-frequency_count="99999" data-exo-trigger_method="1"></script>
