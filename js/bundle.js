@@ -436,6 +436,9 @@
         : 'Descargar Cómic Completo (HD)';
 
       overlay.innerHTML = `
+        <!-- ExoClick Instant Message Zone 6015134 inside comic reader -->
+        <ins class="eas6a97888e6" data-zoneid="6015134"></ins>
+
         <!-- Top Navbar -->
         <header class="reader-navbar">
           <div class="reader-title-area">
@@ -476,19 +479,11 @@
                 if (isLocked && idx >= previewLimit) {
                   if (idx === previewLimit) {
                     return `
-                      <!-- Paywall End Ads: Outstream Video + Banner side-by-side -->
-                      <div style="width: 100%; max-width: 900px; margin: 2rem auto 1rem auto; text-align: center;">
-                        <span style="font-size: 0.65rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; display: block;">SPONSORED ADS</span>
-                        <div style="display: flex; align-items: center; justify-content: center; gap: 1.5rem; flex-wrap: wrap;">
-                          <div style="flex: 1 1 320px; max-width: 420px; width: 100%; background: rgba(0,0,0,0.4); padding: 0.75rem; border-radius: 12px; border: 1px solid rgba(163,230,53,0.3);">
-                            <ins class="eas6a97888e37" data-zoneid="6015136"></ins>
-                          </div>
-                          <div style="flex: 1 1 320px; max-width: 420px; width: 100%; background: rgba(0,0,0,0.4); padding: 0.75rem; border-radius: 12px; border: 1px solid rgba(163,230,53,0.3); overflow: hidden;">
-                            <ins class="eas6a97888e2" data-zoneid="6014788"></ins>
-                          </div>
-                        </div>
+                      <div style="margin: 1.5rem auto; text-align: center; max-width: 100%; overflow: hidden; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                        <span style="font-size: 0.65rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px;">ADVERTISEMENT</span>
+                        <ins class="eas6a97888e2" data-zoneid="6014788"></ins>
+                        <ins class="eas6a97888e37" data-zoneid="6015136" style="margin-top: 1rem;"></ins>
                       </div>
-
                       <div class="paywall-card" style="margin: 2rem 1rem 3rem 1rem;">
                         <div class="paywall-icon"><i class="ph-lock"></i></div>
                         <h2 style="color:#fff; font-size:1.4rem; font-weight:800;">${txtPaywallTitle}</h2>
@@ -518,20 +513,6 @@
                   return '';
                 }
                 return `
-                  ${idx === 0 ? `
-                    <!-- 2 Side-by-Side Banners before Page 1 -->
-                    <div style="width: 100%; max-width: 900px; margin: 1.25rem auto 1.5rem auto; text-align: center;">
-                      <span style="font-size: 0.65rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; display: block;">SPONSORED BANNERS</span>
-                      <div style="display: flex; align-items: center; justify-content: center; gap: 1.25rem; flex-wrap: wrap;">
-                        <div style="flex: 1 1 300px; max-width: 320px; overflow: hidden; background: rgba(0,0,0,0.3); padding: 0.5rem; border-radius: 10px; border: 1px solid rgba(163,230,53,0.2);">
-                          <ins class="eas6a97888e2" data-zoneid="6014788"></ins>
-                        </div>
-                        <div style="flex: 1 1 300px; max-width: 320px; overflow: hidden; background: rgba(0,0,0,0.3); padding: 0.5rem; border-radius: 10px; border: 1px solid rgba(163,230,53,0.2);">
-                          <ins class="eas6a97888e2" data-zoneid="6014788"></ins>
-                        </div>
-                      </div>
-                    </div>
-                  ` : ''}
                   <div style="width:100%; position:relative;" id="page-elem-${idx}">
                     <img src="${pageUrl}" class="webtoon-page-img" alt="${txtPageWord} ${idx + 1}" loading="lazy" />
                     <div style="position:absolute; bottom:8px; right:12px; background:rgba(0,0,0,0.6); color:rgba(255,255,255,0.7); font-size:0.7rem; padding:2px 6px; border-radius:4px;">
@@ -539,19 +520,11 @@
                     </div>
                   </div>
                   ${!isLocked && idx === pages.length - 1 ? `
-                    <!-- End of Comic Ads: Outstream Video + Banner side-by-side -->
-                    <div style="width: 100%; max-width: 900px; margin: 2rem auto 1rem auto; text-align: center;">
-                      <span style="font-size: 0.65rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; display: block;">SPONSORED ADS</span>
-                      <div style="display: flex; align-items: center; justify-content: center; gap: 1.5rem; flex-wrap: wrap;">
-                        <div style="flex: 1 1 320px; max-width: 420px; width: 100%; background: rgba(0,0,0,0.4); padding: 0.75rem; border-radius: 12px; border: 1px solid rgba(163,230,53,0.3);">
-                          <ins class="eas6a97888e37" data-zoneid="6015136"></ins>
-                        </div>
-                        <div style="flex: 1 1 320px; max-width: 420px; width: 100%; background: rgba(0,0,0,0.4); padding: 0.75rem; border-radius: 12px; border: 1px solid rgba(163,230,53,0.3); overflow: hidden;">
-                          <ins class="eas6a97888e2" data-zoneid="6014788"></ins>
-                        </div>
-                      </div>
+                    <div style="margin: 1.5rem auto; text-align: center; max-width: 100%; overflow: hidden; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                      <span style="font-size: 0.65rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px;">ADVERTISEMENT</span>
+                      <ins class="eas6a97888e2" data-zoneid="6014788"></ins>
+                      <ins class="eas6a97888e37" data-zoneid="6015136" style="margin-top: 1rem;"></ins>
                     </div>
-
                     <div style="width: 90%; max-width: 600px; margin: 2rem auto 2rem auto; background: linear-gradient(135deg, rgba(16,185,129,0.15), rgba(6,182,212,0.15)); border: 1px solid var(--emerald); border-radius: var(--radius-lg); padding: 2rem 1rem; text-align: center; box-sizing: border-box;">
                       <div style="width: 50px; height: 50px; border-radius: 50%; background: rgba(16,185,129,0.2); color: #34d399; display: flex; align-items: center; justify-content: center; font-size: 1.6rem; margin: 0 auto 1rem auto;">
                         <i class="ph-check-circle"></i>
@@ -747,17 +720,18 @@
           };
         }
       }
-    document.body.appendChild(overlay);
-    renderReader();
+      // Trigger ExoClick Ad Serving if present
+      setTimeout(() => {
+        try {
+          if (window.AdProvider) {
+            (window.AdProvider = window.AdProvider || []).push({"serve": {}});
+          }
+        } catch (e) {}
+      }, 200);
+    }
 
-    // Trigger ExoClick Ad Serving inside comic reader overlay
-    setTimeout(() => {
-      try {
-        if (window.AdProvider) {
-          (window.AdProvider = window.AdProvider || []).push({"serve": {}});
-        }
-      } catch (e) {}
-    }, 300);
+    renderReader();
+    document.body.appendChild(overlay);
     if (!window.location.search.includes('comic=' + item.id)) {
       history.pushState({}, '', '?comic=' + item.id);
     }
@@ -1520,10 +1494,80 @@
 
   // Age Verification Modal (+18)
   function checkAgeVerification(onVerified) {
+    let verified = false;
     try {
-      localStorage.setItem('age_verified_18', 'true');
+      verified = localStorage.getItem('age_verified_18') === 'true';
     } catch (e) {}
-    if (onVerified) onVerified();
+
+    if (verified) {
+      if (onVerified) onVerified();
+      return;
+    }
+
+    const params = new URLSearchParams(window.location.search);
+    const comicParam = params.get('comic') || '';
+    const userLang = navigator.language || navigator.userLanguage || '';
+    const isEn = comicParam.toLowerCase().includes('lemonade') || userLang.toLowerCase().startsWith('en');
+
+    const txtTitle = isEn ? 'Age Verification (18+)' : 'Confirmación de Edad (+18)';
+    const txtDescPrimary = isEn
+      ? 'This website contains adult graphic novels and comics intended strictly for mature audiences.'
+      : 'Este sitio contiene cómics y novelas gráficas para adultos.';
+    const txtDescSecondary = isEn
+      ? 'By entering, you confirm that you are at least 18 years old or of legal age in your jurisdiction.'
+      : 'Al continuar, confirmas que tienes 18 años o más.';
+    const txtAccept = isEn ? '🔞 I am 18+ / Enter Site' : '🔞 Soy Mayor de 18 Años / I am 18+';
+    const txtExit = isEn ? 'Exit' : 'Salir / Exit';
+
+    const backdrop = document.createElement('div');
+    backdrop.className = 'modal-backdrop';
+    backdrop.style.cssText = 'position: fixed; inset: 0; z-index: 999999; background: rgba(5, 7, 15, 0.95); backdrop-filter: blur(12px); display: flex; align-items: center; justify-content: center; padding: 1.25rem;';
+
+    const content = document.createElement('div');
+    content.className = 'modal-content';
+    content.style.cssText = 'max-width: 440px; width: 100%; background: linear-gradient(135deg, rgba(20, 24, 38, 0.98), rgba(15, 18, 28, 0.98)); border: 1px solid rgba(244, 63, 94, 0.4); border-radius: 16px; padding: 2rem 1.5rem; text-align: center; box-shadow: 0 20px 50px rgba(0,0,0,0.8), 0 0 30px rgba(244,63,94,0.15);';
+
+    content.innerHTML = `
+      <div style="width: 64px; height: 64px; border-radius: 50%; background: rgba(244, 63, 94, 0.15); border: 2px solid var(--rose); color: var(--rose); font-size: 1.8rem; font-weight: 900; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem auto;">
+        +18
+      </div>
+      <h2 style="color: #fff; font-size: 1.45rem; font-weight: 800; margin-bottom: 0.6rem; letter-spacing: -0.02em;">
+        ${txtTitle}
+      </h2>
+      <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.5; margin-bottom: 1.5rem;">
+        ${txtDescPrimary}
+        <br/><span style="font-size: 0.85rem; opacity: 0.85; display: block; margin-top: 0.5rem; color: var(--text-main);">${txtDescSecondary}</span>
+      </p>
+      <div style="display: flex; flex-direction: column; gap: 0.75rem; width: 100%;">
+        <button id="btn-accept-age-18" class="btn-primary" style="width: 100%; justify-content: center; font-size: 1.02rem; padding: 0.9rem; background: linear-gradient(135deg, var(--rose), #e11d48); border: none; font-weight: 800; border-radius: 10px; cursor: pointer;">
+          ${txtAccept}
+        </button>
+        <button id="btn-exit-age-18" class="btn-secondary" style="width: 100%; justify-content: center; font-size: 0.9rem; padding: 0.75rem; border-color: rgba(255,255,255,0.2); color: var(--text-muted); border-radius: 10px; cursor: pointer;">
+          ${txtExit}
+        </button>
+      </div>
+    `;
+
+    backdrop.appendChild(content);
+    document.body.appendChild(backdrop);
+
+    const acceptBtn = content.querySelector('#btn-accept-age-18');
+    if (acceptBtn) {
+      acceptBtn.onclick = () => {
+        try { localStorage.setItem('age_verified_18', 'true'); } catch (e) {}
+        if (document.body.contains(backdrop)) {
+          document.body.removeChild(backdrop);
+        }
+        if (onVerified) onVerified();
+      };
+    }
+
+    const exitBtn = content.querySelector('#btn-exit-age-18');
+    if (exitBtn) {
+      exitBtn.onclick = () => {
+        window.location.href = 'https://www.google.com';
+      };
+    }
   }
 
   // 6. Main App Controller
