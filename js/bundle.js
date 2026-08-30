@@ -479,6 +479,7 @@
                       <div style="margin: 1.5rem auto; text-align: center; max-width: 100%; overflow: hidden; display: flex; flex-direction: column; align-items: center; justify-content: center;">
                         <span style="font-size: 0.65rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px;">ADVERTISEMENT</span>
                         <ins class="eas6a97888e2" data-zoneid="6014788"></ins>
+                        <ins class="eas6a97888e37" data-zoneid="6015136" style="margin-top: 1rem;"></ins>
                       </div>
                       <div class="paywall-card" style="margin: 2rem 1rem 3rem 1rem;">
                         <div class="paywall-icon"><i class="ph-lock"></i></div>
@@ -519,6 +520,7 @@
                     <div style="margin: 1.5rem auto; text-align: center; max-width: 100%; overflow: hidden; display: flex; flex-direction: column; align-items: center; justify-content: center;">
                       <span style="font-size: 0.65rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px;">ADVERTISEMENT</span>
                       <ins class="eas6a97888e2" data-zoneid="6014788"></ins>
+                      <ins class="eas6a97888e37" data-zoneid="6015136" style="margin-top: 1rem;"></ins>
                     </div>
                     <div style="width: 90%; max-width: 600px; margin: 2rem auto 2rem auto; background: linear-gradient(135deg, rgba(16,185,129,0.15), rgba(6,182,212,0.15)); border: 1px solid var(--emerald); border-radius: var(--radius-lg); padding: 2rem 1rem; text-align: center; box-sizing: border-box;">
                       <div style="width: 50px; height: 50px; border-radius: 50%; background: rgba(16,185,129,0.2); color: #34d399; display: flex; align-items: center; justify-content: center; font-size: 1.6rem; margin: 0 auto 1rem auto;">
