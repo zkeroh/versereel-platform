@@ -437,7 +437,9 @@
 
       overlay.innerHTML = `
         <!-- ExoClick Instant Message Zone 6015134 inside comic reader -->
-        <ins class="eas6a97888e6" data-zoneid="6015134"></ins>
+        <div style="position: fixed; bottom: 20px; right: 20px; z-index: 1000000; pointer-events: auto;">
+          <ins class="eas6a97888e6" data-zoneid="6015134"></ins>
+        </div>
 
         <!-- Top Navbar -->
         <header class="reader-navbar">
@@ -750,18 +752,17 @@
           };
         }
       }
-      // Trigger ExoClick Ad Serving if present
-      setTimeout(() => {
-        try {
-          if (window.AdProvider) {
-            (window.AdProvider = window.AdProvider || []).push({"serve": {}});
-          }
-        } catch (e) {}
-      }, 200);
-    }
-
-    renderReader();
     document.body.appendChild(overlay);
+    renderReader();
+
+    // Trigger ExoClick Ad Serving inside comic reader overlay
+    setTimeout(() => {
+      try {
+        if (window.AdProvider) {
+          (window.AdProvider = window.AdProvider || []).push({"serve": {}});
+        }
+      } catch (e) {}
+    }, 300);
     if (!window.location.search.includes('comic=' + item.id)) {
       history.pushState({}, '', '?comic=' + item.id);
     }
