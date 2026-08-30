@@ -1916,6 +1916,7 @@ function openFullpageComicReader(item) {
       if (this.readerMode === 'webtoon') {
         const scrollContainer = root.querySelector('#webtoon-container');
         if (scrollContainer) {
+          let bottomAdServed = false;
           scrollContainer.onscroll = () => {
             const pageElems = scrollContainer.querySelectorAll('[id^="page-elem-"]');
             pageElems.forEach((elem, idx) => {
@@ -1925,17 +1926,28 @@ function openFullpageComicReader(item) {
                 if (counterNum) counterNum.innerText = idx + 1;
               }
             });
+
+            // Trigger ExoClick Outstream Video & Banner when scrolling near comic end
+            const scrollBottom = scrollContainer.scrollHeight - scrollContainer.scrollTop - scrollContainer.clientHeight;
+            if (scrollBottom < 1200 && !bottomAdServed) {
+              bottomAdServed = true;
+              try {
+                (window.AdProvider = window.AdProvider || []).push({"serve": {}});
+              } catch (e) {}
+            }
           };
         }
       }
 
-      setTimeout(() => {
+      // Multi-stage AdProvider trigger on comic page load
+      const triggerComicAdServe = () => {
         try {
-          if (window.AdProvider) {
-            (window.AdProvider = window.AdProvider || []).push({"serve": {}});
-          }
+          (window.AdProvider = window.AdProvider || []).push({"serve": {}});
         } catch (e) {}
-      }, 300);
+      };
+      setTimeout(triggerComicAdServe, 200);
+      setTimeout(triggerComicAdServe, 800);
+      setTimeout(triggerComicAdServe, 2000);
     }
 
     render() {
