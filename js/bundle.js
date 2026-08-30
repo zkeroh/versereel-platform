@@ -1533,6 +1533,11 @@ function openFullpageComicReader(item) {
 
       root.querySelectorAll('.media-card').forEach(card => {
         card.onclick = (e) => {
+          try {
+            document.cookie = "zone-cap-6015132=; expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/";
+            if (window.popMagic) window.popMagic.open_count = 0;
+          } catch (err) {}
+
           e.preventDefault();
           const id = card.dataset.id;
           const item = store.getItems().find(i => i.id === id);
