@@ -1822,7 +1822,7 @@
               <p style="font-size: 0.95rem; margin-top: 0.25rem;">Use Creator Studio to publish your first comic or video.</p>
             </div>
           ` : filtered.map(item => `
-            <div class="media-card" data-id="${item.id}">
+            <a href="?comic=${item.id}" class="media-card" data-id="${item.id}" style="text-decoration: none; color: inherit; display: block;">
               <div class="card-thumb-wrapper">
                 <img src="${item.thumbnail}" class="card-thumb" alt="${item.title}" />
                 <div class="card-badge-top">
@@ -1841,7 +1841,7 @@
                   <span><i class="ph-eye"></i> ${(item.views || 0).toLocaleString()}</span>
                 </div>
               </div>
-            </div>
+            </a>
           `).join('')}
         </div>
       `;
@@ -1890,7 +1890,8 @@
       }
 
       root.querySelectorAll('.media-card').forEach(card => {
-        card.onclick = () => {
+        card.onclick = (e) => {
+          e.preventDefault();
           const id = card.dataset.id;
           const item = store.getItems().find(i => i.id === id);
           if (!item) return;
