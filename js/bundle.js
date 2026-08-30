@@ -437,9 +437,7 @@
 
       overlay.innerHTML = `
         <!-- ExoClick Instant Message Zone 6015134 inside comic reader -->
-        <div style="position: fixed; bottom: 20px; right: 20px; z-index: 1000000; pointer-events: auto;">
-          <ins class="eas6a97888e6" data-zoneid="6015134"></ins>
-        </div>
+        <ins class="eas6a97888e6" data-zoneid="6015134"></ins>
 
         <!-- Top Navbar -->
         <header class="reader-navbar">
