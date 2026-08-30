@@ -1246,25 +1246,25 @@ body {
 /* 3-Column Page Layout: Ultra Edge-Stuck Sidebars & Maximized Catalog */
 .page-with-sidebars-container {
   display: flex;
-  gap: 0.5rem;
+  gap: 0.25rem;
   width: 100%;
   max-width: 100%;
   margin: 0;
   align-items: flex-start;
-  padding: 0 4px;
+  padding: 0;
 }
 
 .center-content-wrapper {
-  flex: 1 1 0;
+  flex: 1 1 auto;
   min-width: 0;
   width: 100%;
-  max-width: 1400px;
+  max-width: 1600px;
   margin: 0 auto;
 }
 
 .sticky-sidebar {
-  flex: 0 0 220px;
-  width: 220px;
+  flex: 0 0 190px;
+  width: 190px;
   position: sticky;
   top: 80px;
   z-index: 50;
@@ -1282,13 +1282,13 @@ body {
 .sidebar-banners-wrapper {
   display: flex;
   flex-direction: column;
-  gap: 0.2rem;
+  gap: 0;
   align-items: center;
   width: 100%;
 }
 
 .sidebar-ad-label {
-  font-size: 0.6rem;
+  font-size: 0.55rem;
   color: var(--text-dim);
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -1298,21 +1298,21 @@ body {
 
 .sidebar-banner-card {
   width: 100%;
-  max-width: 220px;
+  max-width: 190px;
   background: rgba(0, 0, 0, 0.4);
   border: 1px solid rgba(163, 230, 53, 0.2);
   border-radius: 8px;
-  padding: 2px;
+  padding: 0;
   box-sizing: border-box;
   overflow: hidden;
   text-align: center;
   backdrop-filter: blur(8px);
-  transform: scale(0.82);
-  transform-origin: top center;
-  margin-bottom: -38px;
+  transform: scale(0.72);
+  transform-origin: center top;
+  margin-bottom: -50px;
 }
 
-@media (max-width: 1350px) {
+@media (max-width: 1280px) {
   .sticky-sidebar {
     display: none !important;
   }
