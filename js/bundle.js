@@ -479,15 +479,15 @@
                 if (isLocked && idx >= previewLimit) {
                   if (idx === previewLimit) {
                     return `
-                      <!-- Paywall End Ads: Outstream Video + Instant Message side-by-side -->
+                      <!-- Paywall End Ads: Outstream Video + Banner side-by-side -->
                       <div style="width: 100%; max-width: 900px; margin: 2rem auto 1rem auto; text-align: center;">
                         <span style="font-size: 0.65rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; display: block;">SPONSORED ADS</span>
                         <div style="display: flex; align-items: center; justify-content: center; gap: 1.5rem; flex-wrap: wrap;">
                           <div style="flex: 1 1 320px; max-width: 420px; width: 100%; background: rgba(0,0,0,0.4); padding: 0.75rem; border-radius: 12px; border: 1px solid rgba(163,230,53,0.3);">
                             <ins class="eas6a97888e37" data-zoneid="6015136"></ins>
                           </div>
-                          <div style="flex: 1 1 320px; max-width: 420px; width: 100%; background: rgba(0,0,0,0.4); padding: 0.75rem; border-radius: 12px; border: 1px solid rgba(163,230,53,0.3);">
-                            <ins class="eas6a97888e6" data-zoneid="6015134"></ins>
+                          <div style="flex: 1 1 320px; max-width: 420px; width: 100%; background: rgba(0,0,0,0.4); padding: 0.75rem; border-radius: 12px; border: 1px solid rgba(163,230,53,0.3); overflow: hidden;">
+                            <ins class="eas6a97888e2" data-zoneid="6014788"></ins>
                           </div>
                         </div>
                       </div>
@@ -542,15 +542,15 @@
                     </div>
                   </div>
                   ${!isLocked && idx === pages.length - 1 ? `
-                    <!-- End of Comic Ads: Outstream Video + Instant Message side-by-side -->
+                    <!-- End of Comic Ads: Outstream Video + Banner side-by-side -->
                     <div style="width: 100%; max-width: 900px; margin: 2rem auto 1rem auto; text-align: center;">
                       <span style="font-size: 0.65rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; display: block;">SPONSORED ADS</span>
                       <div style="display: flex; align-items: center; justify-content: center; gap: 1.5rem; flex-wrap: wrap;">
                         <div style="flex: 1 1 320px; max-width: 420px; width: 100%; background: rgba(0,0,0,0.4); padding: 0.75rem; border-radius: 12px; border: 1px solid rgba(163,230,53,0.3);">
                           <ins class="eas6a97888e37" data-zoneid="6015136"></ins>
                         </div>
-                        <div style="flex: 1 1 320px; max-width: 420px; width: 100%; background: rgba(0,0,0,0.4); padding: 0.75rem; border-radius: 12px; border: 1px solid rgba(163,230,53,0.3);">
-                          <ins class="eas6a97888e6" data-zoneid="6015134"></ins>
+                        <div style="flex: 1 1 320px; max-width: 420px; width: 100%; background: rgba(0,0,0,0.4); padding: 0.75rem; border-radius: 12px; border: 1px solid rgba(163,230,53,0.3); overflow: hidden;">
+                          <ins class="eas6a97888e2" data-zoneid="6014788"></ins>
                         </div>
                       </div>
                     </div>
