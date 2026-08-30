@@ -1335,15 +1335,40 @@ function openFullpageComicReader(item) {
 
     renderNavbar() {
       return `
-        <nav class="navbar">
+        <nav class="navbar" style="display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; padding: 0.75rem 1.5rem;">
           <div class="brand-logo" id="logo-btn" style="cursor: pointer; display: flex; align-items: center; gap: 0.6rem;">
             <img src="assets/logo.png" alt="Xzkero Logo" style="height: 40px; width: auto; object-fit: contain; filter: drop-shadow(0 0 12px rgba(163, 230, 53, 0.75));" />
           </div>
 
-          <div class="nav-links">
+          <div class="nav-links" style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;">
             <button class="nav-btn active" id="nav-audience-btn">
-              <i class="ph-compass"></i> Comics & Webtoons Catalog
+              <i class="ph-compass"></i> Comics Catalog
             </button>
+
+            <!-- Top Header Social Links -->
+            <div class="header-social-block" style="display: flex; align-items: center; gap: 0.5rem; background: rgba(0,0,0,0.5); border: 1px solid rgba(163, 230, 53, 0.35); padding: 0.35rem 0.85rem; border-radius: 20px; backdrop-filter: blur(8px);">
+              <span style="font-size: 0.76rem; color: #d9f99d; font-weight: 700; display: flex; align-items: center; gap: 0.3rem; white-space: nowrap;">
+                <i class="ph-heart-bold" style="color: var(--primary);"></i> Sígueme / Follow me:
+              </span>
+              <div style="display: flex; align-items: center; gap: 0.35rem;">
+                <!-- Patreon -->
+                <a href="https://patreon.com/zkero" target="_blank" rel="noopener noreferrer" title="Patreon" style="color: #ff424d; background: rgba(255,66,77,0.15); border: 1px solid rgba(255,66,77,0.4); padding: 4px 8px; border-radius: 6px; text-decoration: none; font-size: 0.78rem; font-weight: 700; display: inline-flex; align-items: center; gap: 4px; transition: all 0.2s;">
+                  <i class="ph-patreon-logo-bold" style="font-size: 0.95rem;"></i> <span class="social-text">Patreon</span>
+                </a>
+                <!-- X / Twitter -->
+                <a href="https://x.com/hZkeroh" target="_blank" rel="noopener noreferrer" title="X (Twitter)" style="color: #1da1f2; background: rgba(29,161,242,0.15); border: 1px solid rgba(29,161,242,0.4); padding: 4px 8px; border-radius: 6px; text-decoration: none; font-size: 0.78rem; font-weight: 700; display: inline-flex; align-items: center; gap: 4px; transition: all 0.2s;">
+                  <i class="ph-twitter-logo-bold" style="font-size: 0.95rem;"></i> <span class="social-text">X</span>
+                </a>
+                <!-- Instagram -->
+                <a href="https://www.instagram.com/zkero.h?igsi=MWt3M25mNG9oZDY4Zw%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" title="Instagram" style="color: #e1306c; background: rgba(225,48,108,0.15); border: 1px solid rgba(225,48,108,0.4); padding: 4px 8px; border-radius: 6px; text-decoration: none; font-size: 0.78rem; font-weight: 700; display: inline-flex; align-items: center; gap: 4px; transition: all 0.2s;">
+                  <i class="ph-instagram-logo-bold" style="font-size: 0.95rem;"></i> <span class="social-text">Instagram</span>
+                </a>
+                <!-- Telegram -->
+                <a href="https://t.me/xzkero" target="_blank" rel="noopener noreferrer" title="Telegram" style="color: #0088cc; background: rgba(0,136,204,0.15); border: 1px solid rgba(0,136,204,0.4); padding: 4px 8px; border-radius: 6px; text-decoration: none; font-size: 0.78rem; font-weight: 700; display: inline-flex; align-items: center; gap: 4px; transition: all 0.2s;">
+                  <i class="ph-telegram-logo-bold" style="font-size: 0.95rem;"></i> <span class="social-text">Telegram</span>
+                </a>
+              </div>
+            </div>
           </div>
 
           <div class="nav-actions">

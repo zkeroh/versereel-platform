@@ -1241,6 +1241,12 @@ body {
   .reader-bottom-bar {
     padding: 0 0.75rem;
   }
+  .header-social-block .social-text {
+    display: none;
+  }
+  .header-social-block {
+    padding: 0.25rem 0.5rem !important;
+  }
 }
 
 /* 3-Column Page Layout: Ultra Edge-Stuck Sidebars & Maximized Catalog */
