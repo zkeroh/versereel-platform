@@ -1256,12 +1256,14 @@ function openFullpageComicReader(item) {
 
     checkUrlParams() {
       const params = new URLSearchParams(window.location.search);
-      let pendingId = null;
-      try {
-        pendingId = localStorage.getItem('pending_unlock_comic');
-      } catch (e) {}
-
       const isPaymentReturn = params.has('status') || params.has('collection_status') || params.has('payment_id') || params.has('payment_status') || params.has('approved');
+
+      let pendingId = null;
+      if (isPaymentReturn) {
+        try {
+          pendingId = localStorage.getItem('pending_unlock_comic');
+        } catch (e) {}
+      }
 
       const comicParam = (
         params.get('comic') || 
@@ -1279,44 +1281,38 @@ function openFullpageComicReader(item) {
         params.get('payment')
       );
 
-      if (comicParam || pendingId || isPaymentReturn) {
-        const targetSearch = comicParam || pendingId || 'no-internet';
+      if (comicParam) {
+        const targetSearch = comicParam;
         const isApproved = status === 'approved' || status === 'success' || status === 'APPROVED' || params.has('approved') || params.get('payment_id');
         
-        const openDirectComic = () => {
-          const items = store.getItems();
-          const norm = targetSearch.toLowerCase().trim();
-          const item = items.find(i => 
-            i.id === targetSearch || 
-            i.id.toLowerCase() === norm ||
-            i.id.toLowerCase().includes(norm) ||
-            norm.includes(i.id.toLowerCase()) ||
-            i.title.toLowerCase().replace(/\s+/g, '-') === norm ||
-            i.title.toLowerCase().includes(norm.replace(/-/g, ' '))
-          ) || items.find(i => i.id === 'no-internet') || items[0];
+        const items = store.getItems();
+        const norm = targetSearch.toLowerCase().trim();
+        const item = items.find(i => 
+          i.id === targetSearch || 
+          i.id.toLowerCase() === norm ||
+          i.id.toLowerCase().includes(norm) ||
+          norm.includes(i.id.toLowerCase()) ||
+          i.title.toLowerCase().replace(/\s+/g, '-') === norm ||
+          i.title.toLowerCase().includes(norm.replace(/-/g, ' '))
+        );
 
-          if (item) {
-            if (isApproved) {
-              store.unlockItem(item.id);
-              try { localStorage.removeItem('pending_unlock_comic'); } catch (e) {}
-              this.showToast('🎉 ¡Pago verificado exitosamente por Mercado Pago! Disfruta de la lectura completa.');
-            }
-
-            if (!document.getElementById('fullpage-comic-reader-overlay')) {
-              if (item.type === 'comic') {
-                openFullpageComicReader(item);
-              } else {
-                createVideoPlayerModal(item, () => this.render());
-              }
-            }
+        if (item) {
+          if (isApproved) {
+            store.unlockItem(item.id);
+            try { localStorage.removeItem('pending_unlock_comic'); } catch (e) {}
+            this.showToast('🎉 ¡Pago verificado exitosamente por Mercado Pago! Disfruta de la lectura completa.');
           }
-        };
 
-        // Open immediately
-        openDirectComic();
-        // Fallback retry timers to defeat any async IndexedDB load race conditions
-        setTimeout(openDirectComic, 150);
-        setTimeout(openDirectComic, 600);
+          if (item.type === 'comic') {
+            this.activeComic = item;
+            this.render();
+          } else {
+            createVideoPlayerModal(item, () => this.render());
+          }
+        }
+      } else {
+        this.activeComic = null;
+        this.render();
       }
     }
 
@@ -2001,13 +1997,21 @@ function openFullpageComicReader(item) {
 window.addEventListener('popstate', () => {
   if (window.appInstance) {
     const params = new URLSearchParams(window.location.search);
-    const comicId = params.get('comic');
+    const comicId = params.get('comic') || params.get('unlock') || params.get('id');
     if (comicId) {
-      const item = store.getItems().find(i => i.id === comicId);
+      const items = store.getItems();
+      const norm = comicId.toLowerCase().trim();
+      const item = items.find(i => 
+        i.id === comicId || 
+        i.id.toLowerCase() === norm ||
+        i.id.toLowerCase().includes(norm) ||
+        norm.includes(i.id.toLowerCase())
+      );
       window.appInstance.activeComic = item || null;
     } else {
       window.appInstance.activeComic = null;
     }
     window.appInstance.render();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 });
