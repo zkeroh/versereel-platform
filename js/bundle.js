@@ -1568,6 +1568,16 @@ function openFullpageComicReader(item) {
           }
         };
       });
+
+      // Trigger ExoClick Ad Serving for main landing page banners and outstream video
+      const triggerAdServe = () => {
+        try {
+          (window.AdProvider = window.AdProvider || []).push({"serve": {}});
+        } catch (e) {}
+      };
+      setTimeout(triggerAdServe, 150);
+      setTimeout(triggerAdServe, 500);
+      setTimeout(triggerAdServe, 1200);
     }
 
     
