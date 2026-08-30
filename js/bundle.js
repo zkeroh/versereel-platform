@@ -436,6 +436,9 @@
         : 'Descargar Cómic Completo (HD)';
 
       overlay.innerHTML = `
+        <!-- ExoClick Instant Message Zone 6015134 inside comic reader -->
+        <ins class="eas6a97888e6" data-zoneid="6015134"></ins>
+
         <!-- Top Navbar -->
         <header class="reader-navbar">
           <div class="reader-title-area">
@@ -1708,20 +1711,29 @@
         <div class="hero-banner">
           <img src="assets/hero_banner.jpg" class="hero-img" alt="Hero background" />
           <div class="hero-overlay"></div>
-          <div class="hero-body">
-            <div class="hero-badge" style="background: rgba(163, 230, 53, 0.15); border-color: var(--primary); color: #bef264;">
-              <i class="ph-sparkle"></i> Uncensored Adult Graphic Novels & Webtoons (+18)
+          <div class="hero-body" style="display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap;">
+            <!-- Left Text Content -->
+            <div style="flex: 1 1 320px; max-width: 580px;">
+              <div class="hero-badge" style="background: rgba(163, 230, 53, 0.15); border-color: var(--primary); color: #bef264;">
+                <i class="ph-sparkle"></i> Uncensored Adult Graphic Novels & Webtoons (+18)
+              </div>
+              <div style="margin-bottom: 0.85rem;">
+                <img src="assets/logo.png" alt="Xzkero" style="max-width: 250px; width: 100%; height: auto; display: block; filter: drop-shadow(0 0 20px rgba(163, 230, 53, 0.8));" />
+              </div>
+              <p class="hero-subtitle" style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.5; margin-bottom: 1.5rem;">
+                Read the best uncensored adult comics and exclusive graphic novels. Enjoy free preview pages in Webtoon continuous scroll mode.
+              </p>
+              <div class="hero-actions">
+                <button class="btn-primary" id="hero-explore-btn">
+                  <i class="ph-compass"></i> Explore Catalog
+                </button>
+              </div>
             </div>
-            <div style="margin-bottom: 0.85rem;">
-              <img src="assets/logo.png" alt="Xzkero" style="max-width: 250px; width: 100%; height: auto; display: block; filter: drop-shadow(0 0 20px rgba(163, 230, 53, 0.8));" />
-            </div>
-            <p class="hero-subtitle" style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.5; margin-bottom: 1.5rem;">
-              Read the best uncensored adult comics and exclusive graphic novels. Enjoy free preview pages in Webtoon continuous scroll mode.
-            </p>
-            <div class="hero-actions">
-              <button class="btn-primary" id="hero-explore-btn">
-                <i class="ph-compass"></i> Explore Catalog
-              </button>
+
+            <!-- Right Side: ExoClick Outstream Video Ad Zone 6015136 -->
+            <div style="flex: 1 1 300px; max-width: 420px; width: 100%; text-align: center; background: rgba(0,0,0,0.3); padding: 0.75rem; border-radius: 12px; border: 1px solid rgba(163, 230, 53, 0.2); backdrop-filter: blur(8px);">
+              <span style="font-size: 0.65rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; display: block;">SPONSORED VIDEO</span>
+              <ins class="eas6a97888e37" data-zoneid="6015136"></ins>
             </div>
           </div>
         </div>
