@@ -479,11 +479,19 @@
                 if (isLocked && idx >= previewLimit) {
                   if (idx === previewLimit) {
                     return `
-                      <div style="margin: 1.5rem auto; text-align: center; max-width: 100%; overflow: hidden; display: flex; flex-direction: column; align-items: center; justify-content: center;">
-                        <span style="font-size: 0.65rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px;">ADVERTISEMENT</span>
-                        <ins class="eas6a97888e2" data-zoneid="6014788"></ins>
-                        <ins class="eas6a97888e37" data-zoneid="6015136" style="margin-top: 1rem;"></ins>
+                      <!-- Paywall End Ads: Outstream Video + Instant Message side-by-side -->
+                      <div style="width: 100%; max-width: 900px; margin: 2rem auto 1rem auto; text-align: center;">
+                        <span style="font-size: 0.65rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; display: block;">SPONSORED ADS</span>
+                        <div style="display: flex; align-items: center; justify-content: center; gap: 1.5rem; flex-wrap: wrap;">
+                          <div style="flex: 1 1 320px; max-width: 420px; width: 100%; background: rgba(0,0,0,0.4); padding: 0.75rem; border-radius: 12px; border: 1px solid rgba(163,230,53,0.3);">
+                            <ins class="eas6a97888e37" data-zoneid="6015136"></ins>
+                          </div>
+                          <div style="flex: 1 1 320px; max-width: 420px; width: 100%; background: rgba(0,0,0,0.4); padding: 0.75rem; border-radius: 12px; border: 1px solid rgba(163,230,53,0.3);">
+                            <ins class="eas6a97888e6" data-zoneid="6015134"></ins>
+                          </div>
+                        </div>
                       </div>
+
                       <div class="paywall-card" style="margin: 2rem 1rem 3rem 1rem;">
                         <div class="paywall-icon"><i class="ph-lock"></i></div>
                         <h2 style="color:#fff; font-size:1.4rem; font-weight:800;">${txtPaywallTitle}</h2>
@@ -513,6 +521,20 @@
                   return '';
                 }
                 return `
+                  ${idx === 0 ? `
+                    <!-- 2 Side-by-Side Banners before Page 1 -->
+                    <div style="width: 100%; max-width: 900px; margin: 1.25rem auto 1.5rem auto; text-align: center;">
+                      <span style="font-size: 0.65rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; display: block;">SPONSORED BANNERS</span>
+                      <div style="display: flex; align-items: center; justify-content: center; gap: 1.25rem; flex-wrap: wrap;">
+                        <div style="flex: 1 1 300px; max-width: 320px; overflow: hidden; background: rgba(0,0,0,0.3); padding: 0.5rem; border-radius: 10px; border: 1px solid rgba(163,230,53,0.2);">
+                          <ins class="eas6a97888e2" data-zoneid="6014788"></ins>
+                        </div>
+                        <div style="flex: 1 1 300px; max-width: 320px; overflow: hidden; background: rgba(0,0,0,0.3); padding: 0.5rem; border-radius: 10px; border: 1px solid rgba(163,230,53,0.2);">
+                          <ins class="eas6a97888e2" data-zoneid="6014788"></ins>
+                        </div>
+                      </div>
+                    </div>
+                  ` : ''}
                   <div style="width:100%; position:relative;" id="page-elem-${idx}">
                     <img src="${pageUrl}" class="webtoon-page-img" alt="${txtPageWord} ${idx + 1}" loading="lazy" />
                     <div style="position:absolute; bottom:8px; right:12px; background:rgba(0,0,0,0.6); color:rgba(255,255,255,0.7); font-size:0.7rem; padding:2px 6px; border-radius:4px;">
@@ -520,11 +542,19 @@
                     </div>
                   </div>
                   ${!isLocked && idx === pages.length - 1 ? `
-                    <div style="margin: 1.5rem auto; text-align: center; max-width: 100%; overflow: hidden; display: flex; flex-direction: column; align-items: center; justify-content: center;">
-                      <span style="font-size: 0.65rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px;">ADVERTISEMENT</span>
-                      <ins class="eas6a97888e2" data-zoneid="6014788"></ins>
-                      <ins class="eas6a97888e37" data-zoneid="6015136" style="margin-top: 1rem;"></ins>
+                    <!-- End of Comic Ads: Outstream Video + Instant Message side-by-side -->
+                    <div style="width: 100%; max-width: 900px; margin: 2rem auto 1rem auto; text-align: center;">
+                      <span style="font-size: 0.65rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; display: block;">SPONSORED ADS</span>
+                      <div style="display: flex; align-items: center; justify-content: center; gap: 1.5rem; flex-wrap: wrap;">
+                        <div style="flex: 1 1 320px; max-width: 420px; width: 100%; background: rgba(0,0,0,0.4); padding: 0.75rem; border-radius: 12px; border: 1px solid rgba(163,230,53,0.3);">
+                          <ins class="eas6a97888e37" data-zoneid="6015136"></ins>
+                        </div>
+                        <div style="flex: 1 1 320px; max-width: 420px; width: 100%; background: rgba(0,0,0,0.4); padding: 0.75rem; border-radius: 12px; border: 1px solid rgba(163,230,53,0.3);">
+                          <ins class="eas6a97888e6" data-zoneid="6015134"></ins>
+                        </div>
+                      </div>
                     </div>
+
                     <div style="width: 90%; max-width: 600px; margin: 2rem auto 2rem auto; background: linear-gradient(135deg, rgba(16,185,129,0.15), rgba(6,182,212,0.15)); border: 1px solid var(--emerald); border-radius: var(--radius-lg); padding: 2rem 1rem; text-align: center; box-sizing: border-box;">
                       <div style="width: 50px; height: 50px; border-radius: 50%; background: rgba(16,185,129,0.2); color: #34d399; display: flex; align-items: center; justify-content: center; font-size: 1.6rem; margin: 0 auto 1rem auto;">
                         <i class="ph-check-circle"></i>
