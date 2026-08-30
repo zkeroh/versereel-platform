@@ -1699,6 +1699,9 @@ function openFullpageComicReader(item) {
                                 </button>
                               ` : ''}
                             `}
+                            <button type="button" id="paywall-confirm-paypal-btn" style="background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid var(--emerald); font-size: 0.85rem; padding: 0.65rem; font-weight: 700; width: 100%; border-radius: var(--radius-md); cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 0.4rem; margin-top: 0.35rem;">
+                              <i class="ph-check-circle-bold"></i> ${isEn ? 'Already paid on PayPal? Click here to unlock' : '¿Ya realizaste tu pago? Haz clic aquí para desbloquear'}
+                            </button>
                           </div>
                         </div>
                       `;
@@ -1885,6 +1888,16 @@ function openFullpageComicReader(item) {
           try { localStorage.setItem('pending_unlock_comic', item.id); } catch (e) {}
           const paypalUri = item.paypalUrl || item.paypalLink;
           if (paypalUri) window.open(paypalUri, '_blank');
+        };
+      }
+
+      const confirmPaypalBtn = root.querySelector('#paywall-confirm-paypal-btn');
+      if (confirmPaypalBtn) {
+        confirmPaypalBtn.onclick = () => {
+          store.unlockItem(item.id);
+          try { localStorage.removeItem('pending_unlock_comic'); } catch (e) {}
+          this.showToast('🎉 ¡Pago verificado! Disfruta de la lectura completa del cómic.');
+          this.render();
         };
       }
 
