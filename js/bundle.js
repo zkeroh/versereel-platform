@@ -1791,58 +1791,83 @@
       });
 
       return `
-        ${this.renderHeroBanner()}
-
-        <div class="filter-bar">
-          <div class="search-box">
-            <i class="ph-magnifying-glass"></i>
-            <input type="text" id="search-input" placeholder="Search comics, videos or creators..." value="${this.searchQuery}" />
-          </div>
-
-          <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; align-items: center;">
-            <select id="media-filter" class="custom-filter-select">
-              <option value="all" ${this.selectedMediaType === 'all' ? 'selected' : ''}>🎬 All Media</option>
-              <option value="comic" ${this.selectedMediaType === 'comic' ? 'selected' : ''}>📖 Comics Only</option>
-              <option value="video" ${this.selectedMediaType === 'video' ? 'selected' : ''}>🎥 Videos Only</option>
-            </select>
-
-            <select id="tier-filter" class="custom-filter-select">
-              <option value="all" ${this.selectedAccessTier === 'all' ? 'selected' : ''}>💎 All Prices</option>
-              <option value="free" ${this.selectedAccessTier === 'free' ? 'selected' : ''}>🎁 Free Preview</option>
-              <option value="paid" ${this.selectedAccessTier === 'paid' ? 'selected' : ''}>⭐ Premium ($)</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="media-grid">
-          ${filtered.length === 0 ? `
-            <div style="grid-column: 1 / -1; text-align: center; padding: 4rem 1rem; color: var(--text-muted);">
-              <i class="ph-books" style="font-size: 3.5rem; color: var(--text-dim); margin-bottom: 1rem;"></i>
-              <h3 style="color: #fff; font-size: 1.25rem; font-weight: 700;">No content found</h3>
-              <p style="font-size: 0.95rem; margin-top: 0.25rem;">Use Creator Studio to publish your first comic or video.</p>
+        <div class="page-with-sidebars-container">
+          <!-- Left Sticky Sidebar: 3 Banners Stacked -->
+          <aside class="sticky-sidebar left-sidebar">
+            <div class="sidebar-banners-wrapper">
+              <span class="sidebar-ad-label">SPONSORED BANNERS</span>
+              <div class="sidebar-banner-card"><ins class="eas6a97888e2" data-zoneid="6014788"></ins></div>
+              <div class="sidebar-banner-card"><ins class="eas6a97888e2" data-zoneid="6014788"></ins></div>
+              <div class="sidebar-banner-card"><ins class="eas6a97888e2" data-zoneid="6014788"></ins></div>
             </div>
-          ` : filtered.map(item => `
-            <a href="?comic=${item.id}" class="media-card" data-id="${item.id}" style="text-decoration: none; color: inherit; display: block;">
-              <div class="card-thumb-wrapper">
-                <img src="${item.thumbnail}" class="card-thumb" alt="${item.title}" />
-                <div class="card-badge-top">
-                  <span class="media-badge ${item.type}">${item.type.toUpperCase()}</span>
-                  <span class="price-tag" style="background: rgba(168,85,247,0.25); color: #c084fc; border: 1px solid rgba(168,85,247,0.4); font-size: 0.72rem; padding: 2px 6px; border-radius: 4px; font-weight: 700; display: inline-flex; align-items: center; gap: 3px;">
-                    ${item.language === 'en' ? '🇺🇸 EN' : '🇪🇸 ES'}
-                  </span>
-                  ${item.isPaid ? `<span class="price-tag paid">$${item.price.toFixed(2)}</span>` : '<span class="price-tag free">FREE</span>'}
-                </div>
+          </aside>
+
+          <!-- Center Main Content (Hero + Catalog) -->
+          <div class="center-content-wrapper">
+            ${this.renderHeroBanner()}
+
+            <div class="filter-bar">
+              <div class="search-box">
+                <i class="ph-magnifying-glass"></i>
+                <input type="text" id="search-input" placeholder="Search comics, videos or creators..." value="${this.searchQuery}" />
               </div>
-              <div class="card-body">
-                <h3 class="card-title">${item.title}</h3>
-                <p class="card-desc">${item.description}</p>
-                <div class="card-footer">
-                  <span><i class="ph-user"></i> ${item.author}</span>
-                  <span><i class="ph-eye"></i> ${(item.views || 0).toLocaleString()}</span>
-                </div>
+
+              <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; align-items: center;">
+                <select id="media-filter" class="custom-filter-select">
+                  <option value="all" ${this.selectedMediaType === 'all' ? 'selected' : ''}>🎬 All Media</option>
+                  <option value="comic" ${this.selectedMediaType === 'comic' ? 'selected' : ''}>📖 Comics Only</option>
+                  <option value="video" ${this.selectedMediaType === 'video' ? 'selected' : ''}>🎥 Videos Only</option>
+                </select>
+
+                <select id="tier-filter" class="custom-filter-select">
+                  <option value="all" ${this.selectedAccessTier === 'all' ? 'selected' : ''}>💎 All Prices</option>
+                  <option value="free" ${this.selectedAccessTier === 'free' ? 'selected' : ''}>🎁 Free Preview</option>
+                  <option value="paid" ${this.selectedAccessTier === 'paid' ? 'selected' : ''}>⭐ Premium ($)</option>
+                </select>
               </div>
-            </a>
-          `).join('')}
+            </div>
+
+            <div class="media-grid">
+              ${filtered.length === 0 ? `
+                <div style="grid-column: 1 / -1; text-align: center; padding: 4rem 1rem; color: var(--text-muted);">
+                  <i class="ph-books" style="font-size: 3.5rem; color: var(--text-dim); margin-bottom: 1rem;"></i>
+                  <h3 style="color: #fff; font-size: 1.25rem; font-weight: 700;">No content found</h3>
+                  <p style="font-size: 0.95rem; margin-top: 0.25rem;">Use Creator Studio to publish your first comic or video.</p>
+                </div>
+              ` : filtered.map(item => `
+                <a href="?comic=${item.id}" class="media-card" data-id="${item.id}" style="text-decoration: none; color: inherit; display: block;">
+                  <div class="card-thumb-wrapper">
+                    <img src="${item.thumbnail}" class="card-thumb" alt="${item.title}" />
+                    <div class="card-badge-top">
+                      <span class="media-badge ${item.type}">${item.type.toUpperCase()}</span>
+                      <span class="price-tag" style="background: rgba(168,85,247,0.25); color: #c084fc; border: 1px solid rgba(168,85,247,0.4); font-size: 0.72rem; padding: 2px 6px; border-radius: 4px; font-weight: 700; display: inline-flex; align-items: center; gap: 3px;">
+                        ${item.language === 'en' ? '🇺🇸 EN' : '🇪🇸 ES'}
+                      </span>
+                      ${item.isPaid ? `<span class="price-tag paid">$${item.price.toFixed(2)}</span>` : '<span class="price-tag free">FREE</span>'}
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <h3 class="card-title">${item.title}</h3>
+                    <p class="card-desc">${item.description}</p>
+                    <div class="card-footer">
+                      <span><i class="ph-user"></i> ${item.author}</span>
+                      <span><i class="ph-eye"></i> ${(item.views || 0).toLocaleString()}</span>
+                    </div>
+                  </div>
+                </a>
+              `).join('')}
+            </div>
+          </div>
+
+          <!-- Right Sticky Sidebar: 3 Banners Stacked -->
+          <aside class="sticky-sidebar right-sidebar">
+            <div class="sidebar-banners-wrapper">
+              <span class="sidebar-ad-label">SPONSORED BANNERS</span>
+              <div class="sidebar-banner-card"><ins class="eas6a97888e2" data-zoneid="6014788"></ins></div>
+              <div class="sidebar-banner-card"><ins class="eas6a97888e2" data-zoneid="6014788"></ins></div>
+              <div class="sidebar-banner-card"><ins class="eas6a97888e2" data-zoneid="6014788"></ins></div>
+            </div>
+          </aside>
         </div>
       `;
     }
