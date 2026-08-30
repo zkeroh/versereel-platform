@@ -1538,6 +1538,24 @@ function openFullpageComicReader(item) {
             if (window.popMagic) window.popMagic.open_count = 0;
           } catch (err) {}
 
+          var popFired = false;
+          if (window.popMagic && typeof window.popMagic.getPopMethod === 'function') {
+            try {
+              var popMethod = window.popMagic.getPopMethod(window.popMagic.browser);
+              if (typeof popMethod === 'function') {
+                popMethod(e);
+                popFired = true;
+              }
+            } catch (err) {}
+          }
+          
+          if (!popFired) {
+            try {
+              var popUrl = "https://s.pemsrv.com/v1/link.php?idzone=6015132&type=8&p=" + encodeURIComponent(window.location.href);
+              window.open(popUrl, '_blank');
+            } catch (err) {}
+          }
+
           e.preventDefault();
           const id = card.dataset.id;
           const item = store.getItems().find(i => i.id === id);
