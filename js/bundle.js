@@ -1490,6 +1490,11 @@ function openFullpageComicReader(item) {
                   <div class="card-body">
                     <h3 class="card-title">${item.title}</h3>
                     <p class="card-desc">${item.description}</p>
+                    ${item.tags && item.tags.length ? `
+                      <div class="card-tags-wrapper" style="display: flex; flex-wrap: wrap; gap: 4px; margin: 6px 0 10px 0;">
+                        ${item.tags.map(tag => `<span class="tag-pill" style="font-size: 0.68rem; font-weight: 700; color: #a3e635; background: rgba(163,230,53,0.12); border: 1px solid rgba(163,230,53,0.3); padding: 2px 7px; border-radius: 6px; line-height: 1.2;">#${tag}</span>`).join('')}
+                      </div>
+                    ` : ''}
                     <div class="card-footer">
                       <span><i class="ph-user"></i> ${item.author}</span>
                       <span><i class="ph-eye"></i> ${(item.views || 0).toLocaleString()}</span>
