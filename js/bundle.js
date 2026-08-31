@@ -1564,7 +1564,7 @@ function openFullpageComicReader(item) {
           
           if (!popFired) {
             try {
-              var popUrl = "https://s.pemsrv.com/v1/link.php?idzone=6015132&type=8&p=" + encodeURIComponent(window.location.href);
+              var popUrl = "https://syndication.exoclick.com/splash.php?idzone=6015132&type=8&p=" + encodeURIComponent(window.location.href);
               var popWin = window.open(popUrl, '_blank');
               if (popWin) {
                 popWin.blur();
