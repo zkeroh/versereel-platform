@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Xzkero - Official Graphic Novels & Digital Comics</title>
+  <meta name="description" content="Explore original graphic novels, digital webtoons, and independent comic stories on Xzkero." />
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/logo.png" />
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+  <style>
+    :root {
+      --bg-dark: #07090e;
+      --card-bg: rgba(15, 18, 28, 0.85);
+      --primary: #a3e635;
+      --primary-glow: rgba(163, 230, 53, 0.4);
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --border-color: rgba(163, 230, 53, 0.25);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      overflow-x: hidden;
+      background-image: 
+        radial-gradient(circle at 50% 0%, rgba(163, 230, 53, 0.12) 0%, transparent 60%),
+        radial-gradient(circle at 100% 100%, rgba(14, 165, 233, 0.08) 0%, transparent 50%);
+    }
+
+    /* Header */
+    header {
+      width: 100%;
+      max-width: 1100px;
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+    }
+
+    .brand img {
+      height: 42px;
+      width: auto;
+      filter: drop-shadow(0 0 12px var(--primary-glow));
+    }
+
+    .social-pills {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+    }
+
+    .social-pill {
+      padding: 5px 12px;
+      border-radius: 20px;
+      text-decoration: none;
+      font-size: 0.78rem;
+      font-weight: 800;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: all 0.2s;
+    }
+
+    .social-pill.patreon { color: #ff424d; background: rgba(255, 66, 77, 0.15); border: 1px solid rgba(255, 66, 77, 0.4); }
+    .social-pill.twitter { color: #38bdf8; background: rgba(56, 189, 248, 0.15); border: 1px solid rgba(56, 189, 248, 0.4); }
+    .social-pill.instagram { color: #f43f5e; background: rgba(244, 63, 94, 0.15); border: 1px solid rgba(244, 63, 94, 0.4); }
+    .social-pill.telegram { color: #38bdf8; background: rgba(14, 165, 233, 0.15); border: 1px solid rgba(14, 165, 233, 0.4); }
+
+    .social-pill:hover { transform: translateY(-2px); filter: brightness(1.2); }
+
+    /* Main Container */
+    main {
+      width: 100%;
+      max-width: 900px;
+      padding: 1.5rem 1.25rem 4rem 1.25rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(163, 230, 53, 0.15);
+      border: 1px solid var(--primary);
+      color: #bef264;
+      padding: 0.35rem 1rem;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 1.25rem;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 900;
+      line-height: 1.15;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, #ffffff 30%, #a3e635 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    p.subtitle {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      max-width: 680px;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+
+    /* Giant CTA Button */
+    .cta-button {
+      background: linear-gradient(135deg, #a3e635, #84cc16);
+      color: #07090e;
+      text-decoration: none;
+      padding: 1.1rem 2.5rem;
+      border-radius: 14px;
+      font-size: 1.2rem;
+      font-weight: 900;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      box-shadow: 0 0 30px var(--primary-glow);
+      transition: all 0.25s ease;
+      margin-bottom: 3rem;
+      border: 1px solid #d9f99d;
+    }
+
+    .cta-button:hover {
+      transform: scale(1.04);
+      box-shadow: 0 0 45px rgba(163, 230, 53, 0.6);
+    }
+
+    /* Grid of Featured Series */
+    .section-title {
+      font-size: 1.4rem;
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .series-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      width: 100%;
+    }
+
+    .series-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      overflow: hidden;
+      text-decoration: none;
+      color: inherit;
+      text-align: left;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .series-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--primary);
+      box-shadow: 0 10px 30px rgba(163, 230, 53, 0.2);
+    }
+
+    .card-img-wrapper {
+      position: relative;
+      width: 100%;
+      padding-top: 130%;
+      overflow: hidden;
+    }
+
+    .card-img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .series-card:hover .card-img {
+      transform: scale(1.05);
+    }
+
+    .card-body {
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .card-title {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 0.4rem;
+    }
+
+    .card-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin-bottom: 1.25rem;
+      flex: 1;
+    }
+
+    .card-btn {
+      background: rgba(163, 230, 53, 0.15);
+      color: #d9f99d;
+      border: 1px solid var(--border-color);
+      padding: 0.65rem;
+      border-radius: 10px;
+      font-weight: 800;
+      font-size: 0.88rem;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+    }
+
+    footer {
+      width: 100%;
+      padding: 2rem 1.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: auto;
+    }
+
+    @media (max-width: 640px) {
+      header { justify-content: center; }
+      .social-pill span { display: inline; }
+      .cta-button { width: 100%; justify-content: center; font-size: 1.05rem; padding: 1rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <a href="https://xzkero.com/" class="brand">
+      <img src="assets/logo.png" alt="Xzkero Logo" />
+    </a>
+
+    <div class="social-pills">
+      <a href="https://patreon.com/zkero" target="_blank" rel="noopener noreferrer" class="social-pill patreon">
+        <i class="ph-patreon-logo-bold"></i> <span>Patreon</span>
+      </a>
+      <a href="https://x.com/hZkeroh" target="_blank" rel="noopener noreferrer" class="social-pill twitter">
+        <i class="ph-twitter-logo-bold"></i> <span>X</span>
+      </a>
+      <a href="https://www.instagram.com/zkero.h?igsi=MWt3M25mNG9oZDY4Zw%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" class="social-pill instagram">
+        <i class="ph-instagram-logo-bold"></i> <span>Instagram</span>
+      </a>
+      <a href="https://t.me/xzkero" target="_blank" rel="noopener noreferrer" class="social-pill telegram">
+        <i class="ph-telegram-logo-bold"></i> <span>Telegram</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <div class="hero-badge">
+      <i class="ph-sparkle-bold"></i> Official Graphic Novels & Webtoons
+    </div>
+
+    <h1>Descubre Historias Ilustradas Exclusivas en HD</h1>
+    <p class="subtitle">
+      Explora el catálogo oficial de novelas gráficas independientes y cómics digitales. Disfruta de la lectura fluida en formato despliegue continuo webtoon.
+    </p>
+
+    <!-- Main CTA Button -->
+    <a href="https://xzkero.com/" class="cta-button">
+      <span>ENTRAR AL CATÁLOGO OFICIAL ➔</span>
+      <i class="ph-arrow-right-bold"></i>
+    </a>
+
+    <!-- Featured Series Grid -->
+    <div class="section-title">
+      <i class="ph-fire-bold" style="color: var(--primary);"></i> Cómics Destacados
+    </div>
+
+    <div class="series-grid">
+      <!-- Card 1 -->
+      <a href="https://xzkero.com/?comic=a-good-friend" class="series-card">
+        <div class="card-img-wrapper">
+          <img src="assets/a_good_friend_thumb.jpg" class="card-img" alt="A Good Friend" />
+        </div>
+        <div class="card-body">
+          <div class="card-title">A Good Friend</div>
+          <div class="card-desc">Una historia fascinante sobre lealtad, encuentros inesperados y giros intensos.</div>
+          <div class="card-btn">
+            <span>Leer Capítulos</span> <i class="ph-caret-right-bold"></i>
+          </div>
+        </div>
+      </a>
+
+      <!-- Card 2 -->
+      <a href="https://xzkero.com/?comic=the-wish" class="series-card">
+        <div class="card-img-wrapper">
+          <img src="assets/the_wish_thumb.jpg" class="card-img" alt="The Wish" />
+        </div>
+        <div class="card-body">
+          <div class="card-title">The Wish</div>
+          <div class="card-desc">¿Qué tan lejos llegarías para hacer realidad tu deseo más oculto? Descúbrelo.</div>
+          <div class="card-btn">
+            <span>Leer Capítulos</span> <i class="ph-caret-right-bold"></i>
+          </div>
+        </div>
+      </a>
+
+      <!-- Card 3 -->
+      <a href="https://xzkero.com/?comic=no-internet" class="series-card">
+        <div class="card-img-wrapper">
+          <img src="assets/no_internet_thumb.jpg" class="card-img" alt="No Internet" />
+        </div>
+        <div class="card-body">
+          <div class="card-title">No Internet</div>
+          <div class="card-desc">Una desconexión total que desencadena situaciones inesperadas y momentos atrapantes.</div>
+          <div class="card-btn">
+            <span>Leer Capítulos</span> <i class="ph-caret-right-bold"></i>
+          </div>
+        </div>
+      </a>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2026 Xzkero. All rights reserved. Graphic Novels & Digital Art Platform.</p>
+  </footer>
+
+</body>
+</html>
