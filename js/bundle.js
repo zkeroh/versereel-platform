@@ -39,7 +39,7 @@
       thumbnail: "assets/G0.jpg",
       pages: Array.from({ length: 20 }, (_, i) => `assets/G${i}.jpg`),
       views: 5240,
-      tags: ["romance", "friends", "dinner", "accident", "webtoon", "uncensored", "hd", "zkero", "free"],
+      tags: ["porn comic", "sex comic", "hentai comic", "free", "adult comic", "uncensored", "hd", "zkero"],
       createdAt: new Date().toISOString()
     },
     {
@@ -56,7 +56,7 @@
       thumbnail: "assets/W00.jpg",
       pages: Array.from({ length: 9 }, (_, i) => `assets/W${String(i).padStart(2, '0')}.jpg`),
       views: 4890,
-      tags: ["romance", "wish", "night", "desire", "webtoon", "uncensored", "hd", "zkero", "free"],
+      tags: ["porn comic free", "sex comic", "hentai", "adult comic", "uncensored", "hd", "zkero"],
       createdAt: new Date().toISOString()
     },
     {
@@ -76,7 +76,7 @@
       thumbnail: "assets/L00.jpg",
       pages: Array.from({ length: 27 }, (_, i) => `assets/L${String(i).padStart(2, '0')}.jpg`),
       views: 10350,
-      tags: ["romance", "classic", "lemonade", "intense", "webtoon", "uncensored", "hd", "zkero", "paid"],
+      tags: ["porn comic online", "porn comic in english", "hentai comic", "adult comic", "lemonade", "zkero"],
       createdAt: new Date().toISOString()
     },
     {
@@ -96,7 +96,7 @@
       thumbnail: "assets/0.jpg",
       pages: ['assets/0.jpg', 'assets/ADICIONAL ESPAÑOL.jpg', ...Array.from({ length: 41 }, (_, i) => `assets/${i + 1}.jpg`)],
       views: 10142,
-      tags: ["romance", "clasico", "no internet", "espanol", "webtoon", "uncensored", "hd", "zkero", "paid"],
+      tags: ["comics porno", "comic porno gratis", "hentai espanol", "adult comic", "no internet", "zkero"],
       createdAt: new Date().toISOString()
     }
   ];
