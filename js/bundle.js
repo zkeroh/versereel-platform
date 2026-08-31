@@ -116,6 +116,24 @@
         // 🏷️ AQUÍ AGREGAS TODAS LAS ETIQUETAS QUE QUIERAS:
       tags: ["art", "illustration", "zkero", "digital art", "hentai art", "porn image", "bulma", "3d", "dragon ball"],
       createdAt: new Date().toISOString()
+},
+    {
+      id: "orihime-sexy",
+      title: "INOUE ORIHIME SEXY 3D",
+      language: ["en", "es"],    // "en" para inglés, "es" para español
+      type: "image",      // 👈 IMPORTANTE: "image" para que aparezca en el botón IMAGES
+      genre: "Anime",   // Género
+      author: "Zkero",
+      description: "Orihime in Hueco Mundo.",
+      isPaid: false,      // false = Gratis, true = Premium ($1)
+      price: 0,
+      downloadUrl: "assets/inoue.jpg",
+      thumbnail: "assets/inoue.jpg",
+      pages: ['assets/inoue.jpg'],
+      views: 1200,
+        // 🏷️ AQUÍ AGREGAS TODAS LAS ETIQUETAS QUE QUIERAS:
+      tags: ["art", "illustration", "zkero", "digital art", "hentai art", "porn image", "inoue orihime", "3d", "bleach"],
+      createdAt: new Date().toISOString()
 }
   ];
 
