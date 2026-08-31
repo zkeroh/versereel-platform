@@ -39,7 +39,7 @@
       thumbnail: "assets/G0.jpg",
       pages: Array.from({ length: 20 }, (_, i) => `assets/G${i}.jpg`),
       views: 5240,
-      tags: ["porn comic", "sex comic", "hentai comic", "free", "adult comic", "uncensored", "hd", "zkero"],
+      tags: ["porn comic", "sex comic", "hentai comic", "free", "adult comic", "zkero", "big ass", "big tits", "blonde"],
       createdAt: new Date().toISOString()
     },
     {
@@ -56,7 +56,7 @@
       thumbnail: "assets/W00.jpg",
       pages: Array.from({ length: 9 }, (_, i) => `assets/W${String(i).padStart(2, '0')}.jpg`),
       views: 4890,
-      tags: ["porn comic free", "sex comic", "hentai", "adult comic", "uncensored", "hd", "zkero"],
+      tags: ["porn comic free", "sex comic", "hentai", "adult comic", "zkero", "big ass", "parodie", "obsession", "couple"],
       createdAt: new Date().toISOString()
     },
     {
@@ -64,7 +64,7 @@
       title: "LEMONADE",
       language: "en",
       type: "comic",
-      genre: "Romance",
+      genre: "Incest",
       author: "Zkero",
       description: "Classic comic. Now more intense!",
       isPaid: true,
@@ -76,7 +76,7 @@
       thumbnail: "assets/L00.jpg",
       pages: Array.from({ length: 27 }, (_, i) => `assets/L${String(i).padStart(2, '0')}.jpg`),
       views: 10350,
-      tags: ["porn comic online", "porn comic in english", "hentai comic", "adult comic", "lemonade", "zkero"],
+      tags: ["porn comic online", "porn comic in english", "hentai comic", "adult comic", "lemonade", "zkero", "milftoon", "mom", "incest", "milf", "big tits"],
       createdAt: new Date().toISOString()
     },
     {
@@ -84,7 +84,7 @@
       title: "NO INTERNET",
       language: "es",
       type: "comic",
-      genre: "Romance",
+      genre: "Incest",
       author: "Zkero",
       description: "¡Un clásico del cómic rediseñado como nunca lo viste!",
       isPaid: true,
@@ -96,7 +96,7 @@
       thumbnail: "assets/0.jpg",
       pages: ['assets/0.jpg', 'assets/ADICIONAL ESPAÑOL.jpg', ...Array.from({ length: 41 }, (_, i) => `assets/${i + 1}.jpg`)],
       views: 10142,
-      tags: ["comics porno", "comic porno gratis", "hentai espanol", "adult comic", "no internet", "zkero"],
+      tags: ["comics porno", "comic porno gratis", "hentai espanol", "adult comic", "no internet", "zkero", "milftoon", "mom", "incest", "milf", "big tits"],
       createdAt: new Date().toISOString()
     }
   ];
