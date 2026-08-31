@@ -109,6 +109,7 @@
       description: "Bulma on the spaceship to Namek.",
       isPaid: false,      // false = Gratis, true = Premium ($1)
       price: 0,
+      downloadUrl: "assets/bulma.jpg",
       thumbnail: "assets/bulma.jpg",
       pages: ['assets/bulma.jpg'],
       views: 1200,
