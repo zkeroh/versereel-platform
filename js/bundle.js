@@ -1471,7 +1471,13 @@ function openFullpageComicReader(item) {
 
       const filtered = uniqueItems.filter(item => {
         if (this.selectedMediaType !== 'all' && item.type !== this.selectedMediaType) return false;
-        if (this.selectedLanguage !== 'all' && item.language !== this.selectedLanguage) return false;
+        if (this.selectedLanguage !== 'all') {
+  if (Array.isArray(item.language)) {
+    if (!item.language.includes(this.selectedLanguage) && !item.language.includes('all')) return false;
+  } else if (item.language !== this.selectedLanguage && item.language !== 'all') {
+    return false;
+  }
+};
         if (this.selectedAccessTier === 'free' && item.isPaid) return false;
         if (this.selectedAccessTier === 'paid' && !item.isPaid) return false;
         if (this.selectedGenre !== 'all' && item.genre !== this.selectedGenre) return false;
