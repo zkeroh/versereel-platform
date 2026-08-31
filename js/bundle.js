@@ -99,6 +99,23 @@
       tags: ["comics porno", "comic porno gratis", "hentai espanol", "adult comic", "no internet", "zkero", "milftoon", "mom", "incest", "milf", "big tits"],
       createdAt: new Date().toISOString()
     }
+    {
+      id: "bulma-sexy",
+      title: "BULMA SEXY 3D",
+      language: "en",     // "en" para inglés, "es" para español
+      type: "image",      // 👈 IMPORTANTE: "image" para que aparezca en el botón IMAGES
+      genre: "Anime",   // Género
+      author: "Zkero",
+      description: "Bulma on the spaceship to Namek.",
+      isPaid: false,      // false = Gratis, true = Premium ($1)
+      price: 0,
+      thumbnail: "assets/mi_arte_1.jpg",
+      pages: ["assets/mi_arte_1.jpg"],
+      views: 1200,
+        // 🏷️ AQUÍ AGREGAS TODAS LAS ETIQUETAS QUE QUIERAS:
+      tags: ["art", "illustration", "zkero", "digital art", "hentai art", "porn image", "bulma", "3d"],
+      createdAt: new Date().toISOString()
+}
   ];
 
   function openDB() {
