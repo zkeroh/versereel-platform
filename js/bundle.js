@@ -1688,12 +1688,8 @@ function openFullpageComicReader(item) {
           e.preventDefault();
           const id = card.dataset.id;
           const item = store.getItems().find(i => i.id === id);
-          if (!item) return;
-
-          if (item.type === 'comic' || item.type === 'image') {
+          if (item) {
             openFullpageComicReader(item);
-          } else {
-            createVideoPlayerModal(item, () => this.render());
           }
         };
       });
@@ -1747,6 +1743,80 @@ function openFullpageComicReader(item) {
       const txtDownloadFull = isEn
         ? 'Download Full Comic (HD)'
         : 'Descargar Cómic Completo (HD)';
+
+      if (item.type === 'video') {
+        return `
+          <div class="standalone-comic-page" style="min-height: 100vh; background: var(--bg-dark); color: var(--text-main); position: relative; padding-bottom: 60px;">
+            <!-- ExoClick Instant Message Zone 6015134 -->
+            <ins class="eas6a97888e6" data-zoneid="6015134"></ins>
+
+            <!-- Top Reader Navbar -->
+            <header class="reader-navbar" style="position: sticky; top: 0; z-index: 100; background: rgba(9, 10, 16, 0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border-color); display: flex; align-items: center; justify-content: space-between; padding: 0.75rem 1.25rem;">
+              <div class="reader-title-area" style="display: flex; align-items: center; gap: 0.85rem;">
+                <button class="btn-secondary" id="back-to-catalog-btn" style="padding: 0.4rem 0.85rem; font-size: 0.88rem; font-weight: 700; border-color: rgba(255,255,255,0.3); background: rgba(255,255,255,0.1); cursor: pointer;">
+                  <i class="ph-caret-left-bold"></i> ${txtCatalog}
+                </button>
+                <span class="reader-comic-title" style="color: #fff; font-size: 1.1rem; font-weight: 800; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 280px;">${item.title}</span>
+              </div>
+
+              <div style="display: flex; align-items: center; gap: 0.5rem;">
+                ${!isLocked && (item.videoUrl || item.downloadUrl) ? `
+                  <a href="${item.videoUrl || item.downloadUrl}" download target="_blank" class="btn-secondary" style="background: rgba(16, 185, 129, 0.2); color: #34d399; border: 1px solid var(--emerald); font-size: 0.82rem; padding: 0.4rem 0.75rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.35rem; font-weight: 700; border-radius: var(--radius-md);" title="${txtDownloadHd}">
+                    <i class="ph-download-simple"></i> ${txtDownloadHd}
+                  </a>
+                ` : ''}
+                <button type="button" id="close-reader-x-btn" style="background: rgba(244,63,94,0.2); border: 1px solid var(--rose); color: var(--rose); width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; cursor: pointer;" title="${txtCloseTooltip}">
+                  &times;
+                </button>
+              </div>
+            </header>
+
+            <!-- Video Player Body -->
+            <div style="max-width: 1000px; width: 100%; margin: 2rem auto; padding: 0 1rem; text-align: center; box-sizing: border-box;">
+              <div style="position: relative; width: 100%; border-radius: 16px; overflow: hidden; border: 1px solid var(--border-color); background: #000; box-shadow: 0 15px 50px rgba(0,0,0,0.8);">
+                <video controls autoplay playsinline style="width: 100%; max-height: 75vh; display: block; margin: 0 auto; object-fit: contain;">
+                  <source src="${item.videoUrl || (item.pages && item.pages[0])}" type="video/mp4" />
+                  Tu navegador no soporta reproducción de video.
+                </video>
+              </div>
+
+              <!-- Sponsored Ads below Video -->
+              <div style="width: 100%; max-width: 900px; margin: 2rem auto 1rem auto; text-align: center;">
+                <span style="font-size: 0.65rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; display: block;">SPONSORED ADS</span>
+                <div style="display: flex; align-items: center; justify-content: center; gap: 1.5rem; flex-wrap: wrap;">
+                  <div style="flex: 1 1 320px; max-width: 420px; width: 100%; background: rgba(0,0,0,0.4); padding: 0.75rem; border-radius: 12px; border: 1px solid rgba(163,230,53,0.3);">
+                    <ins class="eas6a97888e37" data-zoneid="6015136"></ins>
+                  </div>
+                  <div style="flex: 1 1 320px; max-width: 420px; width: 100%; background: rgba(0,0,0,0.4); padding: 0.75rem; border-radius: 12px; border: 1px solid rgba(163,230,53,0.3); overflow: hidden;">
+                    <ins class="eas6a97888e2" data-zoneid="6014788"></ins>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Social Follow Block -->
+              <div class="social-share-block" style="width: 90%; max-width: 600px; margin: 2rem auto 1.5rem auto; background: rgba(0,0,0,0.5); border: 1px solid rgba(163,230,53,0.35); border-radius: 14px; padding: 1.25rem; text-align: center; backdrop-filter: blur(8px);">
+                <h4 style="color: #fff; font-size: 1.05rem; font-weight: 700; margin-bottom: 0.85rem; display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
+                  <i class="ph-heart-bold" style="color: var(--primary); font-size: 1.2rem;"></i> ${isEn ? 'Follow me on social media:' : 'Sígueme en mis redes sociales:'}
+                </h4>
+                <div style="display: flex; align-items: center; justify-content: center; gap: 0.65rem; flex-wrap: wrap;">
+                  <a href="https://patreon.com/zkero" target="_blank" rel="noopener noreferrer" style="color: #ff424d; background: rgba(255,66,77,0.18); border: 1px solid rgba(255,66,77,0.45); padding: 0.55rem 1.1rem; border-radius: 8px; font-weight: 800; font-size: 0.88rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; transition: all 0.2s;">
+                    <i class="ph-patreon-logo-bold" style="font-size: 1.1rem;"></i> Patreon
+                  </a>
+                  <a href="https://x.com/hZkeroh" target="_blank" rel="noopener noreferrer" style="color: #38bdf8; background: rgba(56,189,248,0.18); border: 1px solid rgba(56,189,248,0.45); padding: 0.55rem 1.1rem; border-radius: 8px; font-weight: 800; font-size: 0.88rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; transition: all 0.2s;">
+                    <i class="ph-twitter-logo-bold" style="font-size: 1.1rem;"></i> X (Twitter)
+                  </a>
+                  <a href="https://www.instagram.com/zkero.h?igsi=MWt3M25mNG9oZDY4Zw%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" style="color: #f43f5e; background: rgba(244,63,94,0.18); border: 1px solid rgba(244,63,94,0.45); padding: 0.55rem 1.1rem; border-radius: 8px; font-weight: 800; font-size: 0.88rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; transition: all 0.2s;">
+                    <i class="ph-instagram-logo-bold" style="font-size: 1.1rem;"></i> Instagram
+                  </a>
+                  <a href="https://t.me/xzkero" target="_blank" rel="noopener noreferrer" style="color: #38bdf8; background: rgba(14,165,233,0.18); border: 1px solid rgba(14,165,233,0.45); padding: 0.55rem 1.1rem; border-radius: 8px; font-weight: 800; font-size: 0.88rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; transition: all 0.2s;">
+                    <i class="ph-telegram-logo-bold" style="font-size: 1.1rem;"></i> Telegram
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+      }
 
       return `
         <div class="standalone-comic-page" style="min-height: 100vh; background: var(--bg-dark); color: var(--text-main); position: relative; padding-bottom: 60px;">
