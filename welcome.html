@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Xzkero - Official Graphic Novels & Digital Comics</title>
+  <title>Xzkero - Independent Digital Comics & Webtoons</title>
   <meta name="description" content="Explore original graphic novels, digital webtoons, and independent comic stories on Xzkero." />
   
   <!-- Favicon -->
@@ -53,9 +53,7 @@
       padding: 1.25rem 1.5rem;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      flex-wrap: wrap;
+      justify-content: center;
     }
 
     .brand {
@@ -66,36 +64,10 @@
     }
 
     .brand img {
-      height: 42px;
+      height: 44px;
       width: auto;
       filter: drop-shadow(0 0 12px var(--primary-glow));
     }
-
-    .social-pills {
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-      flex-wrap: wrap;
-    }
-
-    .social-pill {
-      padding: 5px 12px;
-      border-radius: 20px;
-      text-decoration: none;
-      font-size: 0.78rem;
-      font-weight: 800;
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      transition: all 0.2s;
-    }
-
-    .social-pill.patreon { color: #ff424d; background: rgba(255, 66, 77, 0.15); border: 1px solid rgba(255, 66, 77, 0.4); }
-    .social-pill.twitter { color: #38bdf8; background: rgba(56, 189, 248, 0.15); border: 1px solid rgba(56, 189, 248, 0.4); }
-    .social-pill.instagram { color: #f43f5e; background: rgba(244, 63, 94, 0.15); border: 1px solid rgba(244, 63, 94, 0.4); }
-    .social-pill.telegram { color: #38bdf8; background: rgba(14, 165, 233, 0.15); border: 1px solid rgba(14, 165, 233, 0.4); }
-
-    .social-pill:hover { transform: translateY(-2px); filter: brightness(1.2); }
 
     /* Main Container */
     main {
@@ -258,9 +230,8 @@
       text-align: center;
       display: flex;
       align-items: center;
-      justify-content: justify;
-      gap: 0.4rem;
       justify-content: center;
+      gap: 0.4rem;
     }
 
     footer {
@@ -274,7 +245,6 @@
     }
 
     @media (max-width: 640px) {
-      header { justify-content: center; }
       .cta-button { width: 100%; justify-content: center; font-size: 1.05rem; padding: 1rem 1.5rem; }
     }
   </style>
@@ -286,37 +256,22 @@
     <a href="https://xzkero.com/" class="brand">
       <img src="assets/logo.png" alt="Xzkero Logo" />
     </a>
-
-    <div class="social-pills">
-      <a href="https://patreon.com/zkero" target="_blank" rel="noopener noreferrer" class="social-pill patreon">
-        <i class="ph-patreon-logo-bold"></i> <span>Patreon</span>
-      </a>
-      <a href="https://x.com/hZkeroh" target="_blank" rel="noopener noreferrer" class="social-pill twitter">
-        <i class="ph-twitter-logo-bold"></i> <span>X</span>
-      </a>
-      <a href="https://www.instagram.com/zkero.h?igsi=MWt3M25mNG9oZDY4Zw%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" class="social-pill instagram">
-        <i class="ph-instagram-logo-bold"></i> <span>Instagram</span>
-      </a>
-      <a href="https://t.me/xzkero" target="_blank" rel="noopener noreferrer" class="social-pill telegram">
-        <i class="ph-telegram-logo-bold"></i> <span>Telegram</span>
-      </a>
-    </div>
   </header>
 
   <!-- Main Content -->
   <main>
     <div class="hero-badge">
-      <i class="ph-sparkle-bold"></i> Official Graphic Novels & Webtoons
+      <i class="ph-sparkle-bold"></i> Independent Digital Comics & Webtoons
     </div>
 
     <h1>Discover Exclusive Illustrated Stories in HD</h1>
     <p class="subtitle">
-      Explore the official catalog of independent graphic novels and digital webtoons. Enjoy smooth reading in continuous webtoon scroll mode.
+      Explore original graphic novels and digital webtoons. Enjoy smooth online reading in HD.
     </p>
 
     <!-- Main CTA Button -->
     <a href="https://xzkero.com/" class="cta-button">
-      <span>ENTER OFFICIAL CATALOG ➔</span>
+      <span>READ ONLINE ➔</span>
       <i class="ph-arrow-right-bold"></i>
     </a>
 
@@ -326,16 +281,16 @@
     </div>
 
     <div class="series-grid">
-      <!-- Card 1: LEMONADE (FIRST!) -->
+      <!-- Card 1: LEMONADE -->
       <a href="https://xzkero.com/?comic=lemonade" class="series-card">
         <div class="card-img-wrapper">
           <img src="assets/L00.jpg" class="card-img" alt="LEMONADE" />
         </div>
         <div class="card-body">
           <div class="card-title">LEMONADE</div>
-          <div class="card-desc">Classic comic. Now more intense! Explore full HD chapters and exclusive story arcs.</div>
+          <div class="card-desc">Classic illustrated comic story. Read full HD chapters online.</div>
           <div class="card-btn">
-            <span>Read Chapter</span> <i class="ph-caret-right-bold"></i>
+            <span>Read Story</span> <i class="ph-caret-right-bold"></i>
           </div>
         </div>
       </a>
@@ -347,9 +302,9 @@
         </div>
         <div class="card-body">
           <div class="card-title">A GOOD FRIEND</div>
-          <div class="card-desc">What was supposed to be a normal dinner among friends gets completely derailed by an unexpected accident.</div>
+          <div class="card-desc">What was supposed to be a normal dinner among friends gets derailed by an unexpected twist.</div>
           <div class="card-btn">
-            <span>Read Chapter</span> <i class="ph-caret-right-bold"></i>
+            <span>Read Story</span> <i class="ph-caret-right-bold"></i>
           </div>
         </div>
       </a>
@@ -361,9 +316,9 @@
         </div>
         <div class="card-body">
           <div class="card-title">THE WISH</div>
-          <div class="card-desc">One wish will make sure he never has to lament a night without romance again.</div>
+          <div class="card-desc">A unique wish turns an ordinary evening into an unforgettable journey.</div>
           <div class="card-btn">
-            <span>Read Chapter</span> <i class="ph-caret-right-bold"></i>
+            <span>Read Story</span> <i class="ph-caret-right-bold"></i>
           </div>
         </div>
       </a>
@@ -372,7 +327,7 @@
 
   <!-- Footer -->
   <footer>
-    <p>© 2026 Xzkero. All rights reserved. Graphic Novels & Digital Art Platform.</p>
+    <p>© 2026 Xzkero. All rights reserved. Digital Comics & Art Platform.</p>
   </footer>
 
 </body>
