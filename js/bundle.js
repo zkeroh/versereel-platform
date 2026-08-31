@@ -39,6 +39,7 @@
       thumbnail: "assets/G0.jpg",
       pages: Array.from({ length: 20 }, (_, i) => `assets/G${i}.jpg`),
       views: 5240,
+      tags: ["romance", "friends", "dinner", "accident", "webtoon", "uncensored", "hd", "zkero", "free"],
       createdAt: new Date().toISOString()
     },
     {
@@ -55,6 +56,7 @@
       thumbnail: "assets/W00.jpg",
       pages: Array.from({ length: 9 }, (_, i) => `assets/W${String(i).padStart(2, '0')}.jpg`),
       views: 4890,
+      tags: ["romance", "wish", "night", "desire", "webtoon", "uncensored", "hd", "zkero", "free"],
       createdAt: new Date().toISOString()
     },
     {
@@ -74,6 +76,7 @@
       thumbnail: "assets/L00.jpg",
       pages: Array.from({ length: 27 }, (_, i) => `assets/L${String(i).padStart(2, '0')}.jpg`),
       views: 10350,
+      tags: ["romance", "classic", "lemonade", "intense", "webtoon", "uncensored", "hd", "zkero", "paid"],
       createdAt: new Date().toISOString()
     },
     {
@@ -93,6 +96,7 @@
       thumbnail: "assets/0.jpg",
       pages: ['assets/0.jpg', 'assets/ADICIONAL ESPAÑOL.jpg', ...Array.from({ length: 41 }, (_, i) => `assets/${i + 1}.jpg`)],
       views: 10142,
+      tags: ["romance", "clasico", "no internet", "espanol", "webtoon", "uncensored", "hd", "zkero", "paid"],
       createdAt: new Date().toISOString()
     }
   ];
@@ -1415,7 +1419,15 @@ function openFullpageComicReader(item) {
         if (this.selectedAccessTier === 'free' && item.isPaid) return false;
         if (this.selectedAccessTier === 'paid' && !item.isPaid) return false;
         if (this.selectedGenre !== 'all' && item.genre !== this.selectedGenre) return false;
-        if (this.searchQuery && !item.title.toLowerCase().includes(this.searchQuery.toLowerCase())) return false;
+        if (this.searchQuery) {
+          const q = this.searchQuery.toLowerCase().trim();
+          const matchTitle = item.title && item.title.toLowerCase().includes(q);
+          const matchDesc = item.description && item.description.toLowerCase().includes(q);
+          const matchGenre = item.genre && item.genre.toLowerCase().includes(q);
+          const matchAuthor = item.author && item.author.toLowerCase().includes(q);
+          const matchTags = item.tags && Array.isArray(item.tags) && item.tags.some(t => t.toLowerCase().includes(q));
+          if (!matchTitle && !matchDesc && !matchGenre && !matchAuthor && !matchTags) return false;
+        }
         return true;
       });
 
