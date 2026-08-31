@@ -1230,6 +1230,7 @@ function openFullpageComicReader(item) {
       this.zoomLevel = 100;
       this.currentView = 'audience';
       this.selectedMediaType = 'all';
+      this.selectedLanguage = 'all';
       this.selectedAccessTier = 'all';
       this.selectedGenre = 'all';
       this.searchQuery = '';
@@ -1416,6 +1417,7 @@ function openFullpageComicReader(item) {
 
       const filtered = uniqueItems.filter(item => {
         if (this.selectedMediaType !== 'all' && item.type !== this.selectedMediaType) return false;
+        if (this.selectedLanguage !== 'all' && item.language !== this.selectedLanguage) return false;
         if (this.selectedAccessTier === 'free' && item.isPaid) return false;
         if (this.selectedAccessTier === 'paid' && !item.isPaid) return false;
         if (this.selectedGenre !== 'all' && item.genre !== this.selectedGenre) return false;
@@ -1454,15 +1456,25 @@ function openFullpageComicReader(item) {
               </div>
 
               <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; align-items: center;">
-                <select id="media-filter" class="custom-filter-select">
-                  <option value="all" ${this.selectedMediaType === 'all' ? 'selected' : ''}>🎬 All Media</option>
-                  <option value="comic" ${this.selectedMediaType === 'comic' ? 'selected' : ''}>📖 Comics Only</option>
-                  <option value="video" ${this.selectedMediaType === 'video' ? 'selected' : ''}>🎥 Videos Only</option>
+                <!-- Category Buttons (ALL, COMICS, VIDEOS, IMAGES) -->
+                <div class="media-type-pills">
+                  <button type="button" class="type-pill ${this.selectedMediaType === 'all' ? 'active' : ''}" data-type="all">🎬 ALL</button>
+                  <button type="button" class="type-pill ${this.selectedMediaType === 'comic' ? 'active' : ''}" data-type="comic">📖 COMICS</button>
+                  <button type="button" class="type-pill ${this.selectedMediaType === 'video' ? 'active' : ''}" data-type="video">🎥 VIDEOS</button>
+                  <button type="button" class="type-pill ${this.selectedMediaType === 'image' ? 'active' : ''}" data-type="image">🖼️ IMAGES</button>
+                </div>
+
+                <!-- Language Dropdown (Replaces old All Media dropdown) -->
+                <select id="lang-filter" class="custom-filter-select">
+                  <option value="all" ${this.selectedLanguage === 'all' ? 'selected' : ''}>🌐 All Languages</option>
+                  <option value="en" ${this.selectedLanguage === 'en' ? 'selected' : ''}>🇺🇸 English</option>
+                  <option value="es" ${this.selectedLanguage === 'es' ? 'selected' : ''}>🇪🇸 Español</option>
                 </select>
 
+                <!-- Price Tier Dropdown -->
                 <select id="tier-filter" class="custom-filter-select">
                   <option value="all" ${this.selectedAccessTier === 'all' ? 'selected' : ''}>💎 All Prices</option>
-                  <option value="free" ${this.selectedAccessTier === 'free' ? 'selected' : ''}>🎁 Free Preview</option>
+                  <option value="free" ${this.selectedAccessTier === 'free' ? 'selected' : ''}>🎁 Free</option>
                   <option value="paid" ${this.selectedAccessTier === 'paid' ? 'selected' : ''}>⭐ Premium ($)</option>
                 </select>
               </div>
@@ -1527,10 +1539,17 @@ function openFullpageComicReader(item) {
         };
       }
 
-      const mediaFilter = root.querySelector('#media-filter');
-      if (mediaFilter) {
-        mediaFilter.onchange = (e) => {
-          this.selectedMediaType = e.target.value;
+      root.querySelectorAll('.type-pill').forEach(btn => {
+        btn.onclick = (e) => {
+          this.selectedMediaType = e.currentTarget.dataset.type || 'all';
+          this.render();
+        };
+      });
+
+      const langFilter = root.querySelector('#lang-filter');
+      if (langFilter) {
+        langFilter.onchange = (e) => {
+          this.selectedLanguage = e.target.value;
           this.render();
         };
       }
