@@ -102,7 +102,7 @@
     {
       id: "bulma-sexy",
       title: "BULMA SEXY 3D",
-      language: ["en", "es"],    // "en" para inglés, "es" para español
+      language: "all",     // "en" para inglés, "es" para español
       type: "image",      // 👈 IMPORTANTE: "image" para que aparezca en el botón IMAGES
       genre: "Anime",   // Género
       author: "Zkero",
@@ -120,7 +120,7 @@
     {
       id: "orihime-sexy",
       title: "INOUE ORIHIME SEXY 3D",
-      language: ["en", "es"],    // "en" para inglés, "es" para español
+      language: "all",    // "en" para inglés, "es" para español
       type: "image",      // 👈 IMPORTANTE: "image" para que aparezca en el botón IMAGES
       genre: "Anime",   // Género
       author: "Zkero",
@@ -133,6 +133,24 @@
       views: 1200,
         // 🏷️ AQUÍ AGREGAS TODAS LAS ETIQUETAS QUE QUIERAS:
       tags: ["art", "illustration", "zkero", "digital art", "hentai art", "porn image", "inoue orihime", "3d", "bleach"],
+      createdAt: new Date().toISOString()
+},
+    {
+      id: "nami-sexy",
+      title: "NAMI SEXY 3D",
+      language: "all",    // "en" para inglés, "es" para español
+      type: "image",      // 👈 IMPORTANTE: "image" para que aparezca en el botón IMAGES
+      genre: "Anime",   // Género
+      author: "Zkero",
+      description: "Nami at the beach.",
+      isPaid: false,      // false = Gratis, true = Premium ($1)
+      price: 0,
+      downloadUrl: ['assets/nami.jpg', 'assets/nami1.jpg'],
+      thumbnail: "assets/nami.jpg",
+      pages: ['assets/nami.jpg', 'assets/nami1.jpg'],
+      views: 1200,
+        // 🏷️ AQUÍ AGREGAS TODAS LAS ETIQUETAS QUE QUIERAS:
+      tags: ["art", "illustration", "zkero", "digital art", "hentai art", "porn image", "nami", "3d", "one piece"],
       createdAt: new Date().toISOString()
 }
   ];
