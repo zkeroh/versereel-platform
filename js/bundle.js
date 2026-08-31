@@ -102,7 +102,7 @@
     {
       id: "bulma-sexy",
       title: "BULMA SEXY 3D",
-      language: "en",     // "en" para inglés, "es" para español
+      language: ["en", "es"],    // "en" para inglés, "es" para español
       type: "image",      // 👈 IMPORTANTE: "image" para que aparezca en el botón IMAGES
       genre: "Anime",   // Género
       author: "Zkero",
