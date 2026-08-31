@@ -74,7 +74,7 @@
       paypalUrl: "https://www.paypal.com/ncp/payment/FZCP8QGCGTTX2",
       downloadUrl: "assets/LEMONADE.pdf",
       thumbnail: "assets/L00.jpg",
-      pages: Array.from({ length: 27 }, (_, i) => `assets/L${String(i).padStart(2, '0')}.jpg`),
+      pages: Array.from({ length: 29 }, (_, i) => `assets/L${String(i).padStart(2, '0')}.jpg`),
       views: 10350,
       tags: ["porn comic online", "porn comic in english", "hentai comic", "adult comic", "lemonade", "zkero", "milftoon", "mom", "incest", "milf", "big tits"],
       createdAt: new Date().toISOString()
