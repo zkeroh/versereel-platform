@@ -109,8 +109,8 @@
       description: "Bulma on the spaceship to Namek.",
       isPaid: false,      // false = Gratis, true = Premium ($1)
       price: 0,
-      thumbnail: "assets/mi_arte_1.jpg",
-      pages: ["assets/mi_arte_1.jpg"],
+      thumbnail: "bulma.jpg",
+      pages: ["bulma.jpg"],
       views: 1200,
         // 🏷️ AQUÍ AGREGAS TODAS LAS ETIQUETAS QUE QUIERAS:
       tags: ["art", "illustration", "zkero", "digital art", "hentai art", "porn image", "bulma", "3d", "dragon ball"],
