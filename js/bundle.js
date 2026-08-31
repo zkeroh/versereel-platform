@@ -113,7 +113,7 @@
       pages: ["assets/mi_arte_1.jpg"],
       views: 1200,
         // 🏷️ AQUÍ AGREGAS TODAS LAS ETIQUETAS QUE QUIERAS:
-      tags: ["art", "illustration", "zkero", "digital art", "hentai art", "porn image", "bulma", "3d"],
+      tags: ["art", "illustration", "zkero", "digital art", "hentai art", "porn image", "bulma", "3d", "dragon ball"],
       createdAt: new Date().toISOString()
 }
   ];
