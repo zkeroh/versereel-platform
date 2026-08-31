@@ -163,7 +163,7 @@
       description: "Nami exercising at the beach",
       isPaid: false,                             // false = Gratis, true = Premium ($1)
       price: 0,
-      thumbnail: "namivideo.webp",   // Imagen de portada (guardada en assets/)
+      thumbnail: "assets/namivideo.webp",   // Imagen de portada (guardada en assets/)
       videoUrl: "assets/nami.mp4",           // 👈 Ruta de tu archivo MP4 o enlace directo
       views: 3100,
       tags: ["video", "animation", "3d", "zkero", "hentai video", "nami", "one piece"],
