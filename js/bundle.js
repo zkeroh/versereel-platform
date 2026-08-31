@@ -152,6 +152,22 @@
         // 🏷️ AQUÍ AGREGAS TODAS LAS ETIQUETAS QUE QUIERAS:
       tags: ["art", "illustration", "zkero", "digital art", "hentai art", "porn image", "nami", "3d", "one piece"],
       createdAt: new Date().toISOString()
+},
+    {
+      id: "nami-video",
+      title: "NAMI EXERCISING VIDEO",
+      language:  "all",                    // ["en", "es"] para ambos o "all"
+      type: "video",                             // 👈 IMPORTANTE: "video" para que aparezca en el botón VIDEOS
+      genre: "Anime",                            // Género del contenido
+      author: "Zkero",
+      description: "Nami exercising at the beach",
+      isPaid: false,                             // false = Gratis, true = Premium ($1)
+      price: 0,
+      thumbnail: "assets/nami.mp4",   // Imagen de portada (guardada en assets/)
+      videoUrl: "assets/nami.mp4",           // 👈 Ruta de tu archivo MP4 o enlace directo
+      views: 3100,
+      tags: ["video", "animation", "3d", "zkero", "hentai video", "nami", "one piece"],
+      createdAt: new Date().toISOString()
 }
   ];
 
