@@ -1614,7 +1614,7 @@ function openFullpageComicReader(item) {
           const item = store.getItems().find(i => i.id === id);
           if (!item) return;
 
-          if (item.type === 'comic') {
+          if (item.type === 'comic' || item.type === 'image') {
             openFullpageComicReader(item);
           } else {
             createVideoPlayerModal(item, () => this.render());
