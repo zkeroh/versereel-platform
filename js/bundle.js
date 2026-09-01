@@ -26,6 +26,24 @@
   // =========================================================================
   const COMICS_CATALOG = [
     {
+      id: "mai-sexy",
+      title: "MAI SEXY 3D",
+      language: "all",    // "en" para inglés, "es" para español
+      type: "image",      // 👈 IMPORTANTE: "image" para que aparezca en el botón IMAGES
+      genre: "Anime",   // Género
+      author: "Zkero",
+      description: "Mai sexy",
+      isPaid: false,      // false = Gratis, true = Premium ($1)
+      price: 0,
+      downloadUrl: "assets/mai2.jpg",
+      thumbnail: "assets/mai2.jpg",
+      pages: ['assets/mai.jpg', 'assets/mai3.jpg', 'assets/mai2.jpg'],
+      views: 1200,
+        // 🏷️ AQUÍ AGREGAS TODAS LAS ETIQUETAS QUE QUIERAS:
+      tags: ["art", "illustration", "zkero", "digital art", "hentai art", "porn image", "mai", "3d", "dragon ball"],
+      createdAt: new Date().toISOString()
+},
+    {
       id: "mari-sexy",
       title: "MARI KURIHARA SEXY 3D",
       language: "all",    // "en" para inglés, "es" para español
