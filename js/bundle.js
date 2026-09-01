@@ -145,11 +145,7 @@
       description: "Nami at the beach.",
       isPaid: false,      // false = Gratis, true = Premium ($1)
       price: 0,
-<<<<<<< HEAD
       downloadUrl: "assets/nami.jpg",
-=======
-      downloadUrl: 'assets/nami.jpg',
->>>>>>> a5074dc7373627851c50060b40cd87cf2bd44fcb
       thumbnail: "assets/nami.jpg",
       pages: ['assets/nami.jpg', 'assets/nami1.jpg'],
       views: 1200,
