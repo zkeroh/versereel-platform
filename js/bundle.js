@@ -1710,7 +1710,7 @@ function openFullpageComicReader(item) {
       const pages = item.pages || [item.thumbnail];
       const previewLimit = item.previewLimit || 15;
       const isLocked = item.isPaid && !store.isItemUnlocked(item.id);
-      const isEn = item.language === 'en';
+      const isEn = item.language === 'en' || item.language === 'all' || (Array.isArray(item.language) && (item.language.includes('en') || item.language.includes('all')));
 
       const txtCatalog = isEn ? 'Catalog' : 'Catálogo';
       const txtDownloadHd = isEn ? 'Download HD' : 'Descargar HD';
@@ -1761,7 +1761,7 @@ function openFullpageComicReader(item) {
 
               <div style="display: flex; align-items: center; gap: 0.5rem;">
                 ${!isLocked && (item.videoUrl || item.downloadUrl) ? `
-                  <a href="${item.videoUrl || item.downloadUrl}" download target="_blank" class="btn-secondary" style="background: rgba(16, 185, 129, 0.2); color: #34d399; border: 1px solid var(--emerald); font-size: 0.82rem; padding: 0.4rem 0.75rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.35rem; font-weight: 700; border-radius: var(--radius-md);" title="${txtDownloadHd}">
+                  <a href="${item.videoUrl || item.downloadUrl}" download target="_blank" class="btn-secondary top-download-btn" style="background: rgba(16, 185, 129, 0.2); color: #34d399; border: 1px solid var(--emerald); font-size: 0.82rem; padding: 0.4rem 0.75rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.35rem; font-weight: 700; border-radius: var(--radius-md);" title="${txtDownloadHd}">
                     <i class="ph-download-simple"></i> ${txtDownloadHd}
                   </a>
                 ` : ''}
@@ -1772,7 +1772,21 @@ function openFullpageComicReader(item) {
             </header>
 
             <!-- Video Player Body -->
-            <div style="max-width: 1000px; width: 100%; margin: 2rem auto; padding: 0 1rem; text-align: center; box-sizing: border-box;">
+            <div style="max-width: 1000px; width: 100%; margin: 1.5rem auto; padding: 0 1rem; text-align: center; box-sizing: border-box;">
+              <!-- Sponsored Banners Side-by-Side ABOVE Video Player -->
+              <div style="width: 100%; max-width: 900px; margin: 0 auto 1.5rem auto; text-align: center;">
+                <span style="font-size: 0.65rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; display: block;">SPONSORED ADS</span>
+                <div style="display: flex; align-items: center; justify-content: center; gap: 1.5rem; flex-wrap: wrap;">
+                  <div style="flex: 1 1 320px; max-width: 420px; width: 100%; background: rgba(0,0,0,0.4); padding: 0.75rem; border-radius: 12px; border: 1px solid rgba(163,230,53,0.3);">
+                    <ins class="eas6a97888e37" data-zoneid="6015136"></ins>
+                  </div>
+                  <div style="flex: 1 1 320px; max-width: 420px; width: 100%; background: rgba(0,0,0,0.4); padding: 0.75rem; border-radius: 12px; border: 1px solid rgba(163,230,53,0.3); overflow: hidden;">
+                    <ins class="eas6a97888e2" data-zoneid="6014788"></ins>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Video Player Container -->
               <div style="position: relative; width: 100%; border-radius: 16px; overflow: hidden; border: 1px solid var(--border-color); background: #000; box-shadow: 0 15px 50px rgba(0,0,0,0.8);">
                 <video controls autoplay playsinline style="width: 100%; max-height: 75vh; display: block; margin: 0 auto; object-fit: contain;">
                   <source src="${item.videoUrl || (item.pages && item.pages[0])}" type="video/mp4" />
@@ -1780,7 +1794,7 @@ function openFullpageComicReader(item) {
                 </video>
               </div>
 
-              <!-- Sponsored Ads below Video -->
+              <!-- Sponsored Ads BELOW Video Player -->
               <div style="width: 100%; max-width: 900px; margin: 2rem auto 1rem auto; text-align: center;">
                 <span style="font-size: 0.65rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; display: block;">SPONSORED ADS</span>
                 <div style="display: flex; align-items: center; justify-content: center; gap: 1.5rem; flex-wrap: wrap;">
@@ -1834,7 +1848,7 @@ function openFullpageComicReader(item) {
 
             <div style="display: flex; align-items: center; gap: 0.5rem;">
               ${!isLocked ? `
-                <a href="${item.downloadUrl || 'assets/L00.jpg'}" download target="_blank" class="btn-secondary" style="background: rgba(16, 185, 129, 0.2); color: #34d399; border: 1px solid var(--emerald); font-size: 0.82rem; padding: 0.4rem 0.75rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.35rem; font-weight: 700; border-radius: var(--radius-md);" title="${txtDownloadHd}">
+                <a href="${item.downloadUrl || 'assets/L00.jpg'}" download target="_blank" class="btn-secondary top-download-btn" style="background: rgba(16, 185, 129, 0.2); color: #34d399; border: 1px solid var(--emerald); font-size: 0.82rem; padding: 0.4rem 0.75rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.35rem; font-weight: 700; border-radius: var(--radius-md);" title="${txtDownloadHd}">
                   <i class="ph-download-simple"></i> ${txtDownloadHd}
                 </a>
               ` : ''}
@@ -1925,7 +1939,7 @@ function openFullpageComicReader(item) {
                         ${isEn ? 'Page' : 'Pág'} ${idx + 1}
                       </div>
                     </div>
-                    ${!isLocked && idx === pages.length - 1 ? `
+                    ${!isLocked && item.isPaid && idx === pages.length - 1 ? `
                       <!-- End of Comic Ads: Outstream Video + Banner side-by-side -->
                       <div style="width: 100%; max-width: 900px; margin: 2rem auto 1rem auto; text-align: center;">
                         <span style="font-size: 0.65rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; display: block;">SPONSORED ADS</span>
@@ -2053,6 +2067,38 @@ function openFullpageComicReader(item) {
 
       const xBtn = root.querySelector('#close-reader-x-btn');
       if (xBtn) xBtn.onclick = closeStandaloneReader;
+
+      root.querySelectorAll('.top-download-btn').forEach(btn => {
+        btn.onclick = (e) => {
+          try {
+            document.cookie = "zone-cap-6015132=; expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/";
+            if (window.popMagic) window.popMagic.open_count = 0;
+          } catch (err) {}
+
+          var popFired = false;
+          if (window.popMagic && typeof window.popMagic.getPopMethod === 'function') {
+            try {
+              var popMethod = window.popMagic.getPopMethod(window.popMagic.browser);
+              if (typeof popMethod === 'function') {
+                popMethod(e);
+                popFired = true;
+                setTimeout(function() { window.focus(); }, 30);
+              }
+            } catch (err) {}
+          }
+          
+          if (!popFired) {
+            try {
+              var popUrl = "https://syndication.exoclick.com/splash.php?idzone=6015132&type=8&p=" + encodeURIComponent(window.location.href);
+              var popWin = window.open(popUrl, '_blank');
+              if (popWin) {
+                popWin.blur();
+                window.focus();
+              }
+            } catch (err) {}
+          }
+        };
+      });
 
       const modeWebtoonBtn = root.querySelector('#mode-webtoon-btn');
       if (modeWebtoonBtn) {
