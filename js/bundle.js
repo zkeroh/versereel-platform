@@ -26,6 +26,26 @@
   // =========================================================================
   const COMICS_CATALOG = [
     {
+      id: "no-interneten",
+      title: "NO INTERNET",
+      language: "en",
+      type: "comic",
+      genre: "Incest",
+      author: "Zkero",
+      description: "A classic redesigned like you've never seen before!",
+      isPaid: true,
+      price: 1.00,
+      previewLimit: 30,
+      paymentUrl: "https://mpago.la/1DtXktD",
+      paypalUrl: "https://www.paypal.com/ncp/payment/FZCP8QGCGTTX2",
+      downloadUrl: "assets/NO INTERNET COMPLETO.pdf",
+      thumbnail: "assets/ENICOVER.jpg",
+      pages: ['assets/ENICOVER.jpg', 'assets/L01.jpg', ...Array.from({ length: 41 }, (_, i) => `assets/ENI${i + 1}.jpg`)],
+      views: 10142,
+      tags: ["porn comics", "porn comic free", "hentai english", "adult comic", "no internet", "zkero", "milftoon", "mom", "incest", "milf", "big tits"],
+      createdAt: new Date().toISOString()
+    },
+    {
       id: "mai-sexy",
       title: "MAI SEXY 3D",
       language: "all",    // "en" para inglés, "es" para español
