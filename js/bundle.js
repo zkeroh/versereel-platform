@@ -222,6 +222,24 @@
         // 🏷️ AQUÍ AGREGAS TODAS LAS ETIQUETAS QUE QUIERAS:
       tags: ["art", "illustration", "zkero", "digital art", "hentai art", "porn image", "lucy heartfilia", "3d", "fairy tail"],
       createdAt: new Date().toISOString()
+},
+    {
+      id: "mari-sexy",
+      title: "MARI KURIHARA SEXY 3D",
+      language: "all",    // "en" para inglés, "es" para español
+      type: "image",      // 👈 IMPORTANTE: "image" para que aparezca en el botón IMAGES
+      genre: "Anime",   // Género
+      author: "Zkero",
+      description: "Mari Kurihara",
+      isPaid: false,      // false = Gratis, true = Premium ($1)
+      price: 0,
+      downloadUrl: "assets/mari.jpg",
+      thumbnail: "assets/mari1.jpg",
+      pages: ['assets/mari.jpg', 'assets/mari1.jpg'],
+      views: 1200,
+        // 🏷️ AQUÍ AGREGAS TODAS LAS ETIQUETAS QUE QUIERAS:
+      tags: ["art", "illustration", "zkero", "digital art", "hentai art", "porn image", "mari kurihara", "3d", "prison school"],
+      createdAt: new Date().toISOString()
 }
   ];
 
