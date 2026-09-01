@@ -32,7 +32,7 @@
       type: "image",      // 👈 IMPORTANTE: "image" para que aparezca en el botón IMAGES
       genre: "Anime",   // Género
       author: "Zkero",
-      description: "Mai sexy",
+      description: "Mai in the desert",
       isPaid: false,      // false = Gratis, true = Premium ($1)
       price: 0,
       downloadUrl: "assets/mai2.jpg",
