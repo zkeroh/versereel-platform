@@ -199,7 +199,7 @@
       price: 0,
       downloadUrl: 'assets/lucy.jpg',
       thumbnail: "assets/lucy.jpg",
-      pages: 'assets/lucy.jpg',
+      pages: ['assets/lucy.jpg'],
       views: 1200,
         // 🏷️ AQUÍ AGREGAS TODAS LAS ETIQUETAS QUE QUIERAS:
       tags: ["art", "illustration", "zkero", "digital art", "hentai art", "porn image", "lucy heartfilia", "3d", "fairy tail"],
@@ -217,7 +217,7 @@
       price: 0,
       downloadUrl: 'assets/lucy1.jpg',
       thumbnail: "assets/lucy1.jpg",
-      pages: 'assets/lucy1.jpg',
+      pages: ['assets/lucy1.jpg'],
       views: 1200,
         // 🏷️ AQUÍ AGREGAS TODAS LAS ETIQUETAS QUE QUIERAS:
       tags: ["art", "illustration", "zkero", "digital art", "hentai art", "porn image", "lucy heartfilia", "3d", "fairy tail"],
@@ -1761,7 +1761,7 @@ function openFullpageComicReader(item) {
 
     
     renderStandaloneComicPage(item) {
-      const pages = item.pages || [item.thumbnail];
+      const pages = Array.isArray(item.pages) ? item.pages : [item.pages || item.thumbnail];
       const previewLimit = item.previewLimit || 15;
       const isLocked = item.isPaid && !store.isItemUnlocked(item.id);
       const isEn = item.language === 'en' || item.language === 'all' || (Array.isArray(item.language) && (item.language.includes('en') || item.language.includes('all')));
