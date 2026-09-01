@@ -145,7 +145,7 @@
       description: "Nami at the beach.",
       isPaid: false,      // false = Gratis, true = Premium ($1)
       price: 0,
-      downloadUrl: ['assets/nami.jpg', 'assets/nami1.jpg'],
+      downloadUrl: "assets/nami.jpg",
       thumbnail: "assets/nami.jpg",
       pages: ['assets/nami.jpg', 'assets/nami1.jpg'],
       views: 1200,
@@ -1711,6 +1711,9 @@ function openFullpageComicReader(item) {
       const previewLimit = item.previewLimit || 15;
       const isLocked = item.isPaid && !store.isItemUnlocked(item.id);
       const isEn = item.language === 'en' || item.language === 'all' || (Array.isArray(item.language) && (item.language.includes('en') || item.language.includes('all')));
+      
+      const rawDownload = item.downloadUrl || item.videoUrl || (pages && pages[0]) || item.thumbnail;
+      const safeDownloadUrl = Array.isArray(rawDownload) ? rawDownload[0] : rawDownload;
 
       const txtCatalog = isEn ? 'Catalog' : 'Catálogo';
       const txtDownloadHd = isEn ? 'Download HD' : 'Descargar HD';
@@ -1760,8 +1763,8 @@ function openFullpageComicReader(item) {
               </div>
 
               <div style="display: flex; align-items: center; gap: 0.5rem;">
-                ${!isLocked && (item.videoUrl || item.downloadUrl) ? `
-                  <a href="${item.videoUrl || item.downloadUrl}" download target="_blank" class="btn-secondary top-download-btn" style="background: rgba(16, 185, 129, 0.2); color: #34d399; border: 1px solid var(--emerald); font-size: 0.82rem; padding: 0.4rem 0.75rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.35rem; font-weight: 700; border-radius: var(--radius-md);" title="${txtDownloadHd}">
+                ${!isLocked ? `
+                  <a href="${safeDownloadUrl}" download target="_blank" class="btn-secondary top-download-btn" style="background: rgba(16, 185, 129, 0.2); color: #34d399; border: 1px solid var(--emerald); font-size: 0.82rem; padding: 0.4rem 0.75rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.35rem; font-weight: 700; border-radius: var(--radius-md);" title="${txtDownloadHd}">
                     <i class="ph-download-simple"></i> ${txtDownloadHd}
                   </a>
                 ` : ''}
@@ -1846,12 +1849,12 @@ function openFullpageComicReader(item) {
               <span class="reader-comic-title" style="color: #fff; font-size: 1.1rem; font-weight: 800; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 280px;">${item.title}</span>
             </div>
 
-            <div style="display: flex; align-items: center; gap: 0.5rem;">
-              ${!isLocked ? `
-                <a href="${item.downloadUrl || 'assets/L00.jpg'}" download target="_blank" class="btn-secondary top-download-btn" style="background: rgba(16, 185, 129, 0.2); color: #34d399; border: 1px solid var(--emerald); font-size: 0.82rem; padding: 0.4rem 0.75rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.35rem; font-weight: 700; border-radius: var(--radius-md);" title="${txtDownloadHd}">
-                  <i class="ph-download-simple"></i> ${txtDownloadHd}
-                </a>
-              ` : ''}
+              <div style="display: flex; align-items: center; gap: 0.5rem;">
+                ${!isLocked ? `
+                  <a href="${safeDownloadUrl}" download target="_blank" class="btn-secondary top-download-btn" style="background: rgba(16, 185, 129, 0.2); color: #34d399; border: 1px solid var(--emerald); font-size: 0.82rem; padding: 0.4rem 0.75rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.35rem; font-weight: 700; border-radius: var(--radius-md);" title="${txtDownloadHd}">
+                    <i class="ph-download-simple"></i> ${txtDownloadHd}
+                  </a>
+                ` : ''}
 
               <!-- Mode Switcher Pill -->
               <div class="mode-toggle-pill">
