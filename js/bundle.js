@@ -27,7 +27,7 @@
   const COMICS_CATALOG = [
     {
       id: "no-interneten",
-      title: "NO INTERNET",
+      title: "NO INTERNET (EN)",
       language: "en",
       type: "comic",
       genre: "Incest",
@@ -36,7 +36,6 @@
       isPaid: true,
       price: 1.00,
       previewLimit: 30,
-      paymentUrl: "https://mpago.la/1DtXktD",
       paypalUrl: "https://www.paypal.com/ncp/payment/FZCP8QGCGTTX2",
       downloadUrl: "assets/NO INTERNET COMPLETO.pdf",
       thumbnail: "assets/ENICOVER.jpg",
@@ -137,7 +136,7 @@
     },
     {
       id: "no-internet",
-      title: "NO INTERNET",
+      title: "NO INTERNET (ES)",
       language: "es",
       type: "comic",
       genre: "Incest",
