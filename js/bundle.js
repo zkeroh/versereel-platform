@@ -145,7 +145,7 @@
       description: "Nami at the beach.",
       isPaid: false,      // false = Gratis, true = Premium ($1)
       price: 0,
-      downloadUrl: ['assets/nami.jpg', 'assets/nami1.jpg'],
+      downloadUrl: 'assets/nami.jpg',
       thumbnail: "assets/nami.jpg",
       pages: ['assets/nami.jpg', 'assets/nami1.jpg'],
       views: 1200,
@@ -167,6 +167,60 @@
       videoUrl: "assets/nami.mp4",           // 👈 Ruta de tu archivo MP4 o enlace directo
       views: 3100,
       tags: ["video", "animation", "3d", "zkero", "hentai video", "nami", "one piece"],
+      createdAt: new Date().toISOString()
+},
+    {
+      id: "tsunade-sexy",
+      title: "TSUNADE SEXY 3D",
+      language: "all",    // "en" para inglés, "es" para español
+      type: "image",      // 👈 IMPORTANTE: "image" para que aparezca en el botón IMAGES
+      genre: "Anime",   // Género
+      author: "Zkero",
+      description: "Tsunade in bed.",
+      isPaid: false,      // false = Gratis, true = Premium ($1)
+      price: 0,
+      downloadUrl: 'assets/tsunade.jpg',
+      thumbnail: "assets/tsunade.jpg",
+      pages: ['assets/tsunade.jpg', 'assets/tsunade1.jpg'],
+      views: 1200,
+        // 🏷️ AQUÍ AGREGAS TODAS LAS ETIQUETAS QUE QUIERAS:
+      tags: ["art", "illustration", "zkero", "digital art", "hentai art", "porn image", "tsunade", "3d", "naruto"],
+      createdAt: new Date().toISOString()
+},
+    {
+      id: "lucy-sexy",
+      title: "LUCY HEARTFILIA SEXY 3D",
+      language: "all",    // "en" para inglés, "es" para español
+      type: "image",      // 👈 IMPORTANTE: "image" para que aparezca en el botón IMAGES
+      genre: "Anime",   // Género
+      author: "Zkero",
+      description: "Lucy in bed.",
+      isPaid: false,      // false = Gratis, true = Premium ($1)
+      price: 0,
+      downloadUrl: 'assets/lucy.jpg',
+      thumbnail: "assets/lucy.jpg",
+      pages: 'assets/lucy.jpg',
+      views: 1200,
+        // 🏷️ AQUÍ AGREGAS TODAS LAS ETIQUETAS QUE QUIERAS:
+      tags: ["art", "illustration", "zkero", "digital art", "hentai art", "porn image", "lucy heartfilia", "3d", "fairy tail"],
+      createdAt: new Date().toISOString()
+},
+    {
+      id: "lucy1-sexy",
+      title: "LUCY AT THE BEACH",
+      language: "all",    // "en" para inglés, "es" para español
+      type: "image",      // 👈 IMPORTANTE: "image" para que aparezca en el botón IMAGES
+      genre: "Anime",   // Género
+      author: "Zkero",
+      description: "Lucy at the beach.",
+      isPaid: false,      // false = Gratis, true = Premium ($1)
+      price: 0,
+      downloadUrl: 'assets/lucy1.jpg',
+      thumbnail: "assets/lucy1.jpg",
+      pages: 'assets/lucy1.jpg',
+      views: 1200,
+        // 🏷️ AQUÍ AGREGAS TODAS LAS ETIQUETAS QUE QUIERAS:
+      tags: ["art", "illustration", "zkero", "digital art", "hentai art", "porn image", "lucy heartfilia", "3d", "fairy tail"],
       createdAt: new Date().toISOString()
 }
   ];
