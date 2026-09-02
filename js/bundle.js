@@ -1471,14 +1471,15 @@ function openFullpageComicReader(item) {
         
         const items = store.getItems();
         const norm = targetSearch.toLowerCase().trim();
-        const item = items.find(i => 
-          i.id === targetSearch || 
-          i.id.toLowerCase() === norm ||
-          i.id.toLowerCase().includes(norm) ||
-          norm.includes(i.id.toLowerCase()) ||
-          i.title.toLowerCase().replace(/\s+/g, '-') === norm ||
-          i.title.toLowerCase().includes(norm.replace(/-/g, ' '))
-        );
+        let item = items.find(i => i.id === targetSearch || i.id.toLowerCase() === norm);
+        if (!item) {
+          item = items.find(i => 
+            i.id.toLowerCase().includes(norm) ||
+            norm.includes(i.id.toLowerCase()) ||
+            i.title.toLowerCase().replace(/\s+/g, '-') === norm ||
+            i.title.toLowerCase().includes(norm.replace(/-/g, ' '))
+          );
+        }
 
         if (item) {
           if (isApproved) {
