@@ -1688,11 +1688,6 @@ function openFullpageComicReader(item) {
                   <div class="card-body">
                     <h3 class="card-title">${item.title}</h3>
                     <p class="card-desc">${item.description}</p>
-                    ${item.tags && item.tags.length ? `
-                      <div class="card-tags-wrapper" style="display: flex; flex-wrap: wrap; gap: 4px; margin: 6px 0 10px 0;">
-                        ${item.tags.map(tag => `<span class="tag-pill" style="font-size: 0.68rem; font-weight: 700; color: #a3e635; background: rgba(163,230,53,0.12); border: 1px solid rgba(163,230,53,0.3); padding: 2px 7px; border-radius: 6px; line-height: 1.2;">#${tag}</span>`).join('')}
-                      </div>
-                    ` : ''}
                     <div class="card-footer">
                       <span><i class="ph-user"></i> ${item.author}</span>
                       <span><i class="ph-eye"></i> ${(item.views || 0).toLocaleString()}</span>
@@ -1719,9 +1714,29 @@ function openFullpageComicReader(item) {
     attachAudienceEvents(root) {
       const searchInput = root.querySelector('#search-input');
       if (searchInput) {
+        // Maintain active cursor position & focus smoothly while typing
         searchInput.oninput = (e) => {
           this.searchQuery = e.target.value;
-          this.render();
+          const q = this.searchQuery.toLowerCase().trim();
+          
+          root.querySelectorAll('.media-card').forEach(card => {
+            const id = card.dataset.id;
+            const items = store.getItems();
+            const item = items.find(i => i.id === id);
+            if (!item) return;
+
+            let matches = true;
+            if (q) {
+              const matchTitle = item.title && item.title.toLowerCase().includes(q);
+              const matchDesc = item.description && item.description.toLowerCase().includes(q);
+              const matchGenre = item.genre && item.genre.toLowerCase().includes(q);
+              const matchAuthor = item.author && item.author.toLowerCase().includes(q);
+              const matchTags = item.tags && Array.isArray(item.tags) && item.tags.some(t => t.toLowerCase().includes(q));
+              if (!matchTitle && !matchDesc && !matchGenre && !matchAuthor && !matchTags) matches = false;
+            }
+            
+            card.style.display = matches ? 'block' : 'none';
+          });
         };
       }
 
