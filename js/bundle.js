@@ -127,7 +127,7 @@
       previewLimit: 20,
       paymentUrl: "https://mpago.la/2om6XKk",
       paypalUrl: "https://www.paypal.com/ncp/payment/RC4X5CV8S8WEL",
-      downloadUrl: "assets/LEMONADE.pdf",
+      downloadUrl: "assets/DONTTELLDAD.pdf",
       thumbnail: "assets/L00.jpg",
       pages: Array.from({ length: 35 }, (_, i) => `assets/L${String(i).padStart(2, '0')}.jpg`),
       views: 10350,
