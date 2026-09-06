@@ -2173,16 +2173,39 @@ function openFullpageComicReader(item) {
     }
 
     attachStandaloneComicEvents(root, item) {
+      const isItemUnlocked = !item.isPaid || store.isItemUnlocked(item.id);
+
+      // If approved/unlocked, immediately purge any bottom-right floating ExoClick ads/Instant Messages
+      if (isItemUnlocked) {
+        const purgeAds = () => {
+          document.querySelectorAll('.eas6a97888e6, [class*="eas6a97"], [id*="exo"], iframe[src*="exoclick"]').forEach(el => {
+            try { el.remove(); } catch (e) {}
+          });
+        };
+        purgeAds();
+        setTimeout(purgeAds, 200);
+        setTimeout(purgeAds, 600);
+        setTimeout(purgeAds, 1200);
+      }
+
       const closeStandaloneReader = () => {
         this.activeComic = null;
         if (window.location.search.includes('comic=')) {
           history.pushState({}, '', window.location.pathname);
         }
         this.render();
-         root.querySelectorAll('.top-download-btn').forEach(btn => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      };
+
+      const backBtn = root.querySelector('#back-to-catalog-btn');
+      if (backBtn) backBtn.onclick = closeStandaloneReader;
+
+      const xBtn = root.querySelector('#close-reader-x-btn');
+      if (xBtn) xBtn.onclick = closeStandaloneReader;
+
+      root.querySelectorAll('.top-download-btn').forEach(btn => {
         btn.onclick = (e) => {
-          const isLocked = item.isPaid && !store.isItemUnlocked(item.id);
-          if (isLocked) {
+          if (!isItemUnlocked) {
             try {
               document.cookie = "zone-cap-6015132=; expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/";
               if (window.popMagic) window.popMagic.open_count = 0;
@@ -2355,17 +2378,8 @@ function openFullpageComicReader(item) {
         };
         setTimeout(triggerComicAdServe, 150);
         setTimeout(triggerComicAdServe, 500);
-      }     }
-
-      // Multi-stage AdProvider trigger on comic page load
-      const triggerComicAdServe = () => {
-        try {
-          (window.AdProvider = window.AdProvider || []).push({"serve": {}});
-        } catch (e) {}
-      };
-      setTimeout(triggerComicAdServe, 200);
-      setTimeout(triggerComicAdServe, 800);
-      setTimeout(triggerComicAdServe, 2000);
+        setTimeout(triggerComicAdServe, 1200);
+      }
     }
 
     render() {
