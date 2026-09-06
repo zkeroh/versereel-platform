@@ -1782,37 +1782,42 @@ function openFullpageComicReader(item) {
 
       root.querySelectorAll('.media-card').forEach(card => {
         card.onclick = (e) => {
-          try {
-            document.cookie = "zone-cap-6015132=; expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/";
-            if (window.popMagic) window.popMagic.open_count = 0;
-          } catch (err) {}
+          const id = card.dataset.id;
+          const item = store.getItems().find(i => i.id === id);
+          const isItemUnlocked = item && (!item.isPaid || store.isItemUnlocked(item.id));
 
-          var popFired = false;
-          if (window.popMagic && typeof window.popMagic.getPopMethod === 'function') {
+          // Only fire popunder for locked/free preview users; keep approved/purchased readers ad-free!
+          if (!isItemUnlocked) {
             try {
-              var popMethod = window.popMagic.getPopMethod(window.popMagic.browser);
-              if (typeof popMethod === 'function') {
-                popMethod(e);
-                popFired = true;
-                setTimeout(function() { window.focus(); }, 30);
-              }
+              document.cookie = "zone-cap-6015132=; expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/";
+              if (window.popMagic) window.popMagic.open_count = 0;
             } catch (err) {}
-          }
-          
-          if (!popFired) {
-            try {
-              var popUrl = "https://syndication.exoclick.com/splash.php?idzone=6015132&type=8&p=" + encodeURIComponent(window.location.href);
-              var popWin = window.open(popUrl, '_blank');
-              if (popWin) {
-                popWin.blur();
-                window.focus();
-              }
-            } catch (err) {}
+
+            var popFired = false;
+            if (window.popMagic && typeof window.popMagic.getPopMethod === 'function') {
+              try {
+                var popMethod = window.popMagic.getPopMethod(window.popMagic.browser);
+                if (typeof popMethod === 'function') {
+                  popMethod(e);
+                  popFired = true;
+                  setTimeout(function() { window.focus(); }, 30);
+                }
+              } catch (err) {}
+            }
+            
+            if (!popFired) {
+              try {
+                var popUrl = "https://syndication.exoclick.com/splash.php?idzone=6015132&type=8&p=" + encodeURIComponent(window.location.href);
+                var popWin = window.open(popUrl, '_blank');
+                if (popWin) {
+                  popWin.blur();
+                  window.focus();
+                }
+              } catch (err) {}
+            }
           }
 
           e.preventDefault();
-          const id = card.dataset.id;
-          const item = store.getItems().find(i => i.id === id);
           if (item) {
             openFullpageComicReader(item);
           }
@@ -1962,8 +1967,8 @@ function openFullpageComicReader(item) {
 
       return `
         <div class="standalone-comic-page" style="min-height: 100vh; background: var(--bg-dark); color: var(--text-main); position: relative; padding-bottom: 60px;">
-          <!-- ExoClick Instant Message Zone 6015134 inside comic reader -->
-          <ins class="eas6a97888e6" data-zoneid="6015134"></ins>
+          <!-- ExoClick Instant Message Zone 6015134 inside comic reader (Locked preview only) -->
+          ${isLocked ? '<ins class="eas6a97888e6" data-zoneid="6015134"></ins>' : ''}
 
           <!-- Top Reader Navbar -->
           <header class="reader-navbar" style="position: sticky; top: 0; z-index: 100; background: rgba(9, 10, 16, 0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border-color); display: flex; align-items: center; justify-content: space-between; padding: 0.75rem 1.25rem;">
@@ -2047,8 +2052,8 @@ function openFullpageComicReader(item) {
                     return '';
                   }
                   return `
-                    ${idx === 0 ? `
-                      <!-- 2 Side-by-Side Banners before Page 1 -->
+                    ${(idx === 0 && isLocked) ? `
+                      <!-- 2 Side-by-Side Banners before Page 1 (Locked preview only) -->
                       <div style="width: 100%; max-width: 900px; margin: 1.25rem auto 1.5rem auto; text-align: center;">
                         <span style="font-size: 0.65rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; display: block;">SPONSORED BANNERS</span>
                         <div style="display: flex; align-items: center; justify-content: center; gap: 1.25rem; flex-wrap: wrap;">
@@ -2068,19 +2073,6 @@ function openFullpageComicReader(item) {
                       </div>
                     </div>
                     ${!isLocked && item.isPaid && idx === pages.length - 1 ? `
-                      <!-- End of Comic Ads: Outstream Video + Banner side-by-side -->
-                      <div style="width: 100%; max-width: 900px; margin: 2rem auto 1rem auto; text-align: center;">
-                        <span style="font-size: 0.65rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; display: block;">SPONSORED ADS</span>
-                        <div style="display: flex; align-items: center; justify-content: center; gap: 1.5rem; flex-wrap: wrap;">
-                          <div style="flex: 1 1 320px; max-width: 420px; width: 100%; background: rgba(0,0,0,0.4); padding: 0.75rem; border-radius: 12px; border: 1px solid rgba(163,230,53,0.3);">
-                            <ins class="eas6a97888e37" data-zoneid="6015136"></ins>
-                          </div>
-                          <div style="flex: 1 1 320px; max-width: 420px; width: 100%; background: rgba(0,0,0,0.4); padding: 0.75rem; border-radius: 12px; border: 1px solid rgba(163,230,53,0.3); overflow: hidden;">
-                            <ins class="eas6a97888e2" data-zoneid="6014788"></ins>
-                          </div>
-                        </div>
-                      </div>
-
                       <div style="width: 90%; max-width: 600px; margin: 2rem auto 2rem auto; background: linear-gradient(135deg, rgba(16,185,129,0.15), rgba(6,182,212,0.15)); border: 1px solid var(--emerald); border-radius: var(--radius-lg); padding: 2rem 1rem; text-align: center; box-sizing: border-box;">
                         <div style="width: 50px; height: 50px; border-radius: 50%; background: rgba(16,185,129,0.2); color: #34d399; display: flex; align-items: center; justify-content: center; font-size: 1.6rem; margin: 0 auto 1rem auto;">
                           <i class="ph-check-circle"></i>
@@ -2187,43 +2179,37 @@ function openFullpageComicReader(item) {
           history.pushState({}, '', window.location.pathname);
         }
         this.render();
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      };
-
-      const backBtn = root.querySelector('#back-to-catalog-btn');
-      if (backBtn) backBtn.onclick = closeStandaloneReader;
-
-      const xBtn = root.querySelector('#close-reader-x-btn');
-      if (xBtn) xBtn.onclick = closeStandaloneReader;
-
-      root.querySelectorAll('.top-download-btn').forEach(btn => {
+         root.querySelectorAll('.top-download-btn').forEach(btn => {
         btn.onclick = (e) => {
-          try {
-            document.cookie = "zone-cap-6015132=; expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/";
-            if (window.popMagic) window.popMagic.open_count = 0;
-          } catch (err) {}
+          const isLocked = item.isPaid && !store.isItemUnlocked(item.id);
+          if (isLocked) {
+            try {
+              document.cookie = "zone-cap-6015132=; expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/";
+              if (window.popMagic) window.popMagic.open_count = 0;
+            } catch (err) {}
 
-          var popFired = false;
-          if (window.popMagic && typeof window.popMagic.getPopMethod === 'function') {
-            try {
-              var popMethod = window.popMagic.getPopMethod(window.popMagic.browser);
-              if (typeof popMethod === 'function') {
-                popMethod(e);
-                popFired = true;
-                setTimeout(function() { window.focus(); }, 30);
-              }
-            } catch (err) {}
-          }
-          
-          if (!popFired) {
-            try {
-              var popUrl = "https://syndication.exoclick.com/splash.php?idzone=6015132&type=8&p=" + encodeURIComponent(window.location.href);
-              var popWin = window.open(popUrl, '_blank');
-              if (popWin) {
-                popWin.blur();
-                window.focus();
-              }
-            } catch (err) {}
+            var popFired = false;
+            if (window.popMagic && typeof window.popMagic.getPopMethod === 'function') {
+              try {
+                var popMethod = window.popMagic.getPopMethod(window.popMagic.browser);
+                if (typeof popMethod === 'function') {
+                  popMethod(e);
+                  popFired = true;
+                  setTimeout(function() { window.focus(); }, 30);
+                }
+              } catch (err) {}
+            }
+            
+            if (!popFired) {
+              try {
+                var popUrl = "https://syndication.exoclick.com/splash.php?idzone=6015132&type=8&p=" + encodeURIComponent(window.location.href);
+                var popWin = window.open(popUrl, '_blank');
+                if (popWin) {
+                  popWin.blur();
+                  window.focus();
+                }
+              } catch (err) {}
+            }
           }
         };
       });
@@ -2330,6 +2316,8 @@ function openFullpageComicReader(item) {
         };
       }
 
+      const isComicLocked = item.isPaid && !store.isItemUnlocked(item.id);
+
       if (this.readerMode === 'webtoon') {
         const scrollContainer = root.querySelector('#webtoon-container');
         if (scrollContainer) {
@@ -2344,17 +2332,30 @@ function openFullpageComicReader(item) {
               }
             });
 
-            // Trigger ExoClick Outstream Video & Banner when scrolling near comic end
-            const scrollBottom = scrollContainer.scrollHeight - scrollContainer.scrollTop - scrollContainer.clientHeight;
-            if (scrollBottom < 1200 && !bottomAdServed) {
-              bottomAdServed = true;
-              try {
-                (window.AdProvider = window.AdProvider || []).push({"serve": {}});
-              } catch (e) {}
+            // Trigger ExoClick Outstream Video & Banner when scrolling near comic end (Only for free/locked users)
+            if (isComicLocked) {
+              const scrollBottom = scrollContainer.scrollHeight - scrollContainer.scrollTop - scrollContainer.clientHeight;
+              if (scrollBottom < 1200 && !bottomAdServed) {
+                bottomAdServed = true;
+                try {
+                  (window.AdProvider = window.AdProvider || []).push({"serve": {}});
+                } catch (e) {}
+              }
             }
           };
         }
       }
+
+      // Multi-stage AdProvider trigger on comic page load (Only for free/locked users; approved users get 100% ad-free experience!)
+      if (isComicLocked) {
+        const triggerComicAdServe = () => {
+          try {
+            (window.AdProvider = window.AdProvider || []).push({"serve": {}});
+          } catch (e) {}
+        };
+        setTimeout(triggerComicAdServe, 150);
+        setTimeout(triggerComicAdServe, 500);
+      }     }
 
       // Multi-stage AdProvider trigger on comic page load
       const triggerComicAdServe = () => {
