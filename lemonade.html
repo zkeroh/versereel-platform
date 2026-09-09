@@ -45,15 +45,17 @@ src="https://www.facebook.com/tr?id=1854121815966561&ev=PageView&noscript=1"
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
   <script src="https://unpkg.com/@phosphor-icons/web"></script>
 <script>
-document.querySelectorAll('a.btn-action-buy-paypal').forEach(function (btn) {
-  btn.addEventListener('click', function () {
-    if (typeof fbq === 'function') {
-      fbq('track', 'InitiateCheckout', {
-        value: 4.99,
-        currency: 'USD',
-        content_name: 'Lemonade'
-      });
-    }
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('a.btn-action-buy-paypal').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      if (typeof fbq === 'function') {
+        fbq('track', 'InitiateCheckout', {
+          value: 4.99,
+          currency: 'USD',
+          content_name: 'Dont Tell Dad'
+        });
+      }
+    });
   });
 });
 </script>
