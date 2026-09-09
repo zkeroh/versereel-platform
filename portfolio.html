@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
+  
+  <title>ZKERO | Professional Comic Artist & Illustrator Portfolio</title>
+  <meta name="description" content="Official Portfolio of Zkero - Professional Comic Artist, Digital Illustrator & Webtoon Creator. High-detail sequential art, character design & digital coloring." />
+  <meta name="keywords" content="comic artist, digital illustrator, webtoon artist, comic book penciler, inker, colorist, character designer, zkero, art portfolio" />
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="ZKERO | Professional Comic Artist & Illustrator Portfolio" />
+  <meta property="og:description" content="Explore original comic pages, character designs, and digital illustrations by Zkero." />
+  <meta property="og:image" content="https://xzkero.com/assets/portfolio/art_10_BLEACH.jpg" />
+  <meta property="og:url" content="https://xzkero.com/portfolio.html" />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="styles/main.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet" />
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+  <style>
+    :root {
+      --bg-dark: #07090e;
+      --bg-card: #0f172a;
+      --accent-green: #a3e635;
+      --accent-cyan: #38bdf8;
+      --accent-rose: #f43f5e;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+
+    /* Executive Navbar */
+    .portfolio-nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(7, 9, 14, 0.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+    }
+
+    .nav-brand img {
+      height: 38px;
+      width: auto;
+    }
+
+    .nav-brand-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -0.5px;
+    }
+
+    .nav-brand-tag {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--accent-green);
+      background: rgba(163, 230, 53, 0.15);
+      border: 1px solid rgba(163, 230, 53, 0.3);
+      padding: 2px 8px;
+      border-radius: 50px;
+      text-transform: uppercase;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .btn-contact {
+      background: linear-gradient(135deg, #a3e635, #84cc16);
+      color: #0f172a;
+      font-weight: 800;
+      font-size: 0.92rem;
+      padding: 0.65rem 1.3rem;
+      border-radius: 12px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      box-shadow: 0 4px 20px rgba(163, 230, 53, 0.35);
+      transition: all 0.25s ease;
+    }
+
+    .btn-contact:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(163, 230, 53, 0.5);
+    }
+
+    /* Hero Section */
+    .hero-portfolio {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 4rem 1.5rem 2.5rem 1.5rem;
+      text-align: center;
+    }
+
+    .availability-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(16, 185, 129, 0.12);
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      color: #34d399;
+      font-size: 0.85rem;
+      font-weight: 700;
+      padding: 0.4rem 1.1rem;
+      border-radius: 50px;
+      margin-bottom: 1.5rem;
+    }
+
+    .availability-dot {
+      width: 8px;
+      height: 8px;
+      background: #34d399;
+      border-radius: 50%;
+      box-shadow: 0 0 10px #34d399;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { opacity: 0.5; }
+      50% { opacity: 1; }
+      100% { opacity: 0.5; }
+    }
+
+    .portfolio-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      font-weight: 700;
+      line-height: 1.15;
+      margin: 0 0 1.25rem 0;
+      background: linear-gradient(135deg, #ffffff 40%, #a3e635 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .portfolio-subtitle {
+      max-width: 780px;
+      margin: 0 auto 2.5rem auto;
+      color: var(--text-muted);
+      font-size: 1.15rem;
+      line-height: 1.6;
+      font-weight: 400;
+    }
+
+    .artist-skills-pills {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+    }
+
+    .skill-pill {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #e2e8f0;
+      font-size: 0.88rem;
+      font-weight: 600;
+      padding: 0.5rem 1.1rem;
+      border-radius: 10px;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    /* Gallery Filters & Grid */
+    .gallery-section {
+      max-width: 1380px;
+      margin: 0 auto;
+      padding: 0 1.5rem 5rem 1.5rem;
+    }
+
+    .gallery-controls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .gallery-counter {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .gallery-counter span {
+      color: var(--accent-green);
+      font-weight: 800;
+    }
+
+    /* Masonry / Responsive Grid */
+    .artwork-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .art-card {
+      position: relative;
+      background: var(--bg-card);
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer;
+    }
+
+    .art-card:hover {
+      transform: translateY(-6px) scale(1.02);
+      border-color: rgba(163, 230, 53, 0.5);
+      box-shadow: 0 15px 40px rgba(163, 230, 53, 0.25);
+    }
+
+    .art-card-img-wrapper {
+      position: relative;
+      width: 100%;
+      height: 380px;
+      overflow: hidden;
+      background: #000;
+    }
+
+    .art-card-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      transition: transform 0.5s ease;
+    }
+
+    .art-card:hover .art-card-img {
+      transform: scale(1.06);
+    }
+
+    .art-card-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(0deg, rgba(7, 9, 14, 0.95) 0%, rgba(7, 9, 14, 0.2) 60%, transparent 100%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 1.25rem;
+    }
+
+    .art-card:hover .art-card-overlay {
+      opacity: 1;
+    }
+
+    .art-card-title {
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 800;
+      margin: 0 0 0.35rem 0;
+    }
+
+    .art-card-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      color: var(--accent-green);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .view-hd-hint {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(8px);
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.35rem 0.75rem;
+      border-radius: 50px;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .art-card:hover .view-hd-hint {
+      opacity: 1;
+    }
+
+    /* Lightbox Modal */
+    .lightbox-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 10000;
+      background: rgba(4, 6, 10, 0.95);
+      backdrop-filter: blur(16px);
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+
+    .lightbox-content {
+      position: relative;
+      max-width: 95vw;
+      max-height: 92vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .lightbox-img {
+      max-width: 92vw;
+      max-height: 84vh;
+      object-fit: contain;
+      border-radius: 12px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .lightbox-close-btn {
+      position: absolute;
+      top: -20px;
+      right: -20px;
+      background: rgba(244, 63, 94, 0.3);
+      border: 1px solid var(--accent-rose);
+      color: #fff;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      font-size: 1.5rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+      z-index: 10001;
+    }
+
+    .lightbox-close-btn:hover {
+      background: var(--accent-rose);
+      transform: scale(1.1);
+    }
+
+    /* Contact Section */
+    .contact-banner {
+      max-width: 1000px;
+      margin: 3rem auto 6rem auto;
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.9) 0%, rgba(163, 230, 53, 0.08) 100%);
+      border: 1px solid rgba(163, 230, 53, 0.3);
+      border-radius: 24px;
+      padding: 3rem 2rem;
+      text-align: center;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+    }
+
+    .contact-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.85rem;
+    }
+
+    .contact-desc {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      max-width: 620px;
+      margin: 0 auto 2rem auto;
+      line-height: 1.6;
+    }
+
+    .contact-links {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .social-btn {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 0.75rem 1.4rem;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 0.92rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.25s ease;
+    }
+
+    .social-btn:hover {
+      background: rgba(163, 230, 53, 0.15);
+      border-color: var(--accent-green);
+      color: var(--accent-green);
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="portfolio-nav">
+    <a href="https://xzkero.com" class="nav-brand">
+      <img src="assets/logo.png" alt="Zkero Logo" />
+      <span class="nav-brand-title">ZKERO</span>
+      <span class="nav-brand-tag">PORTFOLIO</span>
+    </a>
+    <div class="nav-actions">
+      <a href="mailto:zkero.artist@gmail.com?subject=Comic%20Artist%20Inquiry" class="btn-contact">
+        <i class="ph-paper-plane-tilt-bold" style="font-size: 1.1rem;"></i> HIRE ME / CONTACT
+      </a>
+    </div>
+  </nav>
+
+  <!-- Hero Banner -->
+  <header class="hero-portfolio">
+    <div class="availability-badge">
+      <span class="availability-dot"></span>
+      AVAILABLE FOR COMIC COMMISSIONS & FULL PROJECTS
+    </div>
+
+    <h1 class="portfolio-title">
+      Professional Comic Artist & Digital Illustrator
+    </h1>
+
+    <p class="portfolio-subtitle">
+      Hi! I'm Zkero, a specialized digital artist delivering high-detail sequential comic pages, webtoons, character design, inking, and full digital coloring for publishers, indie creators, and studios worldwide.
+    </p>
+
+    <div class="artist-skills-pills">
+      <div class="skill-pill"><i class="ph-book-open-bold" style="color: var(--accent-green);"></i> Sequential Comic Art</div>
+      <div class="skill-pill"><i class="ph-palette-bold" style="color: var(--accent-cyan);"></i> Digital Inking & Coloring</div>
+      <div class="skill-pill"><i class="ph-user-focus-bold" style="color: var(--accent-rose);"></i> Character Design</div>
+      <div class="skill-pill"><i class="ph-lightning-bold" style="color: var(--accent-green);"></i> Fast Production Turnaround</div>
+    </div>
+  </header>
+
+  <!-- Gallery Section -->
+  <main class="gallery-section">
+    <div class="gallery-controls">
+      <div class="gallery-counter">
+        Showing <span>30 Selected Artwork Pieces</span> (HD Preview)
+      </div>
+    </div>
+
+    <!-- Artwork Grid -->
+    <div class="artwork-grid" id="artwork-grid">
+      <!-- Grid items dynamically generated by JavaScript below -->
+    </div>
+  </main>
+
+  <!-- Contact & Hire Banner -->
+  <section class="contact-banner">
+    <h2 class="contact-title">Interested in Working Together?</h2>
+    <p class="contact-desc">
+      Whether you need a full comic issue, webtoon episodes, character concept sheets, or custom promotional illustration, I'm ready to bring your vision to life.
+    </p>
+    <div class="contact-links">
+      <a href="mailto:zkero.artist@gmail.com?subject=Comic%20Artist%20Commission%20Inquiry" class="btn-contact" style="padding: 0.85rem 1.8rem; font-size: 1rem;">
+        <i class="ph-envelope-simple-bold" style="font-size: 1.2rem;"></i> Send Project Inquiry
+      </a>
+      <a href="https://www.facebook.com/people/Zkero/61593468307356/" target="_blank" rel="noopener noreferrer" class="social-btn">
+        <i class="ph-facebook-logo-bold" style="color: #1877f2; font-size: 1.2rem;"></i> Facebook
+      </a>
+      <a href="https://patreon.com/zkero" target="_blank" rel="noopener noreferrer" class="social-btn">
+        <i class="ph-patreon-logo-bold" style="color: #ff424d; font-size: 1.2rem;"></i> Patreon
+      </a>
+      <a href="https://x.com/hZkeroh" target="_blank" rel="noopener noreferrer" class="social-btn">
+        <i class="ph-twitter-logo-bold" style="color: #38bdf8; font-size: 1.2rem;"></i> X (Twitter)
+      </a>
+      <a href="https://www.instagram.com/zkero.h?igsi=MWt3M25mNG9oZDY4Zw%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" class="social-btn">
+        <i class="ph-instagram-logo-bold" style="color: #f43f5e; font-size: 1.2rem;"></i> Instagram
+      </a>
+    </div>
+  </section>
+
+  <!-- Fullscreen HD Lightbox Modal -->
+  <div class="lightbox-modal" id="portfolio-lightbox">
+    <div class="lightbox-content">
+      <button class="lightbox-close-btn" id="lightbox-close">&times;</button>
+      <img id="lightbox-main-img" class="lightbox-img" src="" alt="HD Artwork Preview" />
+    </div>
+  </div>
+
+  <!-- JavaScript Dataset and Interactivity -->
+  <script>
+    const artworks = [
+      { path: "assets/portfolio/art_01_1111.png", title: "Original Digital Piece 01", category: "Character Design" },
+      { path: "assets/portfolio/art_02_20200107_2311551.jpg", title: "Sequential Page Lineart 02", category: "Comic Page" },
+      { path: "assets/portfolio/art_03_20200110_1815161.jpg", title: "Sequential Page Lineart 03", category: "Comic Page" },
+      { path: "assets/portfolio/art_04_20200126_1855031.jpg", title: "Sequential Storyboard 04", category: "Comic Page" },
+      { path: "assets/portfolio/art_05_296fc41b137bc437b3f10ffab461291ahd.jpg", title: "HD Full Color Page 05", category: "Comic Page" },
+      { path: "assets/portfolio/art_06_34a9a414e42145e62a32e42bccb45f43hd.png", title: "HD Webtoon Panel 06", category: "Comic Page" },
+      { path: "assets/portfolio/art_07_352b1e2316ace1ea9119ffecdc4f6fe1hd.jpg", title: "HD Color Spread 07", category: "Comic Page" },
+      { path: "assets/portfolio/art_08_62428ad05789a0a04db3ef60e8749c17hd.jpg", title: "HD Panel Sequence 08", category: "Comic Page" },
+      { path: "assets/portfolio/art_09_AM_DAD.jpg", title: "Character Illustration - AM DAD", category: "Illustration" },
+      { path: "assets/portfolio/art_10_BLEACH.jpg", title: "Featured Tribute Art - Bleach", category: "Pin-up Art" },
+      { path: "assets/portfolio/art_11_CARROTGAO.jpg", title: "Character Piece - Carrot", category: "Illustration" },
+      { path: "assets/portfolio/art_12_DIMITRESCU.jpg", title: "Vampire Lady Illustration", category: "Pin-up Art" },
+      { path: "assets/portfolio/art_13_ERZAFIN.jpg", title: "Erza Character Art", category: "Illustration" },
+      { path: "assets/portfolio/art_14_FINAL.jpg", title: "HD Full Color Climax Page", category: "Comic Page" },
+      { path: "assets/portfolio/art_15_INCREIBLES.jpg", title: "Incredibles Tribute Art", category: "Illustration" },
+      { path: "assets/portfolio/art_16_NAMI.jpg", title: "Nami Digital Artwork", category: "Pin-up Art" },
+      { path: "assets/portfolio/art_17_NICO3.jpg", title: "Nico Character Page 03", category: "Comic Page" },
+      { path: "assets/portfolio/art_18_NICO5.jpg", title: "Nico Character Page 05", category: "Comic Page" },
+      { path: "assets/portfolio/art_19_OOOO.jpg", title: "Original Digital Pin-up", category: "Pin-up Art" },
+      { path: "assets/portfolio/art_20_SHIGURE.jpg", title: "Shigure Digital Illustration", category: "Illustration" },
+      { path: "assets/portfolio/art_21_TF_2.jpg", title: "Action Sequence Piece - TF2", category: "Illustration" },
+      { path: "assets/portfolio/art_22_TIT.jpg", title: "Digital Portrait Study", category: "Illustration" },
+      { path: "assets/portfolio/art_23_TRK3.jpg", title: "TRK Sequential Page 03", category: "Comic Page" },
+      { path: "assets/portfolio/art_24_c0ad950bbd62f5ff0ad8a158c5e245b8hd.jpg", title: "HD Master Color Page 24", category: "Comic Page" },
+      { path: "assets/portfolio/art_25_c4e60fbec68eb7a4fde536393d107726hd.jpg", title: "HD Master Color Page 25", category: "Comic Page" },
+      { path: "assets/portfolio/art_26_c896ad0a30a3cff3573eb5122a2a9798hd.jpg", title: "HD Master Color Page 26", category: "Comic Page" },
+      { path: "assets/portfolio/art_27_df8ce0354c71b1d3c1e0c209058aebd9hd.png", title: "HD Webtoon Episode Page", category: "Comic Page" },
+      { path: "assets/portfolio/art_28_e69337b2185c67fdfd7b406a3d61a33chd.jpg", title: "HD Digital Inking Page", category: "Comic Page" },
+      { path: "assets/portfolio/art_29_f7465ee7bf06214317d5e2d955db717chd.jpg", title: "HD High-Detail Page 29", category: "Comic Page" },
+      { path: "assets/portfolio/art_30_kushina.jpg", title: "Kushina Character Art", category: "Illustration" }
+    ];
+
+    const grid = document.getElementById('artwork-grid');
+    const modal = document.getElementById('portfolio-lightbox');
+    const modalImg = document.getElementById('lightbox-main-img');
+    const closeBtn = document.getElementById('lightbox-close');
+
+    artworks.forEach(item => {
+      const card = document.createElement('div');
+      card.className = 'art-card';
+      card.innerHTML = `
+        <div class="art-card-img-wrapper">
+          <img src="${item.path}" alt="${item.title}" class="art-card-img" loading="lazy" />
+          <div class="view-hd-hint">
+            <i class="ph-arrows-out-simple-bold"></i> VIEW FULL HD
+          </div>
+          <div class="art-card-overlay">
+            <h3 class="art-card-title">${item.title}</h3>
+            <div class="art-card-badge"><i class="ph-palette-bold"></i> ${item.category}</div>
+          </div>
+        </div>
+      `;
+
+      card.onclick = () => {
+        modalImg.src = item.path;
+        modal.style.display = 'flex';
+      };
+
+      grid.appendChild(card);
+    });
+
+    const closeModal = () => { modal.style.display = 'none'; };
+    closeBtn.onclick = closeModal;
+    modal.onclick = (e) => { if (e.target === modal) closeModal(); };
+  </script>
+</body>
+</html>
