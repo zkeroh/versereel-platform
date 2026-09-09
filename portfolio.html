@@ -477,7 +477,7 @@
   <main class="gallery-section">
     <div class="gallery-controls">
       <div class="gallery-counter">
-        Showing <span>30 Selected Artwork Pieces</span> (HD Preview)
+        Showing <span>Selected Artwork Pieces</span> (HD Preview)
       </div>
     </div>
 
@@ -524,35 +524,39 @@
   <script>
     const artworks = [
       { path: "assets/portfolio/art_01_1111.png", title: "Disenchantment Art", category: "Illustration" },
-      { path: "assets/portfolio/art_02_20200107_2311551.jpg", title: "Kushina Art", category: "Illustration" },
-      { path: "assets/portfolio/art_03_20200110_1815161.jpg", title: "Psykos Art", category: "Illustration" },
-      { path: "assets/portfolio/art_04_20200126_1855031.jpg", title: "Lucy Art", category: "Illustration" },
-      { path: "assets/portfolio/art_05_296fc41b137bc437b3f10ffab461291ahd.jpg", title: "High School DxD art", category: "Illustration" },
-      { path: "assets/portfolio/art_06_34a9a414e42145e62a32e42bccb45f43hd.png", title: "Fairy Tail Art 01", category: "Illustration" },
-      { path: "assets/portfolio/art_07_352b1e2316ace1ea9119ffecdc4f6fe1hd.jpg", title: "Fairy Tail Art 02", category: "Illustration" },
-      { path: "assets/portfolio/art_08_62428ad05789a0a04db3ef60e8749c17hd.jpg", title: "Fairy Tail Art 03", category: "Illustration" },
       { path: "assets/portfolio/art_09_AM_DAD.jpg", title: "Illustration - AM DAD", category: "Illustration" },
-      { path: "assets/portfolio/art_10_BLEACH.jpg", title: "Featured Tribute Art - Bleach", category: "Illustration" },
-      { path: "assets/portfolio/art_11_CARROTGAO.jpg", title: "Character Piece - Carrot", category: "Illustration" },
-      { path: "assets/portfolio/art_12_DIMITRESCU.jpg", title: "Lady Dimitrescu Illustration", category: "Illustration" },
-      { path: "assets/portfolio/art_13_ERZAFIN.jpg", title: "Erza Character Art", category: "Illustration" },
-      { path: "assets/portfolio/art_14_FINAL.jpg", title: "One Piece Art", category: "Illustration" },
       { path: "assets/portfolio/art_15_INCREIBLES.jpg", title: "Incredibles Tribute Art", category: "Illustration" },
+      { path: "assets/portfolio/art_11_CARROTGAO.jpg", title: "Character Piece - Carrot", category: "Illustration" },
+      { path: "assets/portfolio/art_14_FINAL.jpg", title: "One Piece Art", category: "Illustration" },
       { path: "assets/portfolio/art_16_NAMI.jpg", title: "Nami Digital Artwork", category: "Illustration" },
       { path: "assets/portfolio/art_17_NICO3.jpg", title: "Nico Character Art 01", category: "Illustration" },
       { path: "assets/portfolio/art_18_NICO5.jpg", title: "Nico Character Art 02", category: "Illustration" },
       { path: "assets/portfolio/art_19_OOOO.jpg", title: "Nico Character Art 03", category: "Illustration" },
-      { path: "assets/portfolio/art_20_SHIGURE.jpg", title: "Shigure Digital Illustration", category: "Illustration" },
       { path: "assets/portfolio/art_21_TF_2.jpg", title: "One Piece Art 01", category: "Illustration" },
-      { path: "assets/portfolio/art_22_TIT.jpg", title: "Aphrodite Art", category: "Illustration" },
       { path: "assets/portfolio/art_23_TRK3.jpg", title: "One Piece Art 02", category: "Illustration" },
-      { path: "assets/portfolio/art_24_c0ad950bbd62f5ff0ad8a158c5e245b8hd.jpg", title: "Yukana Art", category: "Illustration" },
-      { path: "assets/portfolio/art_25_c4e60fbec68eb7a4fde536393d107726hd.jpg", title: "Lucoa Art", category: "Illustration" },
+      { path: "assets/portfolio/art_06_34a9a414e42145e62a32e42bccb45f43hd.png", title: "Fairy Tail Art 01", category: "Illustration" },
+      { path: "assets/portfolio/art_07_352b1e2316ace1ea9119ffecdc4f6fe1hd.jpg", title: "Fairy Tail Art 02", category: "Illustration" },
+      { path: "assets/portfolio/art_08_62428ad05789a0a04db3ef60e8749c17hd.jpg", title: "Fairy Tail Art 03", category: "Illustration" },
       { path: "assets/portfolio/art_26_c896ad0a30a3cff3573eb5122a2a9798hd.jpg", title: "Fairy Tail Art 04", category: "Illustration" },
       { path: "assets/portfolio/art_27_df8ce0354c71b1d3c1e0c209058aebd9hd.png", title: "Fairy Tail Art 05", category: "Illustration" },
-      { path: "assets/portfolio/art_28_e69337b2185c67fdfd7b406a3d61a33chd.jpg", title: "NarutoxSakura Art", category: "Illustration" },
       { path: "assets/portfolio/art_29_f7465ee7bf06214317d5e2d955db717chd.jpg", title: "Fairy Tail Art 06", category: "Illustration" },
-      { path: "assets/portfolio/art_30_kushina.jpg", title: "Kushina Character Art", category: "Illustration" }
+      { path: "assets/portfolio/art_13_ERZAFIN.jpg", title: "Erza Character Art", category: "Illustration" },
+      { path: "assets/portfolio/art_28_e69337b2185c67fdfd7b406a3d61a33chd.jpg", title: "NarutoxSakura Art", category: "Illustration" },
+      { path: "assets/portfolio/art_10_BLEACH.jpg", title: "Featured Tribute Art - Bleach", category: "Illustration" },
+      { path: "assets/portfolio/art_05_296fc41b137bc437b3f10ffab461291ahd.jpg", title: "High School DxD art", category: "Illustration" },
+      { path: "assets/portfolio/art_12_DIMITRESCU.jpg", title: "Lady Dimitrescu Illustration", category: "Illustration" },
+      { path: "assets/portfolio/art_02_20200107_2311551.jpg", title: "Kushina Art", category: "Illustration" },
+      { path: "assets/portfolio/art_03_20200110_1815161.jpg", title: "Psykos Art", category: "Illustration" },
+      { path: "assets/portfolio/art_04_20200126_1855031.jpg", title: "Lucy Art", category: "Illustration" },
+      { path: "assets/portfolio/art_20_SHIGURE.jpg", title: "Shigure Digital Illustration", category: "Illustration" },
+      { path: "assets/portfolio/art_22_TIT.jpg", title: "Aphrodite Art", category: "Illustration" },
+      { path: "assets/portfolio/art_24_c0ad950bbd62f5ff0ad8a158c5e245b8hd.jpg", title: "Yukana Art", category: "Illustration" },
+      { path: "assets/portfolio/art_25_c4e60fbec68eb7a4fde536393d107726hd.jpg", title: "Lucoa Art", category: "Illustration" },
+      { path: "assets/portfolio/art_30_kushina.jpg", title: "Kushina Character Art", category: "Illustration" },
+      { path: "assets/portfolio/Erza.jpg", title: "Erza Art", category: "Illustration" },
+      { path: "assets/portfolio/tsunade.jpg", title: "Tsunade Art", category: "Illustration" },
+      { path: "assets/portfolio/SakieSatou.jpg", title: "Sakie Satou Art", category: "Illustration" },
+      { path: "assets/portfolio/RinkoIori.jpg", title: "Rinko Iori Art", category: "Illustration" }
     ];
 
     const grid = document.getElementById('artwork-grid');
