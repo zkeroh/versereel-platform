@@ -2184,6 +2184,15 @@ function openFullpageComicReader(item) {
                 <button type="button" id="reader-zoom-in" style="background:transparent; border:none; color:#fff; cursor:pointer; padding:2px 5px;"><i class="ph-plus-bold"></i></button>
               </div>
             </div>
+
+            <button class="btn-secondary" id="reader-next-btn" ${this.currentPageIndex === pages.length - 1 || this.readerMode === 'webtoon' ? 'disabled style="opacity:0.3;"' : ''}>
+              ${txtNext} <i class="ph-caret-right"></i>
+            </button>
+          </footer>
+        </div>
+      `;
+    }
+
     attachStandaloneComicEvents(root, item) {
       const isPurchasedVIP = item.isPaid && store.isItemUnlocked(item.id);
       const showAds = !isPurchasedVIP;
