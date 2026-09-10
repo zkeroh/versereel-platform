@@ -109,7 +109,7 @@
       price: 0,
       downloadUrl: "assets/THEWISH.pdf",
       thumbnail: "assets/W00.jpg",
-      pages: Array.from({ length: 9 }, (_, i) => `assets/W${String(i).padStart(2, '0')}.jpg`),
+      pages: Array.from({ length: 18 }, (_, i) => `assets/ENTW${String(i).padStart(2, '0')}.jpg`),
       views: 4890,
       tags: ["porn comic free", "sex comic", "hentai", "adult comic", "zkero", "big ass", "parodie", "obsession", "couple"],
       createdAt: new Date().toISOString()
