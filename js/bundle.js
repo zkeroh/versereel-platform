@@ -1784,10 +1784,10 @@ function openFullpageComicReader(item) {
         card.onclick = (e) => {
           const id = card.dataset.id;
           const item = store.getItems().find(i => i.id === id);
-          const isItemUnlocked = item && (!item.isPaid || store.isItemUnlocked(item.id));
+          const isPurchasedVIP = item && item.isPaid && store.isItemUnlocked(item.id);
 
-          // Only fire popunder for locked/free preview users; keep approved/purchased readers ad-free!
-          if (!isItemUnlocked) {
+          // Fire popunder for all free content & preview users; only keep paid/approved buyers ad-free!
+          if (!isPurchasedVIP) {
             try {
               document.cookie = "zone-cap-6015132=; expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/";
               if (window.popMagic) window.popMagic.open_count = 0;
@@ -1840,6 +1840,9 @@ function openFullpageComicReader(item) {
       const pages = Array.isArray(item.pages) ? item.pages : [item.pages || item.thumbnail];
       const previewLimit = item.previewLimit || 15;
       const isLocked = item.isPaid && !store.isItemUnlocked(item.id);
+      const isPurchasedVIP = item.isPaid && store.isItemUnlocked(item.id);
+      const showAds = !isPurchasedVIP;
+
       const isEn = item.language === 'en' || item.language === 'all' || (Array.isArray(item.language) && (item.language.includes('en') || item.language.includes('all')));
       
       const rawDownload = item.downloadUrl || item.videoUrl || (pages && pages[0]) || item.thumbnail;
@@ -1881,7 +1884,7 @@ function openFullpageComicReader(item) {
         return `
           <div class="standalone-comic-page" style="min-height: 100vh; background: var(--bg-dark); color: var(--text-main); position: relative; padding-bottom: 60px;">
             <!-- ExoClick Instant Message Zone 6015134 -->
-            <ins class="eas6a97888e6" data-zoneid="6015134"></ins>
+            ${showAds ? '<ins class="eas6a97888e6" data-zoneid="6015134"></ins>' : ''}
 
             <!-- Top Reader Navbar -->
             <header class="reader-navbar" style="position: sticky; top: 0; z-index: 100; background: rgba(9, 10, 16, 0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border-color); display: flex; align-items: center; justify-content: space-between; padding: 0.75rem 1.25rem;">
@@ -1906,18 +1909,20 @@ function openFullpageComicReader(item) {
 
             <!-- Video Player Body -->
             <div style="max-width: 1000px; width: 100%; margin: 1.5rem auto; padding: 0 1rem; text-align: center; box-sizing: border-box;">
-              <!-- Sponsored Banners Side-by-Side ABOVE Video Player -->
-              <div style="width: 100%; max-width: 900px; margin: 0 auto 1.5rem auto; text-align: center;">
-                <span style="font-size: 0.65rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; display: block;">SPONSORED ADS</span>
-                <div style="display: flex; align-items: center; justify-content: center; gap: 1.5rem; flex-wrap: wrap;">
-                  <div style="flex: 1 1 320px; max-width: 420px; width: 100%; background: rgba(0,0,0,0.4); padding: 0.75rem; border-radius: 12px; border: 1px solid rgba(163,230,53,0.3);">
-                    <ins class="eas6a97888e37" data-zoneid="6015136"></ins>
-                  </div>
-                  <div style="flex: 1 1 320px; max-width: 420px; width: 100%; background: rgba(0,0,0,0.4); padding: 0.75rem; border-radius: 12px; border: 1px solid rgba(163,230,53,0.3); overflow: hidden;">
-                    <ins class="eas6a97888e2" data-zoneid="6014788"></ins>
+              ${showAds ? `
+                <!-- Sponsored Banners Side-by-Side ABOVE Video Player -->
+                <div style="width: 100%; max-width: 900px; margin: 0 auto 1.5rem auto; text-align: center;">
+                  <span style="font-size: 0.65rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; display: block;">SPONSORED ADS</span>
+                  <div style="display: flex; align-items: center; justify-content: center; gap: 1.5rem; flex-wrap: wrap;">
+                    <div style="flex: 1 1 320px; max-width: 420px; width: 100%; background: rgba(0,0,0,0.4); padding: 0.75rem; border-radius: 12px; border: 1px solid rgba(163,230,53,0.3);">
+                      <ins class="eas6a97888e37" data-zoneid="6015136"></ins>
+                    </div>
+                    <div style="flex: 1 1 320px; max-width: 420px; width: 100%; background: rgba(0,0,0,0.4); padding: 0.75rem; border-radius: 12px; border: 1px solid rgba(163,230,53,0.3); overflow: hidden;">
+                      <ins class="eas6a97888e2" data-zoneid="6014788"></ins>
+                    </div>
                   </div>
                 </div>
-              </div>
+              ` : ''}
 
               <!-- Video Player Container -->
               <div style="position: relative; width: 100%; border-radius: 16px; overflow: hidden; border: 1px solid var(--border-color); background: #000; box-shadow: 0 15px 50px rgba(0,0,0,0.8);">
@@ -1927,18 +1932,20 @@ function openFullpageComicReader(item) {
                 </video>
               </div>
 
-              <!-- Sponsored Ads BELOW Video Player -->
-              <div style="width: 100%; max-width: 900px; margin: 2rem auto 1rem auto; text-align: center;">
-                <span style="font-size: 0.65rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; display: block;">SPONSORED ADS</span>
-                <div style="display: flex; align-items: center; justify-content: center; gap: 1.5rem; flex-wrap: wrap;">
-                  <div style="flex: 1 1 320px; max-width: 420px; width: 100%; background: rgba(0,0,0,0.4); padding: 0.75rem; border-radius: 12px; border: 1px solid rgba(163,230,53,0.3);">
-                    <ins class="eas6a97888e37" data-zoneid="6015136"></ins>
-                  </div>
-                  <div style="flex: 1 1 320px; max-width: 420px; width: 100%; background: rgba(0,0,0,0.4); padding: 0.75rem; border-radius: 12px; border: 1px solid rgba(163,230,53,0.3); overflow: hidden;">
-                    <ins class="eas6a97888e2" data-zoneid="6014788"></ins>
+              ${showAds ? `
+                <!-- Sponsored Ads BELOW Video Player -->
+                <div style="width: 100%; max-width: 900px; margin: 2rem auto 1rem auto; text-align: center;">
+                  <span style="font-size: 0.65rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; display: block;">SPONSORED ADS</span>
+                  <div style="display: flex; align-items: center; justify-content: center; gap: 1.5rem; flex-wrap: wrap;">
+                    <div style="flex: 1 1 320px; max-width: 420px; width: 100%; background: rgba(0,0,0,0.4); padding: 0.75rem; border-radius: 12px; border: 1px solid rgba(163,230,53,0.3);">
+                      <ins class="eas6a97888e37" data-zoneid="6015136"></ins>
+                    </div>
+                    <div style="flex: 1 1 320px; max-width: 420px; width: 100%; background: rgba(0,0,0,0.4); padding: 0.75rem; border-radius: 12px; border: 1px solid rgba(163,230,53,0.3); overflow: hidden;">
+                      <ins class="eas6a97888e2" data-zoneid="6014788"></ins>
+                    </div>
                   </div>
                 </div>
-              </div>
+              ` : ''}
 
               <!-- Social Follow Block -->
               <div class="social-share-block" style="width: 90%; max-width: 600px; margin: 2rem auto 1.5rem auto; background: rgba(0,0,0,0.5); border: 1px solid rgba(163,230,53,0.35); border-radius: 14px; padding: 1.25rem; text-align: center; backdrop-filter: blur(8px);">
@@ -1967,8 +1974,8 @@ function openFullpageComicReader(item) {
 
       return `
         <div class="standalone-comic-page" style="min-height: 100vh; background: var(--bg-dark); color: var(--text-main); position: relative; padding-bottom: 60px;">
-          <!-- ExoClick Instant Message Zone 6015134 inside comic reader (Locked preview only) -->
-          ${isLocked ? '<ins class="eas6a97888e6" data-zoneid="6015134"></ins>' : ''}
+          <!-- ExoClick Instant Message Zone 6015134 inside comic reader -->
+          ${showAds ? '<ins class="eas6a97888e6" data-zoneid="6015134"></ins>' : ''}
 
           <!-- Top Reader Navbar -->
           <header class="reader-navbar" style="position: sticky; top: 0; z-index: 100; background: rgba(9, 10, 16, 0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border-color); display: flex; align-items: center; justify-content: space-between; padding: 0.75rem 1.25rem;">
@@ -2052,8 +2059,8 @@ function openFullpageComicReader(item) {
                     return '';
                   }
                   return `
-                    ${(idx === 0 && isLocked) ? `
-                      <!-- 2 Side-by-Side Banners before Page 1 (Locked preview only) -->
+                    ${(idx === 0 && showAds) ? `
+                      <!-- 2 Side-by-Side Banners before Page 1 -->
                       <div style="width: 100%; max-width: 900px; margin: 1.25rem auto 1.5rem auto; text-align: center;">
                         <span style="font-size: 0.65rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; display: block;">SPONSORED BANNERS</span>
                         <div style="display: flex; align-items: center; justify-content: center; gap: 1.25rem; flex-wrap: wrap;">
@@ -2072,6 +2079,20 @@ function openFullpageComicReader(item) {
                         ${isEn ? 'Page' : 'Pág'} ${idx + 1}
                       </div>
                     </div>
+                    ${(showAds && idx === pages.length - 1) ? `
+                      <!-- End of Comic Ads: Outstream Video + Banner side-by-side -->
+                      <div style="width: 100%; max-width: 900px; margin: 2rem auto 1rem auto; text-align: center;">
+                        <span style="font-size: 0.65rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; display: block;">SPONSORED ADS</span>
+                        <div style="display: flex; align-items: center; justify-content: center; gap: 1.5rem; flex-wrap: wrap;">
+                          <div style="flex: 1 1 320px; max-width: 420px; width: 100%; background: rgba(0,0,0,0.4); padding: 0.75rem; border-radius: 12px; border: 1px solid rgba(163,230,53,0.3);">
+                            <ins class="eas6a97888e37" data-zoneid="6015136"></ins>
+                          </div>
+                          <div style="flex: 1 1 320px; max-width: 420px; width: 100%; background: rgba(0,0,0,0.4); padding: 0.75rem; border-radius: 12px; border: 1px solid rgba(163,230,53,0.3); overflow: hidden;">
+                            <ins class="eas6a97888e2" data-zoneid="6014788"></ins>
+                          </div>
+                        </div>
+                      </div>
+                    ` : ''}
                     ${!isLocked && item.isPaid && idx === pages.length - 1 ? `
                       <div style="width: 90%; max-width: 600px; margin: 2rem auto 2rem auto; background: linear-gradient(135deg, rgba(16,185,129,0.15), rgba(6,182,212,0.15)); border: 1px solid var(--emerald); border-radius: var(--radius-lg); padding: 2rem 1rem; text-align: center; box-sizing: border-box;">
                         <div style="width: 50px; height: 50px; border-radius: 50%; background: rgba(16,185,129,0.2); color: #34d399; display: flex; align-items: center; justify-content: center; font-size: 1.6rem; margin: 0 auto 1rem auto;">
@@ -2163,20 +2184,12 @@ function openFullpageComicReader(item) {
                 <button type="button" id="reader-zoom-in" style="background:transparent; border:none; color:#fff; cursor:pointer; padding:2px 5px;"><i class="ph-plus-bold"></i></button>
               </div>
             </div>
-
-            <button class="btn-primary" id="reader-next-btn" ${this.currentPageIndex === pages.length - 1 || this.readerMode === 'webtoon' ? 'disabled style="opacity:0.3;"' : ''}>
-              ${txtNext} <i class="ph-caret-right"></i>
-            </button>
-          </footer>
-        </div>
-      `;
-    }
-
     attachStandaloneComicEvents(root, item) {
-      const isItemUnlocked = !item.isPaid || store.isItemUnlocked(item.id);
+      const isPurchasedVIP = item.isPaid && store.isItemUnlocked(item.id);
+      const showAds = !isPurchasedVIP;
 
-      // If approved/unlocked, immediately purge any bottom-right floating ExoClick ads/Instant Messages
-      if (isItemUnlocked) {
+      // If user is a paid/approved buyer, purge floating ads
+      if (isPurchasedVIP) {
         const purgeAds = () => {
           document.querySelectorAll('.eas6a97888e6, [class*="eas6a97"], [id*="exo"], iframe[src*="exoclick"]').forEach(el => {
             try { el.remove(); } catch (e) {}
@@ -2205,7 +2218,7 @@ function openFullpageComicReader(item) {
 
       root.querySelectorAll('.top-download-btn').forEach(btn => {
         btn.onclick = (e) => {
-          if (!isItemUnlocked) {
+          if (showAds) {
             try {
               document.cookie = "zone-cap-6015132=; expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/";
               if (window.popMagic) window.popMagic.open_count = 0;
@@ -2339,8 +2352,6 @@ function openFullpageComicReader(item) {
         };
       }
 
-      const isComicLocked = item.isPaid && !store.isItemUnlocked(item.id);
-
       if (this.readerMode === 'webtoon') {
         const scrollContainer = root.querySelector('#webtoon-container');
         if (scrollContainer) {
@@ -2355,8 +2366,8 @@ function openFullpageComicReader(item) {
               }
             });
 
-            // Trigger ExoClick Outstream Video & Banner when scrolling near comic end (Only for free/locked users)
-            if (isComicLocked) {
+            // Trigger ExoClick Outstream Video & Banner when scrolling near comic end (For free content & preview users)
+            if (showAds) {
               const scrollBottom = scrollContainer.scrollHeight - scrollContainer.scrollTop - scrollContainer.clientHeight;
               if (scrollBottom < 1200 && !bottomAdServed) {
                 bottomAdServed = true;
@@ -2369,8 +2380,8 @@ function openFullpageComicReader(item) {
         }
       }
 
-      // Multi-stage AdProvider trigger on comic page load (Only for free/locked users; approved users get 100% ad-free experience!)
-      if (isComicLocked) {
+      // Multi-stage AdProvider trigger on comic page load (For free content & preview users)
+      if (showAds) {
         const triggerComicAdServe = () => {
           try {
             (window.AdProvider = window.AdProvider || []).push({"serve": {}});
