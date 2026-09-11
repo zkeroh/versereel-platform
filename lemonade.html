@@ -125,21 +125,50 @@ document.addEventListener('DOMContentLoaded', function () {
       gap: 0.85rem;
     }
 
+    .hero-img-container {
+      position: relative;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid rgba(244, 63, 94, 0.35);
+      cursor: pointer;
+    }
+
     .hero-img-thumb {
       width: 100%;
       height: 220px;
       object-fit: cover;
-      border-radius: 14px;
-      border: 1px solid rgba(244, 63, 94, 0.35);
-      box-shadow: 0 5px 15px rgba(0,0,0,0.5);
-      transition: all 0.25s ease;
-      cursor: pointer;
+      display: block;
+      transition: all 0.35s ease;
+      filter: blur(10px);
+      transform: scale(1.05);
     }
 
-    .hero-img-thumb:hover {
-      transform: scale(1.03);
-      border-color: rgba(244, 63, 94, 0.9);
-      box-shadow: 0 8px 25px rgba(244, 63, 94, 0.45);
+    .hero-img-container:hover .hero-img-thumb {
+      filter: blur(5px);
+      transform: scale(1.09);
+    }
+
+    .hero-img-overlay-badge {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(9, 10, 16, 0.82);
+      backdrop-filter: blur(6px);
+      color: #ffffff;
+      padding: 0.45rem 0.85rem;
+      border-radius: 50px;
+      font-size: 0.78rem;
+      font-weight: 800;
+      border: 1px solid rgba(244, 63, 94, 0.65);
+      pointer-events: none;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.7);
+      white-space: nowrap;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
 
     /* Column 2: Text Content & Actions */
@@ -287,10 +316,22 @@ document.addEventListener('DOMContentLoaded', function () {
           <i class="ph-eye-bold" style="font-size: 1.2rem; color: #f43f5e;"></i> COMIC PREVIEW
         </div>
         <div class="images-preview-grid">
-          <img src="assets/lemonade_preview1.jpg" alt="Comic Preview 1" class="hero-img-thumb" title="Click to view in fullscreen" />
-          <img src="assets/lemonade_preview2.jpg" alt="Comic Preview 2" class="hero-img-thumb" title="Click to view in fullscreen" />
-          <img src="assets/lemonade_preview3.jpg" alt="Comic Preview 3" class="hero-img-thumb" title="Click to view in fullscreen" />
-          <img src="assets/lemonade_preview4.jpg" alt="Comic Preview 4" class="hero-img-thumb" title="Click to view in fullscreen" />
+          <div class="hero-img-container">
+            <img src="assets/lemonade_preview1.jpg" alt="Comic Preview 1" class="hero-img-thumb" />
+            <div class="hero-img-overlay-badge"><i class="ph-eye-bold"></i> CLICK TO REVEAL</div>
+          </div>
+          <div class="hero-img-container">
+            <img src="assets/lemonade_preview2.jpg" alt="Comic Preview 2" class="hero-img-thumb" />
+            <div class="hero-img-overlay-badge"><i class="ph-eye-bold"></i> CLICK TO REVEAL</div>
+          </div>
+          <div class="hero-img-container">
+            <img src="assets/lemonade_preview3.jpg" alt="Comic Preview 3" class="hero-img-thumb" />
+            <div class="hero-img-overlay-badge"><i class="ph-eye-bold"></i> CLICK TO REVEAL</div>
+          </div>
+          <div class="hero-img-container">
+            <img src="assets/lemonade_preview4.jpg" alt="Comic Preview 4" class="hero-img-thumb" />
+            <div class="hero-img-overlay-badge"><i class="ph-eye-bold"></i> CLICK TO REVEAL</div>
+          </div>
         </div>
       </div>
 
@@ -348,29 +389,82 @@ document.addEventListener('DOMContentLoaded', function () {
   </div>
 
   <!-- Fullscreen Image Modal / Lightbox -->
-  <div id="image-lightbox-modal" style="display: none; position: fixed; inset: 0; z-index: 10000; background: rgba(0, 0, 0, 0.92); backdrop-filter: blur(12px); align-items: center; justify-content: center; padding: 1rem; cursor: pointer;">
-    <button id="lightbox-close-btn" style="position: absolute; top: 20px; right: 20px; background: rgba(244, 63, 94, 0.3); border: 1px solid #f43f5e; color: #fff; width: 44px; height: 44px; border-radius: 50%; font-size: 1.6rem; cursor: pointer; display: flex; align-items: center; justify-content: center; z-index: 10001;">
+  <div id="image-lightbox-modal" style="display: none; position: fixed; inset: 0; z-index: 10000; background: rgba(0, 0, 0, 0.94); backdrop-filter: blur(14px); align-items: center; justify-content: center; padding: 1rem;">
+    <!-- Close Button -->
+    <button id="lightbox-close-btn" aria-label="Close modal" style="position: absolute; top: 20px; right: 20px; background: rgba(244, 63, 94, 0.35); border: 1px solid #f43f5e; color: #fff; width: 44px; height: 44px; border-radius: 50%; font-size: 1.6rem; cursor: pointer; display: flex; align-items: center; justify-content: center; z-index: 10002; transition: all 0.2s ease;">
       &times;
     </button>
-    <img id="lightbox-img" src="" alt="HD Preview" style="max-width: 95vw; max-height: 92vh; object-fit: contain; border-radius: 12px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.9); cursor: default;" />
+
+    <!-- Prev Navigation Button -->
+    <button id="lightbox-prev-btn" aria-label="Previous image" style="position: absolute; left: 16px; top: 50%; transform: translateY(-50%); background: rgba(15, 23, 42, 0.85); border: 1px solid rgba(244, 63, 94, 0.65); color: #fff; width: 50px; height: 50px; border-radius: 50%; font-size: 1.5rem; cursor: pointer; display: flex; align-items: center; justify-content: center; z-index: 10002; transition: all 0.2s ease; box-shadow: 0 4px 20px rgba(0,0,0,0.8);">
+      <i class="ph-caret-left-bold"></i>
+    </button>
+
+    <!-- Next Navigation Button -->
+    <button id="lightbox-next-btn" aria-label="Next image" style="position: absolute; right: 16px; top: 50%; transform: translateY(-50%); background: rgba(15, 23, 42, 0.85); border: 1px solid rgba(244, 63, 94, 0.65); color: #fff; width: 50px; height: 50px; border-radius: 50%; font-size: 1.5rem; cursor: pointer; display: flex; align-items: center; justify-content: center; z-index: 10002; transition: all 0.2s ease; box-shadow: 0 4px 20px rgba(0,0,0,0.8);">
+      <i class="ph-caret-right-bold"></i>
+    </button>
+
+    <!-- Image Counter -->
+    <div id="lightbox-counter" style="position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); background: rgba(9, 10, 16, 0.85); border: 1px solid rgba(255,255,255,0.2); color: #fff; padding: 0.35rem 0.9rem; border-radius: 50px; font-size: 0.85rem; font-weight: 800; z-index: 10002; backdrop-filter: blur(8px);">
+      1 / 4
+    </div>
+
+    <!-- Main Lightbox HD Image -->
+    <img id="lightbox-img" src="" alt="HD Uncensored Preview" style="max-width: 90vw; max-height: 85vh; object-fit: contain; border-radius: 14px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.95); filter: none !important;" />
   </div>
 
-  <!-- Script for Lightbox Fullscreen Images -->
+  <!-- Script for Lightbox Fullscreen Images & Prev/Next Navigation -->
   <script>
     const modal = document.getElementById('image-lightbox-modal');
     const modalImg = document.getElementById('lightbox-img');
     const closeBtn = document.getElementById('lightbox-close-btn');
+    const prevBtn = document.getElementById('lightbox-prev-btn');
+    const nextBtn = document.getElementById('lightbox-next-btn');
+    const counter = document.getElementById('lightbox-counter');
 
-    document.querySelectorAll('.hero-img-thumb').forEach(img => {
-      img.onclick = () => {
-        modalImg.src = img.src;
+    const previewContainers = Array.from(document.querySelectorAll('.hero-img-container'));
+    const previewImages = previewContainers.map(c => c.querySelector('.hero-img-thumb'));
+    let currentIndex = 0;
+
+    function updateLightbox(index) {
+      if (index < 0) index = previewImages.length - 1;
+      if (index >= previewImages.length) index = 0;
+      currentIndex = index;
+      modalImg.src = previewImages[currentIndex].src;
+      counter.textContent = `${currentIndex + 1} / ${previewImages.length}`;
+    }
+
+    previewContainers.forEach((container, idx) => {
+      container.onclick = () => {
+        updateLightbox(idx);
         modal.style.display = 'flex';
       };
     });
 
+    prevBtn.onclick = (e) => {
+      e.stopPropagation();
+      updateLightbox(currentIndex - 1);
+    };
+
+    nextBtn.onclick = (e) => {
+      e.stopPropagation();
+      updateLightbox(currentIndex + 1);
+    };
+
     const closeModal = () => { modal.style.display = 'none'; };
     closeBtn.onclick = closeModal;
-    modal.onclick = (e) => { if (e.target === modal) closeModal(); };
+    modal.onclick = (e) => {
+      if (e.target === modal || e.target === modalImg) closeModal();
+    };
+
+    document.addEventListener('keydown', (e) => {
+      if (modal.style.display === 'flex') {
+        if (e.key === 'ArrowLeft') updateLightbox(currentIndex - 1);
+        if (e.key === 'ArrowRight') updateLightbox(currentIndex + 1);
+        if (e.key === 'Escape') closeModal();
+      }
+    });
   </script>
 
   <!-- ExoClick Popunder Zone 6015132 -->
