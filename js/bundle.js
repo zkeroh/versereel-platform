@@ -135,25 +135,6 @@
       createdAt: new Date().toISOString()
     },
     {
-      id: "a-line-we-crossed",
-      title: "A LINE WE CROSSED",
-      language: "en",
-      type: "comic",
-      genre: "Incest",
-      author: "Zkero",
-      description: "What happens when boundaries are pushed beyond the point of no return?",
-      isPaid: true,
-      price: 4.99,
-      previewLimit: 20,
-      paypalUrl: "https://www.paypal.com/ncp/payment/9HXQWPQ38FV9G",
-      downloadUrl: "assets/A_LINE_WE_CROSSED.pdf",
-      thumbnail: "assets/aline_preview1.jpg",
-      pages: ['assets/aline_preview1.jpg', 'assets/aline_preview2.jpg', 'assets/aline_preview3.jpg', 'assets/aline_preview4.jpg'],
-      views: 8920,
-      tags: ["porn comic online", "porn comic in english", "hentai comic", "adult comic", "a line we crossed", "zkero", "milftoon", "mom", "incest", "milf", "big tits"],
-      createdAt: new Date().toISOString()
-    },
-    {
       id: "no-internet",
       title: "NO INTERNET (ES)",
       language: "es",
