@@ -308,11 +308,25 @@ document.addEventListener('DOMContentLoaded', function () {
   <!-- Main Landing Container -->
   <main class="landing-wrapper">
 
-    <!-- 2 Columns Hero Grid -->
-    <div class="top-hero-grid">
-      <!-- Column 1: 4 Images Preview -->
-      <div class="hero-visuals-col">
-        <div class="preview-header-badge">
+    <!-- Main High-Converting Sales Flow Card -->
+    <div class="top-sales-flow-card" style="background: linear-gradient(180deg, rgba(244, 63, 94, 0.12) 0%, rgba(15, 23, 42, 0.75) 100%); border: 1px solid rgba(244, 63, 94, 0.3); border-radius: 24px; padding: 2rem 1.5rem; box-shadow: 0 15px 40px rgba(0, 0, 0, 0.65); max-width: 860px; margin: 0 auto 2rem auto; text-align: center;">
+      
+      <!-- 1. Headline + Description -->
+      <div class="flow-header-section" style="max-width: 780px; margin: 0 auto 1.75rem auto;">
+        <div class="badge-hot" style="margin: 0 auto 1rem auto;">
+          <i class="ph-fire-bold"></i> FULL COMIC IN ENGLISH
+        </div>
+        <h1 class="headline-hook" style="font-size: clamp(1.5rem, 4.2vw, 2.25rem); margin-bottom: 0.85rem;">
+          🔥 How far will this mother go when temptation crosses every limit? ❤️‍🔥
+        </h1>
+        <p class="engaging-desc" style="font-size: 1.05rem; color: #cbd5e1; line-height: 1.6; max-width: 720px; margin: 0 auto;">
+          A forbidden uncensored fantasy filled with secret desire, passion, and intense temptation. Enjoy the complete comic in maximum HD resolution.
+        </p>
+      </div>
+
+      <!-- 2. Previews -->
+      <div class="flow-previews-section" style="max-width: 780px; margin: 0 auto 2rem auto;">
+        <div class="preview-header-badge" style="margin: 0 auto 1rem auto;">
           <i class="ph-eye-bold" style="font-size: 1.2rem; color: #f43f5e;"></i> COMIC PREVIEW
         </div>
         <div class="images-preview-grid">
@@ -335,24 +349,40 @@ document.addEventListener('DOMContentLoaded', function () {
         </div>
       </div>
 
-      <!-- Column 2: Text Headline & Action Buttons -->
-      <div class="hero-content-col">
-        <div class="badge-hot">
-          <i class="ph-fire-bold"></i> FULL COMIC IN ENGLISH
-        </div>
-        <h1 class="headline-hook">
-          🔥 How far will this mother go when temptation crosses every limit? ❤️‍🔥
-        </h1>
-        <p class="engaging-desc">
-          A forbidden uncensored fantasy filled with secret desire, passion, and intense temptation. Enjoy the complete comic in maximum HD resolution.
-        </p>
-
-        <div class="cta-box-top">
-          <a href="https://www.paypal.com/ncp/payment/RC4X5CV8S8WEL" target="_blank" class="btn-action-buy-paypal">
-            <i class="ph-paypal-logo-bold" style="font-size: 1.3rem;"></i> 💳 BUY FULL COMIC HD - $4.99 USD <span style="text-decoration: line-through; opacity: 0.65; margin-left: 4px; font-weight: 600;">$9.99</span>
-          </a>
+      <!-- 3. This Block (What you get / How it works / Secure / Launch price) -->
+      <div class="offer-features-block" style="background: rgba(15, 23, 42, 0.85); border: 1px solid rgba(244, 63, 94, 0.4); border-radius: 18px; padding: 1.35rem 1.5rem; max-width: 680px; margin: 0 auto 1.5rem auto; box-shadow: 0 10px 30px rgba(0,0,0,0.5); text-align: left;">
+        <div style="display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.96rem; color: #e2e8f0; line-height: 1.5;">
+          <div style="display: flex; align-items: flex-start; gap: 0.65rem;">
+            <i class="ph-check-circle-bold" style="color: #34d399; font-size: 1.3rem; flex-shrink: 0; margin-top: 1px;"></i>
+            <span><strong>What you get:</strong> Full HD comic + bonus · Instant access after PayPal.</span>
+          </div>
+          <div style="display: flex; align-items: flex-start; gap: 0.65rem;">
+            <i class="ph-lightning-bold" style="color: #fbbf24; font-size: 1.3rem; flex-shrink: 0; margin-top: 1px;"></i>
+            <span><strong>How it works:</strong> Pay once &rarr; get your link to read online &amp; download.</span>
+          </div>
+          <div style="display: flex; align-items: flex-start; gap: 0.65rem;">
+            <i class="ph-shield-check-bold" style="color: #38bdf8; font-size: 1.3rem; flex-shrink: 0; margin-top: 1px;"></i>
+            <span><strong>Secure PayPal</strong> · One-time $4.99 · No subscription</span>
+          </div>
+          <div style="display: flex; align-items: flex-start; gap: 0.65rem; background: rgba(244, 63, 94, 0.18); border: 1px solid rgba(244, 63, 94, 0.4); padding: 0.55rem 0.9rem; border-radius: 10px; margin-top: 0.25rem;">
+            <i class="ph-clock-bold" style="color: #f43f5e; font-size: 1.3rem; flex-shrink: 0; margin-top: 1px;"></i>
+            <span style="color: #fda4af; font-weight: 800;">Launch price until Sep 13.</span>
+          </div>
         </div>
       </div>
+
+      <!-- 4. BUY Button -->
+      <div class="cta-box-top" style="max-width: 680px; margin: 0 auto 0.65rem auto; width: 100%;">
+        <a href="https://www.paypal.com/ncp/payment/RC4X5CV8S8WEL" target="_blank" class="btn-action-buy-paypal" style="padding: 1.15rem 1.5rem; font-size: 1.15rem; width: 100%;">
+          <i class="ph-paypal-logo-bold" style="font-size: 1.4rem;"></i> 💳 BUY FULL COMIC HD - $4.99 USD <span style="text-decoration: line-through; opacity: 0.65; margin-left: 6px; font-weight: 600;">$9.99</span>
+        </a>
+      </div>
+
+      <!-- 5. Under Buy (one line) -->
+      <div class="buy-subtext-note" style="text-align: center; color: #94a3b8; font-size: 0.9rem; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 0.45rem; margin-top: 0.5rem;">
+        <i class="ph-lightning-bold" style="color: #38bdf8;"></i> You’ll receive the access link immediately after payment.
+      </div>
+
     </div>
 
     <!-- Social Follow Block -->
