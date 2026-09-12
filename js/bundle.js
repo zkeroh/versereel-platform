@@ -41,7 +41,7 @@
       thumbnail: "assets/ENICOVER.jpg",
       pages: ['assets/ENICOVER.jpg', 'assets/L01.jpg', ...Array.from({ length: 41 }, (_, i) => `assets/ENI${String(i + 1).padStart(2, '0')}.jpg`)],
       views: 10142,
-      tags: ["porn comics", "porn comic free", "hentai english", "adult comic", "no internet", "zkero", "milftoon", "mom", "incest", "milf", "big tits"],
+      tags: ["porn comics", "porn comic free", "hentai english", "adult comic", "no internet", "zkero", "milftoon", "mom", "incest", "milf", "big tits", "no internet"],
       createdAt: new Date().toISOString()
     },
     {
