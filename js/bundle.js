@@ -26,6 +26,23 @@
   // =========================================================================
   const COMICS_CATALOG = [
     {
+      id: "bleachtybw",
+      title: "YHWACH's REVENGE",
+      language: "en",
+      type: "comic",
+      genre: "hentai",
+      author: "Zkero",
+      description: "Bleach parody",
+      isPaid: false,
+      price: 0,
+      downloadUrl: "assets/B08.jpg",
+      thumbnail: "assets/B08.jpg",
+      pages:  Array.from({ length: 9 }, (_, i) => `assets/B${i}.jpg`),
+      views: 10142,
+      tags: ["porn comics", "porn comic free", "hentai english", "adult comic", "bleach", "zkero", "orihime", "rukia", "netorare", "milf", "big tits"],
+      createdAt: new Date().toISOString()
+    },
+    {
       id: "no-interneten",
       title: "A LINE WE CROSSED",
       language: "en",
