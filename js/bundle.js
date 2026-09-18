@@ -37,7 +37,7 @@
       price: 0,
       downloadUrl: "assets/B08.jpg",
       thumbnail: "assets/B08.jpg",
-      pages:  Array.from({ length: 9 }, (_, i) => `assets/B${i}.jpg`),
+      pages:  Array.from({ length: 9 }, (_, i) => `assets/B${String(i).padStart(2, '0')}.jpg`),
       views: 10142,
       tags: ["porn comics", "porn comic free", "hentai english", "adult comic", "bleach", "zkero", "orihime", "rukia", "netorare", "milf", "big tits"],
       createdAt: new Date().toISOString()
