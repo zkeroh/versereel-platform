@@ -39,7 +39,7 @@
       paypalUrl: "https://www.paypal.com/ncp/payment/VRSJZ76KRJTH6",
       downloadUrl: "assets/DTDPT.pdf",
       thumbnail: "assets/PL00.jpg",
-      pages: Array.from({ length: 35 }, (_, i) => `assets/L${String(i).padStart(2, '0')}.jpg`),
+      pages: Array.from({ length: 35 }, (_, i) => `assets/PL${String(i).padStart(2, '0')}.jpg`),
       views: 10350,
       tags: ["porn comic online", "porn comic in english", "hentai comic", "adult comic", "lemonade", "zkero", "milftoon", "mom", "incest", "milf", "big tits"],
       createdAt: new Date().toISOString()
