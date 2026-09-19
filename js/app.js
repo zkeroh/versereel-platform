@@ -58,8 +58,14 @@ class App {
       if (isApproved) {
         const res = store.unlockItem(comicId);
         if (res.success) {
+          const item = store.getItems().find(i => i.id === comicId);
+          const isPtMsg = item && (item.language === 'pt' || (Array.isArray(item.language) && item.language.includes('pt')));
+          const isEnMsg = item && (item.language === 'en' || item.language === 'all' || (Array.isArray(item.language) && (item.language.includes('en') || item.language.includes('all'))));
+          const toastMsg = isPtMsg
+            ? '🎉 Pagamento verificado com sucesso! Aproveite a leitura completa.'
+            : (isEnMsg ? '🎉 Payment verified successfully! Enjoy reading.' : '🎉 ¡Pago verificado exitosamente! Disfruta de la lectura completa.');
           setTimeout(() => {
-            this.showToast('🎉 ¡Pago verificado exitosamente por Mercado Pago! Disfruta de la lectura completa.');
+            this.showToast(toastMsg);
           }, 500);
         }
       }

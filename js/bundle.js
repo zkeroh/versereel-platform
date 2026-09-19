@@ -1540,7 +1540,12 @@ function openFullpageComicReader(item) {
           if (isApproved) {
             store.unlockItem(item.id);
             try { localStorage.removeItem('pending_unlock_comic'); } catch (e) {}
-            this.showToast('🎉 ¡Pago verificado exitosamente por Mercado Pago! Disfruta de la lectura completa.');
+            const isPtMsg = item.language === 'pt' || (Array.isArray(item.language) && item.language.includes('pt'));
+            const isEnMsg = item.language === 'en' || item.language === 'all' || (Array.isArray(item.language) && (item.language.includes('en') || item.language.includes('all')));
+            const toastMsg = isPtMsg
+              ? '🎉 Pagamento verificado com sucesso! Aproveite a leitura completa.'
+              : (isEnMsg ? '🎉 Payment verified successfully! Enjoy reading.' : '🎉 ¡Pago verificado exitosamente! Disfruta de la lectura completa.');
+            this.showToast(toastMsg);
           }
 
           if (item.type === 'comic') {
@@ -1705,11 +1710,12 @@ function openFullpageComicReader(item) {
                   <button type="button" class="type-pill ${this.selectedMediaType === 'image' ? 'active' : ''}" data-type="image">🖼️ IMAGES</button>
                 </div>
 
-                <!-- Language Dropdown (Replaces old All Media dropdown) -->
+                <!-- Language Dropdown -->
                 <select id="lang-filter" class="custom-filter-select">
                   <option value="all" ${this.selectedLanguage === 'all' ? 'selected' : ''}>🌐 All Languages</option>
                   <option value="en" ${this.selectedLanguage === 'en' ? 'selected' : ''}>🇺🇸 English</option>
                   <option value="es" ${this.selectedLanguage === 'es' ? 'selected' : ''}>🇪🇸 Español</option>
+                  <option value="pt" ${this.selectedLanguage === 'pt' ? 'selected' : ''}>🇧🇷 Português</option>
                 </select>
 
                 <!-- Price Tier Dropdown -->
@@ -1735,7 +1741,7 @@ function openFullpageComicReader(item) {
                     <div class="card-badge-top">
                       <span class="media-badge ${item.type}">${item.type.toUpperCase()}</span>
                       <span class="price-tag" style="background: rgba(168,85,247,0.25); color: #c084fc; border: 1px solid rgba(168,85,247,0.4); font-size: 0.72rem; padding: 2px 6px; border-radius: 4px; font-weight: 700; display: inline-flex; align-items: center; gap: 3px;">
-                        ${item.language === 'en' ? '🇺🇸 EN' : '🇪🇸 ES'}
+                        ${item.language === 'en' ? '🇺🇸 EN' : (item.language === 'pt' ? '🇧🇷 PT' : '🇪🇸 ES')}
                       </span>
                       ${item.isPaid ? `<span class="price-tag paid">$${item.price.toFixed(2)}</span>` : '<span class="price-tag free">FREE</span>'}
                     </div>
@@ -1898,42 +1904,55 @@ function openFullpageComicReader(item) {
       const isPurchasedVIP = item.isPaid && store.isItemUnlocked(item.id);
       const showAds = !isPurchasedVIP;
 
+      const isPt = item.language === 'pt' || (Array.isArray(item.language) && item.language.includes('pt'));
       const isEn = item.language === 'en' || item.language === 'all' || (Array.isArray(item.language) && (item.language.includes('en') || item.language.includes('all')));
       
       const rawDownload = item.downloadUrl || item.videoUrl || (pages && pages[0]) || item.thumbnail;
       const safeDownloadUrl = Array.isArray(rawDownload) ? rawDownload[0] : rawDownload;
 
-      const txtCatalog = isEn ? 'Catalog' : 'Catálogo';
-      const txtDownloadHd = isEn ? 'Download HD' : 'Descargar HD';
-      const txtModeWebtoon = isEn ? 'Webtoon' : 'Webtoon';
-      const txtModeSingle = isEn ? 'Paginated' : 'Paginado';
-      const txtCloseTooltip = isEn ? 'Close Reader' : 'Cerrar Lector';
-      const txtPrev = isEn ? 'Previous' : 'Anterior';
-      const txtNext = isEn ? 'Next' : 'Siguiente';
-      const txtPageWord = isEn ? 'Page' : 'Página';
-      const txtOfWord = isEn ? 'of' : 'de';
+      const txtCatalog = isPt ? 'Catálogo' : (isEn ? 'Catalog' : 'Catálogo');
+      const txtDownloadHd = isPt ? 'Baixar HD' : (isEn ? 'Download HD' : 'Descargar HD');
+      const txtModeWebtoon = 'Webtoon';
+      const txtModeSingle = isPt ? 'Paginado' : (isEn ? 'Paginated' : 'Paginado');
+      const txtCloseTooltip = isPt ? 'Fechar Leitor' : (isEn ? 'Close Reader' : 'Cerrar Lector');
+      const txtPrev = isPt ? 'Anterior' : (isEn ? 'Previous' : 'Anterior');
+      const txtNext = isPt ? 'Próximo' : (isEn ? 'Next' : 'Siguiente');
+      const txtPageWord = isPt ? 'Página' : (isEn ? 'Page' : 'Página');
+      const txtOfWord = isPt ? 'de' : (isEn ? 'of' : 'de');
       const txtPageCounter = `${txtPageWord} <span style="color: var(--primary);" id="page-counter-num">${this.currentPageIndex + 1}</span> ${txtOfWord} ${pages.length}`;
 
-      const txtPaywallTitle = isEn ? 'Free Preview Limit' : 'Límite de Muestra Gratuita';
-      const txtPaywallDesc = isEn
-        ? 'See how this story ends and download it in High Definition (HD). Select your preferred payment method. Quick and easy.'
-        : 'Mira cómo termina esta historia y descárgalo en alta resolución (HD). Elige tu método de pago preferido. Simple y rápido.';
-      const txtPaywallPrice = isEn ? `$${item.price.toFixed(2)} USD` : '¡A SOLO $1!';
-      const txtPaypalBtn = isEn
-        ? '<i class="ph-paypal-logo"></i> Pay with Credit / Debit Card / PayPal'
-        : '<i class="ph-paypal-logo"></i> Pagar con Tarjeta Débito/Crédito / PayPal';
+      const txtPaywallTitle = isPt ? 'Limite de Amostra Grátis' : (isEn ? 'Free Preview Limit' : 'Límite de Muestra Gratuita');
+      const txtPaywallDesc = isPt
+        ? 'Veja como esta história termina e baixe em alta resolução (HD). Escolha seu método de pagamento preferido. Rápido e fácil.'
+        : (isEn
+          ? 'See how this story ends and download it in High Definition (HD). Select your preferred payment method. Quick and easy.'
+          : 'Mira cómo termina esta historia y descárgalo en alta resolución (HD). Elige tu método de pago preferido. Simple y rápido.');
+      const txtPaywallPrice = isPt
+        ? `POR APENAS $${item.price.toFixed(2)}!`
+        : (isEn ? `$${item.price.toFixed(2)} USD` : `¡A SOLO $${item.price.toFixed(2)}!`);
+      const txtPaypalBtn = isPt
+        ? '<i class="ph-paypal-logo"></i> Pagar com Cartão de Débito/Crédito / PayPal'
+        : (isEn
+          ? '<i class="ph-paypal-logo"></i> Pay with Credit / Debit Card / PayPal'
+          : '<i class="ph-paypal-logo"></i> Pagar con Tarjeta Débito/Crédito / PayPal');
       const txtMpBtn = isEn
         ? '<i class="ph-credit-card"></i> Pay with Credit / Debit Card / Local Payments'
         : '<i class="ph-credit-card"></i> Pagar con Tarjeta Débito/Crédito / Yape / Plin / MercadoPago';
-      const txtThanksTitle = isEn
-        ? `Thank you for buying "${item.title}"!`
-        : `¡Gracias por comprar "${item.title}"!`;
-      const txtThanksDesc = isEn
-        ? `You have enjoyed all ${pages.length} pages. You can save your HD copy to your device.`
-        : `Has disfrutado de las ${pages.length} páginas. Puedes guardar tu copia HD en tu dispositivo.`;
-      const txtDownloadFull = isEn
-        ? 'Download Full Comic (HD)'
-        : 'Descargar Cómic Completo (HD)';
+      const txtThanksTitle = isPt
+        ? `Obrigado por comprar "${item.title}"!`
+        : (isEn
+          ? `Thank you for buying "${item.title}"!`
+          : `¡Gracias por comprar "${item.title}"!`);
+      const txtThanksDesc = isPt
+        ? `Você aproveitou todas as ${pages.length} páginas. Você pode salvar sua cópia HD no seu dispositivo.`
+        : (isEn
+          ? `You have enjoyed all ${pages.length} pages. You can save your HD copy to your device.`
+          : `Has disfrutado de las ${pages.length} páginas. Puedes guardar tu copia HD en tu dispositivo.`);
+      const txtDownloadFull = isPt
+        ? 'Baixar Quadrinho Completo (HD)'
+        : (isEn
+          ? 'Download Full Comic (HD)'
+          : 'Descargar Cómic Completo (HD)');
 
       if (item.type === 'video') {
         return `
@@ -2093,7 +2112,7 @@ function openFullpageComicReader(item) {
                           </p>
                           <div class="paywall-price">${txtPaywallPrice}</div>
                           <div style="display: flex; flex-direction: column; gap: 0.75rem; width: 100%; margin-top: 0.5rem;">
-                            ${isEn ? `
+                            ${(isEn || isPt) ? `
                               <button class="btn-primary" id="paywall-paypal-btn" style="width: 100%; justify-content: center; font-size: 1rem; padding: 0.85rem; background: linear-gradient(135deg, #003087, #0070ba); color: #ffffff; border: none; font-weight: 700;">
                                 ${txtPaypalBtn}
                               </button>
@@ -2199,7 +2218,7 @@ function openFullpageComicReader(item) {
                   </p>
                   <div class="paywall-price">${txtPaywallPrice}</div>
                   <div style="display: flex; flex-direction: column; gap: 0.75rem; width: 100%; margin-top: 0.5rem;">
-                    ${isEn ? `
+                    ${(isEn || isPt) ? `
                       <button class="btn-primary" id="paywall-paypal-btn" style="width: 100%; justify-content: center; font-size: 1rem; padding: 0.85rem; background: linear-gradient(135deg, #003087, #0070ba); color: #ffffff; border: none; font-weight: 700;">
                         ${txtPaypalBtn}
                       </button>
