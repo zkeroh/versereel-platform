@@ -13,8 +13,8 @@
     gtag('config', 'G-BW1CYXKB7N');
   </script>
 
-  <title>👑 VIP Extras - Don't Tell Dad (Lemonade 2) | Xzkero</title>
-  <meta name="description" content="Contenido exclusivo para compradores del cómic Don't Tell Dad. Videos extras e imágenes HD inéditas." />
+  <title>👑 VIP Webtoon Extras - Don't Tell Dad | Xzkero</title>
+  <meta name="description" content="Vista Webtoon del contenido extra exclusivo para compradores de Don't Tell Dad (Lemonade 2)." />
   <meta name="robots" content="noindex, nofollow" />
 
   <!-- Favicon -->
@@ -28,13 +28,9 @@
 
   <style>
     :root {
-      --bg-dark: #07090e;
-      --bg-card: rgba(15, 19, 32, 0.85);
-      --border-color: rgba(244, 63, 94, 0.25);
+      --bg-dark: #05070a;
       --accent-rose: #f43f5e;
-      --accent-glow: rgba(244, 63, 94, 0.4);
       --accent-green: #a3e635;
-      --accent-green-glow: rgba(163, 230, 53, 0.35);
       --text-main: #f8fafc;
       --text-muted: #94a3b8;
     }
@@ -55,715 +51,305 @@
       flex-direction: column;
       align-items: center;
       overflow-x: hidden;
-      background-image: 
-        radial-gradient(circle at 50% 0%, rgba(244, 63, 94, 0.12) 0%, transparent 65%),
-        radial-gradient(circle at 100% 100%, rgba(14, 165, 233, 0.08) 0%, transparent 50%);
+      user-select: none;
+      -webkit-user-select: none;
     }
 
-    /* Header Navigation */
+    /* Top Sticky Navigation Header */
     header {
       width: 100%;
-      max-width: 1200px;
-      padding: 1.25rem 1.5rem;
+      max-width: 900px;
+      padding: 0.85rem 1.25rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(16px);
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(7, 9, 14, 0.85);
+      background: rgba(5, 7, 10, 0.92);
     }
 
     .brand {
       display: flex;
       align-items: center;
-      gap: 0.75rem;
+      gap: 0.6rem;
       text-decoration: none;
       color: var(--text-main);
       font-weight: 800;
-      font-size: 1.25rem;
+      font-size: 1.1rem;
     }
 
     .brand img {
-      height: 38px;
+      height: 32px;
       width: auto;
-      filter: drop-shadow(0 0 10px var(--accent-glow));
+      filter: drop-shadow(0 0 8px rgba(244, 63, 94, 0.5));
     }
 
-    .vip-badge-header {
+    .vip-pill {
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 0.4rem;
       background: linear-gradient(135deg, #f43f5e, #be123c);
       color: #ffffff;
-      padding: 0.4rem 1rem;
+      padding: 0.35rem 0.85rem;
       border-radius: 30px;
-      font-size: 0.85rem;
+      font-size: 0.78rem;
       font-weight: 800;
-      letter-spacing: 0.5px;
-      box-shadow: 0 0 15px rgba(244, 63, 94, 0.4);
       text-transform: uppercase;
+      letter-spacing: 0.5px;
+      box-shadow: 0 0 12px rgba(244, 63, 94, 0.4);
     }
 
-    /* Main Container */
-    main {
+    /* Webtoon Container (Continuous Vertical Reader Stream) */
+    .webtoon-reader-container {
       width: 100%;
-      max-width: 1150px;
-      padding: 2rem 1.25rem 5rem 1.25rem;
-      display: flex;
-      flex-direction: column;
-      gap: 3rem;
-    }
-
-    /* Hero Section */
-    .extras-hero {
-      text-align: center;
+      max-width: 850px;
+      margin: 0 auto;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 1.25rem;
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: 24px;
-      padding: 2.5rem 1.75rem;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-      position: relative;
-      overflow: hidden;
+      background: #000000;
+      box-shadow: 0 0 50px rgba(0, 0, 0, 0.9);
     }
 
-    .extras-hero::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 4px;
-      background: linear-gradient(90deg, #f43f5e, #a3e635, #38bdf8);
-    }
-
-    .extras-title {
-      font-size: clamp(1.75rem, 4vw, 2.75rem);
-      font-weight: 900;
-      line-height: 1.2;
-      background: linear-gradient(135deg, #ffffff 30%, #f43f5e 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .extras-subtitle {
-      color: var(--text-muted);
-      font-size: 1.05rem;
-      max-width: 720px;
-      line-height: 1.6;
-    }
-
-    .stats-row {
-      display: flex;
-      gap: 1.5rem;
-      margin-top: 0.5rem;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    .stat-pill {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      padding: 0.6rem 1.2rem;
-      border-radius: 50px;
-      font-weight: 700;
-      font-size: 0.95rem;
-    }
-
-    .stat-pill i {
-      color: var(--accent-rose);
-      font-size: 1.2rem;
-    }
-
-    /* Section Headings */
-    .section-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      border-bottom: 2px solid rgba(255, 255, 255, 0.08);
-      padding-bottom: 0.85rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .section-title {
-      font-size: 1.5rem;
-      font-weight: 800;
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      color: #ffffff;
-    }
-
-    .section-title i {
-      color: var(--accent-rose);
-    }
-
-    .section-count {
-      background: rgba(244, 63, 94, 0.15);
-      color: var(--accent-rose);
-      border: 1px solid rgba(244, 63, 94, 0.3);
-      padding: 0.25rem 0.75rem;
-      border-radius: 20px;
-      font-size: 0.85rem;
-      font-weight: 700;
-    }
-
-    /* Video Grid */
-    .video-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 1.75rem;
-    }
-
-    .video-card {
-      background: var(--bg-card);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 18px;
-      overflow: hidden;
-      transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .video-card:hover {
-      transform: translateY(-4px);
-      border-color: var(--accent-rose);
-      box-shadow: 0 12px 30px rgba(244, 63, 94, 0.2);
-    }
-
-    .video-wrapper {
-      position: relative;
+    /* Webtoon Media Blocks */
+    .webtoon-media-item {
       width: 100%;
-      background: #000;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      display: block;
+      margin: 0;
+      padding: 0;
+      position: relative;
+      background: #000000;
     }
 
-    .video-wrapper video {
+    .webtoon-media-item img {
       width: 100%;
       height: auto;
       display: block;
-      max-height: 520px;
+      margin: 0 auto;
       object-fit: contain;
-      background: #000;
+      pointer-events: none;
     }
 
-    .video-info {
-      padding: 1rem 1.25rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .video-info-title {
-      font-size: 0.95rem;
-      font-weight: 700;
-      color: #e2e8f0;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    /* Image Gallery Grid */
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .gallery-item {
-      position: relative;
-      background: var(--bg-card);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 16px;
-      overflow: hidden;
-      cursor: pointer;
-      aspect-ratio: 3 / 4;
-      transition: all 0.3s ease;
-    }
-
-    .gallery-item:hover {
-      transform: scale(1.02);
-      border-color: var(--accent-green);
-      box-shadow: 0 10px 25px rgba(163, 230, 53, 0.25);
-    }
-
-    .gallery-item img {
+    .webtoon-media-item video {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
+      height: auto;
       display: block;
-      transition: transform 0.4s ease;
+      margin: 0 auto;
+      background: #000000;
+      object-fit: contain;
+      outline: none;
     }
 
-    .gallery-item:hover img {
-      transform: scale(1.05);
-    }
-
-    .gallery-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(7, 9, 14, 0.85) 0%, transparent 60%);
-      opacity: 0;
-      transition: opacity 0.3s ease;
+    /* Section Banner Divider inside Webtoon */
+    .webtoon-divider {
+      width: 100%;
+      padding: 1.5rem 1rem;
+      background: linear-gradient(180deg, #05070a 0%, #111625 50%, #05070a 100%);
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
       display: flex;
-      align-items: flex-end;
-      padding: 1.25rem;
-    }
-
-    .gallery-item:hover .gallery-overlay {
-      opacity: 1;
-    }
-
-    .gallery-btn-zoom {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: var(--accent-green);
-      color: #000000;
-      font-weight: 800;
-      font-size: 0.85rem;
-      padding: 0.5rem 1rem;
-      border-radius: 30px;
-      box-shadow: 0 4px 15px rgba(163, 230, 53, 0.4);
-    }
-
-    /* Lightbox Modal */
-    .lightbox-modal {
-      position: fixed;
-      inset: 0;
-      background: rgba(4, 6, 10, 0.95);
-      backdrop-filter: blur(15px);
-      z-index: 1000;
-      display: none;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      padding: 1.5rem;
-      opacity: 0;
-      transition: opacity 0.3s ease;
+      gap: 0.5rem;
     }
 
-    .lightbox-modal.active {
-      display: flex;
-      opacity: 1;
-    }
-
-    .lightbox-content-container {
-      position: relative;
-      max-width: 92vw;
-      max-height: 85vh;
+    .webtoon-divider-title {
+      font-size: 1.15rem;
+      font-weight: 900;
+      color: #ffffff;
       display: flex;
       align-items: center;
-      justify-content: center;
+      gap: 0.5rem;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
     }
 
-    .lightbox-image {
-      max-width: 100%;
-      max-height: 85vh;
-      object-fit: contain;
-      border-radius: 12px;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .lightbox-close {
-      position: absolute;
-      top: 1.5rem;
-      right: 1.5rem;
-      background: rgba(255, 255, 255, 0.15);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      color: #fff;
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.5rem;
-      cursor: pointer;
-      transition: background 0.2s ease;
-      z-index: 1010;
-    }
-
-    .lightbox-close:hover {
-      background: var(--accent-rose);
-    }
-
-    .lightbox-nav {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: rgba(255, 255, 255, 0.12);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      color: #fff;
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.6rem;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      z-index: 1010;
-    }
-
-    .lightbox-nav:hover {
-      background: var(--accent-green);
-      color: #000;
-    }
-
-    .lightbox-prev {
-      left: 1rem;
-    }
-
-    .lightbox-next {
-      right: 1rem;
-    }
-
-    .lightbox-counter {
-      margin-top: 1.25rem;
+    .webtoon-divider-subtitle {
+      font-size: 0.85rem;
       color: var(--text-muted);
-      font-size: 0.95rem;
-      font-weight: 700;
-      background: rgba(255, 255, 255, 0.08);
-      padding: 0.4rem 1.2rem;
-      border-radius: 30px;
+      font-weight: 600;
     }
 
     /* Footer */
     footer {
       width: 100%;
-      padding: 2.5rem 1.5rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      max-width: 850px;
+      padding: 3rem 1.5rem;
       text-align: center;
       color: var(--text-muted);
-      font-size: 0.9rem;
-      background: rgba(7, 9, 14, 0.95);
+      font-size: 0.85rem;
+      background: #05070a;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
     }
 
     footer p {
-      margin-bottom: 0.5rem;
+      margin: 0;
     }
 
-    /* Responsive adjustments */
-    @media (max-width: 640px) {
-      .video-grid {
-        grid-template-columns: 1fr;
-      }
-      .gallery-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 0.85rem;
-      }
-      .lightbox-nav {
-        width: 40px;
-        height: 40px;
-        font-size: 1.2rem;
-      }
-      .lightbox-prev { left: 0.5rem; }
-      .lightbox-next { right: 0.5rem; }
+    .footer-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(163, 230, 53, 0.1);
+      color: var(--accent-green);
+      border: 1px solid rgba(163, 230, 53, 0.3);
+      padding: 0.4rem 1rem;
+      border-radius: 30px;
+      font-weight: 700;
+      font-size: 0.8rem;
     }
   </style>
 </head>
 <body>
 
-  <!-- Header Navigation -->
+  <!-- Top Sticky Navigation Header -->
   <header>
     <a href="index.html" class="brand">
       <img src="assets/logo.png" alt="Xzkero Logo" />
       <span>Xzkero</span>
     </a>
-    <div class="vip-badge-header">
-      <i class="ph-crown-bold"></i> VIP Buyer Access
+    <div class="vip-pill">
+      <i class="ph-crown-bold"></i> WEBTOON VIP
     </div>
   </header>
 
-  <!-- Main Container -->
-  <main>
+  <!-- Webtoon Reader Stream -->
+  <main class="webtoon-reader-container">
 
-    <!-- Hero Banner -->
-    <section class="extras-hero">
-      <div class="vip-badge-header" style="background: rgba(163, 230, 53, 0.15); color: #bef264; border: 1px solid var(--accent-green); box-shadow: 0 0 15px var(--accent-green-glow);">
-        <i class="ph-sparkle-fill"></i> Exclusivo para Compradores / Buyer Bonus
+    <!-- Header Banner Inside Webtoon -->
+    <div class="webtoon-divider" style="padding: 2.25rem 1rem;">
+      <div class="vip-pill" style="background: rgba(163, 230, 53, 0.15); color: #bef264; border: 1px solid var(--accent-green); box-shadow: 0 0 12px rgba(163, 230, 53, 0.25);">
+        <i class="ph-sparkle-fill"></i> EXCLUSIVO PARA COMPRADORES
       </div>
-      <h1 class="extras-title">Don't Tell Dad — Material Adicional</h1>
-      <p class="extras-subtitle">
-        ¡Gracias por tu compra! Aquí tienes acceso exclusivo a todas las animaciones en video e imágenes extras en alta definición inéditas de <strong>Don't Tell Dad (Lemonade 2)</strong>.
+      <h1 class="webtoon-divider-title" style="font-size: clamp(1.4rem, 3.5vw, 2rem); margin-top: 0.4rem;">
+        DON'T TELL DAD — MATERIAL EXCLUSIVO
+      </h1>
+      <p class="webtoon-divider-subtitle">
+        Desliza hacia abajo para disfrutar de las animaciones y galerías extras en formato Webtoon
       </p>
+    </div>
 
-      <div class="stats-row">
-        <div class="stat-pill">
-          <i class="ph-video-camera-bold"></i> 8 Videos Animados HD
-        </div>
-        <div class="stat-pill">
-          <i class="ph-image-bold"></i> 14 Imágenes Extras HD
-        </div>
-        <div class="stat-pill">
-          <i class="ph-shield-check-bold" style="color: var(--accent-green);"></i> 100% Sin Anuncios
-        </div>
+    <!-- Section 1: Videos Animados en Formato Webtoon -->
+    <div class="webtoon-divider">
+      <span class="webtoon-divider-title">
+        <i class="ph-play-circle-fill" style="color: var(--accent-rose);"></i> ANIMACIONES Y VIDEOS EXCLUSIVOS
+      </span>
+      <span class="webtoon-divider-subtitle">8 Videos HD</span>
+    </div>
+
+    <div class="webtoon-media-item">
+      <video controls playsinline preload="metadata" src="assets/extras/extra_video_01.mp4"></video>
+    </div>
+
+    <div class="webtoon-media-item">
+      <video controls playsinline preload="metadata" src="assets/extras/extra_video_02.mp4"></video>
+    </div>
+
+    <div class="webtoon-media-item">
+      <video controls playsinline preload="metadata" src="assets/extras/extra_video_03.mp4"></video>
+    </div>
+
+    <div class="webtoon-media-item">
+      <video controls playsinline preload="metadata" src="assets/extras/extra_video_04.mp4"></video>
+    </div>
+
+    <div class="webtoon-media-item">
+      <video controls playsinline preload="metadata" src="assets/extras/extra_video_05.mp4"></video>
+    </div>
+
+    <div class="webtoon-media-item">
+      <video controls playsinline preload="metadata" src="assets/extras/extra_video_06.mp4"></video>
+    </div>
+
+    <div class="webtoon-media-item">
+      <video controls playsinline preload="metadata" src="assets/extras/extra_video_07.mp4"></video>
+    </div>
+
+    <div class="webtoon-media-item">
+      <video controls playsinline preload="metadata" src="assets/extras/extra_video_08.mp4"></video>
+    </div>
+
+    <!-- Section 2: Galería de Imágenes en Formato Webtoon Continuo -->
+    <div class="webtoon-divider">
+      <span class="webtoon-divider-title">
+        <i class="ph-image-square-fill" style="color: var(--accent-green);"></i> GALERÍA Y ILUSTRACIONES EXTRAS HD
+      </span>
+      <span class="webtoon-divider-subtitle">14 Imágenes HD</span>
+    </div>
+
+    <div class="webtoon-media-item">
+      <img src="assets/extras/extra_img_01.jpg" loading="lazy" alt="" />
+    </div>
+
+    <div class="webtoon-media-item">
+      <img src="assets/extras/extra_img_02.jpg" loading="lazy" alt="" />
+    </div>
+
+    <div class="webtoon-media-item">
+      <img src="assets/extras/extra_img_03.jpg" loading="lazy" alt="" />
+    </div>
+
+    <div class="webtoon-media-item">
+      <img src="assets/extras/extra_img_04.jpg" loading="lazy" alt="" />
+    </div>
+
+    <div class="webtoon-media-item">
+      <img src="assets/extras/extra_img_05.png" loading="lazy" alt="" />
+    </div>
+
+    <div class="webtoon-media-item">
+      <img src="assets/extras/extra_img_06.png" loading="lazy" alt="" />
+    </div>
+
+    <div class="webtoon-media-item">
+      <img src="assets/extras/extra_img_07.png" loading="lazy" alt="" />
+    </div>
+
+    <div class="webtoon-media-item">
+      <img src="assets/extras/extra_img_08.png" loading="lazy" alt="" />
+    </div>
+
+    <div class="webtoon-media-item">
+      <img src="assets/extras/extra_img_09.png" loading="lazy" alt="" />
+    </div>
+
+    <div class="webtoon-media-item">
+      <img src="assets/extras/extra_img_10.png" loading="lazy" alt="" />
+    </div>
+
+    <div class="webtoon-media-item">
+      <img src="assets/extras/extra_img_11.png" loading="lazy" alt="" />
+    </div>
+
+    <div class="webtoon-media-item">
+      <img src="assets/extras/extra_img_12.png" loading="lazy" alt="" />
+    </div>
+
+    <div class="webtoon-media-item">
+      <img src="assets/extras/extra_img_13.png" loading="lazy" alt="" />
+    </div>
+
+    <div class="webtoon-media-item">
+      <img src="assets/extras/extra_img_14.png" loading="lazy" alt="" />
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-badge">
+        <i class="ph-check-circle-fill"></i> Gracias por apoyar el cómic oficial Don't Tell Dad
       </div>
-    </section>
-
-    <!-- Section 1: Videos Exclusivos -->
-    <section id="videos-section">
-      <div class="section-header">
-        <h2 class="section-title">
-          <i class="ph-play-circle-bold"></i> Videos Exclusivos & Animaciones
-        </h2>
-        <span class="section-count">8 Videos HD</span>
-      </div>
-
-      <div class="video-grid">
-        <!-- Video 1 -->
-        <div class="video-card">
-          <div class="video-wrapper">
-            <video controls preload="metadata" playsinline>
-              <source src="assets/extras/extra_video_01.mp4" type="video/mp4" />
-              Tu navegador no soporta el reproductor de video.
-            </video>
-          </div>
-          <div class="video-info">
-            <span class="video-info-title"><i class="ph-film-strip-bold" style="color:var(--accent-rose);"></i> Video Extra #1</span>
-            <span style="font-size: 0.8rem; color: var(--text-muted); font-weight: 600;">HD 1080p</span>
-          </div>
-        </div>
-
-        <!-- Video 2 -->
-        <div class="video-card">
-          <div class="video-wrapper">
-            <video controls preload="metadata" playsinline>
-              <source src="assets/extras/extra_video_02.mp4" type="video/mp4" />
-              Tu navegador no soporta el reproductor de video.
-            </video>
-          </div>
-          <div class="video-info">
-            <span class="video-info-title"><i class="ph-film-strip-bold" style="color:var(--accent-rose);"></i> Video Extra #2</span>
-            <span style="font-size: 0.8rem; color: var(--text-muted); font-weight: 600;">HD 1080p</span>
-          </div>
-        </div>
-
-        <!-- Video 3 -->
-        <div class="video-card">
-          <div class="video-wrapper">
-            <video controls preload="metadata" playsinline>
-              <source src="assets/extras/extra_video_03.mp4" type="video/mp4" />
-              Tu navegador no soporta el reproductor de video.
-            </video>
-          </div>
-          <div class="video-info">
-            <span class="video-info-title"><i class="ph-film-strip-bold" style="color:var(--accent-rose);"></i> Video Extra #3</span>
-            <span style="font-size: 0.8rem; color: var(--text-muted); font-weight: 600;">HD 1080p</span>
-          </div>
-        </div>
-
-        <!-- Video 4 -->
-        <div class="video-card">
-          <div class="video-wrapper">
-            <video controls preload="metadata" playsinline>
-              <source src="assets/extras/extra_video_04.mp4" type="video/mp4" />
-              Tu navegador no soporta el reproductor de video.
-            </video>
-          </div>
-          <div class="video-info">
-            <span class="video-info-title"><i class="ph-film-strip-bold" style="color:var(--accent-rose);"></i> Video Extra #4</span>
-            <span style="font-size: 0.8rem; color: var(--text-muted); font-weight: 600;">HD 1080p</span>
-          </div>
-        </div>
-
-        <!-- Video 5 -->
-        <div class="video-card">
-          <div class="video-wrapper">
-            <video controls preload="metadata" playsinline>
-              <source src="assets/extras/extra_video_05.mp4" type="video/mp4" />
-              Tu navegador no soporta el reproductor de video.
-            </video>
-          </div>
-          <div class="video-info">
-            <span class="video-info-title"><i class="ph-film-strip-bold" style="color:var(--accent-rose);"></i> Video Extra #5</span>
-            <span style="font-size: 0.8rem; color: var(--text-muted); font-weight: 600;">HD 1080p</span>
-          </div>
-        </div>
-
-        <!-- Video 6 -->
-        <div class="video-card">
-          <div class="video-wrapper">
-            <video controls preload="metadata" playsinline>
-              <source src="assets/extras/extra_video_06.mp4" type="video/mp4" />
-              Tu navegador no soporta el reproductor de video.
-            </video>
-          </div>
-          <div class="video-info">
-            <span class="video-info-title"><i class="ph-film-strip-bold" style="color:var(--accent-rose);"></i> Video Extra #6</span>
-            <span style="font-size: 0.8rem; color: var(--text-muted); font-weight: 600;">HD 1080p</span>
-          </div>
-        </div>
-
-        <!-- Video 7 -->
-        <div class="video-card">
-          <div class="video-wrapper">
-            <video controls preload="metadata" playsinline>
-              <source src="assets/extras/extra_video_07.mp4" type="video/mp4" />
-              Tu navegador no soporta el reproductor de video.
-            </video>
-          </div>
-          <div class="video-info">
-            <span class="video-info-title"><i class="ph-film-strip-bold" style="color:var(--accent-rose);"></i> Video Extra #7</span>
-            <span style="font-size: 0.8rem; color: var(--text-muted); font-weight: 600;">HD 1080p</span>
-          </div>
-        </div>
-
-        <!-- Video 8 -->
-        <div class="video-card">
-          <div class="video-wrapper">
-            <video controls preload="metadata" playsinline>
-              <source src="assets/extras/extra_video_08.mp4" type="video/mp4" />
-              Tu navegador no soporta el reproductor de video.
-            </video>
-          </div>
-          <div class="video-info">
-            <span class="video-info-title"><i class="ph-film-strip-bold" style="color:var(--accent-rose);"></i> Video Extra #8</span>
-            <span style="font-size: 0.8rem; color: var(--text-muted); font-weight: 600;">HD 1080p</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Section 2: Galería de Imágenes HD -->
-    <section id="images-section">
-      <div class="section-header">
-        <h2 class="section-title">
-          <i class="ph-image-square-bold" style="color: var(--accent-green);"></i> Galería de Ilustraciones & Extras HD
-        </h2>
-        <span class="section-count" style="background: rgba(163, 230, 53, 0.15); color: var(--accent-green); border-color: rgba(163, 230, 53, 0.3);">14 Imágenes HD</span>
-      </div>
-
-      <div class="gallery-grid" id="galleryGrid">
-        <!-- Images generated dynamically via JS -->
-      </div>
-    </section>
+      <p>© 2026 Xzkero. Todos los derechos reservados.</p>
+    </footer>
 
   </main>
 
-  <!-- Lightbox Modal -->
-  <div class="lightbox-modal" id="lightboxModal" aria-hidden="true">
-    <button class="lightbox-close" id="lightboxClose" title="Cerrar (Esc)"><i class="ph-x-bold"></i></button>
-    <button class="lightbox-nav lightbox-prev" id="lightboxPrev" title="Anterior"><i class="ph-caret-left-bold"></i></button>
-    
-    <div class="lightbox-content-container">
-      <img src="" alt="Vista previa HD" class="lightbox-image" id="lightboxImg" />
-    </div>
-
-    <button class="lightbox-nav lightbox-next" id="lightboxNext" title="Siguiente"><i class="ph-caret-right-bold"></i></button>
-
-    <div class="lightbox-counter" id="lightboxCounter">1 / 14</div>
-  </div>
-
-  <!-- Footer -->
-  <footer>
-    <p><strong>Xzkero Official Content VIP Page</strong></p>
-    <p>© 2026 Xzkero. Todos los derechos reservados.</p>
-  </footer>
-
-  <!-- Lightbox Script -->
-  <script>
-    const imagesList = [
-      'assets/extras/extra_img_01.jpg',
-      'assets/extras/extra_img_02.jpg',
-      'assets/extras/extra_img_03.jpg',
-      'assets/extras/extra_img_04.jpg',
-      'assets/extras/extra_img_05.png',
-      'assets/extras/extra_img_06.png',
-      'assets/extras/extra_img_07.png',
-      'assets/extras/extra_img_08.png',
-      'assets/extras/extra_img_09.png',
-      'assets/extras/extra_img_10.png',
-      'assets/extras/extra_img_11.png',
-      'assets/extras/extra_img_12.png',
-      'assets/extras/extra_img_13.png',
-      'assets/extras/extra_img_14.png'
-    ];
-
-    let currentImgIndex = 0;
-
-    const galleryGrid = document.getElementById('galleryGrid');
-    const lightboxModal = document.getElementById('lightboxModal');
-    const lightboxImg = document.getElementById('lightboxImg');
-    const lightboxCounter = document.getElementById('lightboxCounter');
-    const lightboxClose = document.getElementById('lightboxClose');
-    const lightboxPrev = document.getElementById('lightboxPrev');
-    const lightboxNext = document.getElementById('lightboxNext');
-
-    // Build gallery items
-    imagesList.forEach((src, idx) => {
-      const item = document.createElement('div');
-      item.className = 'gallery-item';
-      item.innerHTML = `
-        <img src="${src}" alt="Imagen Extra #${idx + 1}" loading="lazy" />
-        <div class="gallery-overlay">
-          <span class="gallery-btn-zoom"><i class="ph-magnifying-glass-plus-bold"></i> Ver HD</span>
-        </div>
-      `;
-      item.addEventListener('click', () => openLightbox(idx));
-      galleryGrid.appendChild(item);
-    });
-
-    function openLightbox(index) {
-      currentImgIndex = index;
-      updateLightboxContent();
-      lightboxModal.classList.add('active');
-      lightboxModal.setAttribute('aria-hidden', 'false');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeLightbox() {
-      lightboxModal.classList.remove('active');
-      lightboxModal.setAttribute('aria-hidden', 'true');
-      document.body.style.overflow = '';
-    }
-
-    function updateLightboxContent() {
-      lightboxImg.src = imagesList[currentImgIndex];
-      lightboxCounter.textContent = `${currentImgIndex + 1} / ${imagesList.length}`;
-    }
-
-    function prevImage() {
-      currentImgIndex = (currentImgIndex - 1 + imagesList.length) % imagesList.length;
-      updateLightboxContent();
-    }
-
-    function nextImage() {
-      currentImgIndex = (currentImgIndex + 1) % imagesList.length;
-      updateLightboxContent();
-    }
-
-    lightboxClose.addEventListener('click', closeLightbox);
-    lightboxPrev.addEventListener('click', prevImage);
-    lightboxNext.addEventListener('click', nextImage);
-
-    // Close on backdrop click outside image container
-    lightboxModal.addEventListener('click', (e) => {
-      if (e.target === lightboxModal || e.target.classList.contains('lightbox-content-container')) {
-        closeLightbox();
-      }
-    });
-
-    // Keyboard navigation
-    window.addEventListener('keydown', (e) => {
-      if (!lightboxModal.classList.contains('active')) return;
-      if (e.key === 'Escape') closeLightbox();
-      if (e.key === 'ArrowLeft') prevImage();
-      if (e.key === 'ArrowRight') nextImage();
-    });
-  </script>
 </body>
 </html>
