@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
+  
+  <!-- Google Analytics 4 (GA4) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BW1CYXKB7N"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-BW1CYXKB7N');
+  </script>
+
+  <title>🎉 Acesso VIP — Don't Tell Dad (PT) | Xzkero</title>
+  <meta name="description" content="Página de acesso oficial para compradores do comic Don't Tell Dad. Comic completo e material extra." />
+  <meta name="robots" content="noindex, nofollow" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/logo.png" />
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+  <style>
+    :root {
+      --bg-dark: #07090e;
+      --card-bg: rgba(15, 19, 32, 0.88);
+      --border-color: rgba(163, 230, 53, 0.25);
+      --accent-green: #a3e635;
+      --accent-green-glow: rgba(163, 230, 53, 0.4);
+      --accent-rose: #f43f5e;
+      --accent-rose-glow: rgba(244, 63, 94, 0.4);
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      overflow-x: hidden;
+      background-image: 
+        radial-gradient(circle at 50% 0%, rgba(163, 230, 53, 0.12) 0%, transparent 65%),
+        radial-gradient(circle at 100% 100%, rgba(244, 63, 94, 0.1) 0%, transparent 50%);
+    }
+
+    /* Header */
+    header {
+      width: 100%;
+      max-width: 1100px;
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(7, 9, 14, 0.85);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: var(--text-main);
+      font-weight: 800;
+      font-size: 1.25rem;
+    }
+
+    .brand img {
+      height: 38px;
+      width: auto;
+      filter: drop-shadow(0 0 10px var(--accent-green-glow));
+    }
+
+    .vip-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: linear-gradient(135deg, #a3e635, #65a30d);
+      color: #07090e;
+      padding: 0.4rem 1rem;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      font-weight: 900;
+      letter-spacing: 0.5px;
+      box-shadow: 0 0 15px var(--accent-green-glow);
+      text-transform: uppercase;
+    }
+
+    /* Main Container */
+    main {
+      width: 100%;
+      max-width: 860px;
+      padding: 2.5rem 1.25rem 5rem 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2.25rem;
+      align-items: center;
+    }
+
+    /* Hero Banner Card */
+    .hero-card {
+      width: 100%;
+      text-align: center;
+      background: var(--card-bg);
+      border: 1px solid rgba(163, 230, 53, 0.3);
+      border-radius: 24px;
+      padding: 2.5rem 1.75rem;
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .hero-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #a3e635, #f43f5e, #38bdf8);
+    }
+
+    .badge-success {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(163, 230, 53, 0.15);
+      color: #bef264;
+      border: 1px solid var(--accent-green);
+      padding: 0.4rem 1.1rem;
+      border-radius: 30px;
+      font-weight: 800;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+    }
+
+    .hero-title {
+      font-size: clamp(1.8rem, 4.5vw, 2.75rem);
+      font-weight: 900;
+      line-height: 1.2;
+      background: linear-gradient(135deg, #ffffff 30%, #a3e635 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-subtitle {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      max-width: 650px;
+      line-height: 1.6;
+    }
+
+    /* Access Cards Grid */
+    .cards-grid {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 1.75rem;
+    }
+
+    .access-card {
+      background: var(--card-bg);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 1.75rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    .access-card:hover {
+      border-color: rgba(255, 255, 255, 0.25);
+      transform: translateY(-3px);
+    }
+
+    .access-card-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .card-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.75rem;
+      flex-shrink: 0;
+    }
+
+    .card-icon-green {
+      background: rgba(163, 230, 53, 0.15);
+      color: var(--accent-green);
+      border: 1px solid rgba(163, 230, 53, 0.3);
+    }
+
+    .card-icon-rose {
+      background: rgba(244, 63, 94, 0.15);
+      color: var(--accent-rose);
+      border: 1px solid rgba(244, 63, 94, 0.3);
+    }
+
+    .card-title-group h2 {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 0.2rem;
+    }
+
+    .card-title-group p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    .card-buttons-group {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 0.25rem;
+    }
+
+    .btn-card-action {
+      flex: 1;
+      min-width: 240px;
+      padding: 1rem 1.25rem;
+      border-radius: 14px;
+      font-size: 1rem;
+      font-weight: 800;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      transition: all 0.25s ease;
+      text-align: center;
+    }
+
+    .btn-green-main {
+      background: linear-gradient(135deg, #a3e635, #65a30d);
+      color: #07090e;
+      box-shadow: 0 6px 20px var(--accent-green-glow);
+      border: 1px solid #d9f99d;
+    }
+
+    .btn-green-main:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px rgba(163, 230, 53, 0.6);
+    }
+
+    .btn-green-outline {
+      background: rgba(163, 230, 53, 0.1);
+      color: #bef264;
+      border: 1px solid var(--accent-green);
+    }
+
+    .btn-green-outline:hover {
+      background: var(--accent-green);
+      color: #000;
+    }
+
+    .btn-rose-main {
+      background: linear-gradient(135deg, #f43f5e, #be123c);
+      color: #ffffff;
+      box-shadow: 0 6px 20px var(--accent-rose-glow);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .btn-rose-main:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px rgba(244, 63, 94, 0.6);
+    }
+
+    /* Support Box */
+    .support-box {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px dashed rgba(255, 255, 255, 0.15);
+      border-radius: 16px;
+      padding: 1.25rem 1.5rem;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .support-box p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .telegram-link {
+      color: #38bdf8;
+      text-decoration: none;
+      font-weight: 800;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .telegram-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Footer */
+    footer {
+      width: 100%;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <a href="index.html" class="brand">
+      <img src="assets/logo.png" alt="Xzkero Logo" />
+      <span>Xzkero</span>
+    </a>
+    <div class="vip-pill">
+      <i class="ph-crown-bold"></i> VIP Access
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+
+    <!-- Hero Card -->
+    <section class="hero-card">
+      <div class="badge-success">
+        <i class="ph-check-circle-fill"></i> Pagamento Confirmado / Compra Aprovada
+      </div>
+      <h1 class="hero-title">Obrigado pela sua compra!</h1>
+      <p class="hero-subtitle">
+        Você já tem acesso completo ao comic <strong>Don't Tell Dad (PT)</strong> e a todo o material extra exclusivo. Clique nos botões abaixo para acessar:
+      </p>
+    </section>
+
+    <!-- Cards Grid -->
+    <div class="cards-grid">
+
+      <!-- Card 1: Comic Completo -->
+      <div class="access-card" style="border-color: rgba(163, 230, 53, 0.3);">
+        <div class="access-card-header">
+          <div class="card-icon card-icon-green">
+            <i class="ph-book-open-text-bold"></i>
+          </div>
+          <div class="card-title-group">
+            <h2>1. Comic Completo Uncensored (PT)</h2>
+            <p>35 páginas HD sem censura nem anúncios em português. Escolha como prefere ler:</p>
+          </div>
+        </div>
+
+        <div class="card-buttons-group">
+          <a href="ler-dont-tell-dad-pt.html" class="btn-card-action btn-green-main">
+            <i class="ph-eye-bold" style="font-size: 1.2rem;"></i> Ler Online (Modo Webtoon)
+          </a>
+          <a href="assets/DTDPT.pdf" download class="btn-card-action btn-green-outline">
+            <i class="ph-file-pdf-bold" style="font-size: 1.2rem;"></i> Baixar PDF Completo
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 2: Material Extra -->
+      <div class="access-card" style="border-color: rgba(244, 63, 94, 0.3);">
+        <div class="access-card-header">
+          <div class="card-icon card-icon-rose">
+            <i class="ph-sparkle-fill"></i>
+          </div>
+          <div class="card-title-group">
+            <h2>2. Material Extra & Animações VIP</h2>
+            <p>14 ilustrações inéditas HD + 8 vídeos e animações HD exclusivas no formato Webtoon:</p>
+          </div>
+        </div>
+
+        <div class="card-buttons-group">
+          <a href="dont-tell-dad-extras.html" class="btn-card-action btn-rose-main">
+            <i class="ph-play-circle-bold" style="font-size: 1.25rem;"></i> Ver Material Extra VIP
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Support Telegram Box -->
+    <div class="support-box">
+      <p>Precisa de ajuda ou dúvidas sobre sua compra?</p>
+      <a href="https://t.me/zkeroh" target="_blank" class="telegram-link">
+        <i class="ph-telegram-logo-bold" style="font-size: 1.1rem;"></i> Falar no Telegram (@zkeroh)
+      </a>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2026 Xzkero Official. Todos os direitos reservados.</p>
+  </footer>
+
+</body>
+</html>
