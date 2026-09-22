@@ -151,7 +151,8 @@
       tags: ["porn comic online", "porn comic in english", "hentai comic", "adult comic", "lemonade", "zkero", "milftoon", "mom", "incest", "milf", "big tits"],
       createdAt: new Date().toISOString()
     },
-    id: "lemonade1",
+    {
+      id: "lemonade1",
       title: "DON'T TELL DAD (PT)",
       language: "pt",
       type: "comic",
