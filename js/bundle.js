@@ -15,8 +15,8 @@
   } catch (e) {}
 
   // 1. Data Layer & IndexedDB Store
-  const STORAGE_KEY = 'versereel_data_v99';
-  const DB_NAME = 'VerseReelDB_v99';
+  const STORAGE_KEY = 'versereel_data_v105';
+  const DB_NAME = 'VerseReelDB_v105';
   const DB_VERSION = 1;
   const STORE_NAME = 'app_state';
 
@@ -25,25 +25,6 @@
   // ¡PEGA TUS NUEVOS CÓMICS AQUÍ ABAJO DENTRO DE LOS CORCHETES [ ... ]!
   // =========================================================================
   const COMICS_CATALOG = [
-    {
-      id: "lemonade1",
-      title: "DON'T TELL DAD (PT)",
-      language: "pt",
-      type: "comic",
-      genre: "Incest",
-      author: "Zkero",
-      description: "Um filho cruza a linha com a mãe. Baseado em Lemonade — Milftoon.",
-      isPaid: true,
-      price: 4.99,
-      previewLimit: 17,
-      paypalUrl: "https://www.paypal.com/ncp/payment/VRSJZ76KRJTH6",
-      downloadUrl: "assets/DTDPT.pdf",
-      thumbnail: "assets/PL00.jpg",
-      pages: Array.from({ length: 35 }, (_, i) => `assets/PL${String(i).padStart(2, '0')}.jpg`),
-      views: 10350,
-      tags: ["porn comic online", "porn comic in english", "hentai comic", "adult comic", "lemonade", "zkero", "milftoon", "mom", "incest", "milf", "big tits"],
-      createdAt: new Date().toISOString()
-    },
     {
       id: "bleachtybw",
       title: "YHWACH's REVENGE",
@@ -160,7 +141,7 @@
       description: "A son crosses the line with his mother.Based on Milftoon’s Lemonade",
       isPaid: true,
       price: 4.99,
-      previewLimit: 17,
+      previewLimit: 2,
       paymentUrl: "https://mpago.la/2om6XKk",
       paypalUrl: "https://www.paypal.com/ncp/payment/RC4X5CV8S8WEL",
       downloadUrl: "assets/DONTTELLDAD.pdf",
@@ -170,8 +151,7 @@
       tags: ["porn comic online", "porn comic in english", "hentai comic", "adult comic", "lemonade", "zkero", "milftoon", "mom", "incest", "milf", "big tits"],
       createdAt: new Date().toISOString()
     },
-    {
-      id: "lemonade1",
+    id: "lemonade1",
       title: "DON'T TELL DAD (PT)",
       language: "pt",
       type: "comic",
@@ -180,11 +160,13 @@
       description: "Um filho cruza a linha com a mãe. Baseado em Lemonade — Milftoon.",
       isPaid: true,
       price: 4.99,
-      previewLimit: 17,
+      previewLimit: 2,
       paypalUrl: "https://www.paypal.com/ncp/payment/VRSJZ76KRJTH6",
+      pixUrl: "https://t.me/zkeroh?text=Quero%20comprar%20o%20comic%20Dont%20Tell%20Dad",
+      landingUrl: "lemonade-pt.html",
       downloadUrl: "assets/DTDPT.pdf",
-      thumbnail: "assets/L00.jpg",
-      pages: Array.from({ length: 35 }, (_, i) => `assets/L${String(i).padStart(2, '0')}.jpg`),
+      thumbnail: "assets/PL00.jpg",
+      pages: Array.from({ length: 35 }, (_, i) => `assets/PL${String(i).padStart(2, '0')}.jpg`),
       views: 10350,
       tags: ["porn comic online", "hq porno", "quadrinhos adultos", "hentai portugues", "hq erotica", "lemonade", "zkero", "milftoon", "mãe", "incesto", "milf"],
       createdAt: new Date().toISOString()
@@ -2116,6 +2098,11 @@ function openFullpageComicReader(item) {
                               <button class="btn-primary" id="paywall-paypal-btn" style="width: 100%; justify-content: center; font-size: 1rem; padding: 0.85rem; background: linear-gradient(135deg, #003087, #0070ba); color: #ffffff; border: none; font-weight: 700;">
                                 ${txtPaypalBtn}
                               </button>
+                              ${(isPt || item.pixUrl) ? `
+                                <a href="${item.pixUrl || 'https://t.me/zkeroh?text=Quero%20comprar%20o%20comic%20Dont%20Tell%20Dad'}" target="_blank" class="btn-action-buy-pix" style="padding: 0.85rem 1rem; font-size: 1rem; width: 100%; background: linear-gradient(135deg, #00bdae, #00796b); color: #ffffff; border-radius: 10px; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 0.5rem; font-weight: 800; border: 1px solid rgba(50, 188, 173, 0.5); box-shadow: 0 4px 15px rgba(0, 189, 174, 0.3); margin-top: 0.5rem; box-sizing: border-box;">
+                                  <i class="ph-telegram-logo-bold"></i> ⚡ COMPRAR COM PIX
+                                </a>
+                              ` : ''}
                             ` : `
                               <button class="btn-primary" id="paywall-unlock-btn" style="width: 100%; justify-content: center; font-size: 1rem; padding: 0.85rem; background: linear-gradient(135deg, #009ee3, #0070ba); border: none; font-weight: 700;">
                                 ${txtMpBtn}
