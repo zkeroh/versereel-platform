@@ -102,7 +102,7 @@
       box-shadow: 0 0 12px rgba(244, 63, 94, 0.4);
     }
 
-    /* Webtoon Container (Continuous Vertical Reader Stream) */
+    /* Webtoon Container with Media Separations */
     .webtoon-reader-container {
       width: 100%;
       max-width: 850px;
@@ -110,8 +110,10 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      background: #000000;
-      box-shadow: 0 0 50px rgba(0, 0, 0, 0.9);
+      gap: 1.25rem;
+      padding: 1rem 0.75rem 3rem 0.75rem;
+      background: #05070a;
+      box-sizing: border-box;
     }
 
     /* Webtoon Media Blocks */
@@ -121,7 +123,16 @@
       margin: 0;
       padding: 0;
       position: relative;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.75);
+      border: 1px solid rgba(255, 255, 255, 0.08);
       background: #000000;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .webtoon-media-item:hover {
+      border-color: rgba(244, 63, 94, 0.35);
     }
 
     .webtoon-media-item img {
@@ -131,6 +142,7 @@
       margin: 0 auto;
       object-fit: contain;
       pointer-events: none;
+      border-radius: 14px;
     }
 
     .webtoon-media-item video {
@@ -141,6 +153,7 @@
       background: #000000;
       object-fit: contain;
       outline: none;
+      border-radius: 14px;
     }
 
     /* Section Banner Divider inside Webtoon */
@@ -149,8 +162,8 @@
       padding: 1.5rem 1rem;
       background: linear-gradient(180deg, #05070a 0%, #111625 50%, #05070a 100%);
       text-align: center;
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -178,7 +191,7 @@
     footer {
       width: 100%;
       max-width: 850px;
-      padding: 3rem 1.5rem;
+      padding: 2.5rem 1.5rem;
       text-align: center;
       color: var(--text-muted);
       font-size: 0.85rem;

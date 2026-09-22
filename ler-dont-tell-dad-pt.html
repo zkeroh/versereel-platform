@@ -122,7 +122,7 @@
       box-shadow: 0 0 10px rgba(244, 63, 94, 0.4);
     }
 
-    /* Webtoon Container */
+    /* Webtoon Container with Page Separations */
     .webtoon-reader-container {
       width: 100%;
       max-width: 850px;
@@ -130,8 +130,10 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      background: #000000;
-      box-shadow: 0 0 50px rgba(0, 0, 0, 0.9);
+      gap: 1.25rem;
+      padding: 1rem 0.75rem 3rem 0.75rem;
+      background: #05070a;
+      box-sizing: border-box;
     }
 
     .webtoon-page {
@@ -139,7 +141,17 @@
       display: block;
       margin: 0;
       padding: 0;
+      position: relative;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.75);
+      border: 1px solid rgba(255, 255, 255, 0.08);
       background: #000;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .webtoon-page:hover {
+      border-color: rgba(163, 230, 53, 0.3);
     }
 
     .webtoon-page img {
@@ -149,6 +161,21 @@
       margin: 0 auto;
       object-fit: contain;
       pointer-events: none;
+      border-radius: 14px;
+    }
+
+    .page-number-badge {
+      position: absolute;
+      bottom: 10px;
+      right: 12px;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(4px);
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 6px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
     }
 
     .webtoon-divider {
@@ -162,6 +189,7 @@
       flex-direction: column;
       align-items: center;
       gap: 0.6rem;
+      border-radius: 16px;
     }
 
     .webtoon-divider-title {
@@ -178,12 +206,14 @@
       width: 100%;
       padding: 2rem 1.25rem;
       background: rgba(15, 19, 32, 0.95);
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 1.25rem;
       text-align: center;
+      margin-top: 1rem;
     }
 
     .cta-buttons-row {
@@ -240,7 +270,7 @@
     </div>
   </header>
 
-  <!-- Webtoon Reader Stream (35 Pages) -->
+  <!-- Webtoon Reader Stream (35 Pages with Page Separations) -->
   <main class="webtoon-reader-container">
 
     <div class="webtoon-divider">
@@ -252,42 +282,42 @@
       </p>
     </div>
 
-    <!-- Pages 00 to 34 -->
-    <div class="webtoon-page"><img src="assets/PL00.jpg" alt="Página 1" /></div>
-    <div class="webtoon-page"><img src="assets/PL01.jpg" loading="lazy" alt="Página 2" /></div>
-    <div class="webtoon-page"><img src="assets/PL02.jpg" loading="lazy" alt="Página 3" /></div>
-    <div class="webtoon-page"><img src="assets/PL03.jpg" loading="lazy" alt="Página 4" /></div>
-    <div class="webtoon-page"><img src="assets/PL04.jpg" loading="lazy" alt="Página 5" /></div>
-    <div class="webtoon-page"><img src="assets/PL05.jpg" loading="lazy" alt="Página 6" /></div>
-    <div class="webtoon-page"><img src="assets/PL06.jpg" loading="lazy" alt="Página 7" /></div>
-    <div class="webtoon-page"><img src="assets/PL07.jpg" loading="lazy" alt="Página 8" /></div>
-    <div class="webtoon-page"><img src="assets/PL08.jpg" loading="lazy" alt="Página 9" /></div>
-    <div class="webtoon-page"><img src="assets/PL09.jpg" loading="lazy" alt="Página 10" /></div>
-    <div class="webtoon-page"><img src="assets/PL10.jpg" loading="lazy" alt="Página 11" /></div>
-    <div class="webtoon-page"><img src="assets/PL11.jpg" loading="lazy" alt="Página 12" /></div>
-    <div class="webtoon-page"><img src="assets/PL12.jpg" loading="lazy" alt="Página 13" /></div>
-    <div class="webtoon-page"><img src="assets/PL13.jpg" loading="lazy" alt="Página 14" /></div>
-    <div class="webtoon-page"><img src="assets/PL14.jpg" loading="lazy" alt="Página 15" /></div>
-    <div class="webtoon-page"><img src="assets/PL15.jpg" loading="lazy" alt="Página 16" /></div>
-    <div class="webtoon-page"><img src="assets/PL16.jpg" loading="lazy" alt="Página 17" /></div>
-    <div class="webtoon-page"><img src="assets/PL17.jpg" loading="lazy" alt="Página 18" /></div>
-    <div class="webtoon-page"><img src="assets/PL18.jpg" loading="lazy" alt="Página 19" /></div>
-    <div class="webtoon-page"><img src="assets/PL19.jpg" loading="lazy" alt="Página 20" /></div>
-    <div class="webtoon-page"><img src="assets/PL20.jpg" loading="lazy" alt="Página 21" /></div>
-    <div class="webtoon-page"><img src="assets/PL21.jpg" loading="lazy" alt="Página 22" /></div>
-    <div class="webtoon-page"><img src="assets/PL22.jpg" loading="lazy" alt="Página 23" /></div>
-    <div class="webtoon-page"><img src="assets/PL23.jpg" loading="lazy" alt="Página 24" /></div>
-    <div class="webtoon-page"><img src="assets/PL24.jpg" loading="lazy" alt="Página 25" /></div>
-    <div class="webtoon-page"><img src="assets/PL25.jpg" loading="lazy" alt="Página 26" /></div>
-    <div class="webtoon-page"><img src="assets/PL26.jpg" loading="lazy" alt="Página 27" /></div>
-    <div class="webtoon-page"><img src="assets/PL27.jpg" loading="lazy" alt="Página 28" /></div>
-    <div class="webtoon-page"><img src="assets/PL28.jpg" loading="lazy" alt="Página 29" /></div>
-    <div class="webtoon-page"><img src="assets/PL29.jpg" loading="lazy" alt="Página 30" /></div>
-    <div class="webtoon-page"><img src="assets/PL30.jpg" loading="lazy" alt="Página 31" /></div>
-    <div class="webtoon-page"><img src="assets/PL31.jpg" loading="lazy" alt="Página 32" /></div>
-    <div class="webtoon-page"><img src="assets/PL32.jpg" loading="lazy" alt="Página 33" /></div>
-    <div class="webtoon-page"><img src="assets/PL33.jpg" loading="lazy" alt="Página 34" /></div>
-    <div class="webtoon-page"><img src="assets/PL34.jpg" loading="lazy" alt="Página 35" /></div>
+    <!-- Pages 00 to 34 with Margins and Badges -->
+    <div class="webtoon-page"><img src="assets/PL00.jpg" alt="Página 1" /><span class="page-number-badge">Pág 1</span></div>
+    <div class="webtoon-page"><img src="assets/PL01.jpg" loading="lazy" alt="Página 2" /><span class="page-number-badge">Pág 2</span></div>
+    <div class="webtoon-page"><img src="assets/PL02.jpg" loading="lazy" alt="Página 3" /><span class="page-number-badge">Pág 3</span></div>
+    <div class="webtoon-page"><img src="assets/PL03.jpg" loading="lazy" alt="Página 4" /><span class="page-number-badge">Pág 4</span></div>
+    <div class="webtoon-page"><img src="assets/PL04.jpg" loading="lazy" alt="Página 5" /><span class="page-number-badge">Pág 5</span></div>
+    <div class="webtoon-page"><img src="assets/PL05.jpg" loading="lazy" alt="Página 6" /><span class="page-number-badge">Pág 6</span></div>
+    <div class="webtoon-page"><img src="assets/PL06.jpg" loading="lazy" alt="Página 7" /><span class="page-number-badge">Pág 7</span></div>
+    <div class="webtoon-page"><img src="assets/PL07.jpg" loading="lazy" alt="Página 8" /><span class="page-number-badge">Pág 8</span></div>
+    <div class="webtoon-page"><img src="assets/PL08.jpg" loading="lazy" alt="Página 9" /><span class="page-number-badge">Pág 9</span></div>
+    <div class="webtoon-page"><img src="assets/PL09.jpg" loading="lazy" alt="Página 10" /><span class="page-number-badge">Pág 10</span></div>
+    <div class="webtoon-page"><img src="assets/PL10.jpg" loading="lazy" alt="Página 11" /><span class="page-number-badge">Pág 11</span></div>
+    <div class="webtoon-page"><img src="assets/PL11.jpg" loading="lazy" alt="Página 12" /><span class="page-number-badge">Pág 12</span></div>
+    <div class="webtoon-page"><img src="assets/PL12.jpg" loading="lazy" alt="Página 13" /><span class="page-number-badge">Pág 13</span></div>
+    <div class="webtoon-page"><img src="assets/PL13.jpg" loading="lazy" alt="Página 14" /><span class="page-number-badge">Pág 14</span></div>
+    <div class="webtoon-page"><img src="assets/PL14.jpg" loading="lazy" alt="Página 15" /><span class="page-number-badge">Pág 15</span></div>
+    <div class="webtoon-page"><img src="assets/PL15.jpg" loading="lazy" alt="Página 16" /><span class="page-number-badge">Pág 16</span></div>
+    <div class="webtoon-page"><img src="assets/PL16.jpg" loading="lazy" alt="Página 17" /><span class="page-number-badge">Pág 17</span></div>
+    <div class="webtoon-page"><img src="assets/PL17.jpg" loading="lazy" alt="Página 18" /><span class="page-number-badge">Pág 18</span></div>
+    <div class="webtoon-page"><img src="assets/PL18.jpg" loading="lazy" alt="Página 19" /><span class="page-number-badge">Pág 19</span></div>
+    <div class="webtoon-page"><img src="assets/PL19.jpg" loading="lazy" alt="Página 20" /><span class="page-number-badge">Pág 20</span></div>
+    <div class="webtoon-page"><img src="assets/PL20.jpg" loading="lazy" alt="Página 21" /><span class="page-number-badge">Pág 21</span></div>
+    <div class="webtoon-page"><img src="assets/PL21.jpg" loading="lazy" alt="Página 22" /><span class="page-number-badge">Pág 22</span></div>
+    <div class="webtoon-page"><img src="assets/PL22.jpg" loading="lazy" alt="Página 23" /><span class="page-number-badge">Pág 23</span></div>
+    <div class="webtoon-page"><img src="assets/PL23.jpg" loading="lazy" alt="Página 24" /><span class="page-number-badge">Pág 24</span></div>
+    <div class="webtoon-page"><img src="assets/PL24.jpg" loading="lazy" alt="Página 25" /><span class="page-number-badge">Pág 25</span></div>
+    <div class="webtoon-page"><img src="assets/PL25.jpg" loading="lazy" alt="Página 26" /><span class="page-number-badge">Pág 26</span></div>
+    <div class="webtoon-page"><img src="assets/PL26.jpg" loading="lazy" alt="Página 27" /><span class="page-number-badge">Pág 27</span></div>
+    <div class="webtoon-page"><img src="assets/PL27.jpg" loading="lazy" alt="Página 28" /><span class="page-number-badge">Pág 28</span></div>
+    <div class="webtoon-page"><img src="assets/PL28.jpg" loading="lazy" alt="Página 29" /><span class="page-number-badge">Pág 29</span></div>
+    <div class="webtoon-page"><img src="assets/PL29.jpg" loading="lazy" alt="Página 30" /><span class="page-number-badge">Pág 30</span></div>
+    <div class="webtoon-page"><img src="assets/PL30.jpg" loading="lazy" alt="Página 31" /><span class="page-number-badge">Pág 31</span></div>
+    <div class="webtoon-page"><img src="assets/PL31.jpg" loading="lazy" alt="Página 32" /><span class="page-number-badge">Pág 32</span></div>
+    <div class="webtoon-page"><img src="assets/PL32.jpg" loading="lazy" alt="Página 33" /><span class="page-number-badge">Pág 33</span></div>
+    <div class="webtoon-page"><img src="assets/PL33.jpg" loading="lazy" alt="Página 34" /><span class="page-number-badge">Pág 34</span></div>
+    <div class="webtoon-page"><img src="assets/PL34.jpg" loading="lazy" alt="Página 35" /><span class="page-number-badge">Pág 35</span></div>
 
     <!-- Bottom Action CTA -->
     <div class="bottom-cta-banner">
