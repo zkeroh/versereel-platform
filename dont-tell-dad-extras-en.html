@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
+  
+  <!-- Google Analytics 4 (GA4) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BW1CYXKB7N"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-BW1CYXKB7N');
+  </script>
+
+  <title>👑 VIP Webtoon Extras - Don't Tell Dad | Xzkero</title>
+  <meta name="description" content="Webtoon view of exclusive extra content for Don't Tell Dad buyers." />
+  <meta name="robots" content="noindex, nofollow" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/logo.png" />
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+  <style>
+    :root {
+      --bg-dark: #05070a;
+      --accent-rose: #f43f5e;
+      --accent-green: #a3e635;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      overflow-x: hidden;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+
+    /* Top Sticky Navigation Header */
+    header {
+      width: 100%;
+      max-width: 900px;
+      padding: 0.85rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(16px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(5, 7, 10, 0.92);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      text-decoration: none;
+      color: var(--text-main);
+      font-weight: 800;
+      font-size: 1.1rem;
+    }
+
+    .brand img {
+      height: 32px;
+      width: auto;
+      filter: drop-shadow(0 0 8px rgba(244, 63, 94, 0.5));
+    }
+
+    .vip-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: linear-gradient(135deg, #f43f5e, #be123c);
+      color: #ffffff;
+      padding: 0.35rem 0.85rem;
+      border-radius: 30px;
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      box-shadow: 0 0 12px rgba(244, 63, 94, 0.4);
+    }
+
+    /* Webtoon Container with Media Separations */
+    .webtoon-reader-container {
+      width: 100%;
+      max-width: 850px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.25rem;
+      padding: 1rem 0.75rem 3rem 0.75rem;
+      background: #05070a;
+      box-sizing: border-box;
+    }
+
+    /* Webtoon Media Blocks */
+    .webtoon-media-item {
+      width: 100%;
+      display: block;
+      margin: 0;
+      padding: 0;
+      position: relative;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.75);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: #000000;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .webtoon-media-item:hover {
+      border-color: rgba(244, 63, 94, 0.35);
+    }
+
+    .webtoon-media-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      object-fit: contain;
+      pointer-events: none;
+      border-radius: 14px;
+    }
+
+    .webtoon-media-item video {
+      width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      background: #000000;
+      object-fit: contain;
+      outline: none;
+      border-radius: 14px;
+    }
+
+    /* Section Banner Divider inside Webtoon */
+    .webtoon-divider {
+      width: 100%;
+      padding: 1.5rem 1rem;
+      background: linear-gradient(180deg, #05070a 0%, #111625 50%, #05070a 100%);
+      text-align: center;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .webtoon-divider-title {
+      font-size: 1.15rem;
+      font-weight: 900;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .webtoon-divider-subtitle {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    /* Footer */
+    footer {
+      width: 100%;
+      max-width: 850px;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      background: #05070a;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    footer p {
+      margin: 0;
+    }
+
+    .footer-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(163, 230, 53, 0.1);
+      color: var(--accent-green);
+      border: 1px solid rgba(163, 230, 53, 0.3);
+      padding: 0.4rem 1rem;
+      border-radius: 30px;
+      font-weight: 700;
+      font-size: 0.8rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Sticky Navigation Header -->
+  <header>
+    <a href="index.html" class="brand">
+      <img src="assets/logo.png" alt="Xzkero Logo" />
+      <span>Xzkero</span>
+    </a>
+    <div class="vip-pill">
+      <i class="ph-crown-bold"></i> WEBTOON VIP
+    </div>
+  </header>
+
+  <!-- Webtoon Reader Stream -->
+  <main class="webtoon-reader-container">
+
+    <!-- Header Banner Inside Webtoon -->
+    <div class="webtoon-divider" style="padding: 2.25rem 1rem;">
+      <div class="vip-pill" style="background: rgba(163, 230, 53, 0.15); color: #bef264; border: 1px solid var(--accent-green); box-shadow: 0 0 12px rgba(163, 230, 53, 0.25);">
+        <i class="ph-sparkle-fill"></i> EXCLUSIVE BUYER CONTENT
+      </div>
+      <h1 class="webtoon-divider-title" style="font-size: clamp(1.4rem, 3.5vw, 2rem); margin-top: 0.4rem;">
+        DON'T TELL DAD — EXCLUSIVE EXTRA MATERIAL
+      </h1>
+      <p class="webtoon-divider-subtitle">
+        Scroll down to enjoy the exclusive extra galleries and animations in Webtoon format
+      </p>
+    </div>
+
+    <!-- Section 1 (TOP): HD Extra Images Gallery in Continuous Webtoon Format -->
+    <div class="webtoon-divider">
+      <span class="webtoon-divider-title">
+        <i class="ph-image-square-fill" style="color: var(--accent-green);"></i> HD EXTRA GALLERY & ILLUSTRATIONS
+      </span>
+      <span class="webtoon-divider-subtitle">14 HD Images</span>
+    </div>
+
+    <div class="webtoon-media-item">
+      <img src="assets/extras/extra_img_01.jpg" loading="lazy" alt="" />
+    </div>
+
+    <div class="webtoon-media-item">
+      <img src="assets/extras/extra_img_02.jpg" loading="lazy" alt="" />
+    </div>
+
+    <div class="webtoon-media-item">
+      <img src="assets/extras/extra_img_03.jpg" loading="lazy" alt="" />
+    </div>
+
+    <div class="webtoon-media-item">
+      <img src="assets/extras/extra_img_04.jpg" loading="lazy" alt="" />
+    </div>
+
+    <div class="webtoon-media-item">
+      <img src="assets/extras/extra_img_05.png" loading="lazy" alt="" />
+    </div>
+
+    <div class="webtoon-media-item">
+      <img src="assets/extras/extra_img_06.png" loading="lazy" alt="" />
+    </div>
+
+    <div class="webtoon-media-item">
+      <img src="assets/extras/extra_img_07.png" loading="lazy" alt="" />
+    </div>
+
+    <div class="webtoon-media-item">
+      <img src="assets/extras/extra_img_08.png" loading="lazy" alt="" />
+    </div>
+
+    <div class="webtoon-media-item">
+      <img src="assets/extras/extra_img_09.png" loading="lazy" alt="" />
+    </div>
+
+    <div class="webtoon-media-item">
+      <img src="assets/extras/extra_img_10.png" loading="lazy" alt="" />
+    </div>
+
+    <div class="webtoon-media-item">
+      <img src="assets/extras/extra_img_11.png" loading="lazy" alt="" />
+    </div>
+
+    <div class="webtoon-media-item">
+      <img src="assets/extras/extra_img_12.png" loading="lazy" alt="" />
+    </div>
+
+    <div class="webtoon-media-item">
+      <img src="assets/extras/extra_img_13.png" loading="lazy" alt="" />
+    </div>
+
+    <div class="webtoon-media-item">
+      <img src="assets/extras/extra_img_14.png" loading="lazy" alt="" />
+    </div>
+
+    <!-- Section 2 (BELOW): HD Animated Videos in Webtoon Format -->
+    <div class="webtoon-divider">
+      <span class="webtoon-divider-title">
+        <i class="ph-play-circle-fill" style="color: var(--accent-rose);"></i> EXCLUSIVE ANIMATIONS & VIDEOS
+      </span>
+      <span class="webtoon-divider-subtitle">8 HD Videos</span>
+    </div>
+
+    <div class="webtoon-media-item">
+      <video controls playsinline preload="metadata" src="assets/extras/extra_video_01.mp4"></video>
+    </div>
+
+    <div class="webtoon-media-item">
+      <video controls playsinline preload="metadata" src="assets/extras/extra_video_02.mp4"></video>
+    </div>
+
+    <div class="webtoon-media-item">
+      <video controls playsinline preload="metadata" src="assets/extras/extra_video_03.mp4"></video>
+    </div>
+
+    <div class="webtoon-media-item">
+      <video controls playsinline preload="metadata" src="assets/extras/extra_video_04.mp4"></video>
+    </div>
+
+    <div class="webtoon-media-item">
+      <video controls playsinline preload="metadata" src="assets/extras/extra_video_05.mp4"></video>
+    </div>
+
+    <div class="webtoon-media-item">
+      <video controls playsinline preload="metadata" src="assets/extras/extra_video_06.mp4"></video>
+    </div>
+
+    <div class="webtoon-media-item">
+      <video controls playsinline preload="metadata" src="assets/extras/extra_video_07.mp4"></video>
+    </div>
+
+    <div class="webtoon-media-item">
+      <video controls playsinline preload="metadata" src="assets/extras/extra_video_08.mp4"></video>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-badge">
+        <i class="ph-check-circle-fill"></i> Thank you for supporting the official comic Don't Tell Dad
+      </div>
+      <p>© 2026 Xzkero. All rights reserved.</p>
+    </footer>
+
+  </main>
+
+</body>
+</html>
