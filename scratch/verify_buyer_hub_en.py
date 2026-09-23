@@ -13,7 +13,7 @@ def test_hub_en():
         content = f.read()
 
     expected_links = [
-        'a-line-we-crossed.html',
+        'read-dont-tell-dad-en.html',
         'assets/DONTTELLDAD.pdf',
         'dont-tell-dad-extras-en.html',
         'https://t.me/zkeroh'
@@ -28,7 +28,7 @@ def test_hub_en():
 
     # Verify linked target files exist
     target_files = [
-        os.path.join(base_dir, 'a-line-we-crossed.html'),
+        os.path.join(base_dir, 'read-dont-tell-dad-en.html'),
         os.path.join(base_dir, 'assets', 'DONTTELLDAD.pdf'),
         os.path.join(base_dir, 'dont-tell-dad-extras-en.html')
     ]

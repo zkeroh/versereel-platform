@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
+  
+  <!-- Google Analytics 4 (GA4) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BW1CYXKB7N"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-BW1CYXKB7N');
+  </script>
+
+  <title>📖 Don't Tell Dad — Full Uncensored Comic | Xzkero</title>
+  <meta name="description" content="Full ad-free online reader for Don't Tell Dad comic in English." />
+  <meta name="robots" content="noindex, nofollow" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/logo.png" />
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+  <style>
+    :root {
+      --bg-dark: #05070a;
+      --accent-green: #a3e635;
+      --accent-rose: #f43f5e;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      overflow-x: hidden;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+
+    /* Top Sticky Header */
+    header {
+      width: 100%;
+      max-width: 900px;
+      padding: 0.85rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(16px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(5, 7, 10, 0.92);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      text-decoration: none;
+      color: var(--text-main);
+      font-weight: 800;
+      font-size: 1.1rem;
+    }
+
+    .brand img {
+      height: 32px;
+      width: auto;
+      filter: drop-shadow(0 0 8px rgba(163, 230, 53, 0.5));
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .btn-header {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.4rem 0.85rem;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      font-weight: 800;
+      text-decoration: none;
+      transition: all 0.25s ease;
+    }
+
+    .btn-pdf {
+      background: rgba(163, 230, 53, 0.15);
+      color: #bef264;
+      border: 1px solid var(--accent-green);
+    }
+
+    .btn-pdf:hover {
+      background: var(--accent-green);
+      color: #000;
+    }
+
+    .btn-extras {
+      background: linear-gradient(135deg, #f43f5e, #be123c);
+      color: #fff;
+      box-shadow: 0 0 10px rgba(244, 63, 94, 0.4);
+    }
+
+    /* Webtoon Container with Page Separations */
+    .webtoon-reader-container {
+      width: 100%;
+      max-width: 850px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.25rem;
+      padding: 1rem 0.75rem 3rem 0.75rem;
+      background: #05070a;
+      box-sizing: border-box;
+    }
+
+    .webtoon-page {
+      width: 100%;
+      display: block;
+      margin: 0;
+      padding: 0;
+      position: relative;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.75);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: #000;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .webtoon-page:hover {
+      border-color: rgba(163, 230, 53, 0.3);
+    }
+
+    .webtoon-page img {
+      width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      object-fit: contain;
+      pointer-events: none;
+      border-radius: 14px;
+    }
+
+    .page-number-badge {
+      position: absolute;
+      bottom: 10px;
+      right: 12px;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(4px);
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 6px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .webtoon-divider {
+      width: 100%;
+      padding: 2rem 1rem;
+      background: linear-gradient(180deg, #05070a 0%, #111625 50%, #05070a 100%);
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.6rem;
+      border-radius: 16px;
+    }
+
+    .webtoon-divider-title {
+      font-size: 1.3rem;
+      font-weight: 900;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* Bottom Action Bar */
+    .bottom-cta-banner {
+      width: 100%;
+      padding: 2rem 1.25rem;
+      background: rgba(15, 19, 32, 0.95);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.25rem;
+      text-align: center;
+      margin-top: 1rem;
+    }
+
+    .cta-buttons-row {
+      display: flex;
+      gap: 1rem;
+      width: 100%;
+      max-width: 550px;
+      flex-wrap: wrap;
+    }
+
+    .btn-bottom {
+      flex: 1;
+      min-width: 240px;
+      padding: 0.9rem 1.25rem;
+      border-radius: 14px;
+      font-weight: 800;
+      font-size: 0.95rem;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      transition: all 0.25s ease;
+    }
+
+    /* Footer */
+    footer {
+      width: 100%;
+      max-width: 850px;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      background: #05070a;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navigation Header -->
+  <header>
+    <a href="index.html" class="brand">
+      <img src="assets/logo.png" alt="Xzkero Logo" />
+      <span>Xzkero</span>
+    </a>
+    <div class="header-actions">
+      <a href="assets/DONTTELLDAD.pdf" download class="btn-header btn-pdf">
+        <i class="ph-download-simple-bold"></i> PDF
+      </a>
+      <a href="dont-tell-dad-extras-en.html" class="btn-header btn-extras">
+        <i class="ph-sparkle-fill"></i> VIP Extras
+      </a>
+    </div>
+  </header>
+
+  <!-- Webtoon Reader Stream (35 Pages with Page Separations) -->
+  <main class="webtoon-reader-container">
+
+    <div class="webtoon-divider">
+      <h1 class="webtoon-divider-title">
+        <i class="ph-book-open-fill" style="color: var(--accent-green);"></i> DON'T TELL DAD — FULL UNCENSORED COMIC
+      </h1>
+      <p style="color: var(--text-muted); font-size: 0.9rem; font-weight: 600;">
+        Continuous HD English Webtoon Reader (35 Pages)
+      </p>
+    </div>
+
+    <!-- Pages 00 to 34 -->
+    <div class="webtoon-page"><img src="assets/L00.jpg" alt="Page 1" /><span class="page-number-badge">Page 1</span></div>
+    <div class="webtoon-page"><img src="assets/L01.jpg" loading="lazy" alt="Page 2" /><span class="page-number-badge">Page 2</span></div>
+    <div class="webtoon-page"><img src="assets/L02.jpg" loading="lazy" alt="Page 3" /><span class="page-number-badge">Page 3</span></div>
+    <div class="webtoon-page"><img src="assets/L03.jpg" loading="lazy" alt="Page 4" /><span class="page-number-badge">Page 4</span></div>
+    <div class="webtoon-page"><img src="assets/L04.jpg" loading="lazy" alt="Page 5" /><span class="page-number-badge">Page 5</span></div>
+    <div class="webtoon-page"><img src="assets/L05.jpg" loading="lazy" alt="Page 6" /><span class="page-number-badge">Page 6</span></div>
+    <div class="webtoon-page"><img src="assets/L06.jpg" loading="lazy" alt="Page 7" /><span class="page-number-badge">Page 7</span></div>
+    <div class="webtoon-page"><img src="assets/L07.jpg" loading="lazy" alt="Page 8" /><span class="page-number-badge">Page 8</span></div>
+    <div class="webtoon-page"><img src="assets/L08.jpg" loading="lazy" alt="Page 9" /><span class="page-number-badge">Page 9</span></div>
+    <div class="webtoon-page"><img src="assets/L09.jpg" loading="lazy" alt="Page 10" /><span class="page-number-badge">Page 10</span></div>
+    <div class="webtoon-page"><img src="assets/L10.jpg" loading="lazy" alt="Page 11" /><span class="page-number-badge">Page 11</span></div>
+    <div class="webtoon-page"><img src="assets/L11.jpg" loading="lazy" alt="Page 12" /><span class="page-number-badge">Page 12</span></div>
+    <div class="webtoon-page"><img src="assets/L12.jpg" loading="lazy" alt="Page 13" /><span class="page-number-badge">Page 13</span></div>
+    <div class="webtoon-page"><img src="assets/L13.jpg" loading="lazy" alt="Page 14" /><span class="page-number-badge">Page 14</span></div>
+    <div class="webtoon-page"><img src="assets/L14.jpg" loading="lazy" alt="Page 15" /><span class="page-number-badge">Page 15</span></div>
+    <div class="webtoon-page"><img src="assets/L15.jpg" loading="lazy" alt="Page 16" /><span class="page-number-badge">Page 16</span></div>
+    <div class="webtoon-page"><img src="assets/L16.jpg" loading="lazy" alt="Page 17" /><span class="page-number-badge">Page 17</span></div>
+    <div class="webtoon-page"><img src="assets/L17.jpg" loading="lazy" alt="Page 18" /><span class="page-number-badge">Page 18</span></div>
+    <div class="webtoon-page"><img src="assets/L18.jpg" loading="lazy" alt="Page 19" /><span class="page-number-badge">Page 19</span></div>
+    <div class="webtoon-page"><img src="assets/L19.jpg" loading="lazy" alt="Page 20" /><span class="page-number-badge">Page 20</span></div>
+    <div class="webtoon-page"><img src="assets/L20.jpg" loading="lazy" alt="Page 21" /><span class="page-number-badge">Page 21</span></div>
+    <div class="webtoon-page"><img src="assets/L21.jpg" loading="lazy" alt="Page 22" /><span class="page-number-badge">Page 22</span></div>
+    <div class="webtoon-page"><img src="assets/L22.jpg" loading="lazy" alt="Page 23" /><span class="page-number-badge">Page 23</span></div>
+    <div class="webtoon-page"><img src="assets/L23.jpg" loading="lazy" alt="Page 24" /><span class="page-number-badge">Page 24</span></div>
+    <div class="webtoon-page"><img src="assets/L24.jpg" loading="lazy" alt="Page 25" /><span class="page-number-badge">Page 25</span></div>
+    <div class="webtoon-page"><img src="assets/L25.jpg" loading="lazy" alt="Page 26" /><span class="page-number-badge">Page 26</span></div>
+    <div class="webtoon-page"><img src="assets/L26.jpg" loading="lazy" alt="Page 27" /><span class="page-number-badge">Page 27</span></div>
+    <div class="webtoon-page"><img src="assets/L27.jpg" loading="lazy" alt="Page 28" /><span class="page-number-badge">Page 28</span></div>
+    <div class="webtoon-page"><img src="assets/L28.jpg" loading="lazy" alt="Page 29" /><span class="page-number-badge">Page 29</span></div>
+    <div class="webtoon-page"><img src="assets/L29.jpg" loading="lazy" alt="Page 30" /><span class="page-number-badge">Page 30</span></div>
+    <div class="webtoon-page"><img src="assets/L30.jpg" loading="lazy" alt="Page 31" /><span class="page-number-badge">Page 31</span></div>
+    <div class="webtoon-page"><img src="assets/L31.jpg" loading="lazy" alt="Page 32" /><span class="page-number-badge">Page 32</span></div>
+    <div class="webtoon-page"><img src="assets/L32.jpg" loading="lazy" alt="Page 33" /><span class="page-number-badge">Page 33</span></div>
+    <div class="webtoon-page"><img src="assets/L33.jpg" loading="lazy" alt="Page 34" /><span class="page-number-badge">Page 34</span></div>
+    <div class="webtoon-page"><img src="assets/L34.jpg" loading="lazy" alt="Page 35" /><span class="page-number-badge">Page 35</span></div>
+
+    <!-- Bottom Action CTA -->
+    <div class="bottom-cta-banner">
+      <h2 style="font-size: 1.3rem; font-weight: 800; color: #fff;">
+        🎉 End of Don't Tell Dad Comic
+      </h2>
+      <p style="color: var(--text-muted); font-size: 0.9rem; max-width: 480px;">
+        Don't miss out on the exclusive VIP extra content featuring 14 HD illustrations and 8 animated videos!
+      </p>
+
+      <div class="cta-buttons-row">
+        <a href="assets/DONTTELLDAD.pdf" download class="btn-bottom" style="background: rgba(163, 230, 53, 0.15); color: #bef264; border: 1px solid var(--accent-green);">
+          <i class="ph-file-pdf-bold"></i> Download Full PDF
+        </a>
+        <a href="dont-tell-dad-extras-en.html" class="btn-bottom" style="background: linear-gradient(135deg, #f43f5e, #be123c); color: #fff; box-shadow: 0 0 15px rgba(244, 63, 94, 0.4);">
+          <i class="ph-sparkle-fill"></i> Access VIP Extra Content
+        </a>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <p>© 2026 Xzkero. All rights reserved.</p>
+    </footer>
+
+  </main>
+
+</body>
+</html>
