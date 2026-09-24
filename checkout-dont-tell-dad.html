@@ -656,47 +656,41 @@
           btnSendReceipt.style.display = "none";
           showToast("Comprovante enviado! Aguardando validação...");
 
-          // Start Real-Time Polling for Admin Approval
+          // Start Real-Time Polling for Admin Approval via getChat pinned_message
           pollInterval = setInterval(() => {
-            fetch(`https://api.telegram.org/bot${BOT_TOKEN}/getUpdates?offset=-20`)
+            fetch(`https://api.telegram.org/bot${BOT_TOKEN}/getChat?chat_id=${ADMIN_CHAT_ID}&t=${Date.now()}`)
               .then(r => r.json())
-              .then(updates => {
-                if (updates.ok && updates.result) {
-                  for (let item of updates.result) {
-                    if (item.callback_query && item.callback_query.data) {
-                      const cbData = item.callback_query.data;
-                      if (cbData === `approve_${paymentId}`) {
-                        clearInterval(pollInterval);
-                        statusSuccessBox.innerHTML = `
-                          <div style="text-align: center;">
-                            <h4 style="color: #10b981; font-size: 1.25rem; font-weight: 800; margin-bottom: 0.5rem;">🎉 PAGAMENTO CONFIRMADO E APROVADO!</h4>
-                            <p style="margin-bottom: 1rem; color: #ffffff;">Seu Pix foi validado com sucesso. Redirecionando para o seu Acesso VIP...</p>
-                            <a href="obrigado-dont-tell-dad.html" class="btn-copy" style="background: linear-gradient(135deg, #10b981, #059669); text-decoration: none;">
-                              👉 CLIQUE AQUI PARA ACESSAR O COMIC VIP AGORA
-                            </a>
-                          </div>
-                        `;
-                        showToast("Aprovado! Redirecionando...");
-                        setTimeout(() => {
-                          window.location.href = "obrigado-dont-tell-dad.html";
-                        }, 2000);
-                        break;
-                      } else if (cbData === `reject_${paymentId}`) {
-                        clearInterval(pollInterval);
-                        statusSuccessBox.innerHTML = `
-                          <div style="text-align: center;">
-                            <h4 style="color: #ef4444; font-size: 1.15rem; font-weight: 800; margin-bottom: 0.4rem;">❌ COMPROVANTE NÃO APROVADO</h4>
-                            <p style="color: #94a3b8; font-size: 0.88rem;">Não foi possível validar o pagamento de R$ 19,90. Por favor, verifique o comprovante ou entre em contato pelo Telegram.</p>
-                          </div>
-                        `;
-                        break;
-                      }
-                    }
+              .then(res => {
+                if (res.ok && res.result && res.result.pinned_message) {
+                  const pinTxt = res.result.pinned_message.text || "";
+                  if (pinTxt.includes(`APPROVED_${paymentId}`)) {
+                    clearInterval(pollInterval);
+                    statusSuccessBox.innerHTML = `
+                      <div style="text-align: center;">
+                        <h4 style="color: #10b981; font-size: 1.25rem; font-weight: 800; margin-bottom: 0.5rem;">🎉 PAGAMENTO CONFIRMADO E APROVADO!</h4>
+                        <p style="margin-bottom: 1rem; color: #ffffff;">Seu Pix foi validado pelo administrador com sucesso. Redirecionando para o seu Acesso VIP...</p>
+                        <a href="obrigado-dont-tell-dad.html" class="btn-copy" style="background: linear-gradient(135deg, #10b981, #059669); text-decoration: none;">
+                          👉 CLIQUE AQUI PARA ACESSAR O COMIC VIP AGORA
+                        </a>
+                      </div>
+                    `;
+                    showToast("Aprovado! Redirecionando...");
+                    setTimeout(() => {
+                      window.location.href = "obrigado-dont-tell-dad.html";
+                    }, 2000);
+                  } else if (pinTxt.includes(`REJECTED_${paymentId}`)) {
+                    clearInterval(pollInterval);
+                    statusSuccessBox.innerHTML = `
+                      <div style="text-align: center;">
+                        <h4 style="color: #ef4444; font-size: 1.15rem; font-weight: 800; margin-bottom: 0.4rem;">❌ COMPROVANTE NÃO APROVADO</h4>
+                        <p style="color: #94a3b8; font-size: 0.88rem;">Não foi possível validar o pagamento de R$ 19,90. Por favor, verifique o comprovante ou entre em contato pelo Telegram.</p>
+                      </div>
+                    `;
                   }
                 }
               })
               .catch(err => console.error("Poll error:", err));
-          }, 2500);
+          }, 2000);
 
         } else {
           alert("Ocorreu um erro ao enviar o arquivo. Tente pelo Telegram.");

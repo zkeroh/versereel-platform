@@ -1,5 +1,7 @@
 import sys
 import os
+import time
+import random
 import io
 import qrcode
 import telebot
@@ -19,12 +21,42 @@ PIX_KEY_TAKENOS = "00020126580014br.gov.bcb.pix0136ff439919-4119-405d-838a-6c3e3
 LINK_VIP_PT = "https://xzkero.com/obrigado-dont-tell-dad.html"
 LINK_VIP_EN = "https://xzkero.com/access-dont-tell-dad-en.html"
 
-# Modo de Aprovação:
-# True  = Entrega automática assim que o cliente enviar qualquer foto de comprovante
-# False = O admin confirma manualmente com o botão [Aprovar]
+# Modo de Aprovação Automática para Telegram Chat (False = Requer confirmação manual do Admin)
 AUTO_APPROVE_RECEIPTS = False
 
 bot = telebot.TeleBot(BOT_TOKEN, parse_mode="HTML")
+
+# Variable global para guardar el ID del mensaje fijado de estado
+STATUS_PINNED_MSG_ID = None
+
+def ensure_status_pinned_msg():
+    global STATUS_PINNED_MSG_ID
+    if STATUS_PINNED_MSG_ID:
+        return STATUS_PINNED_MSG_ID
+    try:
+        chat = bot.get_chat(ADMIN_CHAT_ID)
+        if chat.pinned_message:
+            STATUS_PINNED_MSG_ID = chat.pinned_message.message_id
+            return STATUS_PINNED_MSG_ID
+    except Exception as e:
+        print(f"Error checking pinned message: {e}")
+    
+    try:
+        msg = bot.send_message(ADMIN_CHAT_ID, "STATUS: READY")
+        bot.pin_chat_message(ADMIN_CHAT_ID, msg.message_id, disable_notification=True)
+        STATUS_PINNED_MSG_ID = msg.message_id
+        return STATUS_PINNED_MSG_ID
+    except Exception as e:
+        print(f"Error creating pinned message: {e}")
+        return None
+
+def update_web_status(status_text):
+    msg_id = ensure_status_pinned_msg()
+    if msg_id:
+        try:
+            bot.edit_message_text(status_text, ADMIN_CHAT_ID, msg_id)
+        except Exception as e:
+            print(f"Error updating pinned status: {e}")
 
 # ==========================================
 # GERADOR DE IMAGEM QR CODE PIX
@@ -127,7 +159,7 @@ def handle_callbacks(call):
         )
 
 # ==========================================
-# RECEBIMENTO DE COMPROVANTES
+# RECEBIMENTO DE COMPROVANTES NO TELEGRAM
 # ==========================================
 @bot.message_handler(content_types=['photo', 'document'])
 def handle_receipt(message):
@@ -160,7 +192,7 @@ def handle_receipt(message):
         )
         if ADMIN_CHAT_ID:
             try:
-                caption = f"📩 <b>NOVO COMPROVANTE RECEBIDO!</b>\n\nCliente: {user_name} ({username})\nID: <code>{user_id}</code>\n\nDeseja aprovar a entrega do Link VIP?"
+                caption = f"📩 <b>NOVO COMPROVANTE RECEBIDO NO TELEGRAM!</b>\n\nCliente: {user_name} ({username})\nID: <code>{user_id}</code>\n\nDeseja aprovar a entrega do Link VIP?"
                 if message.content_type == 'photo':
                     bot.send_photo(
                         ADMIN_CHAT_ID,
@@ -178,14 +210,19 @@ def handle_receipt(message):
             except Exception as e:
                 print(f"Erro ao enviar para admin: {e}")
 
+# ==========================================
+# APROVAÇÃO MANUAL PELO ADMIN
+# ==========================================
 @bot.callback_query_handler(func=lambda call: call.data.startswith("approve_") or call.data.startswith("reject_"))
 def handle_admin_action(call):
     parts = call.data.split("_", 1)
     action = parts[0]
     target_id_str = parts[1]
 
+    # Aprovação de Comprovante da Web
     if target_id_str.startswith("PAY") or target_id_str == "web_user":
         if action == "approve":
+            update_web_status(f"APPROVED_{target_id_str}")
             try:
                 bot.answer_callback_query(call.id, "✅ Venda APROVADA! Cliente liberado na web.", show_alert=True)
             except Exception:
@@ -199,6 +236,7 @@ def handle_admin_action(call):
                 message_id=call.message.message_id
             )
         else:
+            update_web_status(f"REJECTED_{target_id_str}")
             try:
                 bot.answer_callback_query(call.id, "❌ Venda REJEITADA.", show_alert=True)
             except Exception:
@@ -210,6 +248,7 @@ def handle_admin_action(call):
             )
         return
 
+    # Aprovação de Comprovante direto do Telegram Chat
     target_user_id = int(target_id_str)
     if action == "approve":
         try:
@@ -247,5 +286,6 @@ def handle_all_text(message):
     send_welcome(message)
 
 if __name__ == "__main__":
-    print("🤖 Bot Vendedor Versereel rodando no Telegram com Chave Pix Original Takenos Reutilizável...")
+    ensure_status_pinned_msg()
+    print("🤖 Bot Vendedor Versereel rodando no Telegram com Validação em Tempo Real...")
     bot.infinity_polling(skip_pending=True)
