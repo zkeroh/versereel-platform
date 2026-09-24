@@ -163,7 +163,7 @@
       price: 3.89,
       previewLimit: 12,
       paypalUrl: "https://www.paypal.com/ncp/payment/VRSJZ76KRJTH6",
-      pixUrl: "https://t.me/DontTellDadPackBot?start=buy",
+      pixUrl: "checkout-dont-tell-dad.html",
       landingUrl: "lemonade-pt.html",
       downloadUrl: "assets/DTDPT.pdf",
       thumbnail: "assets/PL00.jpg",
@@ -2100,7 +2100,7 @@ function openFullpageComicReader(item) {
                                 ${txtPaypalBtn}
                               </button>
                               ${(isPt || item.pixUrl) ? `
-                                <a href="${item.pixUrl || 'https://t.me/DontTellDadPackBot?start=buy'}" target="_blank" class="btn-action-buy-pix" style="padding: 0.85rem 1rem; font-size: 1rem; width: 100%; background: linear-gradient(135deg, #00bdae, #00796b); color: #ffffff; border-radius: 10px; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 0.5rem; font-weight: 800; border: 1px solid rgba(50, 188, 173, 0.5); box-shadow: 0 4px 15px rgba(0, 189, 174, 0.3); margin-top: 0.5rem; box-sizing: border-box;">
+                                <a href="${item.pixUrl || 'checkout-dont-tell-dad.html'}" target="_blank" class="btn-action-buy-pix" style="padding: 0.85rem 1rem; font-size: 1rem; width: 100%; background: linear-gradient(135deg, #00bdae, #00796b); color: #ffffff; border-radius: 10px; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 0.5rem; font-weight: 800; border: 1px solid rgba(50, 188, 173, 0.5); box-shadow: 0 4px 15px rgba(0, 189, 174, 0.3); margin-top: 0.5rem; box-sizing: border-box;">
                                   <i class="ph-telegram-logo-bold"></i> ⚡ COMPRAR COM PIX
                                 </a>
                               ` : ''}

@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Checkout Pix - Don't Tell Dad VIP Pack</title>
+  
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <!-- QRCode.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+  <style>
+    :root {
+      --bg-dark: #0b0f19;
+      --card-bg: rgba(22, 30, 49, 0.85);
+      --accent-teal: #00bdae;
+      --accent-teal-hover: #00968b;
+      --accent-purple: #6c5ce7;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --border-color: rgba(255, 255, 255, 0.12);
+      --pix-green: #32bcad;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      background-image: 
+        radial-gradient(circle at 15% 15%, rgba(0, 189, 174, 0.15) 0%, transparent 40%),
+        radial-gradient(circle at 85% 85%, rgba(108, 92, 231, 0.15) 0%, transparent 40%);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 1.5rem 1rem;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 520px;
+    }
+
+    /* Header */
+    .checkout-header {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .brand-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(50, 188, 173, 0.12);
+      border: 1px solid rgba(50, 188, 173, 0.3);
+      color: var(--pix-green);
+      padding: 0.4rem 0.9rem;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 0.8rem;
+    }
+
+    .checkout-title {
+      font-size: 1.6rem;
+      font-weight: 800;
+      line-height: 1.25;
+      background: linear-gradient(135deg, #ffffff, #cbd5e1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Card Box */
+    .checkout-card {
+      background: var(--card-bg);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--border-color);
+      border-radius: 24px;
+      padding: 1.5rem;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+      margin-bottom: 1.5rem;
+    }
+
+    /* Product Details */
+    .product-summary {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      padding-bottom: 1.2rem;
+      border-bottom: 1px dashed var(--border-color);
+      margin-bottom: 1.2rem;
+    }
+
+    .product-thumb {
+      width: 80px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .product-info h3 {
+      font-size: 1.1rem;
+      font-weight: 800;
+      margin-bottom: 0.3rem;
+    }
+
+    .product-features {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .price-tag {
+      margin-top: 0.5rem;
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--pix-green);
+    }
+
+    .price-original {
+      font-size: 0.9rem;
+      text-decoration: line-through;
+      color: var(--text-muted);
+      margin-left: 0.4rem;
+      font-weight: 600;
+    }
+
+    /* QR Code Area */
+    .qr-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      margin-bottom: 1.2rem;
+    }
+
+    .qr-box {
+      background: #ffffff;
+      padding: 1.2rem;
+      border-radius: 16px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+      display: inline-block;
+      margin: 1rem 0;
+    }
+
+    .qr-box canvas, .qr-box img {
+      display: block;
+      width: 190px !important;
+      height: 190px !important;
+    }
+
+    .pix-code-container {
+      width: 100%;
+      background: rgba(11, 15, 25, 0.75);
+      border: 1px solid rgba(50, 188, 173, 0.4);
+      border-radius: 14px;
+      padding: 0.8rem;
+      margin-bottom: 1rem;
+      position: relative;
+    }
+
+    .pix-code-text {
+      font-family: monospace;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      word-break: break-all;
+      max-height: 48px;
+      overflow-y: auto;
+      text-align: left;
+      line-height: 1.3;
+    }
+
+    /* Buttons */
+    .btn-copy {
+      width: 100%;
+      background: linear-gradient(135deg, var(--pix-green), #00897b);
+      color: #ffffff;
+      border: none;
+      border-radius: 14px;
+      padding: 1rem 1.2rem;
+      font-size: 1.05rem;
+      font-weight: 800;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      box-shadow: 0 8px 25px rgba(50, 188, 173, 0.35);
+      transition: all 0.2s ease;
+    }
+
+    .btn-copy:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(50, 188, 173, 0.5);
+    }
+
+    .btn-copy:active {
+      transform: translateY(0);
+    }
+
+    .btn-telegram {
+      width: 100%;
+      background: linear-gradient(135deg, #0088cc, #006699);
+      color: #ffffff;
+      border: none;
+      border-radius: 14px;
+      padding: 1rem 1.2rem;
+      font-size: 1rem;
+      font-weight: 800;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      box-shadow: 0 8px 20px rgba(0, 136, 204, 0.3);
+      transition: all 0.2s ease;
+      margin-top: 0.8rem;
+    }
+
+    .btn-telegram:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 25px rgba(0, 136, 204, 0.45);
+    }
+
+    /* Steps */
+    .steps-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-top: 1.2rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid var(--border-color);
+      text-align: left;
+    }
+
+    .step-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      font-size: 0.88rem;
+      color: var(--text-main);
+    }
+
+    .step-num {
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--pix-green);
+      font-weight: 800;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      flex-shrink: 0;
+    }
+
+    /* Toast Alert */
+    .toast {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: #10b981;
+      color: #ffffff;
+      padding: 0.8rem 1.5rem;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      z-index: 999;
+    }
+
+    .toast.show {
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* Security Footer */
+    .security-footer {
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .security-footer span {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Header -->
+    <div class="checkout-header">
+      <div class="brand-badge">
+        <i class="ph-pix-logo-bold"></i> PAGAMENTO VIA PIX SEGURO
+      </div>
+      <h1 class="checkout-title">Libere seu Acesso VIP Instantâneo</h1>
+    </div>
+
+    <!-- Main Card -->
+    <div class="checkout-card">
+      <!-- Product Summary -->
+      <div class="product-summary">
+        <img src="assets/PL00.jpg" alt="Don't Tell Dad" class="product-thumb" />
+        <div class="product-info">
+          <h3>Don't Tell Dad - Pack VIP</h3>
+          <div class="product-features">
+            <span>✅ Leitura HD sem censura (PT + EN)</span>
+            <span>✅ Ilustrações inéditas HD + Vídeos</span>
+            <span>⚡ Entrega imediata após pagamento</span>
+          </div>
+          <div class="price-tag">
+            R$ 19,90 <span class="price-original">R$ 39,90</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- QR Code Section -->
+      <div class="qr-section">
+        <p style="font-size: 0.9rem; color: var(--text-muted); font-weight: 600;">
+          Escaneie o QR Code abaixo no seu app do banco:
+        </p>
+
+        <div class="qr-box">
+          <div id="qrcode"></div>
+        </div>
+
+        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.6rem;">
+          Ou copie o código Pix abaixo:
+        </p>
+
+        <!-- Monospace Code Box -->
+        <div class="pix-code-container">
+          <div class="pix-code-text" id="pixCodeText">
+            00020126580014br.gov.bcb.pix0136ff439919-4119-405d-838a-6c3e3efd8b55520400005303986540519.905802BR5925Avenia Sociedade Prestado6009Sao Paulo622905252354685c84a44a8681d5abcb2630428CD
+          </div>
+        </div>
+
+        <!-- Copy Button -->
+        <button class="btn-copy" id="btnCopyPix">
+          <i class="ph-copy-bold" style="font-size: 1.3rem;"></i> 📋 COPIAR CHAVE PIX (R$ 19,90)
+        </button>
+
+        <!-- Telegram Confirm Button -->
+        <a href="https://t.me/DontTellDadPackBot?start=buy" target="_blank" class="btn-telegram">
+          <i class="ph-telegram-logo-bold" style="font-size: 1.3rem;"></i> 📩 JÁ FIZ O PIX! ENVIAR COMPROVANTE
+        </a>
+      </div>
+
+      <!-- Steps -->
+      <div class="steps-list">
+        <div class="step-item">
+          <div class="step-num">1</div>
+          <div>Clique no botão <strong>COPIAR CHAVE PIX</strong> acima.</div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">2</div>
+          <div>Abra seu aplicativo do banco (Nubank, Itaú, Inter, etc.) e escolha a opção <strong>Pix Copia e Cola</strong>.</div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">3</div>
+          <div>Após pagar R$ 19,90, clique em <strong>ENVIAR COMPROVANTE</strong> para liberar seu link VIP na hora.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Security Footer -->
+    <div class="security-footer">
+      <span><i class="ph-shield-check-fill" style="color: var(--pix-green);"></i> SSL 256-bit</span>
+      <span><i class="ph-check-circle-fill" style="color: var(--pix-green);"></i> Acesso Imediato</span>
+      <span><i class="ph-lock-key-fill" style="color: var(--pix-green);"></i> Pagamento Seguro</span>
+    </div>
+  </div>
+
+  <!-- Toast Alert -->
+  <div class="toast" id="toastAlert">
+    <i class="ph-check-bold" style="font-size: 1.2rem;"></i>
+    <span>Chave Pix Copiada com Sucesso!</span>
+  </div>
+
+  <script>
+    const pixPayload = "00020126580014br.gov.bcb.pix0136ff439919-4119-405d-838a-6c3e3efd8b55520400005303986540519.905802BR5925Avenia Sociedade Prestado6009Sao Paulo622905252354685c84a44a8681d5abcb2630428CD";
+
+    // Generate QR Code
+    new QRCode(document.getElementById("qrcode"), {
+      text: pixPayload,
+      width: 190,
+      height: 190,
+      colorDark: "#000000",
+      colorLight: "#ffffff",
+      correctLevel: QRCode.CorrectLevel.L
+    });
+
+    // Copy to Clipboard
+    const btnCopy = document.getElementById("btnCopyPix");
+    const toast = document.getElementById("toastAlert");
+
+    btnCopy.addEventListener("click", () => {
+      navigator.clipboard.writeText(pixPayload).then(() => {
+        // Show Toast
+        toast.classList.add("show");
+        btnCopy.style.background = "linear-gradient(135deg, #10b981, #059669)";
+        btnCopy.innerHTML = `<i class="ph-check-bold" style="font-size: 1.3rem;"></i> ✅ CHAVE COPIADA COM SUCESSO!`;
+
+        setTimeout(() => {
+          toast.classList.remove("show");
+        }, 3000);
+
+        setTimeout(() => {
+          btnCopy.style.background = "linear-gradient(135deg, var(--pix-green), #00897b)";
+          btnCopy.innerHTML = `<i class="ph-copy-bold" style="font-size: 1.3rem;"></i> 📋 COPIAR CHAVE PIX (R$ 19,90)`;
+        }, 5000);
+      }).catch(err => {
+        // Fallback copy
+        const textArea = document.createElement("textarea");
+        textArea.value = pixPayload;
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand("copy");
+        document.body.removeChild(textArea);
+
+        toast.classList.add("show");
+        setTimeout(() => toast.classList.remove("show"), 3000);
+      });
+    });
+  </script>
+</body>
+</html>
