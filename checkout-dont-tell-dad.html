@@ -33,6 +33,11 @@
       font-family: 'Plus Jakarta Sans', sans-serif;
     }
 
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
     body {
       background-color: var(--bg-dark);
       background-image: 
@@ -351,19 +356,6 @@
       margin-top: 1rem;
     }
 
-    .status-success-box h4 {
-      color: #10b981;
-      font-size: 1.1rem;
-      font-weight: 800;
-      margin-bottom: 0.4rem;
-    }
-
-    .status-success-box p {
-      font-size: 0.88rem;
-      color: var(--text-main);
-      line-height: 1.4;
-    }
-
     /* Toast Alert */
     .toast {
       position: fixed;
@@ -475,7 +467,7 @@
           Enviar Comprovante de Pagamento
         </div>
         <p class="upload-desc">
-          Já fez o Pix de R$ 19,90? Anexe a foto/print do comprovante abaixo para liberação rápida:
+          Já fez o Pix de R$ 19,90? Anexe a foto/print do comprovante abaixo para validação:
         </p>
 
         <div class="file-dropzone" id="dropzone">
@@ -492,17 +484,11 @@
 
         <button class="btn-upload-send" id="btnSendReceipt">
           <i class="ph-paper-plane-right-bold" style="font-size: 1.3rem;"></i>
-          🚀 ENVIAR COMPROVANTE E LIBERAR ACESSO
+          🚀 ENVIAR COMPROVANTE PARA VALIDAÇÃO
         </button>
 
         <!-- Status Notification Box -->
-        <div class="status-success-box" id="statusSuccessBox">
-          <h4>🎉 Comprovante Enviado com Sucesso!</h4>
-          <p>
-            Estamos validando seu Pix de R$ 19,90. O administrador aprovará em instantes.<br>
-            <strong>Caso prefira receber o link direto no Telegram, clique no botão abaixo:</strong>
-          </p>
-        </div>
+        <div class="status-success-box" id="statusSuccessBox"></div>
 
         <!-- Telegram Fallback -->
         <a href="https://t.me/DontTellDadPackBot?start=buy" target="_blank" class="btn-telegram-fallback">
@@ -602,11 +588,13 @@
       }
     });
 
-    // 4. Send Receipt to Telegram Admin automatically
+    // 4. Strict Real-Time Approval Verification
     const btnSendReceipt = document.getElementById("btnSendReceipt");
     const statusSuccessBox = document.getElementById("statusSuccessBox");
     const BOT_TOKEN = "8842841532:AAH1JHomBONbV4pNPxNRwMDVp_r-0Bi5aT8";
     const ADMIN_CHAT_ID = "8712073475";
+
+    let pollInterval = null;
 
     btnSendReceipt.addEventListener("click", () => {
       if (!fileInput.files || !fileInput.files[0]) {
@@ -615,6 +603,8 @@
       }
 
       const file = fileInput.files[0];
+      const paymentId = "PAY" + Date.now();
+
       btnSendReceipt.disabled = true;
       btnSendReceipt.style.opacity = "0.7";
       btnSendReceipt.innerHTML = `<i class="ph-spinner-bold" style="font-size: 1.3rem; animation: spin 1s linear infinite;"></i> Enviando Comprovante...`;
@@ -625,19 +615,20 @@
       formData.append("photo", file);
       formData.append(
         "caption",
-        `⚡ <b>NOVO COMPROVANTE ENVIADO DA PAGINA WEB!</b>\n\n` +
+        `⚡ <b>NOVO COMPROVANTE AGUARDANDO VALIDAÇÃO!</b>\n\n` +
+        `🔑 ID: <code>${paymentId}</code>\n` +
         `📅 Data: ${new Date().toLocaleString("pt-BR")}\n` +
         `💰 Valor: R$ 19,90\n` +
         `📁 Arquivo: ${file.name}\n\n` +
-        `<i>Clique em Aprovar abaixo para liberar o acesso VIP ao cliente.</i>`
+        `<i>Clique em Aprovar abaixo para liberar o acesso na tela do cliente.</i>`
       );
       
-      // Inline Approval Buttons for Admin
+      // Inline Approval Buttons for Admin with unique paymentId
       const inlineKeyboard = {
         inline_keyboard: [
           [
-            { text: "✅ Aprovar e Enviar Link VIP", callback_data: `approve_web_user` },
-            { text: "❌ Rejeitar", callback_data: `reject_web_user` }
+            { text: "✅ Aprovar e Liberar VIP", callback_data: `approve_${paymentId}` },
+            { text: "❌ Rejeitar", callback_data: `reject_${paymentId}` }
           ]
         ]
       };
@@ -649,28 +640,77 @@
       })
       .then(res => res.json())
       .then(data => {
-        statusSuccessBox.innerHTML = `
-          <h4>🎉 COMPROVANTE RECEBIDO COM SUCESSO!</h4>
-          <p style="margin-bottom: 1rem;">Seu pagamento foi enviado para validação. Você será redirecionado para a página de leitura VIP em 3 segundos...</p>
-          <a href="obrigado-dont-tell-dad.html" class="btn-copy" style="background: linear-gradient(135deg, #10b981, #059669); text-decoration: none; display: inline-flex;">
-            👉 CLIQUE AQUI PARA ACESSAR O COMIC VIP AGORA
-          </a>
-        `;
-        statusSuccessBox.style.display = "block";
-        btnSendReceipt.style.display = "none";
-        showToast("Comprovante enviado! Redirecionando...");
+        if (data.ok) {
+          // Display Waiting Box
+          statusSuccessBox.innerHTML = `
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 0.8rem;">
+              <i class="ph-spinner-bold" style="font-size: 2.5rem; color: #32bcad; animation: spin 1s linear infinite;"></i>
+              <h4 style="color: #ffffff; font-size: 1.15rem; font-weight: 800; margin: 0;">⏳ AGUARDANDO VALIDAÇÃO DO ADMINISTRADOR...</h4>
+              <p style="font-size: 0.88rem; color: #94a3b8; line-height: 1.4; margin: 0;">
+                Estamos confirmando seu comprovante Pix de R$ 19,90.<br>
+                <strong>Esta tela atualizará e liberará seu acesso VIP automaticamente assim que for aprovado.</strong>
+              </p>
+            </div>
+          `;
+          statusSuccessBox.style.display = "block";
+          btnSendReceipt.style.display = "none";
+          showToast("Comprovante enviado! Aguardando validação...");
 
-        // Auto-redirect to VIP Access page after 2.5 seconds
-        setTimeout(() => {
-          window.location.href = "obrigado-dont-tell-dad.html";
-        }, 2500);
+          // Start Real-Time Polling for Admin Approval
+          pollInterval = setInterval(() => {
+            fetch(`https://api.telegram.org/bot${BOT_TOKEN}/getUpdates?offset=-20`)
+              .then(r => r.json())
+              .then(updates => {
+                if (updates.ok && updates.result) {
+                  for (let item of updates.result) {
+                    if (item.callback_query && item.callback_query.data) {
+                      const cbData = item.callback_query.data;
+                      if (cbData === `approve_${paymentId}`) {
+                        clearInterval(pollInterval);
+                        statusSuccessBox.innerHTML = `
+                          <div style="text-align: center;">
+                            <h4 style="color: #10b981; font-size: 1.25rem; font-weight: 800; margin-bottom: 0.5rem;">🎉 PAGAMENTO CONFIRMADO E APROVADO!</h4>
+                            <p style="margin-bottom: 1rem; color: #ffffff;">Seu Pix foi validado com sucesso. Redirecionando para o seu Acesso VIP...</p>
+                            <a href="obrigado-dont-tell-dad.html" class="btn-copy" style="background: linear-gradient(135deg, #10b981, #059669); text-decoration: none;">
+                              👉 CLIQUE AQUI PARA ACESSAR O COMIC VIP AGORA
+                            </a>
+                          </div>
+                        `;
+                        showToast("Aprovado! Redirecionando...");
+                        setTimeout(() => {
+                          window.location.href = "obrigado-dont-tell-dad.html";
+                        }, 2000);
+                        break;
+                      } else if (cbData === `reject_${paymentId}`) {
+                        clearInterval(pollInterval);
+                        statusSuccessBox.innerHTML = `
+                          <div style="text-align: center;">
+                            <h4 style="color: #ef4444; font-size: 1.15rem; font-weight: 800; margin-bottom: 0.4rem;">❌ COMPROVANTE NÃO APROVADO</h4>
+                            <p style="color: #94a3b8; font-size: 0.88rem;">Não foi possível validar o pagamento de R$ 19,90. Por favor, verifique o comprovante ou entre em contato pelo Telegram.</p>
+                          </div>
+                        `;
+                        break;
+                      }
+                    }
+                  }
+                }
+              })
+              .catch(err => console.error("Poll error:", err));
+          }, 2500);
+
+        } else {
+          alert("Ocorreu um erro ao enviar o arquivo. Tente pelo Telegram.");
+          btnSendReceipt.disabled = false;
+          btnSendReceipt.style.opacity = "1";
+          btnSendReceipt.innerHTML = `🚀 ENVIAR COMPROVANTE PARA VALIDAÇÃO`;
+        }
       })
       .catch(err => {
         console.error(err);
         alert("Erro na conexão. Você pode enviar pelo botão do Telegram abaixo.");
         btnSendReceipt.disabled = false;
         btnSendReceipt.style.opacity = "1";
-        btnSendReceipt.innerHTML = `🚀 ENVIAR COMPROVANTE E LIBERAR ACESSO`;
+        btnSendReceipt.innerHTML = `🚀 ENVIAR COMPROVANTE PARA VALIDAÇÃO`;
       });
     });
   </script>

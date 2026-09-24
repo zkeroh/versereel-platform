@@ -184,18 +184,27 @@ def handle_admin_action(call):
     action = parts[0]
     target_id_str = parts[1]
 
-    if target_id_str == "web_user":
+    if target_id_str.startswith("PAY") or target_id_str == "web_user":
         if action == "approve":
+            try:
+                bot.answer_callback_query(call.id, "✅ Venda APROVADA! Cliente liberado na web.", show_alert=True)
+            except Exception:
+                pass
             bot.edit_message_caption(
                 f"✅ <b>COMPROVANTE DA WEB APROVADO COM SUCESSO!</b>\n\n"
-                f"👉 <b>Link VIP (PT):</b> {LINK_VIP_PT}\n"
-                f"👉 <b>Link VIP (EN):</b> {LINK_VIP_EN}",
+                f"🔑 ID: <code>{target_id_str}</code>\n"
+                f"O comprador foi desbloqueado na página web e redirecionado para o cómic VIP.\n\n"
+                f"👉 <b>Link VIP (PT):</b> {LINK_VIP_PT}",
                 chat_id=call.message.chat.id,
                 message_id=call.message.message_id
             )
         else:
+            try:
+                bot.answer_callback_query(call.id, "❌ Venda REJEITADA.", show_alert=True)
+            except Exception:
+                pass
             bot.edit_message_caption(
-                f"❌ <b>COMPROVANTE DA WEB REJEITADO!</b>",
+                f"❌ <b>COMPROVANTE DA WEB REJEITADO!</b>\nID: <code>{target_id_str}</code>",
                 chat_id=call.message.chat.id,
                 message_id=call.message.message_id
             )
