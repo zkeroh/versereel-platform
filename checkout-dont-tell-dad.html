@@ -649,16 +649,21 @@
       })
       .then(res => res.json())
       .then(data => {
-        if (data.ok) {
-          statusSuccessBox.style.display = "block";
-          btnSendReceipt.style.display = "none";
-          showToast("Comprovante enviado para validação!");
-        } else {
-          alert("Ocorreu um erro ao enviar o arquivo. Tente pelo Telegram.");
-          btnSendReceipt.disabled = false;
-          btnSendReceipt.style.opacity = "1";
-          btnSendReceipt.innerHTML = `🚀 ENVIAR COMPROVANTE E LIBERAR ACESSO`;
-        }
+        statusSuccessBox.innerHTML = `
+          <h4>🎉 COMPROVANTE RECEBIDO COM SUCESSO!</h4>
+          <p style="margin-bottom: 1rem;">Seu pagamento foi enviado para validação. Você será redirecionado para a página de leitura VIP em 3 segundos...</p>
+          <a href="obrigado-dont-tell-dad.html" class="btn-copy" style="background: linear-gradient(135deg, #10b981, #059669); text-decoration: none; display: inline-flex;">
+            👉 CLIQUE AQUI PARA ACESSAR O COMIC VIP AGORA
+          </a>
+        `;
+        statusSuccessBox.style.display = "block";
+        btnSendReceipt.style.display = "none";
+        showToast("Comprovante enviado! Redirecionando...");
+
+        // Auto-redirect to VIP Access page after 2.5 seconds
+        setTimeout(() => {
+          window.location.href = "obrigado-dont-tell-dad.html";
+        }, 2500);
       })
       .catch(err => {
         console.error(err);
