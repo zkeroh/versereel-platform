@@ -154,13 +154,33 @@
       border-radius: 16px;
       box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
       display: inline-block;
-      margin: 1rem 0;
+      margin: 0.8rem 0 0.4rem 0;
     }
 
     .qr-box canvas, .qr-box img {
       display: block;
       width: 190px !important;
       height: 190px !important;
+    }
+
+    .btn-download-qr {
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--text-main);
+      border: 1px solid var(--border-color);
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-bottom: 1rem;
+      transition: all 0.2s ease;
+    }
+
+    .btn-download-qr:hover {
+      background: rgba(255, 255, 255, 0.16);
     }
 
     .pix-code-container {
@@ -208,65 +228,140 @@
       box-shadow: 0 12px 30px rgba(50, 188, 173, 0.5);
     }
 
-    .btn-copy:active {
-      transform: translateY(0);
+    /* Upload Box Section */
+    .upload-section {
+      margin-top: 1.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px dashed var(--border-color);
+      width: 100%;
+      text-align: left;
     }
 
-    .btn-telegram {
+    .upload-title {
+      font-size: 1.05rem;
+      font-weight: 800;
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #ffffff;
+    }
+
+    .upload-desc {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+
+    .file-dropzone {
+      border: 2px dashed rgba(50, 188, 173, 0.4);
+      background: rgba(11, 15, 25, 0.5);
+      border-radius: 16px;
+      padding: 1.2rem;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      position: relative;
+    }
+
+    .file-dropzone:hover {
+      border-color: var(--pix-green);
+      background: rgba(50, 188, 173, 0.08);
+    }
+
+    .file-dropzone input[type="file"] {
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
-      background: linear-gradient(135deg, #0088cc, #006699);
+      height: 100%;
+      opacity: 0;
+      cursor: pointer;
+    }
+
+    .dropzone-icon {
+      font-size: 2rem;
+      color: var(--pix-green);
+      margin-bottom: 0.4rem;
+    }
+
+    .file-name-preview {
+      font-size: 0.85rem;
+      color: var(--pix-green);
+      font-weight: 700;
+      margin-top: 0.4rem;
+      word-break: break-all;
+    }
+
+    .btn-upload-send {
+      width: 100%;
+      background: linear-gradient(135deg, #6c5ce7, #574b90);
       color: #ffffff;
       border: none;
       border-radius: 14px;
       padding: 1rem 1.2rem;
-      font-size: 1rem;
+      font-size: 1.05rem;
       font-weight: 800;
-      text-decoration: none;
+      cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 0.6rem;
-      box-shadow: 0 8px 20px rgba(0, 136, 204, 0.3);
+      margin-top: 1rem;
+      box-shadow: 0 8px 25px rgba(108, 92, 231, 0.35);
       transition: all 0.2s ease;
-      margin-top: 0.8rem;
     }
 
-    .btn-telegram:hover {
+    .btn-upload-send:hover {
       transform: translateY(-2px);
-      box-shadow: 0 12px 25px rgba(0, 136, 204, 0.45);
+      box-shadow: 0 12px 30px rgba(108, 92, 231, 0.5);
     }
 
-    /* Steps */
-    .steps-list {
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-      margin-top: 1.2rem;
-      padding-top: 1.2rem;
-      border-top: 1px solid var(--border-color);
-      text-align: left;
-    }
-
-    .step-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.75rem;
-      font-size: 0.88rem;
-      color: var(--text-main);
-    }
-
-    .step-num {
-      background: rgba(255, 255, 255, 0.1);
-      color: var(--pix-green);
-      font-weight: 800;
-      width: 24px;
-      height: 24px;
-      border-radius: 50%;
+    .btn-telegram-fallback {
+      width: 100%;
+      background: transparent;
+      color: var(--text-muted);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 0.7rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 0.8rem;
-      flex-shrink: 0;
+      gap: 0.4rem;
+      margin-top: 0.8rem;
+      transition: all 0.2s ease;
+    }
+
+    .btn-telegram-fallback:hover {
+      color: #ffffff;
+      border-color: rgba(255, 255, 255, 0.3);
+    }
+
+    /* Status Box after Upload */
+    .status-success-box {
+      display: none;
+      background: rgba(16, 185, 129, 0.12);
+      border: 1px solid rgba(16, 185, 129, 0.4);
+      border-radius: 16px;
+      padding: 1.2rem;
+      text-align: center;
+      margin-top: 1rem;
+    }
+
+    .status-success-box h4 {
+      color: #10b981;
+      font-size: 1.1rem;
+      font-weight: 800;
+      margin-bottom: 0.4rem;
+    }
+
+    .status-success-box p {
+      font-size: 0.88rem;
+      color: var(--text-main);
+      line-height: 1.4;
     }
 
     /* Toast Alert */
@@ -351,6 +446,11 @@
           <div id="qrcode"></div>
         </div>
 
+        <!-- Download QR Button -->
+        <button class="btn-download-qr" id="btnDownloadQr">
+          <i class="ph-download-simple-bold"></i> ⬇️ Baixar Imagem do QR Code
+        </button>
+
         <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.6rem;">
           Ou copie o código Pix abaixo:
         </p>
@@ -366,27 +466,49 @@
         <button class="btn-copy" id="btnCopyPix">
           <i class="ph-copy-bold" style="font-size: 1.3rem;"></i> 📋 COPIAR CHAVE PIX (R$ 19,90)
         </button>
-
-        <!-- Telegram Confirm Button -->
-        <a href="https://t.me/DontTellDadPackBot?start=buy" target="_blank" class="btn-telegram">
-          <i class="ph-telegram-logo-bold" style="font-size: 1.3rem;"></i> 📩 JÁ FIZ O PIX! ENVIAR COMPROVANTE
-        </a>
       </div>
 
-      <!-- Steps -->
-      <div class="steps-list">
-        <div class="step-item">
-          <div class="step-num">1</div>
-          <div>Clique no botão <strong>COPIAR CHAVE PIX</strong> acima.</div>
+      <!-- Direct Receipt Upload Section -->
+      <div class="upload-section">
+        <div class="upload-title">
+          <i class="ph-upload-simple-bold" style="color: var(--pix-green); font-size: 1.3rem;"></i>
+          Enviar Comprovante de Pagamento
         </div>
-        <div class="step-item">
-          <div class="step-num">2</div>
-          <div>Abra seu aplicativo do banco (Nubank, Itaú, Inter, etc.) e escolha a opção <strong>Pix Copia e Cola</strong>.</div>
+        <p class="upload-desc">
+          Já fez o Pix de R$ 19,90? Anexe a foto/print do comprovante abaixo para liberação rápida:
+        </p>
+
+        <div class="file-dropzone" id="dropzone">
+          <input type="file" id="fileInput" accept="image/*" />
+          <i class="ph-image-square-bold dropzone-icon"></i>
+          <p style="font-size: 0.9rem; font-weight: 700; color: #ffffff;" id="dropzoneText">
+            Clique ou arraste a foto do comprovante aqui
+          </p>
+          <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.2rem;">
+            Formatos aceitos: JPG, PNG, Screenshots (Máx. 10MB)
+          </p>
+          <div class="file-name-preview" id="fileNamePreview"></div>
         </div>
-        <div class="step-item">
-          <div class="step-num">3</div>
-          <div>Após pagar R$ 19,90, clique em <strong>ENVIAR COMPROVANTE</strong> para liberar seu link VIP na hora.</div>
+
+        <button class="btn-upload-send" id="btnSendReceipt">
+          <i class="ph-paper-plane-right-bold" style="font-size: 1.3rem;"></i>
+          🚀 ENVIAR COMPROVANTE E LIBERAR ACESSO
+        </button>
+
+        <!-- Status Notification Box -->
+        <div class="status-success-box" id="statusSuccessBox">
+          <h4>🎉 Comprovante Enviado com Sucesso!</h4>
+          <p>
+            Estamos validando seu Pix de R$ 19,90. O administrador aprovará em instantes.<br>
+            <strong>Caso prefira receber o link direto no Telegram, clique no botão abaixo:</strong>
+          </p>
         </div>
+
+        <!-- Telegram Fallback -->
+        <a href="https://t.me/DontTellDadPackBot?start=buy" target="_blank" class="btn-telegram-fallback">
+          <i class="ph-telegram-logo-bold" style="font-size: 1.1rem; color: #0088cc;"></i>
+          Ou clique aqui para falar direto no Bot do Telegram
+        </a>
       </div>
     </div>
 
@@ -401,14 +523,14 @@
   <!-- Toast Alert -->
   <div class="toast" id="toastAlert">
     <i class="ph-check-bold" style="font-size: 1.2rem;"></i>
-    <span>Chave Pix Copiada com Sucesso!</span>
+    <span id="toastText">Chave Pix Copiada com Sucesso!</span>
   </div>
 
   <script>
     const pixPayload = "00020126580014br.gov.bcb.pix0136ff439919-4119-405d-838a-6c3e3efd8b55520400005303986540519.905802BR5925Avenia Sociedade Prestado6009Sao Paulo622905252354685c84a44a8681d5abcb2630428CD";
 
     // Generate QR Code
-    new QRCode(document.getElementById("qrcode"), {
+    const qrcode = new QRCode(document.getElementById("qrcode"), {
       text: pixPayload,
       width: 190,
       height: 190,
@@ -417,36 +539,133 @@
       correctLevel: QRCode.CorrectLevel.L
     });
 
-    // Copy to Clipboard
-    const btnCopy = document.getElementById("btnCopyPix");
-    const toast = document.getElementById("toastAlert");
+    // Toast Helper
+    function showToast(msg) {
+      const toast = document.getElementById("toastAlert");
+      document.getElementById("toastText").innerText = msg;
+      toast.classList.add("show");
+      setTimeout(() => toast.classList.remove("show"), 3500);
+    }
 
+    // 1. Download QR Code Button
+    document.getElementById("btnDownloadQr").addEventListener("click", () => {
+      const img = document.querySelector("#qrcode img") || document.querySelector("#qrcode canvas");
+      if (img) {
+        let src = "";
+        if (img.tagName === "CANVAS") {
+          src = img.toDataURL("image/png");
+        } else {
+          src = img.src;
+        }
+        const a = document.createElement("a");
+        a.href = src;
+        a.download = "pix-qr-dont-tell-dad.png";
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        showToast("Imagem do QR Code baixada!");
+      }
+    });
+
+    // 2. Copy Pix Code
+    const btnCopy = document.getElementById("btnCopyPix");
     btnCopy.addEventListener("click", () => {
       navigator.clipboard.writeText(pixPayload).then(() => {
-        // Show Toast
-        toast.classList.add("show");
+        showToast("Chave Pix Copiada com Sucesso!");
         btnCopy.style.background = "linear-gradient(135deg, #10b981, #059669)";
         btnCopy.innerHTML = `<i class="ph-check-bold" style="font-size: 1.3rem;"></i> ✅ CHAVE COPIADA COM SUCESSO!`;
-
-        setTimeout(() => {
-          toast.classList.remove("show");
-        }, 3000);
-
         setTimeout(() => {
           btnCopy.style.background = "linear-gradient(135deg, var(--pix-green), #00897b)";
           btnCopy.innerHTML = `<i class="ph-copy-bold" style="font-size: 1.3rem;"></i> 📋 COPIAR CHAVE PIX (R$ 19,90)`;
-        }, 5000);
-      }).catch(err => {
-        // Fallback copy
+        }, 4000);
+      }).catch(() => {
         const textArea = document.createElement("textarea");
         textArea.value = pixPayload;
         document.body.appendChild(textArea);
         textArea.select();
         document.execCommand("copy");
         document.body.removeChild(textArea);
+        showToast("Chave Pix Copiada!");
+      });
+    });
 
-        toast.classList.add("show");
-        setTimeout(() => toast.classList.remove("show"), 3000);
+    // 3. File Input Preview
+    const fileInput = document.getElementById("fileInput");
+    const fileNamePreview = document.getElementById("fileNamePreview");
+    const dropzoneText = document.getElementById("dropzoneText");
+
+    fileInput.addEventListener("change", (e) => {
+      if (e.target.files && e.target.files[0]) {
+        const file = e.target.files[0];
+        dropzoneText.innerText = "Foto selecionada:";
+        fileNamePreview.innerText = `📄 ${file.name} (${(file.size / 1024).toFixed(1)} KB)`;
+      }
+    });
+
+    // 4. Send Receipt to Telegram Admin automatically
+    const btnSendReceipt = document.getElementById("btnSendReceipt");
+    const statusSuccessBox = document.getElementById("statusSuccessBox");
+    const BOT_TOKEN = "8842841532:AAH1JHomBONbV4pNPxNRwMDVp_r-0Bi5aT8";
+    const ADMIN_CHAT_ID = "8712073475";
+
+    btnSendReceipt.addEventListener("click", () => {
+      if (!fileInput.files || !fileInput.files[0]) {
+        alert("Por favor, selecione a foto ou print do comprovante antes de enviar.");
+        return;
+      }
+
+      const file = fileInput.files[0];
+      btnSendReceipt.disabled = true;
+      btnSendReceipt.style.opacity = "0.7";
+      btnSendReceipt.innerHTML = `<i class="ph-spinner-bold" style="font-size: 1.3rem; animation: spin 1s linear infinite;"></i> Enviando Comprovante...`;
+
+      // Build FormData for Telegram API sendPhoto
+      const formData = new FormData();
+      formData.append("chat_id", ADMIN_CHAT_ID);
+      formData.append("photo", file);
+      formData.append(
+        "caption",
+        `⚡ <b>NOVO COMPROVANTE ENVIADO DA PAGINA WEB!</b>\n\n` +
+        `📅 Data: ${new Date().toLocaleString("pt-BR")}\n` +
+        `💰 Valor: R$ 19,90\n` +
+        `📁 Arquivo: ${file.name}\n\n` +
+        `<i>Clique em Aprovar abaixo para liberar o acesso VIP ao cliente.</i>`
+      );
+      
+      // Inline Approval Buttons for Admin
+      const inlineKeyboard = {
+        inline_keyboard: [
+          [
+            { text: "✅ Aprovar e Enviar Link VIP", callback_data: `approve_web_user` },
+            { text: "❌ Rejeitar", callback_data: `reject_web_user` }
+          ]
+        ]
+      };
+      formData.append("reply_markup", JSON.stringify(inlineKeyboard));
+
+      fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendPhoto`, {
+        method: "POST",
+        body: formData
+      })
+      .then(res => res.json())
+      .then(data => {
+        if (data.ok) {
+          statusSuccessBox.style.display = "block";
+          btnSendReceipt.style.display = "none";
+          showToast("Comprovante enviado para validação!");
+        } else {
+          alert("Ocorreu um erro ao enviar o arquivo. Tente pelo Telegram.");
+          btnSendReceipt.disabled = false;
+          btnSendReceipt.style.opacity = "1";
+          btnSendReceipt.innerHTML = `🚀 ENVIAR COMPROVANTE E LIBERAR ACESSO`;
+        }
+      })
+      .catch(err => {
+        console.error(err);
+        alert("Erro na conexão. Você pode enviar pelo botão do Telegram abaixo.");
+        btnSendReceipt.disabled = false;
+        btnSendReceipt.style.opacity = "1";
+        btnSendReceipt.innerHTML = `🚀 ENVIAR COMPROVANTE E LIBERAR ACESSO`;
       });
     });
   </script>

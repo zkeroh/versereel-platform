@@ -180,9 +180,28 @@ def handle_receipt(message):
 
 @bot.callback_query_handler(func=lambda call: call.data.startswith("approve_") or call.data.startswith("reject_"))
 def handle_admin_action(call):
-    action, target_user_id = call.data.split("_")
-    target_user_id = int(target_user_id)
+    parts = call.data.split("_", 1)
+    action = parts[0]
+    target_id_str = parts[1]
 
+    if target_id_str == "web_user":
+        if action == "approve":
+            bot.edit_message_caption(
+                f"✅ <b>COMPROVANTE DA WEB APROVADO COM SUCESSO!</b>\n\n"
+                f"👉 <b>Link VIP (PT):</b> {LINK_VIP_PT}\n"
+                f"👉 <b>Link VIP (EN):</b> {LINK_VIP_EN}",
+                chat_id=call.message.chat.id,
+                message_id=call.message.message_id
+            )
+        else:
+            bot.edit_message_caption(
+                f"❌ <b>COMPROVANTE DA WEB REJEITADO!</b>",
+                chat_id=call.message.chat.id,
+                message_id=call.message.message_id
+            )
+        return
+
+    target_user_id = int(target_id_str)
     if action == "approve":
         try:
             bot.send_message(
