@@ -26,6 +26,24 @@
   // =========================================================================
   const COMICS_CATALOG = [
     {
+      id: "mindysimmons",
+      title: "MINDY SIMMONS - BIRTH OF VENUS",
+      language: "all",    // "en" para inglés, "es" para español
+      type: "image",      // 👈 IMPORTANTE: "image" para que aparezca en el botón IMAGES
+      genre: "Cartoon",   // Género
+      author: "Zkero",
+      description: "Mindy simmons sexy",
+      isPaid: false,      // false = Gratis, true = Premium ($1)
+      price: 0,
+      downloadUrl: "assets/ms1.jpg",
+      thumbnail: "assets/ms0.jpg",
+      pages: ['assets/ms1.jpg', 'assets/ms2.jpg', 'assets/ms3.jpg', 'assets/ms4.jpg'],
+      views: 1200,
+        // 🏷️ AQUÍ AGREGAS TODAS LAS ETIQUETAS QUE QUIERAS:
+      tags: ["art", "illustration", "zkero", "digital art", "hentai art", "porn image", "the simpsons", "2d", "mindy simmons"],
+      createdAt: new Date().toISOString()
+},
+    {
       id: "bleachtybw",
       title: "YHWACH's REVENGE",
       language: "en",
