@@ -68,14 +68,14 @@
       type: "comic",
       genre: "hentai",
       author: "Zkero",
-      description: "Yhwach will take revenge on Rukia and Orihime.",
+      description: "Yhwach's Revenge Bleach uncensored porn comic featuring Rukia and Orihime. Free Bleach 18+ adult hentai comic on XZKERO.",
       isPaid: false,
       price: 0,
       downloadUrl: "assets/B08.jpg",
       thumbnail: "assets/B08.jpg",
       pages:  Array.from({ length: 11 }, (_, i) => `assets/B${String(i+1).padStart(2, '0')}.jpg`),
       views: 10142,
-      tags: ["porn comics", "porn comic free", "hentai english", "adult comic", "bleach", "zkero", "orihime", "rukia", "netorare", "milf", "big tits"],
+      tags: ["bleach porn comic", "rukia porn", "orihime hentai", "yhwach revenge bleach", "bleach 18+", "uncensored bleach hentai", "porn comic free", "netorare comic", "adult webtoon", "xzkero"],
       createdAt: new Date().toISOString()
     },
     {
@@ -85,7 +85,7 @@
       type: "comic",
       genre: "Incest",
       author: "Zkero",
-      description: "A son crosses the line with his mother.Based on Milftoon’s No Internet",
+      description: "Mom's Secret uncensored Milftoon porn comic in English. Free 18+ adult incest sex webtoon and milf comic on XZKERO.",
       isPaid: true,
       price: 4.99,
       previewLimit: 17,
@@ -94,7 +94,7 @@
       thumbnail: "assets/ENICOVER.jpg",
       pages: ['assets/ENICOVER.jpg', 'assets/L01.jpg', ...Array.from({ length: 41 }, (_, i) => `assets/ENI${String(i + 1).padStart(2, '0')}.jpg`)],
       views: 10142,
-      tags: ["porn comics", "porn comic free", "hentai english", "adult comic", "no internet", "zkero", "milftoon", "mom", "incest", "milf", "big tits", "no internet"],
+      tags: ["moms secret porn comic", "milftoon no internet", "milf porn comic", "incest sex comic", "adult webtoon 18+", "free porn comic english", "uncensored milftoon", "xzkero"],
       createdAt: new Date().toISOString()
     },
     {
@@ -104,7 +104,7 @@
       type: "image",      // 👈 IMPORTANTE: "image" para que aparezca en el botón IMAGES
       genre: "Anime",   // Género
       author: "Zkero",
-      description: "Mai in the desert",
+      description: "Mai 3D uncensored Dragon Ball porn art and sex image. Free Dragon Ball Z 18+ hentai art on XZKERO.",
       isPaid: false,      // false = Gratis, true = Premium ($1)
       price: 0,
       downloadUrl: "assets/mai2.jpg",
@@ -112,7 +112,7 @@
       pages: ['assets/mai.jpg', 'assets/mai3.jpg', 'assets/mai2.jpg'],
       views: 1200,
         // 🏷️ AQUÍ AGREGAS TODAS LAS ETIQUETAS QUE QUIERAS:
-      tags: ["art", "illustration", "zkero", "digital art", "hentai art", "porn image", "mai", "3d", "dragon ball"],
+      tags: ["mai dragon ball porn", "mai 3d hentai", "dragon ball z 18+", "mai sex art", "uncensored dragon ball hentai", "porn image 3d", "xzkero"],
       createdAt: new Date().toISOString()
 },
     {
@@ -122,7 +122,7 @@
       type: "image",      // 👈 IMPORTANTE: "image" para que aparezca en el botón IMAGES
       genre: "Anime",   // Género
       author: "Zkero",
-      description: "Mari Kurihara",
+      description: "Mari Kurihara 3D Prison School uncensored porn art and sex image. Free 18+ adult anime hentai art on XZKERO.",
       isPaid: false,      // false = Gratis, true = Premium ($1)
       price: 0,
       downloadUrl: "assets/mari.jpg",
@@ -130,7 +130,7 @@
       pages: ['assets/mari1.jpg', 'assets/mari.jpg'],
       views: 1200,
         // 🏷️ AQUÍ AGREGAS TODAS LAS ETIQUETAS QUE QUIERAS:
-      tags: ["art", "illustration", "zkero", "digital art", "hentai art", "porn image", "mari kurihara", "3d", "prison school"],
+      tags: ["mari kurihara porn", "prison school hentai", "mari kurihara 3d", "prison school 18+", "uncensored anime porn art", "xzkero"],
       createdAt: new Date().toISOString()
 },
     {
@@ -140,14 +140,14 @@
       type: "comic",
       genre: "Romance",
       author: "Zkero",
-      description: "What was supposed to be a normal dinner among friends gets completely derailed by an unexpected accident. In the chaos of the moment, boundaries blur, and a new spark ignites.",
+      description: "A Good Friend uncensored adult romance porn comic. Free 18+ sex webtoon, big ass and big tits hentai comic on XZKERO.",
       isPaid: false,
       price: 0,
       downloadUrl: "assets/A GOOD FRIEND.pdf",
       thumbnail: "assets/G0.jpg",
       pages: Array.from({ length: 20 }, (_, i) => `assets/G${i}.jpg`),
       views: 5240,
-      tags: ["porn comic", "sex comic", "hentai comic", "free", "adult comic", "zkero", "big ass", "big tits", "blonde"],
+      tags: ["a good friend porn comic", "sex comic free", "adult romance webtoon 18+", "uncensored hentai comic", "big ass porn comic", "xzkero"],
       createdAt: new Date().toISOString()
     },
     {
@@ -157,14 +157,14 @@
       type: "comic",
       genre: "Romance",
       author: "Zkero",
-      description: "One wish will make sure he never has to lament a night without sex again.",
+      description: "The Wish uncensored adult romance porn comic. Free 18+ sex comic and couple hentai webtoon on XZKERO.",
       isPaid: false,
       price: 0,
       downloadUrl: "assets/ENTW.pdf",
       thumbnail: "assets/ENTW00.jpg",
       pages: Array.from({ length: 18 }, (_, i) => `assets/ENTW${String(i).padStart(2, '0')}.jpg`),
       views: 4890,
-      tags: ["porn comic free", "sex comic", "hentai", "adult comic", "zkero", "big ass", "parodie", "obsession", "couple"],
+      tags: ["the wish porn comic", "sex comic online", "hentai comic 18+", "uncensored adult webtoon", "couple sex comic", "xzkero"],
       createdAt: new Date().toISOString()
     },
     {
@@ -174,7 +174,7 @@
       type: "comic",
       genre: "Incest",
       author: "Zkero",
-      description: "A son crosses the line with his mother.Based on Milftoon’s Lemonade",
+      description: "Don't Tell Dad uncensored Milftoon Lemonade porn comic in English. Exclusive 18+ adult incest milf sex webtoon on XZKERO.",
       isPaid: true,
       price: 4.99,
       previewLimit: 12,
@@ -184,7 +184,7 @@
       thumbnail: "assets/L00.jpg",
       pages: Array.from({ length: 35 }, (_, i) => `assets/L${String(i).padStart(2, '0')}.jpg`),
       views: 10350,
-      tags: ["porn comic online", "porn comic in english", "hentai comic", "adult comic", "lemonade", "zkero", "milftoon", "mom", "incest", "milf", "big tits"],
+      tags: ["dont tell dad porn comic", "lemonade milftoon comic", "milf sex comic english", "incest porn comic", "adult webtoon 18+", "uncensored milftoon", "xzkero"],
       createdAt: new Date().toISOString()
     },
     {
@@ -194,7 +194,7 @@
       type: "comic",
       genre: "Incest",
       author: "Zkero",
-      description: "Um filho cruza a linha com a mãe. Baseado em Lemonade — Milftoon.",
+      description: "Don't Tell Dad HQ porno sem censura em Português. Quadrinhos adultos 18+ e HQs eróticas Milftoon Lemonade no XZKERO.",
       isPaid: true,
       price: 4.99,
       previewLimit: 12,
@@ -205,7 +205,7 @@
       thumbnail: "assets/PL00.jpg",
       pages: Array.from({ length: 35 }, (_, i) => `assets/PL${String(i).padStart(2, '0')}.jpg`),
       views: 10350,
-      tags: ["porn comic online", "hq porno", "quadrinhos adultos", "hentai portugues", "hq erotica", "lemonade", "zkero", "milftoon", "mãe", "incesto", "milf"],
+      tags: ["dont tell dad hq porno", "quadrinhos adultos 18+", "hq erotica portugues", "milftoon lemonade pt", "hentai portugues sem censura", "xzkero"],
       createdAt: new Date().toISOString()
     },
     {
@@ -215,7 +215,7 @@
       type: "comic",
       genre: "Incest",
       author: "Zkero",
-      description: "Un hijo cruza los límites con su madre. Basado en No Internet de Milftoon",
+      description: "Mom's Secret cómic porno sin censura en Español. Cómics de sexo adultos 18+ y hentai milftoon no internet en XZKERO.",
       isPaid: true,
       price: 4.99,
       previewLimit: 17,
@@ -225,7 +225,7 @@
       thumbnail: "assets/0.jpg",
       pages: ['assets/0.jpg', 'assets/ADICIONAL ESPAÑOL.jpg', ...Array.from({ length: 41 }, (_, i) => `assets/${i + 1}.jpg`)],
       views: 10142,
-      tags: ["comics porno", "comic porno gratis", "hentai espanol", "adult comic", "no internet", "zkero", "milftoon", "mom", "incest", "milf", "big tits"],
+      tags: ["moms secret comic porno", "comics porno gratis en espanol", "hentai espanol sin censura", "milftoon no internet espanol", "comic de sexo 18+", "xzkero"],
       createdAt: new Date().toISOString()
     },
     {
@@ -235,7 +235,7 @@
       type: "image",      // 👈 IMPORTANTE: "image" para que aparezca en el botón IMAGES
       genre: "Anime",   // Género
       author: "Zkero",
-      description: "Bulma on the spaceship to Namek.",
+      description: "Bulma 3D uncensored Dragon Ball porn art and sex image on the spaceship to Namek. Free Dragon Ball Z 18+ hentai art on XZKERO.",
       isPaid: false,      // false = Gratis, true = Premium ($1)
       price: 0,
       downloadUrl: "assets/bulma.jpg",
@@ -243,7 +243,7 @@
       pages: ['assets/bulma.jpg'],
       views: 1200,
         // 🏷️ AQUÍ AGREGAS TODAS LAS ETIQUETAS QUE QUIERAS:
-      tags: ["art", "illustration", "zkero", "digital art", "hentai art", "porn image", "bulma", "3d", "dragon ball"],
+      tags: ["bulma porn", "bulma 3d hentai", "dragon ball z 18+", "bulma sex art", "uncensored dragon ball hentai", "bulma namek 3d", "xzkero"],
       createdAt: new Date().toISOString()
 },
     {
@@ -253,7 +253,7 @@
       type: "image",      // 👈 IMPORTANTE: "image" para que aparezca en el botón IMAGES
       genre: "Anime",   // Género
       author: "Zkero",
-      description: "Orihime in Hueco Mundo.",
+      description: "Inoue Orihime 3D Bleach uncensored porn art and sex image in Hueco Mundo. Free Bleach 18+ adult hentai art on XZKERO.",
       isPaid: false,      // false = Gratis, true = Premium ($1)
       price: 0,
       downloadUrl: "assets/inoue.jpg",
@@ -261,7 +261,7 @@
       pages: ['assets/inoue.jpg'],
       views: 1200,
         // 🏷️ AQUÍ AGREGAS TODAS LAS ETIQUETAS QUE QUIERAS:
-      tags: ["art", "illustration", "zkero", "digital art", "hentai art", "porn image", "inoue orihime", "3d", "bleach"],
+      tags: ["orihime porn", "orihime hentai 3d", "bleach 18+", "orihime inoue sex art", "uncensored bleach hentai", "hueco mundo 3d", "xzkero"],
       createdAt: new Date().toISOString()
 },
     {
@@ -271,7 +271,7 @@
       type: "image",      // 👈 IMPORTANTE: "image" para que aparezca en el botón IMAGES
       genre: "Anime",   // Género
       author: "Zkero",
-      description: "Nami at the beach.",
+      description: "Nami 3D One Piece uncensored porn art and beach sex image. Free One Piece 18+ adult hentai art on XZKERO.",
       isPaid: false,      // false = Gratis, true = Premium ($1)
       price: 0,
       downloadUrl: "assets/nami.jpg",
@@ -279,7 +279,7 @@
       pages: ['assets/nami.jpg', 'assets/nami1.jpg'],
       views: 1200,
         // 🏷️ AQUÍ AGREGAS TODAS LAS ETIQUETAS QUE QUIERAS:
-      tags: ["art", "illustration", "zkero", "digital art", "hentai art", "porn image", "nami", "3d", "one piece"],
+      tags: ["nami porn", "nami 3d hentai", "one piece 18+", "nami sex art", "uncensored one piece hentai", "nami beach 3d", "xzkero"],
       createdAt: new Date().toISOString()
 },
     {
@@ -289,13 +289,13 @@
       type: "video",                             // 👈 IMPORTANTE: "video" para que aparezca en el botón VIDEOS
       genre: "Anime",                            // Género del contenido
       author: "Zkero",
-      description: "Nami exercising at the beach",
+      description: "Nami exercising 3D animation uncensored One Piece porn video and sex animation. Free One Piece 18+ hentai video on XZKERO.",
       isPaid: false,                             // false = Gratis, true = Premium ($1)
       price: 0,
       thumbnail: "assets/namivideo.webp",   // Imagen de portada (guardada en assets/)
       videoUrl: "assets/nami.mp4",           // 👈 Ruta de tu archivo MP4 o enlace directo
       views: 3100,
-      tags: ["video", "animation", "3d", "zkero", "hentai video", "nami", "one piece"],
+      tags: ["nami porn video", "nami 3d animation 18+", "one piece hentai video", "uncensored sex animation", "nami exercising video", "xzkero"],
       createdAt: new Date().toISOString()
 },
     {
@@ -305,7 +305,7 @@
       type: "image",      // 👈 IMPORTANTE: "image" para que aparezca en el botón IMAGES
       genre: "Anime",   // Género
       author: "Zkero",
-      description: "Tsunade in bed.",
+      description: "Tsunade 3D Naruto uncensored porn art and bed sex image. Free Naruto 18+ adult hentai art on XZKERO.",
       isPaid: false,      // false = Gratis, true = Premium ($1)
       price: 0,
       downloadUrl: 'assets/tsunade.jpg',
@@ -313,7 +313,7 @@
       pages: ['assets/tsunade.jpg', 'assets/tsunade1.jpg'],
       views: 1200,
         // 🏷️ AQUÍ AGREGAS TODAS LAS ETIQUETAS QUE QUIERAS:
-      tags: ["art", "illustration", "zkero", "digital art", "hentai art", "porn image", "tsunade", "3d", "naruto"],
+      tags: ["tsunade porn", "tsunade 3d hentai", "naruto 18+", "tsunade sex art", "uncensored naruto hentai", "tsunade milf 3d", "xzkero"],
       createdAt: new Date().toISOString()
 },
     {
@@ -323,7 +323,7 @@
       type: "image",      // 👈 IMPORTANTE: "image" para que aparezca en el botón IMAGES
       genre: "Anime",   // Género
       author: "Zkero",
-      description: "Lucy in bed.",
+      description: "Lucy Heartfilia 3D Fairy Tail uncensored porn art and bed sex image. Free Fairy Tail 18+ adult hentai art on XZKERO.",
       isPaid: false,      // false = Gratis, true = Premium ($1)
       price: 0,
       downloadUrl: 'assets/lucy.jpg',
@@ -331,7 +331,7 @@
       pages: ['assets/lucy.jpg'],
       views: 1200,
         // 🏷️ AQUÍ AGREGAS TODAS LAS ETIQUETAS QUE QUIERAS:
-      tags: ["art", "illustration", "zkero", "digital art", "hentai art", "porn image", "lucy heartfilia", "3d", "fairy tail"],
+      tags: ["lucy heartfilia porn", "lucy 3d hentai", "fairy tail 18+", "lucy heartfilia sex art", "uncensored fairy tail hentai", "xzkero"],
       createdAt: new Date().toISOString()
 },
     {
@@ -341,7 +341,7 @@
       type: "image",      // 👈 IMPORTANTE: "image" para que aparezca en el botón IMAGES
       genre: "Anime",   // Género
       author: "Zkero",
-      description: "Lucy at the beach.",
+      description: "Lucy Heartfilia beach 3D Fairy Tail uncensored porn art and bikini sex image. Free Fairy Tail 18+ adult hentai art on XZKERO.",
       isPaid: false,      // false = Gratis, true = Premium ($1)
       price: 0,
       downloadUrl: 'assets/lucy1.jpg',
@@ -349,7 +349,7 @@
       pages: ['assets/lucy1.jpg'],
       views: 1200,
         // 🏷️ AQUÍ AGREGAS TODAS LAS ETIQUETAS QUE QUIERAS:
-      tags: ["art", "illustration", "zkero", "digital art", "hentai art", "porn image", "lucy heartfilia", "3d", "fairy tail"],
+      tags: ["lucy heartfilia beach porn", "lucy bikini 3d hentai", "fairy tail 18+", "lucy sex art beach", "uncensored fairy tail hentai", "xzkero"],
       createdAt: new Date().toISOString()
 }
   ];
