@@ -37,7 +37,7 @@
       price: 0,
       downloadUrl: "assets/B7.mp4",
       thumbnail: "assets/B3.jpg",
-      pages: ['assets/B1.jpg', 'assets/B2.jpg', 'assets/B3.jpg', 'assets/B4.jpg', 'assets/B5.jpg', 'assets/B6.jpg', 'assets/B7.mp4'],
+      pages: ['assets/B1.jpg', 'assets/B2.jpg', 'assets/B3.jpg', 'assets/B4.jpg', 'assets/B5.jpg', 'assets/B6.jpg', 'assets/B7.gif'],
       views: 1200,
         // 🏷️ AQUÍ AGREGAS TODAS LAS ETIQUETAS QUE QUIERAS:
       tags: ["art", "illustration", "zkero", "digital art", "hentai art", "porn image", "Dragon ball Z", "3d", "Bulma", "Dragon ball"],
