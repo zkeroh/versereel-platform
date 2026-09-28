@@ -26,6 +26,24 @@
   // =========================================================================
   const COMICS_CATALOG = [
     {
+      id: "Bulmasex",
+      title: "BULMA - JOURNEY TO NAMEK",
+      language: "all",    // "en" para inglés, "es" para español
+      type: "image",      // 👈 IMPORTANTE: "image" para que aparezca en el botón IMAGES
+      genre: "Anime",   // Género
+      author: "Zkero",
+      description: "Bulma has sex with Krilin",
+      isPaid: false,      // false = Gratis, true = Premium ($1)
+      price: 0,
+      downloadUrl: "assets/B7.mp4",
+      thumbnail: "assets/B3.jpg",
+      pages: ['assets/B1.jpg', 'assets/B2.jpg', 'assets/B3.jpg', 'assets/B4.jpg', 'assets/B5.jpg', 'assets/B6.jpg', 'assets/B7.mp4'],
+      views: 1200,
+        // 🏷️ AQUÍ AGREGAS TODAS LAS ETIQUETAS QUE QUIERAS:
+      tags: ["art", "illustration", "zkero", "digital art", "hentai art", "porn image", "Dragon ball Z", "3d", "Bulma", "Dragon ball"],
+      createdAt: new Date().toISOString()
+},
+    {
       id: "mindysimmons",
       title: "MINDY SIMMONS - BIRTH OF VENUS",
       language: "all",    // "en" para inglés, "es" para español
