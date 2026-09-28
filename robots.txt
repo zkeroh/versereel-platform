@@ -1,4 +1,11 @@
 User-agent: *
 Allow: /
 
+# Ocultar páginas VIP de compradores para que no se indexen gratis en Google
+Disallow: /obrigado-dont-tell-dad.html
+Disallow: /access-dont-tell-dad-en.html
+Disallow: /dont-tell-dad-extras.html
+Disallow: /dont-tell-dad-extras-en.html
+
+# Sitemap oficial para Google Web e Imágenes
 Sitemap: https://xzkero.com/sitemap.xml
