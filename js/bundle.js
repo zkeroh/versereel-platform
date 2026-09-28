@@ -50,7 +50,7 @@
       type: "image",      // 👈 IMPORTANTE: "image" para que aparezca en el botón IMAGES
       genre: "Cartoon",   // Género
       author: "Zkero",
-      description: "Mindy simmons sexy",
+      description: "Mindy Simmons Birth of Venus uncensored Simpsons porn comic and sex art. Free The Simpsons 18+ adult webtoon on XZKERO.",
       isPaid: false,      // false = Gratis, true = Premium ($1)
       price: 0,
       downloadUrl: "assets/ms1.jpg",
@@ -58,7 +58,7 @@
       pages: ['assets/ms1.jpg', 'assets/ms2.jpg', 'assets/ms3.jpg', 'assets/ms4.jpg'],
       views: 1200,
         // 🏷️ AQUÍ AGREGAS TODAS LAS ETIQUETAS QUE QUIERAS:
-      tags: ["art", "illustration", "zkero", "digital art", "hentai art", "porn image", "the simpsons", "2d", "mindy simmons"],
+      tags: ["mindy simmons porn", "mindy simmons sex comic", "the simpsons porn comic", "simpsons hentai", "mindy simmons uncensored", "the simpsons 18+", "porn comic", "webtoon 18", "xzkero", "the simpsons 2d", "hentai art"],
       createdAt: new Date().toISOString()
 },
     {
