@@ -37,7 +37,7 @@
       price: 0,
       downloadUrl: "assets/TsunadexRaikage06.gif",
       thumbnail: "assets/TsunadexRaikage01.jpg",
-      pages: ['assets/TsunadexRaikage01.jpg', 'assets/TsunadexRaikage02.jpg', 'assets/TsunadexRaikage03.jpg', 'assets/TsunadexRaikage04.jpg', 'assets/TsunadexRaikage05.jpg', 'assets/TsunadexRaikage06.gif', 'assets/TsunadexRaikage07.gif'],
+      pages: ['assets/TsunadexRaikage01.jpg', 'assets/TsunadexRaikage02.jpg', 'assets/TsunadexRaikage03.jpg', 'assets/TsunadexRaikage04.jpg', 'assets/TsunadexRaikage05.jpg', 'assets/TsunadexRaikage06.gif', 'assets/TsunadexRaikage07.jpg'],
       views: 1200,
         // 🏷️ AQUÍ AGREGAS TODAS LAS ETIQUETAS QUE QUIERAS:
       tags: ["tsunade porn", "tsunade sex comic", "tsunade hentai", "naruto 18+", "tsunade uncensored", "tsunade raikage", "porn comic", "webtoon 18", "xzkero", "quadrinhos adultos tsunade", "hentai art", "2d", "raikage porn", "raikage hentai"],
