@@ -26,6 +26,24 @@
   // =========================================================================
   const COMICS_CATALOG = [
     {
+      id: "TsunadexRaikagesex",
+      title: "TSUNADE X RAIKAGE",
+      language: "all",    // "en" para inglés, "es" para español
+      type: "image",      // 👈 IMPORTANTE: "image" para que aparezca en el botón IMAGES
+      genre: "Anime",   // Género
+      author: "Zkero",
+      description: "Tsunade x Raikage uncensored porn comic and sex animation. Free Naruto 18+ adult webtoon on XZKERO.",
+      isPaid: false,      // false = Gratis, true = Premium ($1)
+      price: 0,
+      downloadUrl: "assets/TsunadexRaikage06.gif",
+      thumbnail: "assets/TsunadexRaikage01.jpg",
+      pages: ['assets/TsunadexRaikage01.jpg', 'assets/TsunadexRaikage02.jpg', 'assets/TsunadexRaikage03.jpg', 'assets/TsunadexRaikage04.jpg', 'assets/TsunadexRaikage05.jpg', 'assets/TsunadexRaikage06.gif', 'assets/TsunadexRaikage07.gif'],
+      views: 1200,
+        // 🏷️ AQUÍ AGREGAS TODAS LAS ETIQUETAS QUE QUIERAS:
+      tags: ["tsunade porn", "tsunade sex comic", "tsunade hentai", "naruto 18+", "tsunade uncensored", "tsunade raikage", "porn comic", "webtoon 18", "xzkero", "quadrinhos adultos tsunade", "hentai art", "2d", "raikage porn", "raikage hentai"],
+      createdAt: new Date().toISOString()
+},
+    {
       id: "Bulmasex",
       title: "BULMA - JOURNEY TO NAMEK",
       language: "all",    // "en" para inglés, "es" para español
