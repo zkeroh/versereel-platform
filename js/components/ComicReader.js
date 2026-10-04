@@ -28,28 +28,18 @@ export function createComicReaderModal(item, onClose, onUnlockRequest) {
       <div class="modal-body">
         <div class="reader-container">
           ${isLockedPage ? `
-            <div class="paywall-card">
-              <div class="paywall-icon">
-                <i class="ph-lock"></i>
+            <div class="paywall-card" style="text-align: center;">
+              <div class="paywall-icon" style="background: rgba(255, 66, 77, 0.15); border-color: #ff424d; color: #ff424d; margin: 0 auto 1rem auto;">
+                <i class="ph-patreon-logo-bold"></i>
               </div>
-              <h2 style="color:#fff; font-size:1.5rem; font-weight:800;">Límite de Muestra Alcanzado</h2>
-              <p style="color: var(--text-muted); font-size: 0.95rem;">
-                Has completado las ${previewLimit} páginas de muestra gratuita. ¡Para continuar leyendo las ${pages.length} páginas de este cómic, realiza tu pago a continuación!
+              <h2 style="color:#fff; font-size:1.5rem; font-weight:800; margin-bottom: 0.5rem;">Ver Cómic Completo</h2>
+              <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.5; margin-bottom: 1.25rem;">
+                Suscríbete a mi Patreon para ver este y otros cómics completos sin censura: <strong>patreon.com/zkero</strong>
               </p>
-              <div class="paywall-price">$${item.price.toFixed(2)}</div>
               
-              <button class="btn-primary" id="paywall-unlock-btn" style="width: 100%; justify-content: center; font-size: 1.05rem; padding: 0.9rem;">
-                <i class="ph-credit-card"></i> ${item.paymentUrl ? 'Ir a Pagar $' + item.price.toFixed(2) : 'Desbloquear Cómic Completo ($' + item.price.toFixed(2) + ')'}
-              </button>
-
-              <div id="payment-confirm-box" style="display: none; width: 100%; margin-top: 0.75rem; background: rgba(16, 185, 129, 0.12); border: 1px solid var(--emerald); padding: 1rem; border-radius: var(--radius-md); text-align: center;">
-                <p style="color: #34d399; font-weight: 700; font-size: 0.88rem; margin-bottom: 0.6rem;">
-                  ¿Ya completaste tu pago en la pasarela? Haz clic abajo para continuar leyendo:
-                </p>
-                <button class="btn-secondary" id="confirm-unlock-btn" style="width: 100%; justify-content: center; border-color: var(--emerald); color: #34d399; font-weight: 700;">
-                  <i class="ph-check-circle"></i> Confirmar Pago y Leer Ahora
-                </button>
-              </div>
+              <a href="https://patreon.com/zkero" target="_blank" rel="noopener noreferrer" class="btn-primary" style="width: 100%; justify-content: center; font-size: 1rem; padding: 0.95rem; background: linear-gradient(135deg, #ff424d, #e01b24); color: #ffffff; border: none; font-weight: 800; border-radius: 12px; text-decoration: none; display: flex; align-items: center; gap: 0.5rem; box-shadow: 0 6px 20px rgba(255, 66, 77, 0.4); box-sizing: border-box;">
+                <i class="ph-patreon-logo-bold" style="font-size: 1.2rem;"></i> Suscríbete a mi Patreon (patreon.com/zkero)
+              </a>
             </div>
           ` : `
             <img src="${pages[currentPageIndex]}" alt="Page ${currentPageIndex + 1}" class="comic-page-img" />

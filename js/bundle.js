@@ -1964,23 +1964,17 @@ function openFullpageComicReader(item) {
       const txtOfWord = isPt ? 'de' : (isEn ? 'of' : 'de');
       const txtPageCounter = `${txtPageWord} <span style="color: var(--primary);" id="page-counter-num">${this.currentPageIndex + 1}</span> ${txtOfWord} ${pages.length}`;
 
-      const txtPaywallTitle = isPt ? 'Limite de Amostra Grátis' : (isEn ? 'Free Preview Limit' : 'Límite de Muestra Gratuita');
+      const txtPaywallTitle = isPt ? 'Quer ver o quadrinho completo?' : (isEn ? 'Want to read the full comic?' : 'Ver Cómic Completo');
       const txtPaywallDesc = isPt
-        ? 'Veja como esta história termina e baixe em alta resolução (HD). Escolha seu método de pagamento preferido. Rápido e fácil.'
+        ? 'Inscreva-se no meu Patreon para ver este e outros quadrinhos completos sem censura: patreon.com/zkero'
         : (isEn
-          ? 'See how this story ends and download it in High Definition (HD). Select your preferred payment method. Quick and easy.'
-          : 'Mira cómo termina esta historia y descárgalo en alta resolución (HD). Elige tu método de pago preferido. Simple y rápido.');
-      const txtPaywallPrice = isPt
-        ? `POR APENAS $${item.price.toFixed(2)}!`
-        : (isEn ? `$${item.price.toFixed(2)} USD` : `¡A SOLO $${item.price.toFixed(2)}!`);
-      const txtPaypalBtn = isPt
-        ? '<i class="ph-paypal-logo"></i> Pagar com Cartão de Débito/Crédito / PayPal'
+          ? 'Subscribe to my Patreon to watch this and other full uncensored comics: patreon.com/zkero'
+          : 'Suscríbete a mi Patreon para ver este y otros cómics completos sin censura: patreon.com/zkero');
+      const txtPatreonBtn = isPt
+        ? '<i class="ph-patreon-logo-bold" style="font-size: 1.2rem;"></i> Inscrever-se no Patreon (patreon.com/zkero)'
         : (isEn
-          ? '<i class="ph-paypal-logo"></i> Pay with Credit / Debit Card / PayPal'
-          : '<i class="ph-paypal-logo"></i> Pagar con Tarjeta Débito/Crédito / PayPal');
-      const txtMpBtn = isEn
-        ? '<i class="ph-credit-card"></i> Pay with Credit / Debit Card / Local Payments'
-        : '<i class="ph-credit-card"></i> Pagar con Tarjeta Débito/Crédito / Yape / Plin / MercadoPago';
+          ? '<i class="ph-patreon-logo-bold" style="font-size: 1.2rem;"></i> Subscribe on Patreon (patreon.com/zkero)'
+          : '<i class="ph-patreon-logo-bold" style="font-size: 1.2rem;"></i> Suscríbete a mi Patreon (patreon.com/zkero)');
       const txtThanksTitle = isPt
         ? `Obrigado por comprar "${item.title}"!`
         : (isEn
@@ -2147,33 +2141,16 @@ function openFullpageComicReader(item) {
                           </div>
                         </div>
 
-                        <div class="paywall-card" style="margin: 2rem 1rem 3rem 1rem;">
-                          <div class="paywall-icon"><i class="ph-lock"></i></div>
-                          <h2 style="color:#fff; font-size:1.4rem; font-weight:800;">${txtPaywallTitle}</h2>
-                          <p style="color: var(--text-muted); font-size: 0.92rem;">
+                        <div class="paywall-card" style="margin: 2rem 1rem 3rem 1rem; text-align: center;">
+                          <div class="paywall-icon" style="background: rgba(255, 66, 77, 0.15); border-color: #ff424d; color: #ff424d; margin: 0 auto 1rem auto;"><i class="ph-patreon-logo-bold"></i></div>
+                          <h2 style="color:#fff; font-size:1.4rem; font-weight:800; margin-bottom: 0.5rem;">${txtPaywallTitle}</h2>
+                          <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.5; margin-bottom: 1.25rem;">
                             ${txtPaywallDesc}
                           </p>
-                          <div class="paywall-price">${txtPaywallPrice}</div>
                           <div style="display: flex; flex-direction: column; gap: 0.75rem; width: 100%; margin-top: 0.5rem;">
-                            ${(isEn || isPt) ? `
-                              <button class="btn-primary" id="paywall-paypal-btn" style="width: 100%; justify-content: center; font-size: 1rem; padding: 0.85rem; background: linear-gradient(135deg, #003087, #0070ba); color: #ffffff; border: none; font-weight: 700;">
-                                ${txtPaypalBtn}
-                              </button>
-                              ${(isPt || item.pixUrl) ? `
-                                <a href="${item.pixUrl || 'https://xzkero.com/checkout-dont-tell-dad.html'}" target="_blank" class="btn-action-buy-pix" style="padding: 0.85rem 1rem; font-size: 1rem; width: 100%; background: linear-gradient(135deg, #00bdae, #00796b); color: #ffffff; border-radius: 10px; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 0.5rem; font-weight: 800; border: 1px solid rgba(50, 188, 173, 0.5); box-shadow: 0 4px 15px rgba(0, 189, 174, 0.3); margin-top: 0.5rem; box-sizing: border-box;">
-                                  <i class="ph-telegram-logo-bold"></i> ⚡ COMPRAR COM PIX
-                                </a>
-                              ` : ''}
-                            ` : `
-                              <button class="btn-primary" id="paywall-unlock-btn" style="width: 100%; justify-content: center; font-size: 1rem; padding: 0.85rem; background: linear-gradient(135deg, #009ee3, #0070ba); border: none; font-weight: 700;">
-                                ${txtMpBtn}
-                              </button>
-                              ${(item.paypalUrl || item.paypalLink) ? `
-                                <button class="btn-secondary" id="paywall-paypal-btn" style="width: 100%; justify-content: center; font-size: 1rem; padding: 0.85rem; background: #003087; color: #ffffff; border: 1px solid #0070ba; font-weight: 700;">
-                                  ${txtPaypalBtn}
-                                </button>
-                              ` : ''}
-                            `}
+                            <a href="https://patreon.com/zkero" target="_blank" rel="noopener noreferrer" class="btn-primary" style="width: 100%; justify-content: center; font-size: 1rem; padding: 0.95rem; background: linear-gradient(135deg, #ff424d, #e01b24); color: #ffffff; border: none; font-weight: 800; border-radius: 12px; text-decoration: none; display: flex; align-items: center; gap: 0.5rem; box-shadow: 0 6px 20px rgba(255, 66, 77, 0.4); box-sizing: border-box;">
+                              ${txtPatreonBtn}
+                            </a>
                           </div>
                         </div>
                       `;
@@ -2258,28 +2235,16 @@ function openFullpageComicReader(item) {
             <!-- Single Page Mode -->
             <div class="single-page-container" id="single-container">
               ${isLocked && this.currentPageIndex >= previewLimit ? `
-                <div class="paywall-card">
-                  <div class="paywall-icon"><i class="ph-lock"></i></div>
-                  <h2 style="color:#fff; font-size:1.4rem; font-weight:800;">${txtPaywallTitle}</h2>
-                  <p style="color: var(--text-muted); font-size: 0.92rem;">
+                <div class="paywall-card" style="text-align: center;">
+                  <div class="paywall-icon" style="background: rgba(255, 66, 77, 0.15); border-color: #ff424d; color: #ff424d; margin: 0 auto 1rem auto;"><i class="ph-patreon-logo-bold"></i></div>
+                  <h2 style="color:#fff; font-size:1.4rem; font-weight:800; margin-bottom: 0.5rem;">${txtPaywallTitle}</h2>
+                  <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.5; margin-bottom: 1.25rem;">
                     ${txtPaywallDesc}
                   </p>
-                  <div class="paywall-price">${txtPaywallPrice}</div>
                   <div style="display: flex; flex-direction: column; gap: 0.75rem; width: 100%; margin-top: 0.5rem;">
-                    ${(isEn || isPt) ? `
-                      <button class="btn-primary" id="paywall-paypal-btn" style="width: 100%; justify-content: center; font-size: 1rem; padding: 0.85rem; background: linear-gradient(135deg, #003087, #0070ba); color: #ffffff; border: none; font-weight: 700;">
-                        ${txtPaypalBtn}
-                      </button>
-                    ` : `
-                      <button class="btn-primary" id="paywall-unlock-btn" style="width: 100%; justify-content: center; font-size: 1rem; padding: 0.85rem; background: linear-gradient(135deg, #009ee3, #0070ba); border: none; font-weight: 700;">
-                        ${txtMpBtn}
-                      </button>
-                      ${(item.paypalUrl || item.paypalLink) ? `
-                        <button class="btn-secondary" id="paywall-paypal-btn" style="width: 100%; justify-content: center; font-size: 1rem; padding: 0.85rem; background: #003087; color: #ffffff; border: 1px solid #0070ba; font-weight: 700;">
-                          ${txtPaypalBtn}
-                        </button>
-                      ` : ''}
-                    `}
+                    <a href="https://patreon.com/zkero" target="_blank" rel="noopener noreferrer" class="btn-primary" style="width: 100%; justify-content: center; font-size: 1rem; padding: 0.95rem; background: linear-gradient(135deg, #ff424d, #e01b24); color: #ffffff; border: none; font-weight: 800; border-radius: 12px; text-decoration: none; display: flex; align-items: center; gap: 0.5rem; box-shadow: 0 6px 20px rgba(255, 66, 77, 0.4); box-sizing: border-box;">
+                      ${txtPatreonBtn}
+                    </a>
                   </div>
                 </div>
               ` : `
