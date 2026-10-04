@@ -1507,7 +1507,7 @@ function openFullpageComicReader(item) {
       this.zoomLevel = 100;
       this.currentView = 'audience';
       this.selectedMediaType = 'all';
-      this.selectedLanguage = 'all';
+      this.selectedLanguage = 'en';
       this.selectedAccessTier = 'all';
       this.selectedGenre = 'all';
       this.searchQuery = '';
