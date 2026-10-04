@@ -110,7 +110,7 @@
       paypalUrl: "https://www.paypal.com/ncp/payment/9HXQWPQ38FV9G",
       downloadUrl: "assets/NO INTERNET COMPLETO.pdf",
       thumbnail: "assets/ENICOVER.jpg",
-      pages: ['assets/ENICOVER.jpg', 'assets/L01.jpg', ...Array.from({ length: 41 }, (_, i) => `assets/ENI${String(i + 1).padStart(2, '0')}.jpg`)],
+      pages: ['assets/ENICOVER.jpg', ...Array.from({ length: 41 }, (_, i) => `assets/ENI${String(i + 1).padStart(2, '0')}.jpg`)],
       views: 10142,
       tags: ["moms secret porn comic", "milftoon no internet", "milf porn comic", "incest sex comic", "adult webtoon 18+", "free porn comic english", "uncensored milftoon", "xzkero"],
       createdAt: new Date().toISOString()
