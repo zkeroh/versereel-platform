@@ -206,7 +206,7 @@
       paypalUrl: "https://www.paypal.com/ncp/payment/RC4X5CV8S8WEL",
       downloadUrl: "assets/DONTTELLDAD.pdf",
       thumbnail: "assets/L01.jpg",
-      pages: Array.from({ length: 35 }, (_, i) => `assets/L${String(i).padStart(2, '1')}.jpg`),
+      pages: Array.from({ length: 34 }, (_, i) => `assets/L${String(i+1).padStart(2, '0')}.jpg`),
       views: 10350,
       tags: ["dont tell dad porn comic", "lemonade milftoon comic", "milf sex comic english", "incest porn comic", "adult webtoon 18+", "uncensored milftoon", "xzkero"],
       createdAt: new Date().toISOString()
