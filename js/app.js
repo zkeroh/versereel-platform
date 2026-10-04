@@ -219,9 +219,6 @@ class App {
                     <i class="ph-${item.type === 'comic' ? 'book-open' : 'video-camera'}"></i>
                     ${item.type}
                   </div>
-                  <div class="price-tag ${item.isPaid ? 'paid' : 'free'}">
-                    ${item.isPaid ? `$${item.price.toFixed(2)}` : 'FREE'}
-                  </div>
                 </div>
 
                 <div class="lock-overlay">

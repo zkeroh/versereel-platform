@@ -1784,9 +1784,8 @@ function openFullpageComicReader(item) {
                     <div class="card-badge-top">
                       <span class="media-badge ${item.type}">${item.type.toUpperCase()}</span>
                       <span class="price-tag" style="background: rgba(168,85,247,0.25); color: #c084fc; border: 1px solid rgba(168,85,247,0.4); font-size: 0.72rem; padding: 2px 6px; border-radius: 4px; font-weight: 700; display: inline-flex; align-items: center; gap: 3px;">
-                        ${item.language === 'en' ? '🇺🇸 EN' : (item.language === 'pt' ? '🇧🇷 PT' : '🇪🇸 ES')}
+                        ${item.language === 'en' ? '🇺🇸 EN' : (item.language === 'pt' ? '🇧🇷 PT' : (item.language === 'es' ? '🇪🇸 ES' : '🌐 ALL'))}
                       </span>
-                      ${item.isPaid ? `<span class="price-tag paid">$${item.price.toFixed(2)}</span>` : '<span class="price-tag free">FREE</span>'}
                     </div>
                   </div>
                   <div class="card-body">
