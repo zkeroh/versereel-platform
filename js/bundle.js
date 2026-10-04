@@ -29,12 +29,13 @@
       id: "TsunadexRaikagesex",
       title: "TSUNADE X RAIKAGE",
       language: "all",    // "en" para inglés, "es" para español
-      type: "image",      // 👈 IMPORTANTE: "image" para que aparezca en el botón IMAGES
+      type: "comic",      // 👈 IMPORTANTE: "image" para que aparezca en el botón IMAGES
       genre: "Anime",   // Género
       author: "Zkero",
       description: "Tsunade x Raikage uncensored porn comic and sex animation. Free Naruto 18+ adult webtoon on XZKERO.",
-      isPaid: false,      // false = Gratis, true = Premium ($1)
+      isPaid: true,      // false = Gratis, true = Premium ($1)
       price: 0,
+      previewLimit: 3,
       downloadUrl: "assets/TsunadexRaikage06.gif",
       thumbnail: "assets/TsunadexRaikage01.jpg",
       pages: ['assets/TsunadexRaikage01.jpg', 'assets/TsunadexRaikage02.jpg', 'assets/TsunadexRaikage03.jpg', 'assets/TsunadexRaikage04.jpg', 'assets/TsunadexRaikage05.jpg', 'assets/TsunadexRaikage06.gif', 'assets/TsunadexRaikage07.jpg'],
@@ -47,12 +48,13 @@
       id: "Bulmasex",
       title: "BULMA - JOURNEY TO NAMEK",
       language: "all",    // "en" para inglés, "es" para español
-      type: "image",      // 👈 IMPORTANTE: "image" para que aparezca en el botón IMAGES
+      type: "comic",      // 👈 IMPORTANTE: "image" para que aparezca en el botón IMAGES
       genre: "Anime",   // Género
       author: "Zkero",
       description: "Bulma journey to Namek 3D uncensored porn comic and sex animation with Krillin. Free Dragon Ball Z 18+ adult webtoon on XZKERO.",
-      isPaid: false,      // false = Gratis, true = Premium ($1)
+      isPaid: true,      // false = Gratis, true = Premium ($1)
       price: 0,
+      previewLimit: 4,
       downloadUrl: "assets/B7.mp4",
       thumbnail: "assets/B3.jpg",
       pages: ['assets/B1.jpg', 'assets/B2.jpg', 'assets/B3.jpg', 'assets/B4.jpg', 'assets/B5.jpg', 'assets/B6.jpg', 'assets/B7.gif'],
@@ -65,12 +67,13 @@
       id: "mindysimmons",
       title: "MINDY SIMMONS - BIRTH OF VENUS",
       language: "all",    // "en" para inglés, "es" para español
-      type: "image",      // 👈 IMPORTANTE: "image" para que aparezca en el botón IMAGES
+      type: "comic",      // 👈 IMPORTANTE: "image" para que aparezca en el botón IMAGES
       genre: "Cartoon",   // Género
       author: "Zkero",
       description: "Mindy Simmons Birth of Venus uncensored Simpsons porn comic and sex art. Free The Simpsons 18+ adult webtoon on XZKERO.",
-      isPaid: false,      // false = Gratis, true = Premium ($1)
+      isPaid: true,      // false = Gratis, true = Premium ($1)
       price: 0,
+      previewLimit: 2,
       downloadUrl: "assets/ms1.jpg",
       thumbnail: "assets/ms0.jpg",
       pages: ['assets/ms1.jpg', 'assets/ms2.jpg', 'assets/ms3.jpg', 'assets/ms4.jpg'],
@@ -87,8 +90,9 @@
       genre: "hentai",
       author: "Zkero",
       description: "Yhwach's Revenge Bleach uncensored porn comic featuring Rukia and Orihime. Free Bleach 18+ adult hentai comic on XZKERO.",
-      isPaid: false,
+      isPaid: true,
       price: 0,
+      previewLimit: 5,
       downloadUrl: "assets/B08.jpg",
       thumbnail: "assets/B08.jpg",
       pages:  Array.from({ length: 11 }, (_, i) => `assets/B${String(i+1).padStart(2, '0')}.jpg`),
@@ -106,7 +110,7 @@
       description: "Mom's Secret uncensored Milftoon porn comic in English. Free 18+ adult incest sex webtoon and milf comic on XZKERO.",
       isPaid: true,
       price: 4.99,
-      previewLimit: 17,
+      previewLimit: 21,
       paypalUrl: "https://www.paypal.com/ncp/payment/9HXQWPQ38FV9G",
       downloadUrl: "assets/NO INTERNET COMPLETO.pdf",
       thumbnail: "assets/ENICOVER.jpg",
@@ -159,8 +163,9 @@
       genre: "Romance",
       author: "Zkero",
       description: "A Good Friend uncensored adult romance porn comic. Free 18+ sex webtoon, big ass and big tits hentai comic on XZKERO.",
-      isPaid: false,
+      isPaid: true,
       price: 0,
+      previewLimit: 10,
       downloadUrl: "assets/A GOOD FRIEND.pdf",
       thumbnail: "assets/G0.jpg",
       pages: Array.from({ length: 20 }, (_, i) => `assets/G${i}.jpg`),
@@ -176,8 +181,9 @@
       genre: "Romance",
       author: "Zkero",
       description: "The Wish uncensored adult romance porn comic. Free 18+ sex comic and couple hentai webtoon on XZKERO.",
-      isPaid: false,
+      isPaid: true,
       price: 0,
+      previewLimit: 9,
       downloadUrl: "assets/ENTW.pdf",
       thumbnail: "assets/ENTW00.jpg",
       pages: Array.from({ length: 18 }, (_, i) => `assets/ENTW${String(i).padStart(2, '0')}.jpg`),
@@ -195,7 +201,7 @@
       description: "Don't Tell Dad uncensored Milftoon Lemonade porn comic in English. Exclusive 18+ adult incest milf sex webtoon on XZKERO.",
       isPaid: true,
       price: 4.99,
-      previewLimit: 12,
+      previewLimit: 13,
       paymentUrl: "https://mpago.la/2om6XKk",
       paypalUrl: "https://www.paypal.com/ncp/payment/RC4X5CV8S8WEL",
       downloadUrl: "assets/DONTTELLDAD.pdf",
