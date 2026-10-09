@@ -26,6 +26,25 @@
   // =========================================================================
   const COMICS_CATALOG = [
     {
+      id: "Dextersmom",
+      title: "DEXTER'S MOM PORN",
+      language: "all",    // "en" para inglés, "es" para español
+      type: "comic",      // 👈 IMPORTANTE: "image" para que aparezca en el botón IMAGES
+      genre: "Cartoon",   // Género
+      author: "Zkero",
+      description: "Dexter's Mom uncensored porn comic and sex animation. Free Dexter 18+ adult webtoon on XZKERO.",
+      isPaid: true,      // false = Gratis, true = Premium ($1)
+      price: 0,
+      previewLimit: 3,
+      downloadUrl: "assets/D3.gif",
+      thumbnail: "assets/D3.jpg",
+      pages: ['assets/D0.jpg', 'assets/D1.jpg', 'assets/D2.jpg', 'assets/D3.jpg', 'assets/D3.gif', 'assets/D4.jpg', 'assets/D5.jpg', 'assets/D6.jpg', 'assets/D6.gif'],
+      views: 1200,
+        // 🏷️ AQUÍ AGREGAS TODAS LAS ETIQUETAS QUE QUIERAS:
+      tags: ["dexters mom porn", "dexters mom sex comic", "dexters mom hentai", "dexters mom 18+", "dexters mom uncensored", "dexters mom", "porn comic", "webtoon 18", "xzkero", "quadrinhos adultos dexters mom", "hentai art", "3d", "dexter porn", "dexter hentai"],
+      createdAt: new Date().toISOString()
+},
+    {
       id: "TsunadexRaikagesex",
       title: "TSUNADE X RAIKAGE",
       language: "all",    // "en" para inglés, "es" para español
