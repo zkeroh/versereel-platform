@@ -27,7 +27,7 @@
   const COMICS_CATALOG = [
     {
       id: "Dextersmom",
-      title: "DEXTER'S MOM PORN",
+      title: "DEXTER'S MOM UNCENSORED",
       language: "all",    // "en" para inglés, "es" para español
       type: "comic",      // 👈 IMPORTANTE: "image" para que aparezca en el botón IMAGES
       genre: "Cartoon",   // Género
@@ -35,7 +35,7 @@
       description: "Dexter's Mom uncensored porn comic and sex animation. Free Dexter 18+ adult webtoon on XZKERO.",
       isPaid: true,      // false = Gratis, true = Premium ($1)
       price: 0,
-      previewLimit: 3,
+      previewLimit: 5,
       downloadUrl: "assets/D3.gif",
       thumbnail: "assets/D3.jpg",
       pages: ['assets/D0.jpg', 'assets/D1.jpg', 'assets/D2.jpg', 'assets/D3.jpg', 'assets/D3.gif', 'assets/D4.jpg', 'assets/D5.jpg', 'assets/D6.jpg', 'assets/D6.gif'],
