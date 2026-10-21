@@ -26,6 +26,24 @@
   // =========================================================================
   const COMICS_CATALOG = [
     {
+      id: "special-delivery",
+      title: "SPECIAL DELIVERY",
+      language: "en",
+      type: "comic",
+      genre: "Romance",
+      author: "Zkero",
+      description: "A young delivery guy gets an unexpected spicy surprise when a stunning woman invites him inside. Read free 18+ adult webtoon on XZKERO.",
+      isPaid: true,
+      price: 0,
+      previewLimit: 2,
+      downloadUrl: "assets/C3.jpg",
+      thumbnail: "assets/C3.jpg",
+      pages: ['assets/C1.jpg', 'assets/C2.jpg', 'assets/C3.jpg', 'assets/C4.jpg'],
+      views: 1520,
+      tags: ["special delivery porn comic", "delivery guy adult comic", "sex comic", "adult webtoon 18+", "uncensored porn comic", "free sex comic english", "xzkero", "patreon zkero"],
+      createdAt: new Date().toISOString()
+    },
+    {
       id: "Dextersmom",
       title: "DEXTER'S MOM UNCENSORED",
       language: "all",    // "en" para inglés, "es" para español
@@ -43,7 +61,7 @@
         // 🏷️ AQUÍ AGREGAS TODAS LAS ETIQUETAS QUE QUIERAS:
       tags: ["dexters mom porn", "dexters mom sex comic", "dexters mom hentai", "dexters mom 18+", "dexters mom uncensored", "dexters mom", "porn comic", "webtoon 18", "xzkero", "quadrinhos adultos dexters mom", "hentai art", "3d", "dexter porn", "dexter hentai"],
       createdAt: new Date().toISOString()
-},
+    }
     {
       id: "TsunadexRaikagesex",
       title: "TSUNADE X RAIKAGE",
