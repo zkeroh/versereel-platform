@@ -1713,10 +1713,10 @@ function openFullpageComicReader(item) {
                 <a href="https://x.com/hZkeroh" target="_blank" rel="noopener noreferrer" class="social-nav-link twitter" title="X (Twitter)">
                   <i class="ph-twitter-logo-bold"></i> <span>X</span>
                 </a>
-                <a href="https://www.instagram.com/zkero.h?igsi=MWt3M25mNG9oZDY4Zw%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" class="social-nav-link instagram" title="Instagram">
-                  <i class="ph-instagram-logo-bold"></i> <span>IG</span>
+                <a href="https://www.facebook.com/xzkero/" target="_blank" rel="noopener noreferrer" class="social-nav-link facebook" title="Facebook">
+                  <i class="ph-facebook-logo-bold"></i> <span>FB</span>
                 </a>
-                <a href="https://t.me/xzkero" target="_blank" rel="noopener noreferrer" class="social-nav-link telegram" title="Telegram">
+                <a href="https://t.me/+BSvUHl0KQUg0NzMx" target="_blank" rel="noopener noreferrer" class="social-nav-link telegram" title="Telegram">
                   <i class="ph-telegram-logo-bold"></i> <span>TG</span>
                 </a>
               </div>
@@ -2142,10 +2142,10 @@ function openFullpageComicReader(item) {
                   <a href="https://x.com/hZkeroh" target="_blank" rel="noopener noreferrer" style="color: #38bdf8; background: rgba(56,189,248,0.18); border: 1px solid rgba(56,189,248,0.45); padding: 0.55rem 1.1rem; border-radius: 8px; font-weight: 800; font-size: 0.88rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; transition: all 0.2s;">
                     <i class="ph-twitter-logo-bold" style="font-size: 1.1rem;"></i> X (Twitter)
                   </a>
-                  <a href="https://www.instagram.com/zkero.h?igsi=MWt3M25mNG9oZDY4Zw%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" style="color: #f43f5e; background: rgba(244,63,94,0.18); border: 1px solid rgba(244,63,94,0.45); padding: 0.55rem 1.1rem; border-radius: 8px; font-weight: 800; font-size: 0.88rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; transition: all 0.2s;">
-                    <i class="ph-instagram-logo-bold" style="font-size: 1.1rem;"></i> Instagram
+                  <a href="https://www.facebook.com/xzkero/" target="_blank" rel="noopener noreferrer" style="color: #1877f2; background: rgba(24,119,242,0.18); border: 1px solid rgba(24,119,242,0.45); padding: 0.55rem 1.1rem; border-radius: 8px; font-weight: 800; font-size: 0.88rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; transition: all 0.2s;">
+                    <i class="ph-facebook-logo-bold" style="font-size: 1.1rem;"></i> Facebook
                   </a>
-                  <a href="https://t.me/xzkero" target="_blank" rel="noopener noreferrer" style="color: #38bdf8; background: rgba(14,165,233,0.18); border: 1px solid rgba(14,165,233,0.45); padding: 0.55rem 1.1rem; border-radius: 8px; font-weight: 800; font-size: 0.88rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; transition: all 0.2s;">
+                  <a href="https://t.me/+BSvUHl0KQUg0NzMx" target="_blank" rel="noopener noreferrer" style="color: #38bdf8; background: rgba(14,165,233,0.18); border: 1px solid rgba(14,165,233,0.45); padding: 0.55rem 1.1rem; border-radius: 8px; font-weight: 800; font-size: 0.88rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; transition: all 0.2s;">
                     <i class="ph-telegram-logo-bold" style="font-size: 1.1rem;"></i> Telegram
                   </a>
                 </div>
@@ -2296,10 +2296,10 @@ function openFullpageComicReader(item) {
                     <a href="https://x.com/hZkeroh" target="_blank" rel="noopener noreferrer" style="color: #38bdf8; background: rgba(56,189,248,0.18); border: 1px solid rgba(56,189,248,0.45); padding: 0.55rem 1.1rem; border-radius: 8px; font-weight: 800; font-size: 0.88rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; transition: all 0.2s;">
                       <i class="ph-twitter-logo-bold" style="font-size: 1.1rem;"></i> X (Twitter)
                     </a>
-                    <a href="https://www.instagram.com/zkero.h?igsi=MWt3M25mNG9oZDY4Zw%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" style="color: #f43f5e; background: rgba(244,63,94,0.18); border: 1px solid rgba(244,63,94,0.45); padding: 0.55rem 1.1rem; border-radius: 8px; font-weight: 800; font-size: 0.88rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; transition: all 0.2s;">
-                      <i class="ph-instagram-logo-bold" style="font-size: 1.1rem;"></i> Instagram
-                    </a>
-                    <a href="https://t.me/xzkero" target="_blank" rel="noopener noreferrer" style="color: #38bdf8; background: rgba(14,165,233,0.18); border: 1px solid rgba(14,165,233,0.45); padding: 0.55rem 1.1rem; border-radius: 8px; font-weight: 800; font-size: 0.88rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; transition: all 0.2s;">
+                    <a href="https://www.facebook.com/xzkero/" target="_blank" rel="noopener noreferrer" style="color: #1877f2; background: rgba(24,119,242,0.18); border: 1px solid rgba(24,119,242,0.45); padding: 0.55rem 1.1rem; border-radius: 8px; font-weight: 800; font-size: 0.88rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; transition: all 0.2s;">
+                    <i class="ph-facebook-logo-bold" style="font-size: 1.1rem;"></i> Facebook
+                  </a>
+                    <a href="https://t.me/+BSvUHl0KQUg0NzMx" target="_blank" rel="noopener noreferrer" style="color: #38bdf8; background: rgba(14,165,233,0.18); border: 1px solid rgba(14,165,233,0.45); padding: 0.55rem 1.1rem; border-radius: 8px; font-weight: 800; font-size: 0.88rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; transition: all 0.2s;">
                       <i class="ph-telegram-logo-bold" style="font-size: 1.1rem;"></i> Telegram
                     </a>
                   </div>

@@ -163,6 +163,12 @@ body {
   border: 1px solid rgba(56, 189, 248, 0.45);
 }
 
+.social-nav-link.facebook {
+  color: #1877f2;
+  background: rgba(24, 119, 242, 0.18);
+  border: 1px solid rgba(24, 119, 242, 0.45);
+}
+
 .social-nav-link.instagram {
   color: #f43f5e;
   background: rgba(244, 63, 94, 0.18);
