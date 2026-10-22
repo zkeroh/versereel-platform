@@ -26,6 +26,24 @@
   // =========================================================================
   const COMICS_CATALOG = [
     {
+      id: "new-toy",
+      title: "NEW TOY",
+      language: "en",
+      type: "comic",
+      genre: "Sci-Fi",
+      author: "Zkero",
+      description: "A mysterious AI phone that alters reality lets a girl make a handsome stranger her obedient new toy. Read free 18+ adult webtoon on XZKERO.",
+      isPaid: true,
+      price: 0,
+      previewLimit: 2,
+      downloadUrl: "assets/NT0.jpg",
+      thumbnail: "assets/NT0.jpg",
+      pages: ['assets/NT1.jpg', 'assets/NT2.jpg', 'assets/NT3.jpg'],
+      views: 1720,
+      tags: ["new toy porn comic", "ai reality alter comic", "sex comic", "adult webtoon 18+", "uncensored porn comic", "free sex comic english", "xzkero", "patreon zkero"],
+      createdAt: new Date().toISOString()
+    },
+    {
       id: "moms-secret",
       title: "MOM'S SECRET",
       language: "en",
