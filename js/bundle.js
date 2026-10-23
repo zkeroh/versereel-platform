@@ -26,6 +26,24 @@
   // =========================================================================
   const COMICS_CATALOG = [
     {
+      id: "twister-with-sister",
+      title: "TWISTER WITH SISTER",
+      language: "en",
+      type: "comic",
+      genre: "Taboo",
+      author: "Zkero",
+      description: "Twister With Sister uncensored adult sex comic. An innocent game of Twister turns naughty and passionate with sister. Read free 18+ adult webtoon on XZKERO.",
+      isPaid: true,
+      price: 0,
+      previewLimit: 2,
+      downloadUrl: "assets/P0.jpg",
+      thumbnail: "assets/P0.jpg",
+      pages: ['assets/P1.jpg', 'assets/P2.jpg', 'assets/P3.jpg'],
+      views: 1850,
+      tags: ["twister with sister", "sister sex comic", "taboo comic", "porn comic", "adult webtoon 18+", "uncensored porn comic", "free sex comic english", "xzkero", "patreon zkero"],
+      createdAt: new Date().toISOString()
+    },
+    {
       id: "new-toy",
       title: "NEW TOY",
       language: "en",
