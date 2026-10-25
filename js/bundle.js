@@ -26,6 +26,32 @@
   // =========================================================================
   const COMICS_CATALOG = [
     {
+      id: "helping-my-sister-in-law",
+      title: "HELPING MY SISTER-IN-LAW",
+      language: "en",
+      type: "comic",
+      genre: "Taboo",
+      author: "Zkero",
+      description: "Helping My Sister-In-Law uncensored adult sex comic. Read free 18+ adult webtoon on XZKERO.",
+      isPaid: true,
+      price: 0,
+      previewLimit: 2,
+      downloadUrl: "assets/SIL0.jpg",
+      thumbnail: "assets/SIL0.jpg",
+      pages: [
+        'assets/SIL1.jpg',
+        'assets/SIL2.jpg',
+        'assets/SIL3.jpg',
+        'assets/SIL4.jpg',
+        'assets/SIL5.jpg',
+        'assets/SIL6.jpg',
+        'assets/SIL7.jpg'
+      ],
+      views: 1920,
+      tags: ["helping my sister in law", "sister in law sex comic", "taboo comic", "porn comic", "adult webtoon 18+", "uncensored porn comic", "free sex comic english", "xzkero", "patreon zkero"],
+      createdAt: new Date().toISOString()
+    },
+    {
       id: "twister-with-sister",
       title: "TWISTER WITH SISTER",
       language: "en",
