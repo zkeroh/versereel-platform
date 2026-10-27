@@ -107,7 +107,7 @@
     },
     {
       id: "special-delivery",
-      title: "SPECIAL DELIVERY",
+      title: "THE DELIVERY FEE",
       language: "en",
       type: "comic",
       genre: "Romance",
