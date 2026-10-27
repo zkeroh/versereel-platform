@@ -117,7 +117,7 @@
       price: 0,
       previewLimit: 999,
       downloadUrl: "assets/C3.jpg",
-      thumbnail: "assets/C3.jpg",
+      thumbnail: "assets/C1.jpg",
       pages: ['assets/C1.jpg', 'assets/C2.jpg', 'assets/C3.jpg', 'assets/C4.jpg'],
       views: 1520,
       tags: ["special delivery porn comic", "delivery guy adult comic", "sex comic", "adult webtoon 18+", "uncensored porn comic", "free sex comic english", "xzkero", "patreon zkero"],
