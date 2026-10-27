@@ -39,6 +39,7 @@
       downloadUrl: "assets/SIL0.jpg",
       thumbnail: "assets/SIL0.jpg",
       pages: [
+        'assets/SIL0.jpg',
         'assets/SIL1.jpg',
         'assets/SIL2.jpg',
         'assets/SIL3.jpg',
