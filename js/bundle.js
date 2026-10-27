@@ -80,9 +80,9 @@
       isPaid: false,
       price: 0,
       previewLimit: 999,
-      downloadUrl: "assets/NT0.jpg",
-      thumbnail: "assets/NT0.jpg",
-      pages: ['assets/NT1.jpg', 'assets/NT2.jpg', 'assets/NT3.jpg'],
+      downloadUrl: "assets/NT1.jpg",
+      thumbnail: "assets/NT1.jpg",
+      pages: ['assets/NT1.jpg', 'assets/NT2.jpg', 'assets/NT3.jpg', 'assets/NT4.jpg'],
       views: 1720,
       tags: ["new toy porn comic", "ai reality alter comic", "sex comic", "adult webtoon 18+", "uncensored porn comic", "free sex comic english", "xzkero", "patreon zkero"],
       createdAt: new Date().toISOString()
