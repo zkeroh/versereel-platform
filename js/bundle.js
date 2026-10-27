@@ -89,7 +89,7 @@
     },
     {
       id: "moms-secret",
-      title: "MOM'S SECRET",
+      title: "MOM'S PAGE",
       language: "en",
       type: "comic",
       genre: "Incest",
