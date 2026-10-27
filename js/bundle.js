@@ -64,7 +64,7 @@
       previewLimit: 999,
       downloadUrl: "assets/P0.jpg",
       thumbnail: "assets/P0.jpg",
-      pages: ['assets/P1.jpg', 'assets/P2.jpg', 'assets/P3.jpg'],
+      pages: ['assets/P0.jpg', 'assets/P1.jpg', 'assets/P2.jpg', 'assets/P3.jpg'],
       views: 1850,
       tags: ["twister with sister", "sister sex comic", "taboo comic", "porn comic", "adult webtoon 18+", "uncensored porn comic", "free sex comic english", "xzkero", "patreon zkero"],
       createdAt: new Date().toISOString()
