@@ -26,6 +26,29 @@
   // =========================================================================
   const COMICS_CATALOG = [
     {
+      id: "moms-punishment",
+      title: "MOM'S PUNISHMENT",
+      language: "en",
+      type: "comic",
+      genre: "Incest",
+      author: "Zkero",
+      description: "Mom's Punishment uncensored adult sex comic. Read free 18+ adult webtoon on XZKERO.",
+      isPaid: false,
+      price: 0,
+      previewLimit: 999,
+      downloadUrl: "assets/MP0.jpg",
+      thumbnail: "assets/MP0.jpg",
+      pages: [
+        'assets/MP1.jpg',
+        'assets/MP2.jpg',
+        'assets/MP3.jpg',
+        'assets/MP4.jpg'
+      ],
+      views: 1980,
+      tags: ["moms punishment porn comic", "milftoon", "milf sex comic", "adult webtoon 18+", "uncensored porn comic", "free sex comic english", "xzkero", "patreon zkero"],
+      createdAt: new Date().toISOString()
+    },
+    {
       id: "helping-my-sister-in-law",
       title: "HELPING MY SISTER-IN-LAW",
       language: "en",
