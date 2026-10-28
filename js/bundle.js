@@ -39,6 +39,7 @@
       downloadUrl: "assets/MP0.jpg",
       thumbnail: "assets/MP0.jpg",
       pages: [
+        'assets/MP0.jpg',
         'assets/MP1.jpg',
         'assets/MP2.jpg',
         'assets/MP3.jpg',
