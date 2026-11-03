@@ -26,6 +26,29 @@
   // =========================================================================
   const COMICS_CATALOG = [
     {
+      id: "spell-on-mom",
+      title: "SPELL ON MOM",
+      language: "en",
+      type: "comic",
+      genre: "Incest",
+      author: "Zkero",
+      description: "Spell On Mom uncensored adult sex comic. A mystical spell takes hold of mom with naughty desires. Read free 18+ adult webtoon on XZKERO.",
+      isPaid: false,
+      price: 0,
+      previewLimit: 999,
+      downloadUrl: "assets/TS1.jpg",
+      thumbnail: "assets/TS1.jpg",
+      pages: [
+        'assets/TS1.jpg',
+        'assets/TS2.jpg',
+        'assets/TS3.jpg',
+        'assets/TS4.jpg'
+      ],
+      views: 2040,
+      tags: ["spell on mom porn comic", "milftoon", "milf sex comic", "adult webtoon 18+", "uncensored porn comic", "free sex comic english", "xzkero", "patreon zkero"],
+      createdAt: new Date().toISOString()
+    },
+    {
       id: "moms-punishment",
       title: "MOM'S PUNISHMENT",
       language: "en",
