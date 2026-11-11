@@ -26,6 +26,29 @@
   // =========================================================================
   const COMICS_CATALOG = [
     {
+      id: "super-moms-help",
+      title: "SUPER MOM'S HELP",
+      language: "en",
+      type: "comic",
+      genre: "Incest",
+      author: "Zkero",
+      description: "Super Mom's Help uncensored adult sex comic. A super-powered mom steps in to give her son a special helping hand. Read free 18+ adult webtoon on XZKERO.",
+      isPaid: false,
+      price: 0,
+      previewLimit: 999,
+      downloadUrl: "assets/SM01.jpg",
+      thumbnail: "assets/SM01.jpg",
+      pages: [
+        'assets/SM01.jpg',
+        'assets/SM02.jpg',
+        'assets/SM03.jpg',
+        'assets/SM04.jpg'
+      ],
+      views: 2110,
+      tags: ["super moms help porn comic", "superhero milf comic", "milftoon", "milf sex comic", "adult webtoon 18+", "uncensored porn comic", "free sex comic english", "xzkero", "patreon zkero"],
+      createdAt: new Date().toISOString()
+    },
+    {
       id: "spell-on-mom",
       title: "SPELL ON MOM",
       language: "en",
