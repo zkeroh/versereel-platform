@@ -44,7 +44,8 @@
         'assets/SM03.jpg',
         'assets/SM04.jpg',
         'assets/SM05.jpg',
-        'assets/SM06.jpg'
+        'assets/SM06.jpg',
+        'assets/SM07.jpg'
       ],
       views: 2110,
       tags: ["super moms help porn comic", "superhero milf comic", "milftoon", "milf sex comic", "adult webtoon 18+", "uncensored porn comic", "free sex comic english", "xzkero", "patreon zkero"],
